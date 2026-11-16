@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PetSathi Community Guidelines. Learn about the expected behaviour, pet welfare standards, safety practices, and responsibilities for all PetSathi members.">
+  <title>Community Guidelines | PetSathi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Core PetSathi Stylesheets -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/community-guidelines.css">
+</head>
+
+<body>
+  <!-- ========================================================
+       1. PETSATHI HEADER & NAVIGATION
+       ======================================================== -->
+  <header class="site-header">
+    <a class="brand" href="../../index.html" aria-label="PetSathi home">
+      <svg class="brand-mark" aria-hidden="true" viewBox="0 0 40 40" role="img" focusable="false">
+        <circle cx="12" cy="12" r="4" fill="currentColor"/>
+        <circle cx="21" cy="8" r="4" fill="currentColor"/>
+        <circle cx="30" cy="12" r="4" fill="currentColor"/>
+        <path d="M20 17c-6 0-11 5-11 11 0 4 3 6 6 6 2 0 3-2 5-2s3 2 5 2c4 0 6-2 6-6 0-6-5-11-11-11Z" fill="currentColor"/>
+      </svg>
+      <span>Pet<span>Sathi</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i aria-hidden="true" class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="../../index.html">Home</a>
+      <div class="nav-item">
+        <a href="pets/index.html">Explore Pets <span class="nav-arrow" aria-hidden="true">&#x25BE;</span></a>
+        <div class="dropdown dropdown-explore">
+          <a href="pets/dogs/index.html">Dogs</a>
+          <a href="pets/cats/index.html">Cats</a>
+          <a href="pets/birds/index.html">Birds</a>
+          <a href="pets/rabbits/index.html">Rabbits</a>
+          <a href="pets/other/fish.html">Aquarium Fish</a>
+          <a href="pets/other/reptiles.html">Reptiles</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="services/index.html">Services <span class="nav-arrow" aria-hidden="true">&#x25BE;</span></a>
+        <div class="dropdown dropdown-services">
+          <a href="services/dog-walking.html">Dog Walking</a>
+          <a href="services/cat-care.html">Cat Care</a>
+          <a href="services/pet-care.html">Pet Care</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="walker/index.html">Find a Walker <span class="nav-arrow" aria-hidden="true">&#x25BE;</span></a>
+        <div class="dropdown dropdown-walker">
+          <a href="walker/dogs.html">Search Walkers</a>
+          <a href="walker/cats.html">Walker Profiles</a>
+          <a href="walker/index.html#bookings">My Bookings</a>
+        </div>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="auth/login.html">Log in</a>
+      <a class="button button-small" href="auth/register.html">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- ========================================================
+       2. BREADCRUMBS
+       ======================================================== -->
+  <nav class="cg-breadcrumb" aria-label="Breadcrumb">
+    <a href="../../index.html">Home</a>
+    <span class="separator">/</span>
+    <span class="current">Community Guidelines</span>
+  </nav>
+
+  <main>
+    <!-- ========================================================
+         3. HERO SECTION
+         ======================================================== -->
+    <section class="cg-hero">
+      <div class="cg-hero-inner">
+        <div class="cg-eyebrow">
+          <i aria-hidden="true" class="fa-solid fa-heart" aria-hidden="true"></i> PetSathi Community Standards
+        </div>
+        <h1>Our Commitment to a <em>Safe &amp; Loving</em> Community</h1>
+        <p class="cg-hero-desc">
+          PetSathi brings together pet owners, caregivers, and passionate companions. These guidelines outline our shared expectations so every pet receives top-tier care and every community interaction remains respectful and safe.
+        </p>
+
+        <!-- Quick Jump Links -->
+        <div class="cg-jump-pills" role="navigation" aria-label="Quick jump to guideline sections">
+          <a href="#welcome" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-hand-holding-heart"></i> Welcome</a>
+          <a href="#respect" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-users"></i> Respect</a>
+          <a href="#welfare" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-shield-dog"></i> Pet Welfare</a>
+          <a href="#info-sharing" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Honest Info</a>
+          <a href="#prohibited" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-ban"></i> Prohibited</a>
+          <a href="#safety" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-lock"></i> Safety</a>
+          <a href="#reporting" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-flag"></i> Reporting</a>
+          <a href="#content-responsibility" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-camera"></i> Content</a>
+          <a href="#violations" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-gavel"></i> Violations</a>
+          <a href="#contact-info" class="cg-jump-pill"><i aria-hidden="true" class="fa-solid fa-headset"></i> Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. CORE COMMUNITY PILLARS
+         ======================================================== -->
+    <section class="cg-core-values" aria-label="Community Pillars">
+      <div class="cg-values-grid">
+        <div class="cg-value-box">
+          <div class="cg-value-icon"><i aria-hidden="true" class="fa-solid fa-paw"></i></div>
+          <div class="cg-value-info">
+            <h4>Pets First Always</h4>
+            <p>Every decision, service, and interaction prioritizes the physical and emotional welfare of animals.</p>
+          </div>
+        </div>
+        <div class="cg-value-box">
+          <div class="cg-value-icon"><i aria-hidden="true" class="fa-solid fa-handshake"></i></div>
+          <div class="cg-value-info">
+            <h4>Mutual Trust &amp; Care</h4>
+            <p>Transparent communication between pet parents and walking companions builds lasting confidence.</p>
+          </div>
+        </div>
+        <div class="cg-value-box">
+          <div class="cg-value-icon"><i aria-hidden="true" class="fa-solid fa-shield-halved"></i></div>
+          <div class="cg-value-info">
+            <h4>Accountability</h4>
+            <p>We maintain an open, honest, and supportive environment with zero tolerance for harm or abuse.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. ALL 10 GUIDELINE SECTIONS
+         ======================================================== -->
+    <section class="cg-main-section">
+      <div class="cg-section-header">
+        <h2>Standards &amp; Expectations</h2>
+        <p>Please review these ten essential guidelines to ensure our platform remains enjoyable, welcoming, and secure for everyone.</p>
+      </div>
+
+      <div class="cg-grid">
+        <!-- 1. Welcome to PetSathi -->
+        <article class="cg-card" id="welcome">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 01</span>
+              <h2 class="cg-card-title">Welcome to PetSathi</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            PetSathi is a community-driven, open-source platform created to bring pet parents and trusted companions together. Whether you are finding a walker, learning species care, or sharing companionship notes, you are part of a shared mission to improve animals' daily lives.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> We celebrate diversity, compassion, and animal welfare across all pet species.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Every member contributes to a positive, reliable, and welcoming environment.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> We believe responsible companionship makes pet care accessible for everyone.</li>
+          </ul>
+        </article>
+
+        <!-- 2. Respectful Behaviour -->
+        <article class="cg-card" id="respect">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-users"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 02</span>
+              <h2 class="cg-card-title">Respectful Behaviour</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            Healthy communities begin with kind words and considerate actions. Treat fellow pet lovers, service providers, and administrators with the same respect and patience you would expect in return.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Communicate politely and constructively in all messages and reviews.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Respect each person's boundaries, schedules, and caregiving preferences.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Address differences professionally and with empathy.</li>
+          </ul>
+        </article>
+
+        <!-- 3. Pet Welfare -->
+        <article class="cg-card" id="welfare">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-shield-dog"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 03</span>
+              <h2 class="cg-card-title">Pet Welfare First</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            The health, emotional comfort, and physical safety of animals under our care are non-negotiable priorities. We advocate exclusively for humane, positive-reinforcement handling.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Ensure pets have timely access to clean hydration, shade, and nutrition.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Strictly avoid harsh corrections, physical punishment, or neglectful practices.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Observe weather safety — avoid hot pavement and excessive humidity during walks.</li>
+          </ul>
+        </article>
+
+        <!-- 4. Responsible Information Sharing -->
+        <article class="cg-card" id="info-sharing">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 04</span>
+              <h2 class="cg-card-title">Responsible Information Sharing</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            Transparent information prevents misunderstandings and protects animals. Owners and caregivers are expected to provide truthful, up-to-date descriptions of pets and capabilities.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Disclose behavioural traits, triggers, anxieties, and medical histories honestly.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Share accurate walker credentials, experience, and service availability.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Cite reliable veterinary advice rather than circulating unverified pet care myths.</li>
+          </ul>
+        </article>
+
+        <!-- 5. Prohibited Activities -->
+        <article class="cg-card prohibited" id="prohibited">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-ban"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 05</span>
+              <h2 class="cg-card-title">Prohibited Activities</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            To preserve user safety and trust, the following actions are strictly prohibited on PetSathi and will trigger swift remedial action:
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Harassment &amp; Abusive Language:</strong> Threatening, using abusive language, discriminating against, or bullying any member.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Spam &amp; Solicitations:</strong> Unsolicited advertisements, fraudulent services, or automated bot messages.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Animal Mistreatment:</strong> Any form of cruelty, endangerment, or intentional neglect.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Misleading Identity:</strong> Impersonating others or falsifying background and pet details.</li>
+          </ul>
+        </article>
+
+        <!-- 6. Safety Guidelines -->
+        <article class="cg-card" id="safety">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-lock"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 06</span>
+              <h2 class="cg-card-title">Safety Guidelines</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            Safe interactions between owners and companions build confident relationships. Take prudent steps before, during, and after every engagement.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> <strong>Pre-Walk Meet &amp; Greet:</strong> Introduce pets to their caregiver in a neutral, calm setting first.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> <strong>Equipment Checks:</strong> Use well-fitting harnesses, secure leashes, and ID tags at all times.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> <strong>Emergency Readiness:</strong> Keep emergency veterinary contact numbers easily accessible.</li>
+          </ul>
+        </article>
+
+        <!-- 7. Reporting Issues -->
+        <article class="cg-card reporting" id="reporting">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-flag"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 07</span>
+              <h2 class="cg-card-title">Reporting Issues</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            If you encounter inappropriate communication, deceptive listings, or pet safety concerns, please notify our team promptly. We take every inquiry seriously.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Submit an inquiry via our official <a href="contact.html" style="color: var(--green); text-decoration: underline;">Contact Page</a>.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Include clear dates, usernames, and a brief description of what took place.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> For life-threatening pet emergencies, immediately contact local animal services or a licensed veterinarian.</li>
+          </ul>
+          <div class="cg-card-action">
+            <span class="cg-card-action-text">Need to report an issue or concern?</span>
+            <a href="contact.html" class="button-link">Contact Support Team <i aria-hidden="true" class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 8. Content Responsibility -->
+        <article class="cg-card" id="content-responsibility">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-camera"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 08</span>
+              <h2 class="cg-card-title">Content Responsibility</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            Users are responsible for all content, images, messages, and reviews they publish on PetSathi. Keep shared media truthful, safe, and family-friendly.
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Post authentic photos of your pets, walks, or caregiver experiences.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Do not post copyrighted images or content without proper authorization.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-circle-check"></i> Respect private property and personal privacy in photos and walking logs.</li>
+          </ul>
+        </article>
+
+        <!-- 9. Consequences of Violations -->
+        <article class="cg-card violations" id="violations">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-gavel"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 09</span>
+              <h2 class="cg-card-title">Consequences of Violations</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            To ensure PetSathi remains a dependable refuge for pets and people, violations of these guidelines result in fair, graded actions based on severity:
+          </p>
+          <ul class="cg-card-list">
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>First Warning:</strong> Guidance notice explaining the infraction and required correction.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Content Removal:</strong> Inappropriate or non-compliant posts or profiles taken down.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Account Suspension:</strong> Temporary suspension from booking or offering services.</li>
+            <li><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> <strong>Permanent Termination:</strong> Complete account ban and reporting to relevant authorities in cases of animal harm.</li>
+          </ul>
+        </article>
+
+        <!-- 10. Contact Information -->
+        <article class="cg-card" id="contact-info">
+          <div class="cg-card-header">
+            <div class="cg-card-icon">
+              <i aria-hidden="true" class="fa-solid fa-headset"></i>
+            </div>
+            <div class="cg-card-meta">
+              <span class="cg-card-number">Section 10</span>
+              <h2 class="cg-card-title">Contact Information</h2>
+            </div>
+          </div>
+          <p class="cg-card-desc">
+            Have questions about these guidelines, suggestions for our community standards, or require help? Our dedicated team is happy to assist.
+          </p>
+          <div class="cg-contact-grid">
+            <a href="contact.html" class="cg-contact-item">
+              <i aria-hidden="true" class="fa-solid fa-envelope"></i>
+              <span class="title">Contact Us</span>
+              <span class="sub">Direct Form Message</span>
+            </a>
+            <a href="faq.html" class="cg-contact-item">
+              <i aria-hidden="true" class="fa-solid fa-circle-question"></i>
+              <span class="title">Help Center</span>
+              <span class="sub">Frequently Asked Questions</span>
+            </a>
+            <a href="https://github.com/Riya-Kharade/PetSathi/discussions" target="_blank" rel="noopener noreferrer" class="cg-contact-item">
+              <i aria-hidden="true" class="fa-brands fa-github"></i>
+              <span class="title">GitHub Community</span>
+              <span class="sub">Open Discussions</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         6. CALL TO ACTION BANNER
+         ======================================================== -->
+    <section class="section-wrap" style="padding-bottom: 60px;">
+      <div class="cta">
+        <div>
+          <div class="eyebrow" style="color: var(--dark);">Join the PetSathi Community</div>
+          <h2>Together, We Make Pet Care <em>Safer &amp; Brighter</em></h2>
+          <p>
+            Experience caring companionship, verified pet care guides, and passionate animal lovers in your neighborhood.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0;">
+          <a class="button" href="auth/register.html">Get Started ↗</a>
+          <a class="button button-outline" href="../../index.html">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       7. PETSATHI FOOTER
+       ======================================================== -->
+  <footer class="footer">
+    <div class="section-wrap footer-grid">
+      <div>
+        <a class="brand" href="../../index.html" aria-label="PetSathi home">
+          <svg class="brand-mark" aria-hidden="true" viewBox="0 0 40 40" role="img" focusable="false">
+            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            <circle cx="21" cy="8" r="4" fill="currentColor"/>
+            <circle cx="30" cy="12" r="4" fill="currentColor"/>
+            <path d="M20 17c-6 0-11 5-11 11 0 4 3 6 6 6 2 0 3-2 5-2s3 2 5 2c4 0 6-2 6-6 0-6-5-11-11-11Z" fill="currentColor"/>
+          </svg>
+          <span>Pet<span>Sathi</span></span>
+        </a>
+        <p>Your pet's trusted companion. Making pet care easier, one paw at a time.</p>
+      </div>
+      <div>
+        <b>Explore</b>
+        <a href="../../index.html#home">Home</a>
+        <a href="pets/index.html">Explore Pets</a>
+        <a href="services/index.html">Services</a>
+        <a href="walker/index.html">Find a Walker</a>
+      </div>
+      <div>
+        <b>Information</b>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ / Help Center</a>
+        <a href="community-guidelines.html">Community Guidelines</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <b>Connect With Us</b>
+        <a href="https://github.com/Riya-Kharade/PetSathi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/riyakharade/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://petsathi-nsoc.netlify.app/" target="_blank" rel="noopener noreferrer">Live Website</a>
+      </div>
+    </div>
+    <div class="section-wrap footer-bottom">
+      <span>&copy; 2026 PetSathi. All rights reserved.</span>
+      <span>Made with &hearts; for pets.</span>
+      <span>&#x0924;&#x0941;&#x092E;&#x091A;&#x094D;&#x092F;&#x093E; Pet &#x091A;&#x093E; &#x0935;&#x093F;&#x0936;&#x094D;&#x0935;&#x093E;&#x0938;&#x0942; &#x0938;&#x093E;&#x0925;&#x0940;!</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
