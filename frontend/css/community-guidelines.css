@@ -477,6 +477,74 @@ body .fa-brands::before {
   }
 }
 
+/* CTA Section - Matching cats/index.html */
+.cta {
+  margin-top: 0;
+  margin-bottom: 92px;
+  border: 1px solid #e6d6c6;
+  border-radius: 24px;
+  background: #f2e9dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 38px 44px;
+}
+
+.cta .eyebrow {
+  color: var(--dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cta h2 {
+  margin: 0 0 8px;
+  color: var(--dark);
+}
+
+.cta h2 em {
+  color: var(--green);
+  font-style: italic;
+}
+
+.cta p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 580px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.cta .button-light {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--dark);
+}
+
+.cta .button-light:hover {
+  background: var(--soft);
+  color: var(--dark);
+}
+
+.cta .button-outline {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.cta .button-outline:hover {
+  background: var(--green);
+  color: white;
+}
+
 /* Responsiveness */
 @media (max-width: 900px) {
   .cg-grid {
@@ -485,6 +553,26 @@ body .fa-brands::before {
 
   .cg-hero h1 {
     font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta {
+    display: block;
+    padding: 28px 24px;
+    margin-bottom: 60px;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
 

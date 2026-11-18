@@ -738,8 +738,19 @@ main [class*="page-"] {
 .footer .footer-grid > div:nth-child(3) > a:nth-of-type(1)::before { content: "\f05a"; }
 .footer .footer-grid > div:nth-child(3) > a:nth-of-type(2)::before { content: "\f0e0"; }
 .footer .footer-grid > div:nth-child(3) > a:nth-of-type(3)::before { content: "\f059"; }
-.footer .footer-grid > div:nth-child(3) > a:nth-of-type(4)::before { content: "\f3ed"; }
-.footer .footer-grid > div:nth-child(3) > a:nth-of-type(5)::before { content: "\f56f"; }
+.footer .footer-grid > div:nth-child(3) > a:nth-of-type(4)::before { content: "\f0c0"; }
+.footer .footer-grid > div:nth-child(3) > a:nth-of-type(5)::before { content: "\f3ed"; }
+.footer .footer-grid > div:nth-child(3) > a:nth-of-type(6)::before { content: "\f56f"; }
+.footer .footer-grid > div:nth-child(3) > a:nth-of-type(7)::before { content: "\f563"; }
+.footer .footer-grid > div:nth-child(3) > a:nth-of-type(8)::before { content: "\f071"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="about"]::before { content: "\f05a"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="contact"]::before { content: "\f0e0"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="faq"]::before { content: "\f059"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="community-guidelines"]::before { content: "\f0c0"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="privacy"]::before { content: "\f3ed"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="terms"]::before { content: "\f56f"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="cookie-policy"]::before { content: "\f563"; }
+.footer .footer-grid > div:nth-child(3) > a[href*="disclaimer"]::before { content: "\f071"; }
 .footer .footer-grid > div:nth-child(4) > a:nth-of-type(1)::before {
   content: "\f09b";
   font-family: "Font Awesome 6 Brands";
