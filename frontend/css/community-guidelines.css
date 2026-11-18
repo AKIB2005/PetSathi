@@ -1,0 +1,597 @@
+/* ==========================================================================
+   PetSathi - Community Guidelines Styles (community-guidelines.css)
+   ========================================================================== */
+
+/* Font Awesome icon rendering
+   global.css applies `font-family: ... !important` to every element, which
+   overrides Font Awesome's icon font. Restore the icon fonts for this page. */
+body .fa-solid,
+body .fa-solid::before {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  line-height: 1 !important;
+}
+
+body .fa-brands,
+body .fa-brands::before {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  line-height: 1 !important;
+}
+
+/* Breadcrumb */
+.cg-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 1160px;
+  margin: 18px auto 0;
+  padding: 0 24px;
+}
+
+.cg-breadcrumb a {
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cg-breadcrumb a:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.cg-breadcrumb .separator {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.cg-breadcrumb .current {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Hero Section */
+.cg-hero {
+  padding: 55px 24px 45px;
+  text-align: center;
+  background: linear-gradient(180deg, #f0f4ed 0%, var(--cream) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.cg-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(40, 104, 73, 0.1);
+  color: var(--green);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cg-hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: var(--ink);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.cg-hero h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.cg-hero-desc {
+  font-size: 1.08rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 auto 28px;
+  max-width: 720px;
+}
+
+/* Table of Contents / Quick Jump Pills */
+.cg-jump-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cg-jump-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.cg-jump-pill i {
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+.cg-jump-pill:hover {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 104, 73, 0.2);
+}
+
+.cg-jump-pill:hover i {
+  color: white;
+}
+
+/* Core Values Banner */
+.cg-core-values {
+  padding: 35px 24px;
+  background: var(--cream);
+}
+
+.cg-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.cg-value-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cg-value-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(35, 57, 43, 0.06);
+}
+
+.cg-value-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cg-value-info h4 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.cg-value-info p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Main Guidelines Section */
+.cg-main-section {
+  padding: 40px 24px 70px;
+  background: var(--cream);
+}
+
+.cg-section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+
+.cg-section-header h2 {
+  font-size: 2rem;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.cg-section-header p {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Guideline Card */
+.cg-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(35, 57, 43, 0.09);
+  border-color: rgba(40, 104, 73, 0.3);
+}
+
+.cg-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.cg-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--soft);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.cg-card:hover .cg-card-icon {
+  background: var(--green);
+  color: white;
+}
+
+.cg-card-meta {
+  flex: 1;
+}
+
+.cg-card-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  margin-bottom: 2px;
+  display: block;
+}
+
+.cg-card-title {
+  margin: 0;
+  font-size: 1.32rem;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.cg-card-desc {
+  font-size: 0.95rem;
+  color: #3b4e43;
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+.cg-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.cg-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.91rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.cg-card-list li i {
+  color: var(--green);
+  font-size: 0.92rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Card variant styles */
+.cg-card.prohibited {
+  border-left: 4px solid #c93b2b;
+}
+
+.cg-card.prohibited .cg-card-icon {
+  background: #fdf0ee;
+  color: #c93b2b;
+}
+
+.cg-card.prohibited:hover .cg-card-icon {
+  background: #c93b2b;
+  color: white;
+}
+
+.cg-card.prohibited .cg-card-number {
+  color: #c93b2b;
+}
+
+.cg-card.prohibited .cg-card-list li i {
+  color: #c93b2b;
+}
+
+.cg-card.violations {
+  border-left: 4px solid #d97706;
+}
+
+.cg-card.violations .cg-card-icon {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.cg-card.violations:hover .cg-card-icon {
+  background: #d97706;
+  color: white;
+}
+
+.cg-card.violations .cg-card-number {
+  color: #d97706;
+}
+
+.cg-card.violations .cg-card-list li i {
+  color: #d97706;
+}
+
+.cg-card.reporting {
+  border-left: 4px solid var(--green);
+}
+
+/* Card Action / Footer */
+.cg-card-action {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cg-card-action-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cg-card-action a.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cg-card-action a.button-link:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+/* Contact Info Highlight Box */
+.cg-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.cg-contact-item {
+  background: var(--soft);
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.cg-contact-item i {
+  font-size: 1.2rem;
+  color: var(--green);
+}
+
+.cg-contact-item span.title {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.cg-contact-item span.sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.cg-contact-item:hover {
+  background: white;
+  border-color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 104, 73, 0.1);
+}
+
+/* Mobile navigation toggle
+   global.css renders the toggle as a white circle with a white icon. Use the
+   page's green accent and rely on the <i> icon so it switches to an X when
+   main.js opens the menu. */
+@media (max-width: 850px) {
+  .site-header .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+  }
+
+  .site-header .menu-toggle::before {
+    content: none;
+  }
+}
+
+/* CTA Section - Matching cats/index.html */
+.cta {
+  margin-top: 0;
+  margin-bottom: 92px;
+  border: 1px solid #e6d6c6;
+  border-radius: 24px;
+  background: #f2e9dc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 38px 44px;
+}
+
+.cta .eyebrow {
+  color: var(--dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cta h2 {
+  margin: 0 0 8px;
+  color: var(--dark);
+}
+
+.cta h2 em {
+  color: var(--green);
+  font-style: italic;
+}
+
+.cta p {
+  margin: 0;
+  color: var(--ink);
+  max-width: 580px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.cta .button-light {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--dark);
+}
+
+.cta .button-light:hover {
+  background: var(--soft);
+  color: var(--dark);
+}
+
+.cta .button-outline {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.cta .button-outline:hover {
+  background: var(--green);
+  color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+  .cg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cg-hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta {
+    display: block;
+    padding: 28px 24px;
+    margin-bottom: 60px;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .cg-card {
+    padding: 22px 18px;
+  }
+
+  .cg-hero {
+    padding: 35px 16px 30px;
+  }
+
+  .cg-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cg-jump-pills {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+}
