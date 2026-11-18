@@ -330,13 +330,13 @@
     }
 
     .food-card-badge.badge-safe {
-      color: #237804;
-      background: #f6ffed;
-      border: 1px solid #b7eb8f;
+      color: #1e6b41;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #cce4d2;
     }
 
     .food-card-badge.badge-safe i {
-      color: #237804;
+      color: var(--green);
     }
 
     .food-card-body {
@@ -366,22 +366,44 @@
 
     .food-card-tags {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
       margin-top: auto;
-      padding-top: 10px;
+      padding-top: 14px;
       border-top: 1px solid var(--line);
       width: 100%;
     }
 
     .food-tag {
-      font-size: 0.74rem;
-      padding: 3px 10px;
-      background: var(--soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      background: #eaf5ec;
+      border: 1px solid #bce2c7;
       border-radius: 999px;
-      color: var(--ink);
-      font-weight: 600;
+      color: #1e633e;
+      line-height: 1.4;
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.22s ease;
+    }
+
+    .food-card:hover .food-tag {
+      background: #dcf0e2;
+      border-color: #9cd4a9;
+      color: #144f2d;
+    }
+
+    .food-tag:hover {
+      background: var(--green) !important;
+      border-color: var(--green) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(40, 104, 73, 0.25);
     }
 
     /* Icon Nutrient Cards (Centered align per reviewer feedback) */
@@ -531,8 +553,8 @@
 
     /* Safe Food Section Note */
     .safe-prep-banner {
-      background: #f6ffed;
-      border: 1px solid #b7eb8f;
+      background: var(--dog-green-light);
+      border: 1px solid #cce4d2;
       border-radius: 14px;
       padding: 14px 20px;
       display: flex;
@@ -540,12 +562,117 @@
       gap: 14px;
       margin-bottom: 26px;
       font-size: 0.88rem;
-      color: #237804;
+      color: var(--dog-dark);
+      line-height: 1.55;
     }
 
     .safe-prep-banner i {
       font-size: 1.3rem;
+      color: var(--dog-green);
       flex-shrink: 0;
+    }
+
+    /* Safe Foods Cards - consistent green theme, spacing & hover */
+    #safe-foods .dog-grid-3 {
+      align-items: stretch;
+    }
+
+    #safe-foods .food-card {
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid #dcebc9;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(35, 75, 45, 0.05);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      position: relative;
+    }
+
+    #safe-foods .food-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--green);
+      box-shadow: 0 14px 32px rgba(40, 104, 73, 0.12);
+    }
+
+    #safe-foods .food-card-media {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #f0f3eb;
+    }
+
+    #safe-foods .food-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    #safe-foods .food-card:hover .food-card-media img {
+      transform: scale(1.05);
+    }
+
+    #safe-foods .food-card-badge.badge-safe {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1e6b41;
+      border: 1px solid #cce4d2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      z-index: 2;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    #safe-foods .food-card-badge.badge-safe i {
+      color: var(--green);
+      font-size: 0.8rem;
+    }
+
+    #safe-foods .food-card-body {
+      padding: 22px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    #safe-foods .food-card-body h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+
+    #safe-foods .food-card-body p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0 0 16px;
+      color: var(--muted);
+      flex-grow: 1;
+      min-height: 48px;
+    }
+
+    #safe-foods .food-card-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #e8ebe4;
+      width: 100%;
     }
 
     /* Stage Cards (Age Guide) */
@@ -1590,6 +1717,164 @@
 
       .guides-nav-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* Final CTA - alignment, balanced heading & spaced buttons */
+    .cta,
+    main > section.cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px 40px;
+      margin-top: 0;
+      margin-bottom: 92px;
+      border: 1px solid #e6d6c6;
+      border-radius: 28px;
+      padding: 44px 48px;
+      background: #f2e8d9 !important;
+      text-align: left;
+    }
+
+    main > section.cta > div:first-child {
+      flex: 1 1 520px;
+      min-width: 0;
+      max-width: 680px;
+      text-align: left;
+    }
+
+    main > section.cta .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--green) !important;
+      text-transform: uppercase;
+      text-align: left !important;
+      margin-bottom: 12px;
+    }
+
+    main > section.cta h2 {
+      font-size: clamp(2rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 12px;
+      color: var(--dark) !important;
+      text-align: left !important;
+    }
+
+    main > section.cta h2 em {
+      color: var(--green) !important;
+      font-style: italic;
+    }
+
+    main > section.cta p,
+    main > section.cta > div > p {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 1rem !important;
+      line-height: 1.65 !important;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      max-width: 640px;
+      text-align: left !important;
+    }
+
+    main > section.cta .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      gap: 16px;
+    }
+
+    main > section.cta .cta-actions .button {
+      margin: 0 !important;
+      padding: 13px 26px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 999px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    main > section.cta .button-light {
+      background: #ffffff !important;
+      border: 1.5px solid #ffffff !important;
+      color: var(--dark) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    main > section.cta .button-light:hover {
+      background: #ffffff !important;
+      border-color: var(--green) !important;
+      color: var(--green) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 104, 73, 0.15);
+    }
+
+    main > section.cta .button-outline {
+      background: transparent !important;
+      color: var(--green) !important;
+      border: 1.5px solid var(--green) !important;
+    }
+
+    main > section.cta .button-outline:hover {
+      background: var(--green) !important;
+      color: #ffffff !important;
+      border-color: var(--green) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 104, 73, 0.2);
+    }
+
+    @media (max-width: 960px) {
+      .cta,
+      main > .cta,
+      main > section.cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 40px 32px;
+      }
+
+      main > section.cta > div:first-child {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+      }
+
+      main > section.cta .cta-actions {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cta,
+      main > .cta,
+      main > section.cta {
+        padding: 32px 24px;
+        margin-bottom: 60px;
+        gap: 22px;
+      }
+
+      main > section.cta .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      main > section.cta .cta-actions .button {
+        width: 100%;
+        text-align: center;
+        margin: 0 !important;
       }
     }
 
