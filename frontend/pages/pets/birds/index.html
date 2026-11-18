@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../../../css/home.css" />
     <link rel="stylesheet" href="../../../css/inner.css" />
     <style>
+      /* Font Awesome 6 Free Webfont definition */
       @font-face {
         font-family: "Font Awesome 6 Free";
         font-style: normal;
@@ -30,6 +31,7 @@
             format("truetype");
       }
 
+      /* Birds Landing Page Specific Styles */
       .bird-badge-strip {
         display: inline-flex;
         align-items: center;
@@ -49,6 +51,160 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
+      }
+
+      /* Bird Topics Search & Filter */
+      .bird-filter-bar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        max-width: 100%;
+        margin: 0 0 12px;
+      }
+
+      .bird-search-box {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .bird-search-box > i {
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--green);
+        font-size: 0.95rem;
+        pointer-events: none;
+      }
+
+      .bird-search-box input {
+        width: 100%;
+        min-height: 50px;
+        padding: 12px 16px 12px 45px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.9rem;
+        outline: none;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .bird-search-box input::placeholder {
+        color: #89958c;
+      }
+
+      .bird-search-box input:focus {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(40, 104, 73, 0.1);
+      }
+
+      .bird-category-filter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 210px;
+        min-height: 50px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        color: var(--green);
+      }
+
+      .bird-category-filter select {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .bird-category-filter:focus-within {
+        border-color: var(--green);
+        box-shadow: 0 0 0 3px rgba(40, 104, 73, 0.1);
+      }
+
+      .bird-filter-reset {
+        min-height: 50px;
+        padding: 0 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--green);
+        border-radius: 12px;
+        background: #ffffff;
+        color: var(--green);
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .bird-filter-reset:hover {
+        background: var(--green);
+        color: #ffffff;
+      }
+
+      .bird-filter-results {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .bird-no-results {
+        padding: 35px 20px;
+        margin: 0 0 24px;
+        border: 1px dashed #cbd9ce;
+        border-radius: 16px;
+        background: #fafcf7;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .bird-no-results i {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--green);
+        font-size: 1.5rem;
+      }
+
+      .bird-no-results[hidden] {
+        display: none;
+      }
+
+      /* Responsive Search & Filter */
+      @media (max-width: 640px) {
+        .bird-filter-bar {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .bird-search-box {
+          flex-basis: 100%;
+        }
+
+        .bird-category-filter {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .bird-filter-reset {
+          padding: 0 14px;
+        }
       }
 
       .bird-card {
@@ -166,6 +322,7 @@
         transform: translateX(4px);
       }
 
+      /* Quick Information Section */
       .bird-quick-info-section {
         background: #ffffff;
         border-top: none !important;
@@ -175,46 +332,37 @@
 
       .quick-info-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
       }
 
       .quick-info-card {
-        display: grid;
-        grid-template-columns: 52px minmax(0, 1fr);
-        column-gap: 18px;
-        row-gap: 10px;
-        align-items: start;
-        width: 100%;
-        padding: 26px 30px;
-        background: #ffffff;
+        background: white;
         border: 1px solid var(--line);
-        border-radius: 18px;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
         transition:
           transform 0.25s ease,
-          box-shadow 0.25s ease,
-          border-color 0.25s ease;
+          box-shadow 0.25s ease;
       }
 
       .quick-info-card:hover {
         transform: translateY(-3px);
-        border-color: #cbd9ce;
         box-shadow: var(--shadow);
       }
 
       .quick-info-icon-wrap {
-        grid-column: 1;
-        grid-row: 1 / span 2;
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
         background: #eaf2e9;
         color: var(--green);
         display: grid;
         place-items: center;
-        font-size: 1.25rem;
-        margin: 0;
+        font-size: 1.4rem;
+        margin-bottom: 18px;
       }
 
       .quick-info-icon-wrap i {
@@ -236,39 +384,35 @@
       }
 
       .quick-info-card h3 {
-        grid-column: 2;
-        font-size: 1.15rem;
-        font-weight: 700;
+        font-size: 1.25rem;
+        margin: 0 0 12px;
         color: var(--ink);
-        margin: 0;
       }
-
       .quick-info-card p {
-        grid-column: 2;
         font-size: 0.9rem;
-        line-height: 1.6;
+        line-height: 1.65;
+        margin: 0 0 16px;
         color: var(--muted);
-        margin: 0;
       }
 
       .quick-info-list {
-        grid-column: 1 / -1;
         list-style: none;
-        padding: 18px 0 0;
-        margin: 8px 0 0;
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
         border-top: 1px solid var(--line);
+        padding-top: 16px;
       }
 
       .quick-info-list li {
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         color: var(--ink);
-        line-height: 1.6;
+        line-height: 1.5;
       }
 
       .quick-info-list li span {
@@ -292,6 +436,7 @@
         line-height: 1.7;
       }
 
+      /* Dog Topics & Quick Info Heading Card - Exact User Specification */
       .bird-topics-heading {
         position: relative;
         max-width: 1400px;
@@ -305,6 +450,7 @@
         box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
       }
 
+      /* Curvy decorative wave layers matching reference image */
       .corner-wave {
         position: absolute;
         pointer-events: none;
@@ -340,12 +486,10 @@
         background: #edf6df;
         border: 1px solid #dcebc9;
         color: #246b43;
-        font-family: "DM Sans", "Manrope", sans-serif !important;
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
       }
 
       .heading-label i {
@@ -356,7 +500,7 @@
 
       .bird-topics-heading h2 {
         color: #263b30;
-        font-family: Georgia, "Times New Roman", serif !important;
+        font-family: Georgia, serif;
         font-size: clamp(24px, 3.2vw, 36px);
         font-weight: 700;
         margin: 0 0 12px;
@@ -368,10 +512,19 @@
         flex-wrap: wrap;
       }
 
+      .bird-topics-heading p {
+        max-width: 720px;
+        margin: 0 auto;
+        color: #64736a;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
       .bird-topics-heading h2 span {
         color: #28764a;
       }
 
+      /* Heading Radiating Rays / Sparkles - Clean Fan Radiating from Text */
       .heading-burst {
         display: inline-block;
         position: relative;
@@ -387,6 +540,7 @@
         border-radius: 9999px;
       }
 
+      /* Left burst: 3 rays radiating out to the left from the right edge */
       .heading-burst.left span {
         right: 0;
         transform-origin: right center;
@@ -412,6 +566,7 @@
         transform: rotate(-35deg);
       }
 
+      /* Right burst: 3 rays radiating out to the right from the left edge */
       .heading-burst.right span {
         left: 0;
         transform-origin: left center;
@@ -437,15 +592,7 @@
         transform: rotate(35deg);
       }
 
-      .bird-topics-heading p {
-        max-width: 720px;
-        margin: 0 auto;
-        color: #64736a;
-        font-family: "DM Sans", "Manrope", sans-serif !important;
-        font-size: 15px;
-        line-height: 1.65;
-      }
-
+      /* Decorative Paws (Font Awesome) - Exactly 2 on left, 2 on right */
       .paw {
         position: absolute;
         color: rgba(115, 173, 91, 0.28);
@@ -509,10 +656,6 @@
           gap: 8px;
         }
 
-        .bird-topics-heading p {
-          font-size: 14px;
-        }
-
         .heading-label {
           font-size: 11px;
           padding: 6px 14px;
@@ -558,6 +701,7 @@
         }
       }
 
+      /* Quick Guide Navigation Strip - Match Reference Design */
       .guides-nav-strip {
         position: relative;
         background: #ffffff;
@@ -571,6 +715,7 @@
         overflow: hidden;
       }
 
+      /* Decorative Corner Paws */
       .quick-nav-decor {
         position: absolute;
         pointer-events: none;
@@ -639,11 +784,12 @@
         transform: rotate(15deg);
       }
 
+      /* Centered Header & Pill Badge */
       .quick-nav-header {
         position: relative;
         z-index: 1;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
 
       .quick-nav-eyebrow-wrap {
@@ -663,30 +809,27 @@
       .quick-nav-badge {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 6px 16px;
-        background: #f4faf5;
-        border: 1px solid #b7deb8;
+        gap: 10px;
+        padding: 7px 20px;
+        background: #edf6df;
+        border: 1px solid #dcebc9;
         border-radius: 9999px;
-        color: #1e6f43;
-        font-family: "DM Sans", "Manrope", sans-serif !important;
-        font-size: 0.74rem;
+        color: #246b43;
+        font-size: 13px;
         font-weight: 700;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
       }
 
       .quick-nav-badge i {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         line-height: 1;
         color: #1e6f43;
         flex-shrink: 0;
       }
 
       .quick-nav-title {
-        font-family: "Manrope", sans-serif !important;
-        font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+        font-size: 1.5rem;
         font-weight: 800;
         color: #1a251e;
         margin: 0;
@@ -700,52 +843,45 @@
         font-weight: 800;
       }
 
+      /* Navigation Pills Grid */
       .guides-nav-grid {
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 16px;
-        margin: 0;
+        margin-top: 20px;
       }
 
       .guide-nav-item {
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 9px 18px 9px 9px;
-        background: #edf7f0;
+        padding: 16px;
+        background: var(--soft);
         border: 1px solid #cce4d2;
-        border-radius: 9999px;
+        border-radius: 14px;
         text-decoration: none;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          border-color 0.2s ease,
-          background 0.2s ease;
+        transition: all 0.2s ease;
       }
 
       .guide-nav-item:hover {
-        background: #e4f4e8;
-        border-color: #237847;
+        background: white;
+        border-color: var(--green);
         transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+        box-shadow: 0 6px 18px rgba(40, 104, 73, 0.08);
       }
 
       .guide-nav-icon {
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        background: #d1ecda;
-        color: #1e6f43;
+        background: #eaf2e9;
+        color: var(--green);
         display: grid;
         place-items: center;
         flex-shrink: 0;
-        font-size: 1.15rem;
-        line-height: 1U;
-        transition:
-          background 0.2s ease,
-          color 0.2s ease;
+        font-size: 1.5rem;
       }
 
       .guide-nav-icon i {
@@ -766,6 +902,7 @@
         white-space: nowrap;
       }
 
+      /* Font Awesome font protection against global.css */
       .guides-nav-strip i,
       .guides-nav-strip [class*="fa-"],
       .fa-solid,
@@ -794,10 +931,15 @@
         font-weight: 400 !important;
       }
 
+      /* CTA Banner Section matching main index.html */
       .cta {
         margin-top: 0;
         margin-bottom: 92px;
         border: 1px solid #e6d6c6;
+      }
+
+      .cta h2 {
+        text-align: left !important;
       }
 
       .cta-actions {
@@ -811,6 +953,12 @@
         background: transparent;
         color: var(--green);
         border-color: var(--green);
+      }
+
+      .cta .button-light:hover {
+        background-color: #edf3ec !important;
+        color: var(--dark) !important;
+        border-color: #edf3ec !important;
       }
 
       .cta .button-outline:hover {
@@ -887,6 +1035,7 @@
         }
       }
 
+      /* Specific adjustments for 6-card grid */
       .bird-card-media {
         height: 200px;
       }
@@ -898,6 +1047,7 @@
   </head>
 
   <body>
+    <!-- Header and Navigation -->
     <header class="site-header">
       <a class="brand" href="../../../../index.html" aria-label="PetSathi home"
         ><svg
@@ -969,6 +1119,7 @@
     </header>
 
     <main>
+      <!-- Hero Section -->
       <section class="hero section-wrap" id="bird-hero">
         <div class="hero-copy">
           <div class="bird-badge-strip">
@@ -1025,97 +1176,10 @@
         </div>
       </section>
 
-      <div class="guides-nav-strip">
-        <div class="quick-nav-decor decor-top-left" aria-hidden="true">
-          <i class="fa-solid fa-feather-pointed decor-paw decor-paw-1"></i>
-          <i class="fa-solid fa-dove decor-paw decor-paw-2"></i>
-        </div>
-
-        <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
-          <i class="fa-solid fa-feather-pointed decor-paw decor-paw-3"></i>
-          <i class="fa-solid fa-dove decor-paw decor-paw-4"></i>
-        </div>
-
-        <div class="quick-nav-header">
-          <div class="quick-nav-eyebrow-wrap">
-            <span class="quick-nav-line"></span>
-            <div class="quick-nav-badge">
-              <i
-                class="fa-regular fa-compass quick-nav-badge-icon"
-                aria-hidden="true"
-              ></i>
-              <span>QUICK NAVIGATION</span>
-            </div>
-            <span class="quick-nav-line"></span>
-          </div>
-          <h3 class="quick-nav-title">
-            Explore Dedicated <span>Bird Knowledge Chapters</span>
-          </h3>
-        </div>
-
-        <div class="guides-nav-grid">
-          <a href="species.html" class="guide-nav-item" id="hub-link-species">
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-dove" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Bird Breeds</span>
-          </a>
-
-          <a href="care.html" class="guide-nav-item" id="hub-link-care">
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Bird Care</span>
-          </a>
-
-          <a
-            href="care.html#nutrition"
-            class="guide-nav-item"
-            id="hub-link-food"
-          >
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Food &amp; Nutrition</span>
-          </a>
-
-          <a
-            href="care.html#health"
-            class="guide-nav-item"
-            id="hub-link-health"
-          >
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Health &amp; Wellness</span>
-          </a>
-
-          <a
-            href="behaviour.html"
-            class="guide-nav-item"
-            id="hub-link-behaviour"
-          >
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-brain" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Behaviour &amp; Training</span>
-          </a>
-
-          <a
-            href="care.html#housing"
-            class="guide-nav-item"
-            id="hub-link-housing"
-          >
-            <span class="guide-nav-icon">
-              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-            </span>
-            <span class="guide-nav-label">Housing &amp; Safety</span>
-          </a>
-        </div>
-      </div>
-
+      <!-- Six Essential Bird Topics Cards -->
       <section class="section section-wrap" id="bird-topics">
         <div class="bird-topics-heading">
+          <!-- Curvy decorative corner shapes matching reference image -->
           <svg
             class="corner-wave wave-tl"
             viewBox="0 0 220 130"
@@ -1153,6 +1217,7 @@
             />
           </svg>
 
+          <!-- Decorative Paws / Accents -->
           <div class="paw paw-left-1">
             <i class="fa-solid fa-feather-pointed"></i>
           </div>
@@ -1185,8 +1250,62 @@
           </div>
         </div>
 
+        <!-- Bird Topics Search & Filter -->
+        <div class="bird-filter-bar">
+          <div class="bird-search-box">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="bird-topic-search"
+              placeholder="Search bird topics..."
+              aria-label="Search bird topics"
+            />
+          </div>
+          <div class="bird-category-filter">
+            <i class="fa-solid fa-filter" aria-hidden="true"></i>
+            <select
+              id="bird-topic-category"
+              aria-label="Filter bird topics by category"
+            >
+              <option value="all">All Categories</option>
+              <option value="species">Species</option>
+              <option value="care">Daily Care</option>
+              <option value="nutrition">Nutrition</option>
+              <option value="health">Health</option>
+              <option value="behaviour">Behaviour</option>
+              <option value="safety">Housing &amp; Safety</option>
+            </select>
+          </div>
+          <button
+            type="button"
+            class="bird-filter-reset"
+            id="bird-filter-reset"
+          >
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            Reset
+          </button>
+        </div>
+        <p
+          class="bird-filter-results"
+          id="bird-filter-results"
+          aria-live="polite"
+        >
+          Showing all 6 topics
+        </p>
+        <p class="bird-no-results" id="bird-no-results" hidden>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          No bird topics found. Try another search or category.
+        </p>
+
+        <!-- 6 Topic Cards Grid -->
         <div class="bird-info-grid">
-          <article class="bird-card" id="card-species">
+          <!-- 1. Bird Species & Breeds -->
+          <article
+            class="bird-card"
+            id="card-species"
+            data-category="species"
+            data-keywords="bird species breeds parrot budgie lovebird cockatiel"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-dove" aria-hidden="true"></i>
@@ -1215,7 +1334,13 @@
             </div>
           </article>
 
-          <article class="bird-card" id="card-care">
+          <!-- 2. Bird Care & Grooming -->
+          <article
+            class="bird-card"
+            id="card-care"
+            data-category="care"
+            data-keywords="daily care grooming bathing nails beak feathers maintenance"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
@@ -1241,7 +1366,13 @@
             </div>
           </article>
 
-          <article class="bird-card" id="card-nutrition">
+          <!-- 3. Bird Food & Nutrition -->
+          <article
+            class="bird-card"
+            id="card-nutrition"
+            data-category="nutrition"
+            data-keywords="food nutrition feeding seeds pellets fruits vegetables grains calcium"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-seedling" aria-hidden="true"></i>
@@ -1270,7 +1401,13 @@
             </div>
           </article>
 
-          <article class="bird-card" id="card-health">
+          <!-- 4. Bird Health & Wellness -->
+          <article
+            class="bird-card"
+            id="card-health"
+            data-category="health"
+            data-keywords="health wellness illness veterinary vet examination symptoms"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
@@ -1299,7 +1436,13 @@
             </div>
           </article>
 
-          <article class="bird-card" id="card-behaviour">
+          <!-- 5. Bird Behaviour & Training -->
+          <article
+            class="bird-card"
+            id="card-behaviour"
+            data-category="behaviour"
+            data-keywords="behaviour behavior training bonding chirping social interaction step up"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-brain" aria-hidden="true"></i>
@@ -1328,7 +1471,13 @@
             </div>
           </article>
 
-          <article class="bird-card" id="card-housing">
+          <!-- 6. Bird Housing & Safety -->
+          <article
+            class="bird-card"
+            id="card-housing"
+            data-category="safety"
+            data-keywords="housing safety cage habitat perches toys indoor environment toxic fumes"
+          >
             <div class="bird-card-media">
               <span class="bird-card-badge">
                 <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
@@ -1359,9 +1508,11 @@
         </div>
       </section>
 
+      <!-- Additional Bird Information Sections -->
       <section class="section bird-quick-info-section" id="quick-info">
         <div class="section-wrap">
           <div class="bird-topics-heading">
+            <!-- Curvy decorative corner shapes matching reference image -->
             <svg
               class="corner-wave wave-tl"
               viewBox="0 0 220 130"
@@ -1399,6 +1550,7 @@
               />
             </svg>
 
+            <!-- Decorative Paws / Accents -->
             <div class="paw paw-left-1">
               <i class="fa-solid fa-feather-pointed"></i>
             </div>
@@ -1433,14 +1585,15 @@
           </div>
 
           <div class="quick-info-grid">
+            <!-- 1. Why birds make wonderful companions -->
             <article class="quick-info-card" id="info-companionship">
               <div class="quick-info-icon-wrap">
                 <i class="fa-solid fa-dove" aria-hidden="true"></i>
               </div>
               <h3>Why Birds Make Wonderful Companions</h3>
               <p>
-                Birds offer melodious charm, remarkable intelligence, and deep
-                social bonding in home environments.
+                Birds offer melodious charm, sharp intelligence, and deep social
+                bonding in the home.
               </p>
               <ul class="quick-info-list">
                 <li>
@@ -1462,6 +1615,7 @@
               </ul>
             </article>
 
+            <!-- 2. Essential daily bird care checklist -->
             <article class="quick-info-card" id="info-daily-care">
               <div class="quick-info-icon-wrap">
                 <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
@@ -1491,6 +1645,7 @@
               </ul>
             </article>
 
+            <!-- 3. Creating a safe avian environment -->
             <article class="quick-info-card" id="info-safe-home">
               <div class="quick-info-icon-wrap">
                 <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
@@ -1523,6 +1678,99 @@
         </div>
       </section>
 
+      <!-- Quick Navigation Hub -->
+      <div class="guides-nav-strip">
+        <!-- Decorative Corner Paws -->
+        <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+          <i class="fa-solid fa-feather-pointed decor-paw decor-paw-1"></i>
+          <i class="fa-solid fa-dove decor-paw decor-paw-2"></i>
+        </div>
+
+        <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+          <i class="fa-solid fa-feather-pointed decor-paw decor-paw-3"></i>
+          <i class="fa-solid fa-dove decor-paw decor-paw-4"></i>
+        </div>
+
+        <!-- Centered Header -->
+        <div class="quick-nav-header">
+          <div class="quick-nav-eyebrow-wrap">
+            <span class="quick-nav-line"></span>
+            <div class="quick-nav-badge">
+              <i
+                class="fa-regular fa-compass quick-nav-badge-icon"
+                aria-hidden="true"
+              ></i>
+              <span>QUICK NAVIGATION HUB</span>
+            </div>
+            <span class="quick-nav-line"></span>
+          </div>
+          <h3 class="quick-nav-title">
+            Explore Dedicated <span>Bird Knowledge Chapters</span>
+          </h3>
+        </div>
+
+        <!-- Navigation Pills -->
+        <div class="guides-nav-grid">
+          <a href="species.html" class="guide-nav-item" id="hub-link-species">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-dove" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Breeds</span>
+          </a>
+
+          <a href="care.html" class="guide-nav-item" id="hub-link-care">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Care</span>
+          </a>
+
+          <a
+            href="care.html#nutrition"
+            class="guide-nav-item"
+            id="hub-link-food"
+          >
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Nutrition</span>
+          </a>
+
+          <a
+            href="care.html#health"
+            class="guide-nav-item"
+            id="hub-link-health"
+          >
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Health</span>
+          </a>
+
+          <a
+            href="behaviour.html"
+            class="guide-nav-item"
+            id="hub-link-behaviour"
+          >
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-brain" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Behaviour</span>
+          </a>
+
+          <a
+            href="care.html#housing"
+            class="guide-nav-item"
+            id="hub-link-housing"
+          >
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Safety</span>
+          </a>
+        </div>
+      </div>
+
       <section class="cta section-wrap">
         <div>
           <div class="eyebrow">START YOUR BIRD'S JOURNEY</div>
@@ -1544,6 +1792,7 @@
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="section-wrap footer-grid">
         <div>
@@ -1583,7 +1832,7 @@
           ><a href="../../contact.html">Contact Us</a
           ><a href="../../faq.html">FAQ / Help Center</a
           ><a href="#privacy">Privacy Policy</a
-          ><a href="#terms">Terms &amp; Conditions</a><a href="../../disclaimer.html">Disclaimer</a>
+          ><a href="#terms">Terms &amp; Conditions</a><a href='/frontend/pages/disclaimer'>Disclaimer</a>
         </div>
         <div>
           <b>Connect With Us</b
@@ -1618,6 +1867,7 @@
     </footer>
 
     <script>
+      // Mobile Nav Toggle
       const toggle = document.querySelector(".menu-toggle");
       const nav = document.querySelector(".main-nav");
       if (toggle && nav) {
@@ -1626,6 +1876,57 @@
           toggle.setAttribute("aria-expanded", String(open));
         });
       }
+
+      // Bird Topics Search & Filter
+      const birdSearch = document.getElementById("bird-topic-search");
+      const birdCategory = document.getElementById("bird-topic-category");
+      const birdReset = document.getElementById("bird-filter-reset");
+      const birdCards = document.querySelectorAll(".bird-card");
+      const birdResults = document.getElementById("bird-filter-results");
+      const birdNoResults = document.getElementById("bird-no-results");
+
+      function filterBirdTopics() {
+        const searchTerm = birdSearch.value.trim().toLowerCase();
+        const selectedCategory = birdCategory.value;
+        let visibleCount = 0;
+
+        birdCards.forEach((card) => {
+          const title =
+            card.querySelector("h3")?.textContent.toLowerCase() || "";
+          const description =
+            card.querySelector("p")?.textContent.toLowerCase() || "";
+          const keywords = card.dataset.keywords?.toLowerCase() || "";
+          const category = card.dataset.category;
+
+          const matchesSearch =
+            title.includes(searchTerm) ||
+            description.includes(searchTerm) ||
+            keywords.includes(searchTerm);
+
+          const matchesCategory =
+            selectedCategory === "all" || category === selectedCategory;
+
+          const isVisible = matchesSearch && matchesCategory;
+
+          card.style.display = isVisible ? "flex" : "none";
+
+          if (isVisible) {
+            visibleCount++;
+          }
+        });
+
+        birdResults.textContent = `Showing ${visibleCount} of ${birdCards.length} topics`;
+        birdNoResults.hidden = visibleCount !== 0;
+      }
+
+      birdSearch.addEventListener("input", filterBirdTopics);
+      birdCategory.addEventListener("change", filterBirdTopics);
+
+      birdReset.addEventListener("click", () => {
+        birdSearch.value = "";
+        birdCategory.value = "all";
+        filterBirdTopics();
+      });
     </script>
   </body>
 </html>
