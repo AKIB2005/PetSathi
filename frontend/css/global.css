@@ -456,7 +456,7 @@ body * {
 /* Decorative bottom artwork */
 .footer-decor-left {
   position: absolute;
-  bottom: 56px;
+  bottom: 58px;
   left: 0;
   width: 200px;
   pointer-events: none;
@@ -465,9 +465,9 @@ body * {
 
 .footer-decor-right {
   position: absolute;
-  bottom: 56px;
+  bottom: 58px;
   right: 0;
-  width: 204px;
+  width: 240px;
   pointer-events: none;
   z-index: 1;
 }
@@ -667,8 +667,8 @@ body * {
 
 /* Bottom Bar */
 .footer .footer-bottom {
-  border-top: 1px solid rgba(223, 242, 222, 0.35) !important;
-  padding: 18px 0 !important;
+  border-top: none !important;
+  padding: 0 0 22px 0 !important;
   position: relative;
   z-index: 2;
   background: transparent !important;
@@ -682,6 +682,8 @@ body * {
 .footer .footer-bottom-wrap {
   width: min(1200px, calc(100% - 64px));
   margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
+  padding-top: 20px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
