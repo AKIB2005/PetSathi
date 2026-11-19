@@ -2258,13 +2258,13 @@
 
     /* ---------- Section spacing ---------- */
     #main-content > .section {
-      padding-block: 56px;
+      padding-block: clamp(2.75rem, 5vw, 3.5rem);
     }
 
-    /* One spacing rhythm: heading box -> 32px -> cards, no stacked margins */
+    /* One spacing rhythm: heading box -> 2rem -> cards, no stacked margins */
     #main-content .dog-topics-heading,
     #main-content .dog-warning-heading {
-      margin: 0 auto 32px;
+      margin: 0 auto 2rem;
     }
 
     #main-content .benefits-grid,
@@ -2278,7 +2278,7 @@
     }
 
     #main-content .warning-signs-grid {
-      margin: 0 0 24px;
+      margin: 0 0 1.5rem;
     }
 
     /* ---------- Card grids ---------- */
@@ -2289,7 +2289,7 @@
     #main-content .safety-cards-grid,
     #main-content .warning-signs-grid {
       --card-cols: 3;
-      --card-gap: 24px;
+      --card-gap: 1.5rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -2359,7 +2359,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 26px 22px 24px;
+      padding: 1.625rem 1.375rem 1.5rem;
     }
 
     #main-content .safety-card-content {
@@ -2393,8 +2393,8 @@
     #main-content .warning-sign-card .quick-info-icon-wrap,
     #main-content .weather-row-card .weather-icon-box,
     #main-content .checklist-icon-box {
-      width: 52px;
-      height: 52px;
+      width: 3.25rem;
+      height: 3.25rem;
       border-radius: 14px;
       background: #edf7f0;
       color: #286849;
@@ -2410,7 +2410,7 @@
     #main-content .activity-icon-wrap,
     #main-content .safety-icon-wrap,
     #main-content .warning-sign-card .quick-info-icon-wrap {
-      margin: 0 auto 16px;
+      margin: 0 auto 1rem;
     }
 
     #main-content .benefit-card:hover .benefit-icon-wrap,
@@ -2430,8 +2430,8 @@
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      gap: 20px;
-      padding: 28px;
+      gap: 1.25rem;
+      padding: 1.75rem;
     }
 
     #main-content .weather-summary-col {
@@ -2439,17 +2439,17 @@
       text-align: center;
       border-right: none;
       border-bottom: 1px solid #edf4eb;
-      padding: 0 0 18px;
+      padding: 0 0 1.125rem;
     }
 
     #main-content .weather-summary-col p {
-      max-width: 640px;
+      max-width: 40rem;
       margin-inline: auto;
     }
 
     #main-content .weather-badge-top {
       flex-direction: column;
-      gap: 12px;
+      gap: 0.75rem;
     }
 
     #main-content .weather-row-card .weather-season-tag {
@@ -2468,7 +2468,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 0.75rem;
       text-align: center;
     }
 
@@ -2496,11 +2496,11 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 22px;
+      gap: 1.375rem;
     }
 
     #main-content .cta p {
-      max-width: 640px;
+      max-width: 40rem;
       margin-inline: auto;
     }
 
@@ -2517,18 +2517,14 @@
       #main-content .safety-cards-grid,
       #main-content .warning-signs-grid {
         --card-cols: 2;
-        --card-gap: 20px;
+        --card-gap: 1.25rem;
       }
     }
 
     @media (max-width: 768px) {
-      #main-content > .section {
-        padding-block: 44px;
-      }
-
       #main-content .dog-topics-heading,
       #main-content .dog-warning-heading {
-        margin: 0 0 24px;
+        margin: 0 0 1.5rem;
       }
     }
 
@@ -2541,11 +2537,11 @@
       #main-content .safety-cards-grid,
       #main-content .warning-signs-grid {
         --card-cols: 1;
-        --card-gap: 16px;
+        --card-gap: 1rem;
       }
 
       #main-content .weather-row-card {
-        padding: 20px 16px;
+        padding: 1.25rem 1rem;
       }
 
       #main-content .cta {
@@ -2558,7 +2554,7 @@
 
       #main-content .sf-filter-inline-row {
         flex-direction: column;
-        gap: 8px;
+        gap: 0.5rem;
       }
     }
   </style>
