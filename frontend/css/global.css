@@ -456,7 +456,7 @@ body * {
 /* Decorative bottom artwork */
 .footer-decor-left {
   position: absolute;
-  bottom: 58px;
+  bottom: 56px;
   left: 0;
   width: 200px;
   pointer-events: none;
@@ -465,11 +465,42 @@ body * {
 
 .footer-decor-right {
   position: absolute;
-  bottom: 58px;
+  bottom: 56px;
   right: 0;
   width: 240px;
+  height: 110px;
   pointer-events: none;
   z-index: 1;
+}
+
+.footer-decor-wave-right {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.footer-paw-icon {
+  position: absolute;
+  color: #eef6f0 !important;
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  display: block;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.footer-paw-1 {
+  bottom: 38px;
+  right: 86px;
+  font-size: 24px;
+  transform: rotate(-10deg);
+}
+
+.footer-paw-2 {
+  bottom: 64px;
+  right: 44px;
+  font-size: 28px;
+  transform: rotate(16deg);
 }
 
 .footer .footer-container {
@@ -667,8 +698,8 @@ body * {
 
 /* Bottom Bar */
 .footer .footer-bottom {
-  border-top: none !important;
-  padding: 0 0 22px 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
+  padding: 18px 0 !important;
   position: relative;
   z-index: 2;
   background: transparent !important;
@@ -682,8 +713,8 @@ body * {
 .footer .footer-bottom-wrap {
   width: min(1200px, calc(100% - 64px));
   margin: 0 auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
-  padding-top: 20px !important;
+  border-top: none !important;
+  padding-top: 0 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
