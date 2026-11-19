@@ -456,7 +456,7 @@ body * {
 /* Decorative bottom artwork */
 .footer-decor-left {
   position: absolute;
-  bottom: 56px;
+  bottom: 67px;
   left: 0;
   width: 200px;
   pointer-events: none;
@@ -465,7 +465,7 @@ body * {
 
 .footer-decor-right {
   position: absolute;
-  bottom: 56px;
+  bottom: 67px;
   right: 0;
   width: 240px;
   height: 110px;
@@ -490,21 +490,21 @@ body * {
 }
 
 .footer-paw-1 {
-  bottom: 38px;
-  right: 86px;
-  font-size: 24px;
+  bottom: 49px;
+  right: 93px;
+  font-size: 16px;
   transform: rotate(-10deg);
 }
 
 .footer-paw-2 {
-  bottom: 64px;
-  right: 44px;
-  font-size: 28px;
+  bottom: 65px;
+  right: 56px;
+  font-size: 20px;
   transform: rotate(16deg);
 }
 
 .footer .footer-container {
-  width: min(1200px, calc(100% - 64px));
+  width: min(1200px, calc(100% - 96px));
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -514,7 +514,7 @@ body * {
   display: grid !important;
   grid-template-columns: 1.35fr 1fr 1.15fr 1fr !important;
   gap: 0 !important;
-  padding-bottom: 46px !important;
+  padding-bottom: 54px !important;
 }
 
 .footer .footer-col {
@@ -696,10 +696,25 @@ body * {
   display: none !important;
 }
 
+/* Bold 2px horizontal line with left & right margins matching reference */
+.footer .footer-divider-container {
+  width: min(1200px, calc(100% - 96px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer .footer-divider-line {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 1px;
+}
+
 /* Bottom Bar */
 .footer .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
-  padding: 18px 0 !important;
+  border-top: none !important;
+  padding: 22px 0 24px 0 !important;
   position: relative;
   z-index: 2;
   background: transparent !important;
@@ -711,7 +726,7 @@ body * {
 }
 
 .footer .footer-bottom-wrap {
-  width: min(1200px, calc(100% - 64px));
+  width: min(1200px, calc(100% - 96px));
   margin: 0 auto;
   border-top: none !important;
   padding-top: 0 !important;
@@ -914,15 +929,7 @@ body * {
   }
 }
 
-@media (max-width: 850px) {
-  .footer .footer-grid {
-    grid-template-columns: 1.4fr 1fr 1fr !important;
-  }
 
-  .footer .footer-grid>div:last-child {
-    grid-column: 1 / -1;
-  }
-}
 
 @media (max-width: 600px) {
   .section-wrap {
@@ -941,23 +948,6 @@ body * {
     margin-top: 14px;
   }
 
-  .footer .footer-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .footer .footer-grid>div:first-child {
-    grid-column: 1 / -1;
-  }
-
-  .footer .footer-bottom {
-    display: block !important;
-    text-align: center;
-  }
-
-  .footer .footer-bottom span {
-    display: block;
-    margin-top: 5px;
-  }
 }
 
 /* Use one white canvas for page content while leaving the shared shell intact. */
@@ -1073,18 +1063,7 @@ main [class*="page-"] {
   color: #ffffff;
 }
 
-.footer .footer-grid>div {
-  font-weight: 700;
-}
 
-.footer .footer-grid p {
-  font-weight: 700;
-}
-
-.footer .footer-grid>div>a:not(.brand)::before {
-  content: none;
-  color: #ffffff !important;
-}
 
 /* Keep the logo mark identical in both shared shell locations. */
 .site-header .brand,
