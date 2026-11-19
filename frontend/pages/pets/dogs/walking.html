@@ -2245,6 +2245,322 @@
         width: 100%;
       }
     }
+
+    /* =====================================================================
+       Layout & alignment consistency
+       - Consistent section spacing
+       - Card grids: max 3 per row (desktop), 2 (tablet), 1 (mobile);
+         incomplete last rows are centered
+       - Every card: icon -> title -> description, center-aligned
+       - Same green icon style and subtle hover on all cards
+       Scoped to #main-content so the header and footer are untouched.
+       ===================================================================== */
+
+    /* ---------- Section spacing ---------- */
+    #main-content > .section {
+      padding-block: 56px;
+    }
+
+    /* One spacing rhythm: heading box -> 32px -> cards, no stacked margins */
+    #main-content .dog-topics-heading,
+    #main-content .dog-warning-heading {
+      margin: 0 auto 32px;
+    }
+
+    #main-content .benefits-grid,
+    #main-content .dog-info-grid,
+    #main-content .activities-grid,
+    #main-content .safety-cards-grid,
+    #main-content .weather-cards-list,
+    #main-content .interactive-checklist-grid {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    #main-content .warning-signs-grid {
+      margin: 0 0 24px;
+    }
+
+    /* ---------- Card grids ---------- */
+    #main-content .benefits-grid,
+    #main-content #requirements-grid:not(.single-horizontal-card),
+    #main-content .activities-grid,
+    #main-content #accessories-grid,
+    #main-content .safety-cards-grid,
+    #main-content .warning-signs-grid {
+      --card-cols: 3;
+      --card-gap: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: var(--card-gap);
+    }
+
+    #main-content .benefits-grid > *,
+    #main-content #requirements-grid:not(.single-horizontal-card) > *,
+    #main-content .activities-grid > *,
+    #main-content #accessories-grid > *,
+    #main-content .safety-cards-grid > *,
+    #main-content .warning-signs-grid > * {
+      flex: 0 0 calc((100% - (var(--card-cols) - 1) * var(--card-gap)) / var(--card-cols));
+      max-width: calc((100% - (var(--card-cols) - 1) * var(--card-gap)) / var(--card-cols));
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    /* ---------- Shared card look & hover ---------- */
+    #main-content .benefit-card,
+    #main-content .dog-card,
+    #main-content .activity-compact-card,
+    #main-content .safety-tip-card,
+    #main-content .warning-sign-card,
+    #main-content .weather-row-card,
+    #main-content .interactive-checklist-card {
+      background: #ffffff;
+      border: 1px solid #dcebc9;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    #main-content .benefit-card:hover,
+    #main-content .dog-card:hover,
+    #main-content .activity-compact-card:hover,
+    #main-content .safety-tip-card:hover,
+    #main-content .warning-sign-card:hover,
+    #main-content .weather-row-card:hover,
+    #main-content .interactive-checklist-card:hover {
+      transform: translateY(-4px);
+      border-color: #b9d4bf;
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.1);
+    }
+
+    /* Highlighted safety tips keep emphasis using the cream theme colour */
+    #main-content .safety-tip-card.warning-highlight {
+      background: #fbf6ec;
+      border-color: #e6d6c6;
+    }
+
+    #main-content .safety-tip-card.warning-highlight:hover {
+      border-color: #b9d4bf;
+    }
+
+    #main-content .safety-tip-card.warning-highlight p strong {
+      color: var(--dark);
+    }
+
+    /* ---------- Center-aligned card content (icon -> title -> description) ---------- */
+    #main-content .benefit-card,
+    #main-content .activity-compact-card,
+    #main-content .safety-tip-card,
+    #main-content .warning-sign-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 26px 22px 24px;
+    }
+
+    #main-content .safety-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    #main-content #requirements-grid:not(.single-horizontal-card) .dog-card-body,
+    #main-content #accessories-grid .dog-card-body {
+      align-items: center;
+      text-align: center;
+    }
+
+    #main-content #requirements-grid:not(.single-horizontal-card) .walking-time-badge,
+    #main-content #accessories-grid .walking-time-badge {
+      align-self: center;
+    }
+
+    #main-content #requirements-grid:not(.single-horizontal-card) .card-walk-tip,
+    #main-content #accessories-grid .card-walk-tip {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ---------- Consistent icon style ---------- */
+    #main-content .benefit-icon-wrap,
+    #main-content .activity-icon-wrap,
+    #main-content .safety-icon-wrap,
+    #main-content .warning-sign-card .quick-info-icon-wrap,
+    #main-content .weather-row-card .weather-icon-box,
+    #main-content .checklist-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #edf7f0;
+      color: #286849;
+      border: 1px solid #cce4d2;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    #main-content .benefit-icon-wrap,
+    #main-content .activity-icon-wrap,
+    #main-content .safety-icon-wrap,
+    #main-content .warning-sign-card .quick-info-icon-wrap {
+      margin: 0 auto 16px;
+    }
+
+    #main-content .benefit-card:hover .benefit-icon-wrap,
+    #main-content .activity-compact-card:hover .activity-icon-wrap,
+    #main-content .safety-tip-card:hover .safety-icon-wrap,
+    #main-content .warning-sign-card:hover .quick-info-icon-wrap,
+    #main-content .weather-row-card:hover .weather-icon-box,
+    #main-content .interactive-checklist-card:hover .checklist-icon-box {
+      background: #286849;
+      color: #ffffff;
+      border-color: #286849;
+      transform: scale(1.06);
+    }
+
+    /* ---------- Weather cards ---------- */
+    #main-content .weather-row-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+      padding: 28px;
+    }
+
+    #main-content .weather-summary-col {
+      align-items: center;
+      text-align: center;
+      border-right: none;
+      border-bottom: 1px solid #edf4eb;
+      padding: 0 0 18px;
+    }
+
+    #main-content .weather-summary-col p {
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    #main-content .weather-badge-top {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #main-content .weather-row-card .weather-season-tag {
+      background: #edf7f0;
+      color: #1e6f43;
+      border: 1px solid #cce4d2;
+    }
+
+    #main-content .precaution-item {
+      text-align: center;
+    }
+
+    /* ---------- Checklist cards ---------- */
+    #main-content .card-top-bar,
+    #main-content .card-icon-title-wrap {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    #main-content .interactive-checklist-card .card-desc {
+      text-align: center;
+    }
+
+    /* ---------- Search & filter strip ---------- */
+    #main-content .sf-filter-inline-row,
+    #main-content .sf-mini-pills,
+    #main-content .sf-meta-bar {
+      justify-content: center;
+    }
+
+    #main-content .sf-filter-inline-row {
+      align-items: center;
+    }
+
+    /* ---------- Call to action ---------- */
+    #main-content .cta {
+      width: min(1160px, calc(100% - 48px));
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 22px;
+    }
+
+    #main-content .cta p {
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    #main-content .cta-actions {
+      justify-content: center;
+    }
+
+    /* ---------- Tablet: 2 cards per row ---------- */
+    @media (max-width: 960px) {
+      #main-content .benefits-grid,
+      #main-content #requirements-grid:not(.single-horizontal-card),
+      #main-content .activities-grid,
+      #main-content #accessories-grid,
+      #main-content .safety-cards-grid,
+      #main-content .warning-signs-grid {
+        --card-cols: 2;
+        --card-gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #main-content > .section {
+        padding-block: 44px;
+      }
+
+      #main-content .dog-topics-heading,
+      #main-content .dog-warning-heading {
+        margin: 0 0 24px;
+      }
+    }
+
+    /* ---------- Mobile: 1 card per row ---------- */
+    @media (max-width: 600px) {
+      #main-content .benefits-grid,
+      #main-content #requirements-grid:not(.single-horizontal-card),
+      #main-content .activities-grid,
+      #main-content #accessories-grid,
+      #main-content .safety-cards-grid,
+      #main-content .warning-signs-grid {
+        --card-cols: 1;
+        --card-gap: 16px;
+      }
+
+      #main-content .weather-row-card {
+        padding: 20px 16px;
+      }
+
+      #main-content .cta {
+        width: calc(100% - 34px);
+      }
+
+      #main-content .weather-precautions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #main-content .sf-filter-inline-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
   </style>
 </head>
 
