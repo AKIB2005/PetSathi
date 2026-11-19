@@ -761,11 +761,19 @@
     .setup-step-card {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 26px 20px;
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow: hidden;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .setup-step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #cbd9ce;
     }
 
     .setup-step-num {
@@ -1057,10 +1065,19 @@
     .care-tip-card {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 26px 24px;
       display: flex;
+      overflow: hidden;
       gap: 18px;
+      position: relative;
+      transition: transform 0.28s ease, box-shoadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .care-tip-card:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #cbd9ce;
     }
 
     .tip-icon-wrap {
@@ -2243,9 +2260,10 @@
       color: #1e6f43 !important;
     }
 
-    .care-tip-card:hover .tip-icon-wrap {
-      background: #e1f2e5;
-      transform: scale(1.05);
+    .care-tip-card:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: #cbd9ce;
     }
 
     /* Water Quality Card Upgrades matching PetSathi styling */
