@@ -2425,6 +2425,16 @@
       transform: scale(1.06);
     }
 
+    /* Icons follow their box colour (green, white on hover) so they stay visible */
+    #main-content .benefit-icon-wrap i,
+    #main-content .activity-icon-wrap i,
+    #main-content .safety-icon-wrap i,
+    #main-content .warning-sign-card .quick-info-icon-wrap i,
+    #main-content .weather-row-card .weather-icon-box i,
+    #main-content .checklist-icon-box i {
+      color: inherit;
+    }
+
     /* ---------- Weather cards ---------- */
     #main-content .weather-row-card {
       display: flex;
