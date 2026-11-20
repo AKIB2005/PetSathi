@@ -1025,3 +1025,22 @@ body.terms-page {
     grid-template-columns: 1fr;
   }
 }
+
+/* Card Walk Tip (matched exactly with pets/dogs/walking.html) */
+.card-walk-tip {
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: #fafcf7;
+  border: 1px dashed #dcebc9;
+  border-radius: 12px;
+  font-family: 'DM Sans', 'Manrope', sans-serif !important;
+  font-size: 0.88rem;
+  color: #4b6b55;
+  line-height: 1.6;
+}
+
+.card-walk-tip strong {
+  color: #246b43;
+  font-weight: 700;
+}
+
