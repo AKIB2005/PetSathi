@@ -15,6 +15,102 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/privacy-policy.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Font Awesome Definition Guard & Universal Icon Protection against global.css -->
+  <style>
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src:
+        url("../assets/fonts/fa-solid-900.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src:
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Font Awesome 6 Brands";
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src:
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.ttf") format("truetype");
+    }
+
+    /* Override global.css 'body, body * { font-family: Times New Roman !important }' */
+    body .fa-solid,
+    body .fa-solid::before,
+    body [class*="fa-solid"],
+    body [class*="fa-solid"]::before,
+    body i.fa-solid,
+    body i.fa-solid::before,
+    .fa-solid,
+    .fa-solid::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body .fa-brands,
+    body .fa-brands::before,
+    body [class*="fa-brands"],
+    body [class*="fa-brands"]::before,
+    body i.fa-brands,
+    body i.fa-brands::before,
+    .fa-brands,
+    .fa-brands::before {
+      font-family: "Font Awesome 6 Brands" !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body .fa-regular,
+    body .fa-regular::before,
+    body [class*="fa-regular"],
+    body [class*="fa-regular"]::before,
+    body i.fa-regular,
+    body i.fa-regular::before,
+    .fa-regular,
+    .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+      line-height: 1 !important;
+    }
+
+    body [class*="fa-"],
+    body [class*="fa-"]::before,
+    body i[class*="fa-"],
+    body i[class*="fa-"]::before,
+    i[class*="fa-"] {
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+  </style>
 </head>
 
 <body>
