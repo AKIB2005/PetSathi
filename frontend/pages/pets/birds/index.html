@@ -1035,6 +1035,17 @@
         }
       }
 
+      /* Keep the longer first card title on a single line at desktop widths so
+         it aligns with the titles of the other two cards */
+      @media (min-width: 1200px) {
+        #info-companionship h3 {
+          font-size: 1.07rem;
+          /* keep the same line box height as the other card titles */
+          line-height: calc(1.25rem * 1.16);
+          letter-spacing: -0.01em;
+        }
+      }
+
       /* Specific adjustments for 6-card grid */
       .bird-card-media {
         height: 200px;
