@@ -891,49 +891,101 @@ body i.fa-regular::before,
 
 .privacy-contact-card {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 16px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid #e2ebd9;
+  box-shadow: 0 4px 14px rgba(35, 57, 43, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.privacy-contact-card i {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+.privacy-contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(35, 57, 43, 0.07);
+  border-color: #c9dbbe;
+}
+
+.privacy-contact-icon,
+.privacy-contact-card > i {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
   background: #eaf1e7;
   color: var(--green, #286849);
-  font-size: 1rem;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.privacy-contact-card div {
-  font-family: "DM Sans", sans-serif;
+.privacy-contact-card:hover .privacy-contact-icon,
+.privacy-contact-card:hover > i {
+  background: var(--green, #286849);
+  color: #ffffff;
 }
 
-.privacy-contact-card strong {
+.privacy-contact-icon i,
+.privacy-contact-card > i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  width: auto !important;
+  height: auto !important;
+}
+
+.privacy-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-family: "DM Sans", sans-serif !important;
+}
+
+.privacy-contact-details strong {
   display: block;
   color: var(--dark, #1d5039);
-  font-size: 0.88rem;
-  margin-bottom: 2px;
-}
-
-.privacy-contact-card a,
-.privacy-contact-card span {
-  font-size: 0.88rem;
-  color: #49584e;
-}
-
-.privacy-contact-card a {
-  color: var(--green, #286849);
+  font-size: 0.94rem;
   font-weight: 700;
+  font-family: "Manrope", sans-serif !important;
+}
+
+.privacy-contact-details a {
+  color: var(--green, #286849);
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
   overflow-wrap: anywhere;
+  display: inline-block;
+  transition: color 0.15s ease;
+}
+
+.privacy-contact-details a:hover {
+  color: var(--dark, #1d5039);
+}
+
+.privacy-contact-details span {
+  display: block;
+  font-size: 0.82rem;
+  color: #55675c;
+  line-height: 1.45;
+}
+
+.privacy-contact-details .contact-value {
+  color: #2c3e32;
+  font-weight: 600;
+  font-size: 0.88rem;
 }
 
 .privacy-actions {
@@ -941,19 +993,31 @@ body i.fa-regular::before,
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+  align-items: center;
 }
 
 .privacy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 20px;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
   border-radius: 10px;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif !important;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   text-decoration: none !important;
   transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.privacy-btn i {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  vertical-align: middle;
 }
 
 .privacy-btn-primary {

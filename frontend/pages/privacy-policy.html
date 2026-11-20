@@ -110,6 +110,30 @@
       text-rendering: auto !important;
       line-height: 1 !important;
     }
+
+    /* Contact icon centering & alignment */
+    .privacy-contact-icon,
+    .privacy-contact-card > i {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      line-height: 1 !important;
+    }
+
+    .privacy-contact-icon i,
+    .privacy-contact-card > i,
+    .privacy-card-icon i,
+    .privacy-btn i {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
   </style>
 </head>
 
@@ -689,8 +713,10 @@
           <div class="privacy-contact-grid">
             <!-- Email -->
             <div class="privacy-contact-card">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <div>
+              <div class="privacy-contact-icon" aria-hidden="true">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="privacy-contact-details">
                 <strong>Email Support</strong>
                 <a href="mailto:support@petsathi.org">support@petsathi.org</a>
                 <span>Typical response within 12–24 hours</span>
@@ -699,8 +725,10 @@
 
             <!-- Contact Form -->
             <div class="privacy-contact-card">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-              <div>
+              <div class="privacy-contact-icon" aria-hidden="true">
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <div class="privacy-contact-details">
                 <strong>Online Contact Form</strong>
                 <a href="contact.html">PetSathi Contact Page</a>
                 <span>Interactive support ticketing</span>
@@ -709,18 +737,22 @@
 
             <!-- Community Hub -->
             <div class="privacy-contact-card">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <div>
+              <div class="privacy-contact-icon" aria-hidden="true">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="privacy-contact-details">
                 <strong>Community Hub</strong>
-                <span>Maharashtra, India</span>
+                <span class="contact-value">Maharashtra, India</span>
                 <span>Open Source Initiative • NSoC Winter Edition</span>
               </div>
             </div>
 
             <!-- GitHub Discussions -->
             <div class="privacy-contact-card">
-              <i class="fa-brands fa-github" aria-hidden="true"></i>
-              <div>
+              <div class="privacy-contact-icon" aria-hidden="true">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="privacy-contact-details">
                 <strong>GitHub Community</strong>
                 <a href="https://github.com/Riya-Kharade/PetSathi" target="_blank" rel="noopener noreferrer">Riya-Kharade/PetSathi</a>
                 <span>Open issues, feedback &amp; PRs</span>
