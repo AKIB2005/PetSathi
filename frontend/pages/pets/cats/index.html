@@ -825,6 +825,16 @@
         color: white;
       }
 
+      .cta > div:first-child {
+        text-align: left;
+      }
+
+      .cta > div:first-child .eyebrow,
+      .cta > div:first-child h2,
+      .cta > div:first-child p {
+        text-align: left;
+      }
+
       .cat-search-filter-wrap {
         max-width: 1200px;
         width: calc(100% - 40px);
@@ -988,7 +998,7 @@
   </head>
 
   <body>
-  <div id="header"></div>
+    <div id="header"></div>
 
     <main>
       <section class="hero section-wrap" id="cat-hero">
@@ -1589,7 +1599,7 @@
       </section>
     </main>
 
-  <div id="footer"></div>
+    <div id="footer"></div>
 
     <script>
       const toggle = document.querySelector(".menu-toggle");
@@ -1663,5 +1673,5 @@
       }
     </script>
     <script src="../../../js/main.js"></script>
-</body>
+  </body>
 </html>
