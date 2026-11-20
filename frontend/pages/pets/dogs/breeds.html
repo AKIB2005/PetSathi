@@ -158,15 +158,18 @@
     #breeds-hero .hero-actions {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       margin-bottom: 24px;
     }
     #breeds-hero .hero-actions .button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      padding-inline: 8px;
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
     .hero-note {
       font-size: 0.88rem;
@@ -371,77 +374,179 @@
 
     /* ============ QUICK NAVIGATION STRIP ============ */
     .guides-nav-strip {
+      position: relative;
       background: #ffffff;
-      border: 1px solid var(--dog-border);
-      border-radius: 24px;
-      padding: 28px 32px;
-      margin-bottom: 48px;
-      box-shadow: var(--shadow);
+      margin: 40px auto;
+      max-width: 1200px;
+      width: calc(100% - 40px);
+      border: 1px solid #dceade;
+      border-radius: 32px;
+      padding: 42px 36px 38px;
+      box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
+      overflow: hidden;
+    }
+    .quick-nav-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      color: #cde4d3;
+      opacity: 0.55;
+    }
+    .decor-top-left {
+      top: -8px;
+      left: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 10% 10%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 0 0 100% 0;
+    }
+    .decor-bottom-right {
+      bottom: -8px;
+      right: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 90% 90%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 100% 0 0 0;
+    }
+    .decor-paw {
+      position: absolute;
+      display: inline-block;
+      line-height: 1;
+    }
+    .decor-paw-1 {
+      top: 14px;
+      left: 28px;
+      font-size: 28px;
+      transform: rotate(-15deg);
+    }
+    .decor-paw-2 {
+      top: 38px;
+      left: 12px;
+      font-size: 19px;
+      transform: rotate(20deg);
+    }
+    .decor-paw-3 {
+      bottom: 36px;
+      right: 14px;
+      font-size: 19px;
+      transform: rotate(-25deg);
+    }
+    .decor-paw-4 {
+      bottom: 14px;
+      right: 28px;
+      font-size: 28px;
+      transform: rotate(15deg);
     }
     .quick-nav-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .quick-nav-eyebrow-wrap {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 16px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .quick-nav-line {
+      height: 1px;
+      width: 110px;
+      background: #d6ead9;
     }
     .quick-nav-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.78rem;
+      padding: 6px 16px;
+      background: #f4faf5;
+      border: 1px solid #b7deb8;
+      border-radius: 9999px;
+      color: #1e6f43;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      color: var(--dog-green);
+      box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
+    }
+    .quick-nav-badge i {
+      font-size: 0.95rem;
+      line-height: 1;
+      color: #1e6f43;
+      flex-shrink: 0;
     }
     .quick-nav-title {
-      font-size: 1.15rem;
-      color: var(--ink);
+      font-family: "Manrope", sans-serif !important;
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+      font-weight: 800;
+      color: #1a251e;
       margin: 0;
-      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-align: center;
     }
     .quick-nav-title span {
-      color: var(--dog-green);
+      color: #1e6f43;
+      font-weight: 800;
     }
     .guides-nav-grid {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 14px;
+      margin: 0;
     }
     .guide-nav-item {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      background: var(--dog-soft);
-      border: 1px solid transparent;
-      border-radius: 14px;
+      gap: 10px;
+      padding: 9px 16px 9px 9px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
       text-decoration: none;
-      transition: all 0.22s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      min-width: 0;
+      cursor: pointer;
     }
     .guide-nav-item:hover {
-      background: #ffffff;
-      border-color: var(--dog-green);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.08);
+      background: #e4f4e8;
+      border-color: #237847;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
     }
     .guide-nav-icon {
-      font-size: 1.3rem;
-      color: var(--dog-green);
-      width: 40px;
-      height: 40px;
-      background: var(--dog-green-light);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
       display: grid;
       place-items: center;
-      border-radius: 50%;
       flex-shrink: 0;
+      font-size: 1rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .guide-nav-icon i {
+      display: inline-block;
+      line-height: 1;
+    }
+    .guide-nav-item:hover .guide-nav-icon {
+      background: #1e6f43;
+      color: #ffffff;
     }
     .guide-nav-label {
-      font-size: 0.92rem;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.88rem;
       font-weight: 700;
-      color: var(--ink);
+      color: #1c2b20;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* ============ SECTION 1: DOG BREED INFORMATION (3 CARDS PER ROW) ============ */
@@ -907,26 +1012,6 @@
       color: var(--dog-green-dark);
       transform: translateX(4px);
     }
-    .no-results {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 50px 20px;
-      background: #ffffff;
-      border: 1px dashed var(--dog-border);
-      border-radius: var(--card-radius);
-      color: var(--muted);
-    }
-    .no-results i {
-      font-size: 2.4rem;
-      color: var(--dog-green);
-      margin-bottom: 14px;
-    }
-    .no-results h3 {
-      font-size: 1.25rem;
-      color: var(--ink);
-      margin: 0 0 8px;
-    }
-
     /* ============ SECTION 6: COMPARATOR WIDGET & COMPARISON TABLE ============ */
     .comparator-widget {
       background: #ffffff;
@@ -1219,11 +1304,12 @@
       margin-block: 20px 40px;
     }
     .dog-cta-band h2 {
-      color: white;
+      color: #ffffff;
       margin: 0 0 12px;
+      line-height: 1.25;
     }
     .dog-cta-band h2 em {
-      color: #f4c79f;
+      color: #fff1df;
       font-style: normal;
     }
     .dog-cta-band p {
@@ -1260,6 +1346,9 @@
       .guides-nav-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      #breeds-hero .hero-actions {
+        flex-wrap: wrap;
+      }
       .dog-cta-band {
         flex-direction: column;
         align-items: flex-start;
@@ -1293,6 +1382,9 @@
       }
       .guides-nav-strip {
         padding: 22px 18px;
+      }
+      .quick-nav-line {
+        width: 36px;
       }
       .filter-section {
         padding: 18px 16px;
@@ -1376,32 +1468,29 @@
       </div>
     </section>
 
-    <!-- ============ KNOWLEDGE STRIP (DOG INDEX MATCH) ============ -->
-    <section class="trust-strip" aria-label="Canine Knowledge Topics Overview">
-      <span>CANINE KNOWLEDGE BASE</span>
-      <div>
-        🐕 &nbsp; 10 Featured Breeds &nbsp;&nbsp;&nbsp;&nbsp;
-        📏 &nbsp; Size Spectrum &nbsp;&nbsp;&nbsp;&nbsp;
-        ❤️ &nbsp; Family Compatibility &nbsp;&nbsp;&nbsp;&nbsp;
-        ⚡ &nbsp; Energy &amp; Activity &nbsp;&nbsp;&nbsp;&nbsp;
-        🧼 &nbsp; Grooming Routines &nbsp;&nbsp;&nbsp;&nbsp;
-        ⚖️ &nbsp; Side-by-Side Comparison
-      </div>
-    </section>
-
     <!-- ============ SECTION 1: DOG BREED INFORMATION (WHITE BACKGROUND) ============ -->
     <section class="page-section bg-white" id="breed-info">
       <div class="section-wrap">
         <!-- Quick Navigation Hub -->
         <div class="guides-nav-strip">
+          <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+            <i class="fa-solid fa-paw decor-paw decor-paw-1"></i>
+            <i class="fa-solid fa-paw decor-paw decor-paw-2"></i>
+          </div>
+          <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+            <i class="fa-solid fa-paw decor-paw decor-paw-3"></i>
+            <i class="fa-solid fa-paw decor-paw decor-paw-4"></i>
+          </div>
           <div class="quick-nav-header">
-            <div>
+            <div class="quick-nav-eyebrow-wrap">
+              <span class="quick-nav-line"></span>
               <div class="quick-nav-badge">
                 <i class="fa-regular fa-compass" aria-hidden="true"></i>
                 <span>QUICK NAVIGATION</span>
               </div>
-              <h3 class="quick-nav-title">Explore Canine <span>Breeds Hub</span></h3>
+              <span class="quick-nav-line"></span>
             </div>
+            <h3 class="quick-nav-title">Explore Canine <span>Breeds Hub</span></h3>
           </div>
           <div class="guides-nav-grid">
             <a href="#breed-info" class="guide-nav-item">
@@ -2080,13 +2169,6 @@
             </div>
           </article>
 
-          <!-- No Results State -->
-          <div id="noResults" class="no-results hidden">
-            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-            <h3>No matching dog breeds found</h3>
-            <p>Try adjusting your search terms or clearing selected category filters.</p>
-            <button class="button button-small" onclick="resetFilters()">Reset All Filters</button>
-          </div>
         </div>
       </div>
     </section>
@@ -2736,15 +2818,6 @@
         counterEl.textContent = `Showing ${visibleCount} of ${cards.length} Breeds`;
       }
 
-      // Show/hide empty state
-      const noResults = document.getElementById('noResults');
-      if (noResults) {
-        if (visibleCount === 0) {
-          noResults.classList.remove('hidden');
-        } else {
-          noResults.classList.add('hidden');
-        }
-      }
     }
 
     function resetFilters() {
