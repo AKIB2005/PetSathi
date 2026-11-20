@@ -122,13 +122,12 @@ p {
   height: 100%;
 }
 
+.site-header .brand,
+.site-header .brand span,
 .site-header .brand > span:last-child,
-.site-header .brand > span:last-child span {
-  color: #ffffff !important;
-}
-
+.site-header .brand > span:last-child span,
 .site-header .brand span:last-child span {
-  color: #b9d8bd !important;
+  color: #ffffff !important;
 }
 
 .site-header .main-nav {
@@ -137,7 +136,7 @@ p {
   gap: 24px;
   font-size: 0.92rem;
   font-weight: 700;
-  color: #d7e6d9;
+  color: #ffffff;
 }
 
 .site-header .main-nav > a,
@@ -145,7 +144,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: #d7e6d9;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease;
   cursor: pointer;
@@ -165,7 +164,7 @@ p {
 .site-header .nav-item > a:hover,
 .site-header .main-nav .active,
 .site-header .nav-item.is-open > a {
-  color: #ffffff;
+  color: #dcebdc;
 }
 
 .site-header .nav-arrow {
@@ -174,6 +173,7 @@ p {
   font-size: 0.72em;
   transition: transform 0.25s ease;
   opacity: 0.85;
+  color: #ffffff;
 }
 
 .site-header .nav-item:hover .nav-arrow,
@@ -230,6 +230,9 @@ p {
 }
 
 .site-header .dropdown a i {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
   width: 18px !important;
   font-size: 0.95rem !important;
   color: var(--green, #286849) !important;
@@ -354,6 +357,9 @@ p {
 
 .site-header .menu-toggle i,
 .menu-toggle i {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
   font-size: 1.15rem;
   color: #ffffff;
   display: inline-block;
@@ -469,8 +475,19 @@ h2 em {
 }
 
 body,
-body * {
+body *:not(i):not([class*="fa-"]):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(.fa):not(.fab):not(.fas) {
   font-family: "Times New Roman", Times, serif !important;
+}
+
+i[class*="fa-"],
+.fa-solid,
+.fa-regular,
+.fa-brands,
+.fas,
+.far,
+.fab {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+  font-style: normal;
 }
 
 
@@ -865,9 +882,10 @@ body * {
 }
 
 @media (max-width: 1000px) {
+  .site-header .main-nav,
   .main-nav {
-    gap: 13px;
-    font-size: 0.82rem;
+    gap: 14px;
+    font-size: 0.85rem;
   }
 }
 
