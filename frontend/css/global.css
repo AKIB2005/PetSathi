@@ -6,7 +6,7 @@
   font-weight: 900;
   font-display: block;
   src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
-       url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
 }
 
 :root {
@@ -124,8 +124,8 @@ p {
 
 .site-header .brand,
 .site-header .brand span,
-.site-header .brand > span:last-child,
-.site-header .brand > span:last-child span,
+.site-header .brand>span:last-child,
+.site-header .brand>span:last-child span,
 .site-header .brand span:last-child span {
   color: #ffffff !important;
 }
@@ -139,8 +139,8 @@ p {
   color: #ffffff;
 }
 
-.site-header .main-nav > a,
-.site-header .main-nav .nav-item > a {
+.site-header .main-nav>a,
+.site-header .main-nav .nav-item>a {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -152,18 +152,18 @@ p {
 }
 
 /* Strict requirement: Main navigation items MUST be text-only. No pseudo-element icons! */
-.site-header .main-nav > a::before,
-.site-header .main-nav .nav-item > a::before,
-.site-header .main-nav > a::after,
-.site-header .main-nav .nav-item > a::after {
+.site-header .main-nav>a::before,
+.site-header .main-nav .nav-item>a::before,
+.site-header .main-nav>a::after,
+.site-header .main-nav .nav-item>a::after {
   content: none !important;
   display: none !important;
 }
 
-.site-header .main-nav > a:hover,
-.site-header .nav-item > a:hover,
+.site-header .main-nav>a:hover,
+.site-header .nav-item>a:hover,
 .site-header .main-nav .active,
-.site-header .nav-item.is-open > a {
+.site-header .nav-item.is-open>a {
   color: #dcebdc;
 }
 
@@ -255,8 +255,8 @@ p {
   transform: scale(1.15);
 }
 
-.site-header .main-nav > a.button,
-.site-header .main-nav > a.button.button-small {
+.site-header .main-nav>a.button,
+.site-header .main-nav>a.button.button-small {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -273,8 +273,8 @@ p {
   white-space: nowrap;
 }
 
-.site-header .main-nav > a.button:hover,
-.site-header .main-nav > a.button.button-small:hover {
+.site-header .main-nav>a.button:hover,
+.site-header .main-nav>a.button.button-small:hover {
   background: #1f533a;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
@@ -882,6 +882,7 @@ i[class*="fa-"],
 }
 
 @media (max-width: 1000px) {
+
   .site-header .main-nav,
   .main-nav {
     gap: 14px;
@@ -927,8 +928,8 @@ i[class*="fa-"],
     display: flex !important;
   }
 
-  .site-header .main-nav > a,
-  .main-nav > a {
+  .site-header .main-nav>a,
+  .main-nav>a {
     display: block;
     padding: 11px 16px;
     border-radius: 8px;
@@ -937,13 +938,13 @@ i[class*="fa-"],
     transition: background 0.2s ease;
   }
 
-  .site-header .main-nav > a:hover,
-  .main-nav > a:hover {
+  .site-header .main-nav>a:hover,
+  .main-nav>a:hover {
     background: rgba(255, 255, 255, 0.1);
   }
 
-  .site-header .main-nav > a.button,
-  .main-nav > a.button {
+  .site-header .main-nav>a.button,
+  .main-nav>a.button {
     display: flex !important;
     justify-content: center !important;
     margin-top: 10px !important;
@@ -958,8 +959,8 @@ i[class*="fa-"],
     width: 100%;
   }
 
-  .site-header .nav-item > a,
-  .nav-item > a {
+  .site-header .nav-item>a,
+  .nav-item>a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -972,10 +973,10 @@ i[class*="fa-"],
     transition: background 0.2s ease;
   }
 
-  .site-header .nav-item > a:hover,
-  .nav-item > a:hover,
-  .site-header .nav-item.is-open > a,
-  .nav-item.is-open > a {
+  .site-header .nav-item>a:hover,
+  .nav-item>a:hover,
+  .site-header .nav-item.is-open>a,
+  .nav-item.is-open>a {
     background: rgba(255, 255, 255, 0.1);
   }
 
@@ -1003,8 +1004,8 @@ i[class*="fa-"],
     box-sizing: border-box !important;
   }
 
-  .site-header .nav-item.is-open > .dropdown,
-  .nav-item.is-open > .dropdown {
+  .site-header .nav-item.is-open>.dropdown,
+  .nav-item.is-open>.dropdown {
     display: flex !important;
     flex-direction: column !important;
     gap: 3px !important;
@@ -1073,7 +1074,6 @@ main [class*="page-"] {
   height: 24px;
   flex: 0 0 24px;
   color: #ffffff !important;
-  vertical-align: middle;
 }
 
 .footer .brand-mark i {
