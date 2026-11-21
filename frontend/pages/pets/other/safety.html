@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Aquarium safety guide on PetSathi. Essential safety tips covering electrical drip loops, heater failure prevention, tap water chemical conditioning, and tank structural integrity.">
+  <title>Aquarium Safety &amp; Equipment Protection | PetSathi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Core PetSathi Stylesheets -->
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
+  <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+    .fa-solid { font-weight: 900 !important; }
+    .fa-regular { font-weight: 400 !important; }
+
+    .fish-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy h1 em { color: var(--green); font-style: normal; }
+
+    .bg-white { background: #ffffff; }
+    .bg-cream { background: #fafcf7; }
+    .bg-soft-green { background: #f4faf5; }
+
+    .fish-section { padding: 60px 0 70px; }
+
+    .section-heading-wrap {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto 36px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+    }
+
+    .corner-wave { position: absolute; pointer-events: none; z-index: 0; }
+    .wave-tl { top: 0; left: 0; width: 220px; height: 130px; }
+    .wave-br { bottom: 0; right: 0; width: 220px; height: 130px; }
+
+    .heading-content { position: relative; z-index: 2; }
+
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #edf7f0;
+      color: #246b43;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid #cce4d2;
+      margin-bottom: 12px;
+    }
+
+    .heading-label i { color: #246b43; }
+
+    .section-heading-wrap h2 {
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading-wrap h2 em { color: var(--green); font-style: normal; }
+
+    .section-heading-wrap p {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: #55675c;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 24px;
+      padding: 30px 26px;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.09);
+      border-color: #246b43;
+    }
+
+    .info-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #edf7f0;
+      color: #246b43;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0 0 10px;
+    }
+
+    .info-card p {
+      font-size: 0.92rem;
+      line-height: 1.62;
+      color: #55665b;
+      margin: 0;
+    }
+
+    .info-card ul {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+      color: #55665b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .info-card ul li { margin-bottom: 6px; }
+
+    .fish-cta {
+      background: #fbf1ef !important;
+      border: 1px solid #f2dbd6;
+      border-radius: 28px;
+      padding: 44px 50px !important;
+      margin: 40px auto 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 10px 30px rgba(180, 80, 60, 0.06);
+    }
+
+    .fish-cta .eyebrow {
+      color: #9e4636;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fish-cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 700;
+      color: #2b1d1a;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+
+    .fish-cta h2 em { color: #b84a39; font-style: italic; }
+
+    .fish-cta p {
+      color: #6d524d;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .fish-cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+    .fish-cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .fish-cta .button.button-light:hover {
+      background: #fdfdfd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .fish-cta { flex-direction: column; align-items: flex-start; padding: 36px 30px !important; }
+      .fish-cta-actions { width: 100%; flex-wrap: wrap; margin-top: 10px; }
+      .fish-cta-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid-3 { grid-template-columns: 1fr; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .section-heading-wrap { padding: 35px 16px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section-wrap" id="safety-hero">
+      <div class="hero-copy">
+        <div class="fish-badge-strip">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Aquatic Safety &amp; Risk Mitigation
+        </div>
+        <h1>Aquarium <em>Safety &amp; Protection</em></h1>
+        <p>
+          Aquariums combine high water volume with continuous electrical power, requiring strict safety protocols. Discover how to create foolproof drip loops, prevent heater runaway accidents, eliminate chemical hazards, and safeguard tank structural integrity.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#electrical-safety">Electrical Protocols <i class="fa-solid fa-arrow-down" style="font-size: 0.82rem; margin-left: 5px;"></i></a>
+          <a class="button button-outline" href="#heater-safety" style="background: transparent; border: 1.5px solid #246b43; color: #246b43;">Equipment Safeguards</a>
+        </div>
+        <div class="hero-note">♥ &nbsp; Dedicated to vibrant aquariums and thriving aquatic life.</div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img src="https://images.unsplash.com/photo-1584553421349-3557471bed79?auto=format&fit=crop&w=1000&q=85"
+          alt="Aquarium filter and safe water setup" class="hero-photo"
+          id="hero-safety-photo">
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-plug-circle-bolt" style="color: var(--green);"></i>
+          <span><b>Drip Loops &amp; GFCI</b><small>100% Shock Protection</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-temperature-arrow-down" style="color: #0284c7;"></i>
+          <span><b>Heater Redundancy</b><small>Dual Sized Safeguard</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Electrical Safety -->
+    <section class="fish-section bg-cream" id="electrical-safety">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              High Voltage Precaution
+            </span>
+            <h2>
+              Electrical Safety &amp; <em>Shock Prevention</em>
+            </h2>
+            <p>Water conducts electricity with zero resistance. Follow these four mandatory electrical rules for every aquarium.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-rotate-right"></i></div>
+            <h3>The Essential Drip Loop</h3>
+            <p>Never allow a cord to run directly downward into a wall outlet. Form a distinct U-shaped loop hanging lower than the receptacle so condensation or stray droplets drip off the bottom curve harmlessly onto the floor.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-shield"></i></div>
+            <h3>GFCI Outlet Protection</h3>
+            <p>Plug all aquarium gear into a Ground Fault Circuit Interrupter (GFCI) outlet or portable GFCI adapter. It shuts off power in milliseconds if current leaks toward water, preventing lethal shocks.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-hand-holding-droplet"></i></div>
+            <h3>Dry Hands &amp; Power Cuts</h3>
+            <p>Always dry hands thoroughly on a clean towel before touching switches or plugs. Disconnect heaters and filter power before reaching deep into the tank during gravel siphoning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Heater Safety & Redundancy -->
+    <section class="fish-section bg-white" id="heater-safety">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-temperature-high" aria-hidden="true"></i>
+              Thermostat Protection
+            </span>
+            <h2>
+              Heater Safeguards &amp; <em>Thermal Runaway</em>
+            </h2>
+            <p>Heaters fail when their internal mechanical thermostat sticks ON, cooking fish overnight, or sticks OFF in winter.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-2">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+            <h3>The Dual-Heater Strategy</h3>
+            <p>Instead of relying on a single large 200W heater for a 50-gallon tank, install two 100W heaters on opposite sides. If one sticks ON, a 100W unit lacks the wattage to boil 50 gallons. If one fails OFF, the other prevents fatal freezing.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3>External Inkbird Temperature Controllers</h3>
+            <p>Plug your submersible heaters into an external dual-relay digital temperature controller with a separate probe. If the internal heater switch welds closed, the controller cuts power the instant water rises 1° above setpoint.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Water Chemical & Structural Safety -->
+    <section class="fish-section bg-cream" id="water-chemical-safety">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-flask" aria-hidden="true"></i>
+              Chemical &amp; Physical Defense
+            </span>
+            <h2>
+              Chemical Toxicity &amp; <em>Structural Weight</em>
+            </h2>
+            <p>Protect fish from airborne aerosols and ensure your aquarium foundation can safely bear intense water weight.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-spray-can"></i></div>
+            <h3>Household Aerosol Hazard</h3>
+            <p>Room deodorizers, insect sprays, glass cleaners, and scented candles dissolve directly into surface water through air pump intakes, poisoning fish rapidly. Never spray within 15 feet of an open tank.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-soap"></i></div>
+            <h3>Zero Soap on Tank Tools</h3>
+            <p>Soap residue destroys fish gill membranes instantly. Clean aquarium buckets, nets, glass scrapers, and siphon tubes with warm water and white vinegar only—never household dish detergents.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+            <h3>The 10 Lbs/Gallon Weight Rule</h3>
+            <p>Filled aquariums with gravel, rock, and glass weigh roughly 10–12 lbs per gallon (a 55-gallon tank weighs over 600 lbs!). Always use dedicated engineered aquarium stands leveled with shims.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpage Soft Light Pink CTA -->
+    <section class="fish-cta section-wrap">
+      <div>
+        <div class="eyebrow">SAFE TANKS LEAD TO HEALTHY FISH</div>
+        <h2>Explore Complete <em>Aquarium Care</em></h2>
+        <p>
+          Now that your aquarium is safely wired, conditioned, and fortified, master everyday maintenance, filter cleaning, and water quality testing.
+        </p>
+      </div>
+      <div class="fish-cta-actions">
+        <a class="button button-light" href="care.html">Explore Fish Care <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../../../js/main.js"></script>
+</body>
+
+</html>

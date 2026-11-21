@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Comprehensive aquarium fish breeds and species guide on PetSathi. Explore freshwater and saltwater species, care requirements, compatibility matrix, and tank volume calculator.">
+  <title>Aquarium Fish Breeds & Species Guide | PetSathi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Core PetSathi Stylesheets -->
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
+  <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* Font Awesome 6 Free Protection */
+    .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+    .fa-solid { font-weight: 900 !important; }
+    .fa-regular { font-weight: 400 !important; }
+
+    .fish-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .bg-white { background: #ffffff; }
+    .bg-cream { background: #fafcf7; }
+    .bg-soft-green { background: #f4faf5; }
+
+    .fish-section {
+      padding: 60px 0 70px;
+    }
+
+    /* Section Headings matching Dog/Cat Index */
+    .section-heading-wrap {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto 36px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+    }
+
+    .corner-wave {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wave-tl { top: 0; left: 0; width: 220px; height: 130px; }
+    .wave-br { bottom: 0; right: 0; width: 220px; height: 130px; }
+
+    .heading-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #edf7f0;
+      color: #246b43;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid #cce4d2;
+      margin-bottom: 12px;
+    }
+
+    .heading-label i { color: #246b43; }
+
+    .section-heading-wrap h2 {
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading-wrap h2 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .heading-burst {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .heading-burst span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #246b43;
+    }
+
+    .heading-burst.left span:nth-child(1) { height: 10px; border-radius: 4px; }
+    .heading-burst.left span:nth-child(2) { height: 16px; border-radius: 4px; }
+    .heading-burst.left span:nth-child(3) { height: 7px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(1) { height: 7px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(2) { height: 16px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(3) { height: 10px; border-radius: 4px; }
+
+    .section-heading-wrap p {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: #55675c;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Search & Filter Toolbar */
+    .filter-toolbar {
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      flex: 1 1 300px;
+    }
+
+    .search-box-wrap input {
+      width: 100%;
+      padding: 12px 42px 12px 42px;
+      border-radius: 9999px;
+      border: 1.5px solid #dceade;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .search-box-wrap input:focus {
+      border-color: #246b43;
+      box-shadow: 0 0 0 3px rgba(36, 107, 67, 0.12);
+    }
+
+    .search-icon-inside {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7b8e83;
+      pointer-events: none;
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #88998f;
+      cursor: pointer;
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    .filter-pills-wrap {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill-btn {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: 1px solid #dceade;
+      background: #ffffff;
+      color: #384e41;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .filter-pill-btn:hover {
+      background: #edf7f0;
+      border-color: #246b43;
+      color: #246b43;
+    }
+
+    .filter-pill-btn.active {
+      background: #246b43;
+      color: #ffffff;
+      border-color: #246b43;
+    }
+
+    /* Species Grid */
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .fish-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .fish-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.09);
+      border-color: #246b43;
+    }
+
+    .fish-card-media {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #eef4f0;
+    }
+
+    .fish-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .fish-card:hover .fish-card-media img {
+      transform: scale(1.04);
+    }
+
+    .fish-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-fresh {
+      background: rgba(36, 107, 67, 0.92);
+      color: #ffffff;
+    }
+
+    .badge-salt {
+      background: rgba(2, 132, 199, 0.92);
+      color: #ffffff;
+    }
+
+    .badge-cold {
+      background: rgba(14, 116, 144, 0.92);
+      color: #ffffff;
+    }
+
+    .fish-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .fish-card-header {
+      margin-bottom: 12px;
+    }
+
+    .fish-card-header h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0 0 4px;
+    }
+
+    .fish-card-header .sci-name {
+      font-size: 0.84rem;
+      font-style: italic;
+      color: #6d8276;
+    }
+
+    .fish-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #55665b;
+      margin: 0 0 16px;
+      flex-grow: 1;
+    }
+
+    .fish-card-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 12px;
+      padding-top: 14px;
+      border-top: 1px solid #edf4ee;
+      font-size: 0.8rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      color: #7b8e83;
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-val {
+      color: #1a251e;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* Compatibility Checker Styles */
+    .compat-tool-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 4px 22px rgba(35, 75, 45, 0.05);
+    }
+
+    .compat-selectors {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .select-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: #246b43;
+      margin-bottom: 8px;
+    }
+
+    .select-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #dceade;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #1a251e;
+      background: #fbfdfc;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .select-group select:focus {
+      border-color: #246b43;
+    }
+
+    .compat-vs {
+      font-weight: 800;
+      color: #7b8e83;
+      font-size: 1.1rem;
+      padding-top: 22px;
+    }
+
+    .compat-btn-wrap {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .compat-btn {
+      padding: 12px 30px;
+      background: #246b43;
+      color: #ffffff;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .compat-btn:hover {
+      background: #1b5233;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(36, 107, 67, 0.25);
+    }
+
+    .compat-result-card {
+      border-radius: 16px;
+      padding: 24px;
+      border: 1.5px solid transparent;
+      display: none;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+    }
+
+    .badge-compatible { background: #dcfce7; color: #166534; }
+    .badge-caution { background: #fef3c7; color: #92400e; }
+    .badge-incompatible { background: #fee2e2; color: #991b1b; }
+
+    .compat-result-card.status-compatible { background: #f0fdf4; border-color: #bbf7d0; }
+    .compat-result-card.status-caution { background: #fffbeb; border-color: #fde68a; }
+    .compat-result-card.status-incompatible { background: #fef2f2; border-color: #fecaca; }
+
+    .compat-result-card h4 {
+      font-size: 1.15rem;
+      margin: 0 0 8px;
+      color: #1a251e;
+    }
+
+    .compat-result-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #4b5e52;
+    }
+
+    /* Calculator Box */
+    .calc-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 4px 20px rgba(35, 75, 45, 0.05);
+    }
+
+    .calc-inputs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .calc-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #246b43;
+      margin-bottom: 6px;
+    }
+
+    .calc-field input, .calc-field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1.5px solid #dceade;
+      font-family: inherit;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .calc-field input:focus, .calc-field select:focus {
+      border-color: #246b43;
+    }
+
+    .calc-results-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: #edf7f0;
+      border-radius: 16px;
+      border: 1px solid #cce4d2;
+      display: none;
+    }
+
+    .calc-results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      text-align: center;
+    }
+
+    .calc-result-item h5 {
+      margin: 0 0 4px;
+      font-size: 0.76rem;
+      color: #55675c;
+      text-transform: uppercase;
+    }
+
+    .calc-result-item span {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #246b43;
+    }
+
+    /* FAQ Accordion */
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 24px;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a251e;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .faq-question i {
+      color: #246b43;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #55665b;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* Subpage Soft Light Pink CTA matching main & index */
+    .fish-cta {
+      background: #fbf1ef !important;
+      border: 1px solid #f2dbd6;
+      border-radius: 28px;
+      padding: 44px 50px !important;
+      margin: 40px auto 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 10px 30px rgba(180, 80, 60, 0.06);
+    }
+
+    .fish-cta .eyebrow {
+      color: #9e4636;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fish-cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 700;
+      color: #2b1d1a;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+
+    .fish-cta h2 em {
+      color: #b84a39;
+      font-style: italic;
+    }
+
+    .fish-cta p {
+      color: #6d524d;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .fish-cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .fish-cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .fish-cta .button.button-light:hover {
+      background: #fdfdfd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .species-grid { grid-template-columns: repeat(2, 1fr); }
+      .compat-selectors { grid-template-columns: 1fr; }
+      .compat-vs { padding-top: 0; text-align: center; }
+      .calc-inputs { grid-template-columns: repeat(2, 1fr); }
+      .calc-results-grid { grid-template-columns: repeat(2, 1fr); }
+      .fish-cta { flex-direction: column; align-items: flex-start; padding: 36px 30px !important; }
+      .fish-cta-actions { width: 100%; flex-wrap: wrap; margin-top: 10px; }
+      .fish-cta-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .species-grid { grid-template-columns: 1fr; }
+      .calc-inputs { grid-template-columns: 1fr; }
+      .calc-results-grid { grid-template-columns: 1fr; }
+      .section-heading-wrap { padding: 35px 16px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section-wrap" id="breeds-hero">
+      <div class="hero-copy">
+        <div class="fish-badge-strip">
+          <i class="fa-solid fa-fish" aria-hidden="true"></i> Species Directory &amp; Varieties
+        </div>
+        <h1>Explore Aquarium <em>Fish Breeds</em></h1>
+        <p>
+          Discover popular freshwater and marine aquarium species. Explore detailed profiles covering optimal water chemistry, temperament, adult sizing, and social compatibility to curate a vibrant, harmonious aquatic ecosystem.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#species-catalog">Browse Species <i class="fa-solid fa-arrow-down" style="font-size: 0.82rem; margin-left: 5px;"></i></a>
+          <a class="button button-outline" href="#compat-checker" style="background: transparent; border: 1.5px solid #246b43; color: #246b43;">Compatibility Tool</a>
+        </div>
+        <div class="hero-note">♥ &nbsp; Dedicated to vibrant aquariums and thriving aquatic life.</div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=1000&q=85"
+          alt="Collection of colourful tropical aquarium fish swimming in a planted tank" class="hero-photo"
+          id="hero-breeds-photo">
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-fish" style="color: var(--green);"></i>
+          <span><b>9 Popular Species</b><small>Profiles &amp; Requirements</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-scale-balanced" style="color: #0284c7;"></i>
+          <span><b>Compatibility Tool</b><small>Check Mates &amp; Harmony</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Species Catalog -->
+    <section class="fish-section bg-cream" id="species-catalog">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-shapes" aria-hidden="true"></i>
+              Species Profiles
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Aquarium Species <em>Catalog</em>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Filter by water type and habitat requirements to discover the ideal aquatic companions for your home aquarium.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="search-box-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+            <input type="text" id="fish-search-input" placeholder="Search by fish name, water type, or temperament...">
+            <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="filter-pills-wrap">
+            <button class="filter-pill-btn active" data-filter="all">All Species (<span id="visible-species-count">9</span>)</button>
+            <button class="filter-pill-btn" data-filter="freshwater">Freshwater</button>
+            <button class="filter-pill-btn" data-filter="saltwater">Saltwater</button>
+            <button class="filter-pill-btn" data-filter="beginner">Beginner Friendly</button>
+          </div>
+        </div>
+
+        <div id="no-results-message" style="display: none; text-align: center; padding: 40px; color: #6d8276;">
+          <i class="fa-solid fa-fish-fins" style="font-size: 2.5rem; margin-bottom: 12px; opacity: 0.5;"></i>
+          <h4>No matching species found</h4>
+          <p>Try searching for a different fish name or reset the category filter.</p>
+        </div>
+
+        <!-- Species Cards -->
+        <div class="species-grid">
+          <!-- 1. Betta Fish -->
+          <article class="fish-card" data-name="Betta Fish Siamese Fighting Fish" data-category="freshwater beginner" data-water="freshwater" data-tags="labyrinth solitary colourful">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1769006604234-8f6e32bb0d77?auto=format&fit=crop&w=700&q=85" alt="Vibrant Betta splendens" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Betta Fish</h3>
+                <span class="sci-name">Betta splendens</span>
+              </div>
+              <p class="fish-card-desc">Famous for breathtaking flowing fins and spirited solitary personality. Equipped with a labyrinth organ to breathe surface air.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">5 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">25–28°C (78–82°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">6.5–7.5</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Solitary / Semi-Aggressive</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Goldfish -->
+          <article class="fish-card" data-name="Goldfish Fancy Goldfish Comets" data-category="freshwater beginner" data-water="coldwater freshwater" data-tags="coldwater social friendly hardy">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-cold">Coldwater</span>
+              <img src="https://images.unsplash.com/photo-1785822387462-1b8dd36804be?auto=format&fit=crop&w=700&q=85" alt="Fancy orange goldfish" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Goldfish</h3>
+                <span class="sci-name">Carassius auratus</span>
+              </div>
+              <p class="fish-card-desc">Hearty coldwater companions celebrated for friendly demeanors and longevity. Requires ample swimming room and strong mechanical filtration.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">20–30 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">18–22°C (65–72°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">7.0–8.0</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Peaceful / Social</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Guppy -->
+          <article class="fish-card" data-name="Guppy Millionsfish Livebearer" data-category="freshwater beginner" data-water="freshwater" data-tags="livebearer active community colourful">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1711826949355-30acbe1b385a?auto=format&fit=crop&w=700&q=85" alt="Colourful Guppy livebearer" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Guppy</h3>
+                <span class="sci-name">Poecilia reticulata</span>
+              </div>
+              <p class="fish-card-desc">Lively, kaleidoscopic livebearers that bring non-stop motion to upper tank levels. Incredibly hardy and prolific breeders.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">10 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">22–28°C (72–82°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">6.8–7.8</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Peaceful Community</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Neon Tetra -->
+          <article class="fish-card" data-name="Neon Tetra Schooling Tetra" data-category="freshwater beginner" data-water="freshwater" data-tags="schooling peaceful planted iridescent">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1737688670910-084f54254e73?auto=format&fit=crop&w=700&q=85" alt="Neon tetras shimmering" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Neon Tetra</h3>
+                <span class="sci-name">Paracheirodon innesi</span>
+              </div>
+              <p class="fish-card-desc">Iconic South American schooling fish with glowing turquoise and scarlet stripes. Thrive in calm, well-planted aquariums in groups of 6+.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">10 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">20–26°C (68–78°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">6.0–7.0</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Peaceful Schooling (6+)</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Angelfish -->
+          <article class="fish-card" data-name="Angelfish Freshwater Cichlid" data-category="freshwater" data-water="freshwater" data-tags="centerpiece cichlid tall planted">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1646022103851-022a7544a3b5?auto=format&fit=crop&w=700&q=85" alt="Regal freshwater Angelfish" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Angelfish</h3>
+                <span class="sci-name">Pterophyllum scalare</span>
+              </div>
+              <p class="fish-card-desc">Stately Amazonian centerpiece cichlids with tall triangular profiles. Require deep, tall tanks and should not be housed with tiny bite-sized tetras.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">30–55 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">25–29°C (77–84°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">6.5–7.4</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Semi-Aggressive / Territorial</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Molly Fish -->
+          <article class="fish-card" data-name="Molly Fish Black Molly Sailfin" data-category="freshwater beginner" data-water="freshwater" data-tags="livebearer hardy algae-grazer brackish">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=700&q=85" alt="Tropical Molly livebearer fish" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Molly Fish</h3>
+                <span class="sci-name">Poecilia sphenops</span>
+              </div>
+              <p class="fish-card-desc">Robust and social livebearers that actively graze on soft aquarium algae. Adaptable to freshwater and brackish setups with moderate water hardness.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">20 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">24–28°C (75–82°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">7.2–8.2</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Peaceful Active</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Clownfish -->
+          <article class="fish-card" data-name="Clownfish Ocellaris Marine Saltwater" data-category="saltwater beginner" data-water="saltwater" data-tags="marine saltwater reef anemone">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-salt">Saltwater</span>
+              <img src="https://images.unsplash.com/photo-1516683037151-9a17603a8dc7?auto=format&fit=crop&w=700&q=85" alt="Orange and white Ocellaris Clownfish in purple anemone" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Ocellaris Clownfish</h3>
+                <span class="sci-name">Amphiprion ocellaris</span>
+              </div>
+              <p class="fish-card-desc">The beloved saltwater icon with bold white bands. Extremely hardy marine fish that forms famous symbiotic partnerships with host sea anemones.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">20 Gallons (Saltwater)</span></div>
+                <div class="stat-item"><span class="stat-label">Salinity</span><span class="stat-val">1.020–1.025 SG</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">8.0–8.4</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Peaceful / Pair-Bonding</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Platy -->
+          <article class="fish-card" data-name="Platy Southern Platy Livebearer" data-category="freshwater beginner" data-water="freshwater" data-tags="livebearer peaceful colourful hardy">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=700&q=85" alt="Colourful Platy fish" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Platy</h3>
+                <span class="sci-name">Xiphophorus maculatus</span>
+              </div>
+              <p class="fish-card-desc">Gentle and inquisitive livebearers available in sunset orange, Mickey Mouse patterns, and vivid reds. Ideal community mates for peaceful setups.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">10 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">21–26°C (70–79°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">7.0–8.2</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Very Peaceful Community</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Zebra Danio -->
+          <article class="fish-card" data-name="Zebra Danio Zebrafish" data-category="freshwater beginner" data-water="freshwater" data-tags="schooling fast active hardy cold-tolerant">
+            <div class="fish-card-media">
+              <span class="fish-card-badge badge-fresh">Freshwater</span>
+              <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=700&q=85" alt="Zebra Danio schooling fish" loading="lazy">
+            </div>
+            <div class="fish-card-body">
+              <div class="fish-card-header">
+                <h3>Zebra Danio</h3>
+                <span class="sci-name">Danio rerio</span>
+              </div>
+              <p class="fish-card-desc">Bulletproof schooling fish with bold horizontal metallic stripes. Incredible stamina, high activity, and adaptable to cooler water temperatures.</p>
+              <div class="fish-card-stats">
+                <div class="stat-item"><span class="stat-label">Min Tank</span><span class="stat-val">15 Gallons</span></div>
+                <div class="stat-item"><span class="stat-label">Temperature</span><span class="stat-val">18–24°C (64–75°F)</span></div>
+                <div class="stat-item"><span class="stat-label">pH Range</span><span class="stat-val">6.5–7.5</span></div>
+                <div class="stat-item"><span class="stat-label">Temperament</span><span class="stat-val">Active Schooling (6+)</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Compatibility Checker Tool -->
+    <section class="fish-section bg-white" id="compat-checker">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+              Interactive Tool
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Tank Mate <em>Compatibility Checker</em>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Select two fish species to evaluate their behavioral compatibility, water temperature overlap, and tank size requirements before adding them to your aquarium.
+            </p>
+          </div>
+        </div>
+
+        <div class="compat-tool-wrap">
+          <div class="compat-selectors">
+            <div class="select-group">
+              <label for="fish-select-1"><i class="fa-solid fa-fish"></i> First Fish Species</label>
+              <select id="fish-select-1">
+                <option value="">Select Fish 1...</option>
+                <option value="angelfish">Angelfish</option>
+                <option value="betta">Betta Fish</option>
+                <option value="goldfish">Goldfish</option>
+                <option value="guppy">Guppy</option>
+                <option value="molly">Molly Fish</option>
+                <option value="neon_tetra">Neon Tetra</option>
+                <option value="platy">Platy</option>
+                <option value="zebra_danio">Zebra Danio</option>
+              </select>
+            </div>
+
+            <div class="compat-vs">VS</div>
+
+            <div class="select-group">
+              <label for="fish-select-2"><i class="fa-solid fa-fish"></i> Second Fish Species</label>
+              <select id="fish-select-2">
+                <option value="">Select Fish 2...</option>
+                <option value="angelfish">Angelfish</option>
+                <option value="betta">Betta Fish</option>
+                <option value="goldfish">Goldfish</option>
+                <option value="guppy">Guppy</option>
+                <option value="molly">Molly Fish</option>
+                <option value="neon_tetra">Neon Tetra</option>
+                <option value="platy">Platy</option>
+                <option value="zebra_danio">Zebra Danio</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="compat-btn-wrap">
+            <button type="button" id="check-compat-btn" class="compat-btn">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Check Compatibility
+            </button>
+          </div>
+
+          <div id="compat-result-card" class="compat-result-card">
+            <span id="compat-status-pill" class="status-badge badge-compatible">Compatible</span>
+            <h4 id="compat-result-title">Title</h4>
+            <p id="compat-result-desc">Description</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aquarium Tank Volume Calculator -->
+    <section class="fish-section bg-cream" id="tank-calculator">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+              Aquarist Calculator
+            </span>
+            <h2>
+              Aquarium Volume &amp; <em>Equipment Sizing</em>
+            </h2>
+            <p>
+              Enter the internal dimensions of your aquarium to instantly calculate water capacity in Liters and US Gallons, plus recommended filtration flow rates and heater wattage.
+            </p>
+          </div>
+        </div>
+
+        <div class="calc-wrap">
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label for="calc-length">Length</label>
+              <input type="number" id="calc-length" placeholder="e.g. 60" min="1" step="any">
+            </div>
+            <div class="calc-field">
+              <label for="calc-width">Width</label>
+              <input type="number" id="calc-width" placeholder="e.g. 30" min="1" step="any">
+            </div>
+            <div class="calc-field">
+              <label for="calc-height">Height</label>
+              <input type="number" id="calc-height" placeholder="e.g. 35" min="1" step="any">
+            </div>
+            <div class="calc-field">
+              <label for="calc-unit">Unit</label>
+              <select id="calc-unit">
+                <option value="cm">Centimeters (cm)</option>
+                <option value="in">Inches (in)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <button type="button" id="calc-submit-btn" class="compat-btn">
+              <i class="fa-solid fa-droplet"></i> Calculate Volume &amp; Gear
+            </button>
+          </div>
+
+          <div id="calc-output-box" class="calc-results-box">
+            <div class="calc-results-grid">
+              <div class="calc-result-item">
+                <h5>Water Volume</h5>
+                <span id="calc-result-liters">0 L</span>
+              </div>
+              <div class="calc-result-item">
+                <h5>US Gallons</h5>
+                <span id="calc-result-gallons">0 Gal</span>
+              </div>
+              <div class="calc-result-item">
+                <h5>Filter Flow</h5>
+                <span id="calc-result-filter">0 L/h</span>
+              </div>
+              <div class="calc-result-item">
+                <h5>Heater Power</h5>
+                <span id="calc-result-heater">0 Watts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="fish-section bg-white" id="breeds-faq">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+              Common Inquiries
+            </span>
+            <h2>
+              Frequently Asked <em>Species Questions</em>
+            </h2>
+            <p>Expert answers to guide responsible species selection and community tank stocking.</p>
+          </div>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can male Bettas live with any other fish?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Yes, in a sufficiently large planted tank (10+ gallons), a male Betta can peacefully coexist with calm bottom-dwellers like Corydoras catfish, peaceful snails, or small schooling tetras that do not nip fins. Avoid fast fin-nippers (like Tiger Barbs) or fish with long colorful fins (like fancy Guppies) which can trigger territorial attacks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Why shouldn't goldfish be kept with tropical fish?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Goldfish are temperate coldwater fish requiring unheated water between 18–22°C (65–72°F), high oxygen saturation, and heavy mechanical filtration. Tropical fish require heated water between 24–28°C. Keeping goldfish in warm tropical water dangerously speeds up their metabolism and shortens their lifespan.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What is the minimum school size for Neon Tetras and Zebra Danios?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Schooling fish require a bare minimum of 6 individuals, though 10 to 12 is optimal. In smaller numbers, schooling fish feel vulnerable, stressed, and may exhibit fearful hiding or unusual fin-nipping aggression toward tank mates.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpage Soft Light Pink CTA -->
+    <section class="fish-cta section-wrap">
+      <div>
+        <div class="eyebrow">READY TO CARE FOR YOUR FISH?</div>
+        <h2>Discover Essential <em>Aquarium Care</em></h2>
+        <p>
+          Now that you've discovered ideal fish species, learn how to cycle your filter, maintain immaculate water parameters, and establish a thriving aquatic habitat.
+        </p>
+      </div>
+      <div class="fish-cta-actions">
+        <a class="button button-light" href="care.html">Explore Fish Care <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../../../js/main.js"></script>
+  <script src="../../../js/fish.js"></script>
+</body>
+
+</html>

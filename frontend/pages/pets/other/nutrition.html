@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Comprehensive aquarium fish nutrition and feeding guide on PetSathi. Learn about carnivore, herbivore, and omnivore diets, food forms, healthy feeding schedules, and avoiding overfeeding.">
+  <title>Aquarium Fish Nutrition &amp; Feeding Guide | PetSathi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Core PetSathi Stylesheets -->
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
+  <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* Font Awesome 6 Free Protection */
+    .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+    .fa-solid { font-weight: 900 !important; }
+    .fa-regular { font-weight: 400 !important; }
+
+    .fish-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .bg-white { background: #ffffff; }
+    .bg-cream { background: #fafcf7; }
+    .bg-soft-green { background: #f4faf5; }
+
+    .fish-section {
+      padding: 60px 0 70px;
+    }
+
+    /* Section Headings matching Dog/Cat Index */
+    .section-heading-wrap {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto 36px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+    }
+
+    .corner-wave {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wave-tl { top: 0; left: 0; width: 220px; height: 130px; }
+    .wave-br { bottom: 0; right: 0; width: 220px; height: 130px; }
+
+    .heading-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #edf7f0;
+      color: #246b43;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid #cce4d2;
+      margin-bottom: 12px;
+    }
+
+    .heading-label i { color: #246b43; }
+
+    .section-heading-wrap h2 {
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading-wrap h2 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .heading-burst {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .heading-burst span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #246b43;
+    }
+
+    .heading-burst.left span:nth-child(1) { height: 10px; border-radius: 4px; }
+    .heading-burst.left span:nth-child(2) { height: 16px; border-radius: 4px; }
+    .heading-burst.left span:nth-child(3) { height: 7px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(1) { height: 7px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(2) { height: 16px; border-radius: 4px; }
+    .heading-burst.right span:nth-child(3) { height: 10px; border-radius: 4px; }
+
+    .section-heading-wrap p {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: #55675c;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Cards Grids */
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 24px;
+      padding: 30px 26px;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.09);
+      border-color: #246b43;
+    }
+
+    .info-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #edf7f0;
+      color: #246b43;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0 0 10px;
+    }
+
+    .info-card p {
+      font-size: 0.92rem;
+      line-height: 1.62;
+      color: #55665b;
+      margin: 0;
+    }
+
+    .info-card ul {
+      margin: 14px 0 0 0;
+      padding-left: 20px;
+      color: #55665b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .info-card ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Subpage Soft Light Pink CTA */
+    .fish-cta {
+      background: #fbf1ef !important;
+      border: 1px solid #f2dbd6;
+      border-radius: 28px;
+      padding: 44px 50px !important;
+      margin: 40px auto 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 10px 30px rgba(180, 80, 60, 0.06);
+    }
+
+    .fish-cta .eyebrow {
+      color: #9e4636;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fish-cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 700;
+      color: #2b1d1a;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+
+    .fish-cta h2 em {
+      color: #b84a39;
+      font-style: italic;
+    }
+
+    .fish-cta p {
+      color: #6d524d;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .fish-cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .fish-cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .fish-cta .button.button-light:hover {
+      background: #fdfdfd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .fish-cta { flex-direction: column; align-items: flex-start; padding: 36px 30px !important; }
+      .fish-cta-actions { width: 100%; flex-wrap: wrap; margin-top: 10px; }
+      .fish-cta-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid-3 { grid-template-columns: 1fr; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .cards-grid-4 { grid-template-columns: 1fr; }
+      .section-heading-wrap { padding: 35px 16px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section-wrap" id="nutrition-hero">
+      <div class="hero-copy">
+        <div class="fish-badge-strip">
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i> Aquatic Dietary Guide
+        </div>
+        <h1>Aquarium Fish <em>Nutrition &amp; Diets</em></h1>
+        <p>
+          Providing species-appropriate nutrition is the foundation of brilliant coloration, vigorous immune defence, and long aquatic lifespans. Explore diet classifications, healthy feeding schedules, and how to protect tank water quality from overfeeding.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#diet-types">Diet Classifications <i class="fa-solid fa-arrow-down" style="font-size: 0.82rem; margin-left: 5px;"></i></a>
+          <a class="button button-outline" href="#feeding-schedule" style="background: transparent; border: 1.5px solid #246b43; color: #246b43;">Feeding Rules</a>
+        </div>
+        <div class="hero-note">♥ &nbsp; Dedicated to vibrant aquariums and thriving aquatic life.</div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1000&q=85"
+          alt="Aquarium fish feeding in clean water" class="hero-photo"
+          id="hero-nutrition-photo">
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-leaf" style="color: var(--green);"></i>
+          <span><b>Tailored Diets</b><small>Herbivore, Carnivore, Omnivore</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-stopwatch" style="color: #0284c7;"></i>
+          <span><b>2-Minute Rule</b><small>Zero Waste &amp; Clean Water</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Diet Classifications -->
+    <section class="fish-section bg-cream" id="diet-types">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-apple-whole" aria-hidden="true"></i>
+              Diet Profiles
+            </span>
+            <h2>
+              Species Diet <em>Classifications</em>
+            </h2>
+            <p>
+              Different fish have evolved specialized digestive tracts. Feeding an herbivore high-protein animal meals or starving a carnivore of protein leads to fatal organ failure.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+            <h3>Carnivorous Fish</h3>
+            <p>Predatory and insectivorous fish requiring high protein (45–55%) and lipids. Their short digestive tracts are designed for rapid nutrient extraction from animal proteins.</p>
+            <ul>
+              <li><strong>Examples:</strong> Bettas, Angelfish, Discus, Puffers</li>
+              <li><strong>Primary Foods:</strong> Bloodworms, daphnia, brine shrimp, blackworms, krill pellets</li>
+              <li><strong>Avoid:</strong> High-grain filler flakes with excess terrestrial wheat starch</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Herbivorous Fish</h3>
+            <p>Plant, biofilm, and algae grazers equipped with long, winding digestive tracts. They require abundant fiber and plant enzymes to prevent bloat and impaction.</p>
+            <ul>
+              <li><strong>Examples:</strong> Otocinclus, Bristlenose Plecos, Silver Dollars, Tropheus</li>
+              <li><strong>Primary Foods:</strong> Spirulina flakes, kelp wafers, blanched zucchini, cucumber, spinach</li>
+              <li><strong>Avoid:</strong> Frequent high-protein meaty treats that cause intestinal dropsy</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h3>Omnivorous Fish</h3>
+            <p>Adaptable opportunists requiring a healthy blend of quality proteins (35–40%) and vegetable matter to support active metabolism and natural immune function.</p>
+            <ul>
+              <li><strong>Examples:</strong> Guppies, Mollies, Platies, Neon Tetras, Zebra Danios</li>
+              <li><strong>Primary Foods:</strong> Balanced micro-pellets, spirulina flakes, freeze-dried daphnia</li>
+              <li><strong>Best Practice:</strong> Rotate between 3 different food types throughout the week</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Food Formats & Variety -->
+    <section class="fish-section bg-white" id="food-formats">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-jar" aria-hidden="true"></i>
+              Aquarium Pantry
+            </span>
+            <h2>
+              Food Formats &amp; <em>Nutritional Variety</em>
+            </h2>
+            <p>A diverse diet guarantees essential vitamins, minerals, and carotenoids for optimal vitality and radiant scale luster.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-4">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-align-left"></i></div>
+            <h3>Flakes &amp; Crisps</h3>
+            <p>Processed at low heat to retain vitamins. Float briefly before sinking, making them ideal for top and mid-water community feeders.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-circle-dot"></i></div>
+            <h3>Pellets &amp; Wafers</h3>
+            <p>Dense, nutrient-stable formulas engineered as floating, slow-sinking, or sinking discs for bottom dwellers like catfish and plecos.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-snowflake"></i></div>
+            <h3>Frozen &amp; Live Foods</h3>
+            <p>Bloodworms, mysis shrimp, and daphnia mimic natural hunting triggers, provide pure hydration, and condition fish for breeding.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Fresh Vegetables</h3>
+            <p>Blanched zucchini, deshelled green peas, and spinach provide vital dietary roughage that gently cleanses livebearer and goldfish digestive tracts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Healthy Feeding Schedule & Portion Control -->
+    <section class="fish-section bg-cream" id="feeding-schedule">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              Portion Control
+            </span>
+            <h2>
+              Feeding Schedules &amp; <em>The Golden Rules</em>
+            </h2>
+            <p>In nature, fish are opportunistic foragers whose stomachs are no larger than their eye. Master portion discipline to maintain pristine water.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+            <h3>The 2-Minute Rule</h3>
+            <p>Offer only what your fish can consume completely within 90 to 120 seconds. Any uneaten food falling to the substrate must be siphoned out promptly to prevent ammonia spikes.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-calendar-day"></i></div>
+            <h3>Frequency by Life Stage</h3>
+            <p>Adult community fish thrive on 1 small meal daily or 2 micro-feedings. Growing juveniles need 2–3 tiny feedings, while tiny fry require frequent infusoria or baby brine shrimp.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>The Weekly Fast Day</h3>
+            <p>Instituting one fast day per week allows the fish's digestive tract to clear completely, virtually eliminating bloat, swim bladder pressure, and chronic constipation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Dangers of Overfeeding -->
+    <section class="fish-section bg-white" id="overfeeding-dangers">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+              Water Chemistry Hazard
+            </span>
+            <h2>
+              Dangers of <em>Overfeeding</em>
+            </h2>
+            <p>Overfeeding is the number one cause of aquarium fish mortality worldwide. Understand the catastrophic chain reaction it triggers.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-2">
+          <article class="info-card">
+            <div class="info-card-icon" style="background: #fee2e2; color: #b91c1c;"><i class="fa-solid fa-biohazard"></i></div>
+            <h3>Ammonia &amp; Nitrite Spikes</h3>
+            <p>Decaying organic food releases massive loads of toxic ammonia (NH3). Even 0.25 ppm ammonia burns delicate gill filaments, suffocates fish, and crashes biological filters.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-icon" style="background: #fef3c7; color: #b45309;"><i class="fa-solid fa-bacteria"></i></div>
+            <h3>Bacterial Blooms &amp; Low Oxygen</h3>
+            <p>Excess organic waste fuels explosive bacterial blooms that turn tank water milky cloudy. Heterotrophic bacteria consume immense dissolved oxygen, choking fish overnight.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpage Soft Light Pink CTA -->
+    <section class="fish-cta section-wrap">
+      <div>
+        <div class="eyebrow">CONTINUE YOUR AQUATIC MASTERY</div>
+        <h2>Learn Complete <em>Aquarium Care</em></h2>
+        <p>
+          Proper nutrition goes hand-in-hand with filtration cycling and water parameter maintenance. Explore our full Fish Care guide for tank upkeep routines.
+        </p>
+      </div>
+      <div class="fish-cta-actions">
+        <a class="button button-light" href="care.html">Explore Fish Care <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../../../js/main.js"></script>
+</body>
+
+</html>
