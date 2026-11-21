@@ -431,12 +431,12 @@
 
     .guide-nav-label {
         font-family: "DM Sans", "Manrope", sans-serif !important;
-        font-size: 0.80rem;
+        font-size: 0.85rem;
         font-weight: 700;
         color: #1c2b20;
-        white-space: normal;
-        line-height: 1.15;
-        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
     /* -------------------------------------------------------------
@@ -549,7 +549,7 @@
     /* Popular Fish Grid */
     .popular-fish-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
@@ -591,25 +591,29 @@
       transform: scale(1.04);
     }
 
-    .popular-fish-badge {
+        .popular-fish-badge {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1a251e;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      z-index: 2;
     }
 
-    .badge-fresh {
-      background: rgba(36, 107, 67, 0.92);
-      color: #ffffff;
-    }
-
-    .badge-marine {
-      background: rgba(2, 132, 199, 0.92);
-      color: #ffffff;
+    .popular-fish-badge i {
+      font-size: 0.8rem;
+      line-height: 1;
     }
 
     .popular-fish-body {
@@ -917,7 +921,6 @@
     /* Responsive Queries */
     @media (max-width: 1100px) {
       .guides-nav-grid { grid-template-columns: repeat(3, 1fr); }
-      .popular-fish-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 900px) {
@@ -961,7 +964,7 @@
         </p>
         <div class="hero-actions">
           <a class="button" href="breeds.html" id="hero-cta-breeds">Explore Fish Breeds <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
-          <a class="button button-outline" href="#fish-guides" id="hero-cta-guides">Explore Fish Guides <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+          <a class="button button-outline" href="#fish-guides" id="hero-cta-guides">Explore Fish Guides</a>
         </div>
         <div class="hero-note">♥ &nbsp; Dedicated to vibrant aquariums and thriving aquatic life.</div>
       </div>
@@ -1013,7 +1016,7 @@
       <div class="guides-nav-grid">
         <a href="#fish-guides" class="guide-nav-item">
           <span class="guide-nav-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Explore Fish Guides</span>
+          <span class="guide-nav-label">Fish Guides</span>
         </a>
 
         <a href="#popular-fish" class="guide-nav-item">
@@ -1023,22 +1026,22 @@
 
         <a href="#freshwater-fish" class="guide-nav-item">
           <span class="guide-nav-icon"><i class="fa-solid fa-water" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Freshwater Fish</span>
+          <span class="guide-nav-label">Freshwater</span>
         </a>
 
         <a href="#saltwater-fish" class="guide-nav-item">
           <span class="guide-nav-icon"><i class="fa-solid fa-water-ladder" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Saltwater Fish</span>
+          <span class="guide-nav-label">Saltwater</span>
         </a>
 
         <a href="#aquarium-basics" class="guide-nav-item">
           <span class="guide-nav-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Aquarium Basics</span>
+          <span class="guide-nav-label">Tank Basics</span>
         </a>
 
         <a href="#responsible-ownership" class="guide-nav-item">
           <span class="guide-nav-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Responsible Ownership</span>
+          <span class="guide-nav-label">Ownership</span>
         </a>
       </div>
     </div>
@@ -1171,7 +1174,7 @@
                 <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                 Hazards &amp; Protection
               </span>
-              <img src="https://images.unsplash.com/photo-1514907283155-ea5f4094c70c?auto=format&fit=crop&w=700&q=80" alt="Safe and secure modern aquarium tank setup" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1691387824643-227cc84127cf?auto=format&fit=crop&w=700&q=80" alt="Safe and secure modern aquarium tank setup with pristine living aquascape" alt="Safe and secure modern aquarium tank setup" loading="lazy">
             </div>
             <div class="guide-card-body">
               <h3>Fish Safety</h3>
@@ -1230,7 +1233,7 @@
           <!-- Betta Fish -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1769006604234-8f6e32bb0d77?auto=format&fit=crop&w=700&q=85" alt="Vibrant red and blue Betta splendens" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1242,7 +1245,7 @@
           <!-- Goldfish -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1785822387462-1b8dd36804be?auto=format&fit=crop&w=700&q=85" alt="Fancy orange goldfish swimming" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1254,7 +1257,7 @@
           <!-- Guppy -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1711826949355-30acbe1b385a?auto=format&fit=crop&w=700&q=85" alt="Male Guppy with colourful fan tail" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1266,7 +1269,7 @@
           <!-- Neon Tetra -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1737688670910-084f54254e73?auto=format&fit=crop&w=700&q=85" alt="Neon tetras shimmering with iridescent blue and red" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1278,7 +1281,7 @@
           <!-- Angelfish -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1646022103851-022a7544a3b5?auto=format&fit=crop&w=700&q=85" alt="Regal freshwater Angelfish" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1290,7 +1293,7 @@
           <!-- Molly Fish -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-fresh">Freshwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water" style="color: #1e6f43;" aria-hidden="true"></i> Freshwater</span>
               <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=700&q=85" alt="Sleek tropical Molly livebearer fish" loading="lazy">
             </div>
             <div class="popular-fish-body">
@@ -1302,7 +1305,7 @@
           <!-- Clownfish -->
           <article class="popular-fish-card">
             <div class="popular-fish-media">
-              <span class="popular-fish-badge badge-marine">Saltwater</span>
+              <span class="popular-fish-badge"><i class="fa-solid fa-water-ladder" style="color: #0284c7;" aria-hidden="true"></i> Saltwater</span>
               <img src="https://images.unsplash.com/photo-1516683037151-9a17603a8dc7?auto=format&fit=crop&w=700&q=85" alt="Orange and white Ocellaris Clownfish in purple anemone" loading="lazy">
             </div>
             <div class="popular-fish-body">
