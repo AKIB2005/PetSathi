@@ -151,43 +151,6 @@
       top: 15px;
     }
 
-    /* Breadcrumbs */
-    .rab-breadcrumb {
-      width: min(1280px, calc(100% - 48px));
-      margin: 20px auto 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 0.85rem;
-      color: var(--rab-muted);
-    }
-
-    .rab-breadcrumb a {
-      color: var(--rab-green-primary);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-
-    .rab-breadcrumb a:hover {
-      color: var(--rab-green-dark);
-      text-decoration: underline;
-    }
-
-    .rab-breadcrumb .separator {
-      color: #9cb1a4;
-      font-size: 0.8rem;
-    }
-
-    .rab-breadcrumb .current {
-      color: var(--rab-ink);
-      font-weight: 700;
-    }
-
     /* Section Wrapper */
     .rab-section-wrap {
       width: min(1280px, calc(100% - 48px));
@@ -811,6 +774,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-bottom: 50px;
+      align-items: stretch;
     }
 
     .rab-card {
@@ -824,6 +788,7 @@
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
       box-shadow: var(--rab-card-shadow);
       position: relative;
+      height: 100%;
     }
 
     .rab-card:hover {
@@ -834,7 +799,7 @@
 
     .rab-card-media {
       position: relative;
-      height: 180px;
+      height: 200px;
       overflow: hidden;
       background: #edf5ee;
     }
@@ -843,6 +808,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       transition: transform 0.35s ease;
     }
@@ -873,16 +839,18 @@
     }
 
     .rab-card-body {
-      padding: 24px 20px 26px;
+      padding: 28px 24px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       flex-grow: 1;
+      height: 100%;
+      box-sizing: border-box;
     }
 
     .rab-card-icon-bubble {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--rab-green-light);
       border: 1px solid var(--rab-border-green);
@@ -890,13 +858,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      margin-top: -48px;
-      margin-bottom: 14px;
+      font-size: 1.25rem;
+      margin: 0 auto 16px;
       position: relative;
       z-index: 2;
-      box-shadow: 0 4px 12px rgba(35, 75, 45, 0.1);
-      transition: transform 0.25s ease;
+      box-shadow: 0 4px 12px rgba(35, 75, 45, 0.08);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .rab-card-media + .rab-card-body .rab-card-icon-bubble {
+      margin-top: -50px;
+      margin-bottom: 14px;
     }
 
     .rab-card:hover .rab-card-icon-bubble {
@@ -1082,127 +1055,126 @@
     }
 
     /* ========================================================
-       12. FINAL CTA SECTION (Soft Light Pink Background)
+       12. FINAL CTA SECTION (Matching Cat, Dog, & Rabbit Index)
        ======================================================== */
-    .rab-pink-cta {
-      max-width: 1280px;
-      width: calc(100% - 48px);
-      margin: 70px auto 90px;
-      padding: 60px 45px;
-      background: var(--rab-pink-bg);
-      border: 1px solid var(--rab-pink-border);
-      border-radius: 32px;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(184, 51, 74, 0.05);
-      position: relative;
-      overflow: hidden;
-      box-sizing: border-box;
+    main > .cta,
+    .cta {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 25px !important;
+      width: 85% !important;
+      max-width: 1350px !important;
+      margin: 60px auto 92px !important;
+      margin-inline: auto !important;
+      padding: 48px 56px !important;
+      border: 1px solid #e6d6c6 !important;
+      border-radius: 30px !important;
+      background: #f2e8d9 !important;
+      background-image: none !important;
+      box-sizing: border-box !important;
     }
 
-    .rab-pink-cta-blob {
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246, 213, 219, 0.6) 0%, rgba(246, 213, 219, 0) 70%);
-      pointer-events: none;
+    .cta > div:first-child {
+      flex: 1 !important;
+      min-width: 0 !important;
+      text-align: left !important;
     }
 
-    .rab-pink-cta-blob-left {
-      position: absolute;
-      bottom: -50px;
-      left: -50px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246, 213, 219, 0.6) 0%, rgba(246, 213, 219, 0) 70%);
-      pointer-events: none;
+    .cta .eyebrow {
+      display: block !important;
+      margin: 0 0 14px 0 !important;
+      padding: 0 !important;
+      background: none !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      color: #286849 !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.2px !important;
+      text-transform: uppercase !important;
+      text-align: left !important;
+      width: auto !important;
     }
 
-    .rab-pink-cta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 18px;
-      background: #fae4e8;
-      border: 1px solid #f2c7ce;
-      border-radius: 999px;
-      color: var(--rab-pink-accent);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .cta h2 {
+      display: block !important;
+      margin: 0 0 8px 0 !important;
+      font-family: Georgia, 'Times New Roman', serif !important;
+      font-size: clamp(24px, 3.2vw, 36px) !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      letter-spacing: normal !important;
+      color: #263b30 !important;
+      text-align: left !important;
     }
 
-    .rab-pink-cta h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-      color: #3b2025;
-      margin: 0 0 16px;
-      font-weight: 700;
+    .cta h2 em {
+      color: #286849 !important;
+      font-family: Georgia, 'Times New Roman', serif !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
     }
 
-    .rab-pink-cta p {
-      max-width: 680px;
-      margin: 0 auto 30px;
-      font-size: 1.02rem;
-      color: #68484e;
-      line-height: 1.7;
+    .cta p {
+      display: block !important;
+      margin: 0 !important;
+      color: #26372e !important;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 400 !important;
+      line-height: 1.65 !important;
+      text-align: left !important;
     }
 
-    .rab-pink-cta-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    .cta-actions {
+      display: flex !important;
+      gap: 14px !important;
+      flex-wrap: wrap !important;
+      flex-shrink: 0 !important;
+      align-items: center !important;
     }
 
-    .rab-pink-cta .button-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      background: var(--rab-green-primary);
-      color: #ffffff;
-      border: 1px solid var(--rab-green-primary);
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 16px rgba(40, 104, 73, 0.25);
+    .cta-actions .button-light {
+      background: #ffffff !important;
+      border: 1px solid #ffffff !important;
+      color: #1b3d2b !important;
+      font-weight: 700 !important;
+      padding: 12px 24px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
     }
 
-    .rab-pink-cta .button-cta:hover {
-      background: var(--rab-green-hover);
-      border-color: var(--rab-green-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px rgba(40, 104, 73, 0.35);
+    .cta-actions .button-light:hover {
+      background: #286849 !important;
+      border-color: #286849 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
     }
 
-    .rab-pink-cta .button-cta-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      background: #ffffff;
-      color: var(--rab-green-primary);
-      border: 1px solid var(--rab-border-green);
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
+    .cta-actions .button-outline {
+      background: transparent !important;
+      border: 1.5px solid #286849 !important;
+      color: #286849 !important;
+      font-weight: 700 !important;
+      padding: 12px 24px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
     }
 
-    .rab-pink-cta .button-cta-outline:hover {
-      background: var(--rab-green-light);
-      color: var(--rab-green-dark);
-      transform: translateY(-3px);
+    .cta-actions .button-outline:hover {
+      background: #286849 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
     }
 
     /* Back To Top Button */
@@ -1323,10 +1295,26 @@
         margin: 40px auto 25px;
       }
 
-      .rab-pink-cta {
-        width: calc(100% - 24px);
-        padding: 40px 22px;
-        margin: 50px auto 70px;
+      main > .cta,
+      .cta {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 34px 24px !important;
+        width: calc(100% - 32px) !important;
+      }
+
+      .cta-actions {
+        width: 100% !important;
+        flex-direction: column !important;
+        margin-top: 18px !important;
+      }
+
+      .cta-actions .button,
+      .cta-actions .button-light,
+      .cta-actions .button-outline {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
       }
 
       .rab-hero-actions {
@@ -1336,17 +1324,6 @@
 
       .rab-hero-actions .button,
       .rab-hero-actions .button-outline {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .rab-pink-cta-actions {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .rab-pink-cta-actions .button-cta,
-      .rab-pink-cta-actions .button-cta-outline {
         width: 100%;
         justify-content: center;
       }
@@ -1360,17 +1337,6 @@
 
   <!-- Shared Header Placeholder -->
   <div id="header"></div>
-
-  <!-- Breadcrumbs -->
-  <nav class="rab-breadcrumb" aria-label="Breadcrumb">
-    <a href="../../../index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
-    <span class="separator">/</span>
-    <a href="../index.html">Pets</a>
-    <span class="separator">/</span>
-    <a href="index.html">Rabbits</a>
-    <span class="separator">/</span>
-    <span class="current" aria-current="page">Rabbit Behaviour &amp; Enrichment</span>
-  </nav>
 
   <main id="main-content">
     <!-- ========================================================
@@ -1543,8 +1509,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-eye"></i> Innate Curiosity</span>
-            <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=85"
-              alt="Curious rabbit standing on hind legs investigating surroundings" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1579294800821-694d95e86143?auto=format&fit=crop&w=700&q=85"
+              alt="Curious rabbit exploring lush green grass" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -1559,8 +1525,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-comments"></i> Nuanced Language</span>
-            <img src="https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=700&q=85"
-              alt="Rabbit grooming ears in comfortable posture" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1597306599196-bf148477596b?auto=format&fit=crop&w=700&q=85"
+              alt="Gentle rabbit peacefully feeding and showing relaxed ears" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-ear-listen"></i></div>
@@ -1575,8 +1541,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-house"></i> Habitat Context</span>
-            <img src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?auto=format&fit=crop&w=700&q=85"
-              alt="Rabbit resting comfortably inside a safe indoor pen" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1604953301575-7e3e9db82b04?auto=format&fit=crop&w=700&q=85"
+              alt="Curious rabbit sitting contentedly inside a safe, enriched habitat" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-shield-heart"></i></div>
@@ -1668,8 +1634,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-wind"></i> Sensory Radar</span>
-            <img src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?auto=format&fit=crop&w=700&q=85"
-              alt="Rabbit with nose twitching curiously" loading="lazy">
+            <img src="https://plus.unsplash.com/premium_photo-1661832480567-68a86cb46f34?q=80&w=871&auto=format&fit=crop"
+              alt="Close portrait of a curious rabbit highlighting nose and whiskers" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-arrows-up-down"></i></div>
@@ -1685,7 +1651,7 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-bullhorn"></i> Alarm Call</span>
-            <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=85"
+            <img src="https://images.unsplash.com/photo-1490885578174-acda8905c2c6?auto=format&fit=crop&w=700&q=85"
               alt="Rabbit standing attentively ready to thump" loading="lazy">
           </div>
           <div class="rab-card-body">
@@ -1702,7 +1668,7 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-compass"></i> Attention Gauge</span>
-            <img src="https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=700&q=85"
+            <img src="https://images.unsplash.com/photo-1559214369-a6b1d7919865?auto=format&fit=crop&w=700&q=85"
               alt="Rabbit with upright ears listening attentively" loading="lazy">
           </div>
           <div class="rab-card-body">
@@ -1719,8 +1685,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-dungeon"></i> Safety Retreat</span>
-            <img src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?auto=format&fit=crop&w=700&q=85"
-              alt="Rabbit peering out from a dark tunnel shelter" loading="lazy">
+            <img src="https://images.pexels.com/photos/11431017/pexels-photo-11431017.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Bonded domestic rabbits nestled together in a sheltered cozy space" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-shield"></i></div>
@@ -1736,8 +1702,8 @@
         <article class="rab-card">
           <div class="rab-card-media">
             <span class="rab-card-badge"><i class="fa-solid fa-heart"></i> Contentment</span>
-            <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=85"
-              alt="Affectionate rabbit being gently stroked on forehead" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1518796745738-41048802f99a?auto=format&fit=crop&w=700&q=85"
+              alt="Affectionate domestic companion rabbit resting peacefully" loading="lazy">
           </div>
           <div class="rab-card-body">
             <div class="rab-card-icon-bubble"><i class="fa-solid fa-music"></i></div>
@@ -2560,27 +2526,22 @@
     </section>
 
     <!-- ========================================================
-         12. FINAL CTA SECTION (Soft Light Pink Background)
+         12. FINAL CTA SECTION (Matching Cat, Dog, & Rabbit Index)
          ======================================================== -->
-    <section class="rab-pink-cta" id="rabbit-cta">
-      <div class="rab-pink-cta-blob" aria-hidden="true"></div>
-      <div class="rab-pink-cta-blob-left" aria-hidden="true"></div>
-
-      <div class="rab-pink-cta-badge">
-        <i class="fa-solid fa-heart" aria-hidden="true"></i> Lifelong Companionship
+    <section class="cta section-wrap" id="rabbit-cta">
+      <div>
+        <div class="eyebrow">LIFELONG COMPANIONSHIP</div>
+        <h2>Understand Your Bunny. <em>Strengthen Your Bond.</em></h2>
+        <p>
+          Caring for a house rabbit is a deeply rewarding journey built on empathy, patience, and mutual respect. Combine
+          your behavioral knowledge with proper housing, gentle grooming routines, and balanced hay nutrition.
+        </p>
       </div>
-
-      <h2>Understand Your Bunny. Strengthen Your Bond.</h2>
-      <p>
-        Caring for a house rabbit is a deeply rewarding journey built on empathy, patience, and mutual respect. Combine
-        your behavioral knowledge with proper housing, gentle grooming routines, and balanced hay nutrition.
-      </p>
-
-      <div class="rab-pink-cta-actions">
-        <a href="care.html" class="button-cta" id="btn-explore-rabbit-care">
-          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Explore Rabbit Care
+      <div class="cta-actions">
+        <a class="button button-light" href="care.html" id="cta-rabbit-care">
+          <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Explore Rabbit Care ↗
         </a>
-        <a href="care.html#health" class="button-cta-outline" id="btn-explore-rabbit-health">
+        <a class="button button-outline" href="care.html#health" id="cta-rabbit-health">
           <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Explore Rabbit Health
         </a>
       </div>
