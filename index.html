@@ -10,18 +10,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="frontend/css/global.css" />
   <link rel="stylesheet" href="frontend/css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     /* -------------------------------------------------------------------------
-       PetSathi Main Homepage Stylesheet
-       Consistent with Canine Companion Guide (dogs/index.html)
-       Theme: PetSathi Forest Green (#286849), Soft Cream (#fafcf7), Pure White
+       PetSathi Main Homepage Stylesheet - Level 3 Refined Design System
+       Consistent with Canine & Feline Guides (dogs/index.html & cats/index.html)
+       Theme: Forest Green (#286849), Soft Cream (#f8faf6), Warm White (#ffffff)
        ------------------------------------------------------------------------- */
 
-    /* Universal Font Awesome Guard */
+    /* Font Awesome 6 Icon Protection */
     body [class*="fa-"],
     body [class*="fa-"]::before,
     body i.fa-solid,
@@ -37,18 +38,27 @@
       line-height: 1 !important;
     }
 
-    /* Base section rhythm and alternating backgrounds */
+    .fa-regular,
+    .fa-regular::before {
+      font-weight: 400 !important;
+    }
+
+    /* Base Section Rhythm & Alternating Canvas */
     .homepage-section {
-      padding: 92px 0;
+      padding: 90px 0;
+      position: relative;
     }
 
     #home {
       background: #ffffff;
       padding-block: 55px 75px;
+      position: relative;
     }
 
     #pets {
-      background: #fafcf7;
+      background: #f8faf6;
+      border-top: 1px solid #e8ede5;
+      border-bottom: 1px solid #e8ede5;
     }
 
     #services {
@@ -56,7 +66,9 @@
     }
 
     #how-steps {
-      background: #fafcf7;
+      background: #f8faf6;
+      border-top: 1px solid #e8ede5;
+      border-bottom: 1px solid #e8ede5;
     }
 
     .green-band {
@@ -65,56 +77,57 @@
     }
 
     .about-preview-section {
-      background: #fafcf7;
+      background: #f8faf6;
+      border-top: 1px solid #e8ede5;
+      border-bottom: 1px solid #e8ede5;
     }
 
-
-
     /* -------------------------------------------------------------------------
-       Hero Section (#home) - Clean, Beautiful, Matching dogs/index.html Exactly
+       Hero Section (#home) - Balanced, Elevated, Modern Presentation
        ------------------------------------------------------------------------- */
     .hero {
       min-height: 560px;
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 1.15fr 1fr;
       align-items: center;
-      gap: 48px;
+      gap: 52px;
+      position: relative;
     }
 
-    main .dog-badge-strip,
     .dog-badge-strip,
     .hero-badge-strip {
       display: inline-flex !important;
       align-items: center !important;
       gap: 8px !important;
-      padding: 6px 14px !important;
-      background: #eaf2e9 !important;
-      background-color: #eaf2e9 !important;
-      color: var(--green, #286849) !important;
-      border-radius: 999px !important;
+      padding: 7px 18px !important;
+      background: #eaf5ed !important;
+      border: 1px solid #cce5d4 !important;
+      color: #1e6843 !important;
+      border-radius: 9999px !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
       font-size: 0.78rem !important;
       font-weight: 700 !important;
-      letter-spacing: 1px !important;
+      letter-spacing: 1.1px !important;
       text-transform: uppercase !important;
-      margin-bottom: 16px !important;
+      margin-bottom: 20px !important;
+      box-shadow: 0 2px 8px rgba(35, 100, 55, 0.05) !important;
       line-height: 1.4 !important;
     }
 
-    main .dog-badge-strip i,
     .dog-badge-strip i,
     .hero-badge-strip i {
-      font-size: 0.85rem;
-      color: var(--green, #286849);
+      font-size: 0.88rem;
+      color: #1e6843;
     }
 
     .hero h1 {
       font-family: Georgia, "Times New Roman", serif !important;
-      font-size: clamp(2.4rem, 4.2vw, 3.6rem) !important;
+      font-size: clamp(2.5rem, 4.4vw, 3.8rem) !important;
       font-weight: 700 !important;
-      line-height: 1.15 !important;
-      color: #1e3325 !important;
+      line-height: 1.14 !important;
+      color: #1a2e22 !important;
       margin: 0 0 20px !important;
-      letter-spacing: -0.5px !important;
+      letter-spacing: -0.6px !important;
     }
 
     .hero h1 em {
@@ -122,11 +135,12 @@
       font-style: normal !important;
     }
 
-    .hero-copy>p {
+    .hero-copy > p {
       max-width: 540px;
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: #55665c;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 1.06rem;
+      line-height: 1.8;
+      color: #506256;
       margin: 0 0 28px;
     }
 
@@ -135,7 +149,7 @@
       gap: 14px;
       flex-wrap: wrap;
       align-items: center;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .hero-actions .button {
@@ -143,48 +157,81 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 28px;
-      border-radius: 999px;
+      padding: 14px 30px;
+      border-radius: 9999px;
       background: #286849;
-      color: #ffffff;
+      color: #ffffff !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
       font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
       border: 2px solid #286849;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(40, 104, 73, 0.2);
+      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.22);
     }
 
     .hero-actions .button:hover {
       background: #1f533a;
       border-color: #1f533a;
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.28);
+      box-shadow: 0 8px 24px rgba(40, 104, 73, 0.3);
     }
 
     .hero-actions .button.button-outline {
       background: #ffffff;
-      color: #286849;
-      border: 1.5px solid #dcebc9;
+      color: #286849 !important;
+      border: 1.5px solid #cde4d3;
       box-shadow: 0 2px 8px rgba(35, 75, 45, 0.05);
     }
 
     .hero-actions .button.button-outline:hover {
-      background: #edf6df;
-      border-color: #c5dfad;
-      color: #1f533a;
+      background: #edf7f0;
+      border-color: #286849;
+      color: #1a4530 !important;
       transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(40, 104, 73, 0.12);
+    }
+
+    /* Hero Trust Metrics Row */
+    .hero-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      font-family: "DM Sans", "Manrope", sans-serif;
+      font-size: 0.85rem;
+      color: #64736a;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: #2a3c31;
+    }
+
+    .hero-trust-item i {
+      color: #286849;
+      font-size: 0.88rem;
+    }
+
+    .hero-trust-dot {
+      color: #b8c9bc;
+      font-weight: 700;
     }
 
     .hero-note {
-      margin-top: 24px;
+      margin-top: 14px;
       color: #64736a;
-      font-size: 0.88rem;
+      font-family: "DM Sans", "Manrope", sans-serif;
+      font-size: 0.86rem;
       font-weight: 500;
     }
 
     .hero-visual {
-      min-height: 440px;
+      min-height: 450px;
       position: relative;
       display: grid;
       place-items: center;
@@ -192,21 +239,28 @@
 
     .hero-blob {
       position: absolute;
-      width: 88%;
-      height: 90%;
-      background: #e8f0e4;
-      border-radius: 48% 52% 42% 58%;
+      width: 90%;
+      height: 92%;
+      background: radial-gradient(circle at 45% 45%, #e6f3e8 0%, #d8ebd9 100%);
+      border-radius: 46% 54% 40% 60%;
       z-index: 1;
+      filter: blur(1px);
     }
 
     .hero-photo {
       position: relative;
       z-index: 2;
-      width: 80%;
-      height: 380px;
+      width: 82%;
+      height: 390px;
       object-fit: cover;
-      border-radius: 48% 48% 24px 24px;
-      box-shadow: 0 16px 36px rgba(35, 60, 45, 0.12);
+      border-radius: 48% 48% 28px 28px;
+      border: 4px solid #ffffff;
+      box-shadow: 0 20px 48px rgba(30, 60, 42, 0.14);
+      transition: transform 0.35s ease;
+    }
+
+    .hero-photo:hover {
+      transform: scale(1.02);
     }
 
     .floating-card {
@@ -215,13 +269,19 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
       padding: 13px 18px;
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(35, 60, 45, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(30, 60, 42, 0.12);
+      border: 1px solid rgba(220, 235, 222, 0.85);
       font-size: 1.25rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .floating-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(30, 60, 42, 0.16);
     }
 
     .floating-card span {
@@ -231,50 +291,245 @@
     }
 
     .floating-card b {
-      font-size: 0.84rem;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.86rem;
       color: #1e3325;
       font-weight: 700;
       line-height: 1.25;
     }
 
     .floating-card small {
-      font-size: 0.72rem;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.74rem;
       color: #64736a;
       font-weight: 500;
     }
 
     .card-top {
       top: 40px;
-      right: 10px;
+      right: 5px;
     }
 
     .card-bottom {
-      bottom: 35px;
-      left: 10px;
+      bottom: 30px;
+      left: 5px;
     }
 
     /* -------------------------------------------------------------------------
-       Signature Section Heading Card (Exact Match to dogs/index.html)
-       Consistent Dimensions across all sections
+       Quick Navigation Strip (Exact Match to dogs/index.html & cats/index.html)
+       ------------------------------------------------------------------------- */
+    .guides-nav-strip {
+      position: relative;
+      background: #ffffff;
+      margin: 35px auto 45px;
+      max-width: 1200px;
+      width: min(1200px, calc(100% - 48px));
+      border: 1px solid #dceade;
+      border-radius: 32px;
+      padding: 40px 36px 36px;
+      box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
+      overflow: hidden;
+    }
+
+    .quick-nav-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      color: #cde4d3;
+      opacity: 0.55;
+    }
+
+    .decor-top-left {
+      top: -8px;
+      left: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 10% 10%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 0 0 100% 0;
+    }
+
+    .decor-bottom-right {
+      bottom: -8px;
+      right: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 90% 90%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 100% 0 0 0;
+    }
+
+    .decor-paw {
+      position: absolute;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .decor-paw-1 {
+      top: 14px;
+      left: 28px;
+      font-size: 28px;
+      transform: rotate(-15deg);
+    }
+
+    .decor-paw-2 {
+      top: 38px;
+      left: 12px;
+      font-size: 19px;
+      transform: rotate(20deg);
+    }
+
+    .decor-paw-3 {
+      bottom: 36px;
+      right: 14px;
+      font-size: 19px;
+      transform: rotate(-25deg);
+    }
+
+    .decor-paw-4 {
+      bottom: 14px;
+      right: 28px;
+      font-size: 28px;
+      transform: rotate(15deg);
+    }
+
+    .quick-nav-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .quick-nav-eyebrow-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .quick-nav-line {
+      height: 1px;
+      width: 110px;
+      background: #d6ead9;
+    }
+
+    .quick-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #f4faf5;
+      border: 1px solid #b7deb8;
+      border-radius: 9999px;
+      color: #1e6f43;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
+    }
+
+    .quick-nav-badge i {
+      font-size: 0.95rem;
+      line-height: 1;
+      color: #1e6f43;
+      flex-shrink: 0;
+    }
+
+    .quick-nav-title {
+      font-family: "Manrope", sans-serif !important;
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+      font-weight: 800;
+      color: #1a251e;
+      margin: 0;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .quick-nav-title span {
+      color: #1e6f43;
+      font-weight: 800;
+    }
+
+    .guides-nav-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin: 0;
+    }
+
+    .guide-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px 9px 9px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .guide-nav-item:hover {
+      background: #e4f4e8;
+      border-color: #237847;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+    }
+
+    .guide-nav-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .guide-nav-item:hover .guide-nav-icon {
+      background: #1e6f43;
+      color: #ffffff;
+    }
+
+    .guide-nav-label {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1c2b20;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* -------------------------------------------------------------------------
+       Signature Section Heading Card (Exact Match to dogs/index.html & cats/index.html)
        ------------------------------------------------------------------------- */
     .dog-topics-heading {
       position: relative;
-      max-width: 1400px;
-      margin: 0 auto 40px;
+      max-width: 1200px;
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto 44px;
       padding: 44px 35px 38px;
       overflow: hidden;
       text-align: center;
       border-radius: 35px;
       border: 1px solid #dcebc9;
-      background: #fafcf7;
+      background: #ffffff;
       box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
     }
 
-    #pets .dog-topics-heading,
-    #how-steps .dog-topics-heading,
-    .about-preview-section .dog-topics-heading {
-      background: #ffffff;
-      border-color: #dcebc9;
+    #services .dog-topics-heading {
+      background: #fafcf7;
     }
 
     .corner-wave {
@@ -346,7 +601,6 @@
       font-style: normal;
     }
 
-    /* Heading Radiating 3-Ray Bursts (Exact Match to dogs/index.html) */
     .heading-burst {
       display: inline-block;
       position: relative;
@@ -362,7 +616,6 @@
       border-radius: 9999px;
     }
 
-    /* Left burst: 3 rays radiating out to the left from the right edge */
     .heading-burst.left span {
       right: 0;
       transform-origin: right center;
@@ -388,7 +641,6 @@
       transform: rotate(-35deg);
     }
 
-    /* Right burst: 3 rays radiating out to the right from the left edge */
     .heading-burst.right span {
       left: 0;
       transform-origin: left center;
@@ -476,25 +728,25 @@
     .dog-card {
       background: #ffffff;
       border: 1px solid #dcebc9;
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      box-shadow: 0 4px 16px rgba(35, 75, 45, 0.04);
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.05);
       text-decoration: none;
       color: inherit;
     }
 
     .dog-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(35, 75, 45, 0.1);
-      border-color: #b8d6a7;
+      transform: translateY(-7px);
+      box-shadow: 0 16px 36px rgba(35, 75, 45, 0.12);
+      border-color: #286849;
     }
 
     .dog-card-media {
       position: relative;
-      height: 200px;
+      height: 215px;
       overflow: hidden;
       background: #f0f3eb;
     }
@@ -503,11 +755,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.35s ease;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .dog-card:hover .dog-card-media img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .dog-card-badge {
@@ -515,17 +767,19 @@
       top: 14px;
       left: 14px;
       background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(4px);
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-size: 0.75rem;
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.76rem;
       font-weight: 700;
-      color: #263b30;
-      display: flex;
+      color: #1a2e22;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(220, 235, 201, 0.5);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      z-index: 2;
     }
 
     .dog-card-badge i {
@@ -534,7 +788,7 @@
     }
 
     .dog-card-body {
-      padding: 24px;
+      padding: 24px 26px 22px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -542,270 +796,453 @@
 
     .dog-card-body h3 {
       font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
       margin: 0 0 10px;
-      color: #263b30;
+      color: #1a2e22;
+      line-height: 1.3;
     }
 
     .dog-card-body p {
       font-family: "DM Sans", "Manrope", sans-serif !important;
       font-size: 0.92rem;
-      line-height: 1.6;
-      color: #64736a;
-      margin: 0 0 18px;
+      line-height: 1.65;
+      margin: 0 0 20px;
       flex-grow: 1;
+      color: #55665c;
     }
 
+    /* Card Action Link with Circular Arrow Pill */
     .dog-card-link {
-      color: #286849;
-      font-weight: 700;
-      font-size: 0.9rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: gap 0.2s ease, color 0.2s ease;
-      margin-top: auto;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 14px;
+      border-top: 1px solid #edf4ec;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #286849;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .card-arrow-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #eaf5ed;
+      color: #286849;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.25s ease;
     }
 
     .dog-card:hover .dog-card-link {
-      gap: 10px;
-      color: #1f533a;
+      color: #1a4530;
+    }
+
+    .dog-card:hover .card-arrow-pill {
+      background: #286849;
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    /* Service Cards Feature Highlights Checklist */
+    .card-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: "DM Sans", "Manrope", sans-serif;
+      font-size: 0.84rem;
+      color: #4b5f52;
+    }
+
+    .card-feature-list li i {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #eaf5ed;
+      color: #286849;
+      font-size: 0.68rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
     }
 
     /* -------------------------------------------------------------------------
-       How PetSathi Works (Step Cards)
+       How PetSathi Works Step Cards
        ------------------------------------------------------------------------- */
     .how-steps-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
       width: 100%;
+      position: relative;
     }
 
     .how-step-card {
       background: #ffffff;
       border: 1px solid #dcebc9;
-      border-radius: 20px;
-      padding: 36px 28px 32px;
+      border-radius: 24px;
+      padding: 36px 28px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      box-shadow: 0 4px 16px rgba(35, 75, 45, 0.04);
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
       position: relative;
     }
 
     .how-step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(35, 75, 45, 0.09);
-      border-color: #b8d6a7;
+      transform: translateY(-7px);
+      box-shadow: 0 18px 36px rgba(35, 75, 45, 0.1);
+      border-color: #286849;
     }
 
     .how-step-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      background: #edf6df;
-      border: 1px solid #dcebc9;
-      border-radius: 50px;
-      color: #286849;
-      font-size: 0.74rem;
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 14px;
+      background: #f0f7f1;
+      border: 1px solid #cce5d4;
+      border-radius: 9999px;
+      color: #1e6843;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.76rem;
+      font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
     }
 
     .how-step-icon {
       width: 72px;
       height: 72px;
-      border-radius: 50%;
-      background: #eaf3e7;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eaf5ed 0%, #d8ebd9 100%);
       color: #286849;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(40, 104, 73, 0.08);
-      transition: transform 0.25s ease, background 0.25s ease;
+      font-size: 1.65rem;
+      display: grid;
+      place-items: center;
+      margin: 18px auto 22px;
+      box-shadow: 0 8px 20px rgba(40, 104, 73, 0.12);
+      transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease;
     }
 
     .how-step-card:hover .how-step-icon {
-      transform: scale(1.08);
-      background: #deeed7;
+      transform: scale(1.1) rotate(-4deg);
+      background: #286849;
+      color: #ffffff;
     }
 
     .how-step-card h3 {
       font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #263b30;
-      margin: 0 0 10px;
+      margin: 0 0 12px;
+      color: #1a2e22;
     }
 
     .how-step-card p {
       font-family: "DM Sans", "Manrope", sans-serif !important;
       font-size: 0.92rem;
-      line-height: 1.6;
-      color: #64736a;
+      line-height: 1.65;
+      color: #55665c;
       margin: 0;
     }
 
     /* -------------------------------------------------------------------------
-       Feature Green Band & About Preview
+       Feature Green Band ("The PetSathi Difference") - Emerald Showcase
        ------------------------------------------------------------------------- */
-    .band-card,
+    .band-card {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 52px;
+      background: linear-gradient(135deg, #13462d 0%, #1e583c 100%);
+      border-radius: 34px;
+      padding: 56px 64px;
+      box-shadow: 0 20px 50px rgba(19, 70, 45, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .band-copy .heading-label {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #c4ebd0;
+      box-shadow: none;
+    }
+
+    .band-copy .heading-label i {
+      color: #c4ebd0;
+    }
+
+    .band-copy h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(2rem, 3.2vw, 2.7rem) !important;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff !important;
+      margin: 0 0 18px;
+    }
+
+    .band-copy h3 em {
+      color: #a9e8be;
+      font-style: normal;
+    }
+
+    .band-copy p {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: #dceade !important;
+      margin: 0 0 26px;
+    }
+
+    .band-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .band-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "DM Sans", "Manrope", sans-serif;
+      font-size: 0.94rem;
+      color: #e5f4e8;
+      font-weight: 500;
+    }
+
+    .band-feature-item i {
+      color: #a9e8be;
+      font-size: 0.95rem;
+    }
+
+    .band-copy .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 9999px;
+      background: #ffffff;
+      color: #13462d !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      border: 2px solid #ffffff;
+    }
+
+    .band-copy .button:hover {
+      background: #eaf5ed;
+      color: #0c3320 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .band-media img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* -------------------------------------------------------------------------
+       About Preview Section
+       ------------------------------------------------------------------------- */
     .about-preview {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.15fr;
       align-items: center;
       gap: 52px;
       background: #ffffff;
       border: 1px solid #dcebc9;
-      border-radius: 28px;
-      padding: 44px;
-      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+      border-radius: 34px;
+      padding: 54px 60px;
+      box-shadow: 0 8px 32px rgba(35, 75, 45, 0.05);
     }
 
-    .band-card img,
-    .about-preview img {
+    .about-media img {
       width: 100%;
-      height: 340px;
+      height: 330px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(35, 75, 45, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.1);
+      border: 3px solid #f2f7f2;
     }
 
-    .band-card h3,
-    .about-preview h3 {
+    .about-copy h3 {
       font-family: Georgia, "Times New Roman", serif !important;
-      font-size: clamp(24px, 2.8vw, 32px);
+      font-size: clamp(2rem, 3.2vw, 2.7rem) !important;
       font-weight: 700;
-      color: #263b30;
-      margin: 0 0 16px;
-      line-height: 1.25;
+      line-height: 1.2;
+      color: #1a2e22;
+      margin: 0 0 18px;
     }
 
-    .band-card h3 em,
-    .about-preview h3 em {
-      color: #28764a;
+    .about-copy h3 em {
+      color: #286849;
       font-style: normal;
     }
 
-    .band-card p,
-    .about-preview p {
+    .about-copy p {
       font-family: "DM Sans", "Manrope", sans-serif !important;
-      font-size: 0.96rem;
-      line-height: 1.7;
-      color: #64736a;
-      margin: 0 0 24px;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: #55665c;
+      margin: 0 0 28px;
+    }
+
+    .about-copy .button.button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 9999px;
+      background: #ffffff;
+      color: #286849;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1.5px solid #286849;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(35, 75, 45, 0.05);
+    }
+
+    .about-copy .button.button-outline:hover {
+      background: #286849;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.2);
     }
 
     /* -------------------------------------------------------------------------
-       CTA Banner Section matching dogs/index.html
+       Closing CTA Banner Section (Exact Match to User Reference Screenshot)
        ------------------------------------------------------------------------- */
     .cta {
-      margin-top: 0;
-      margin-bottom: 92px;
-      border: 1px solid #e6d6c6;
-      border-radius: 30px;
-      background: #f2e8d9 !important;
-      padding: 48px 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 36px;
-      box-shadow: 0 4px 20px rgba(60, 45, 30, 0.04);
-    }
-
-    .cta>div {
-      text-align: left !important;
+      background: #f2e8d9 !important;
+      border: 1px solid #e6d7c3 !important;
+      border-radius: 30px !important;
+      padding: 48px 56px !important;
+      margin: 30px auto 85px !important;
+      box-shadow: 0 10px 30px rgba(70, 50, 20, 0.05);
+      position: relative;
+      overflow: hidden;
     }
 
     .cta .eyebrow {
-      font-family: "Manrope", "DM Sans", sans-serif;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.6px !important;
       color: #286849 !important;
-      margin: 0 0 12px !important;
-      display: block;
-      text-align: left !important;
+      text-transform: uppercase !important;
+      margin-bottom: 12px !important;
+      display: block !important;
     }
 
     .cta h2 {
       font-family: Georgia, "Times New Roman", serif !important;
-      font-size: clamp(26px, 3vw, 36px);
-      font-weight: 700;
-      color: #263b30 !important;
-      margin: 0 0 12px !important;
-      line-height: 1.25;
+      font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+      font-weight: 700 !important;
+      color: #1a2e22 !important;
+      line-height: 1.2 !important;
+      margin: 0 0 14px 0 !important;
       text-align: left !important;
     }
 
     .cta h2 em {
       color: #286849 !important;
-      font-style: normal;
+      font-style: normal !important;
     }
 
     .cta p {
       font-family: "DM Sans", "Manrope", sans-serif !important;
-      font-size: 0.98rem;
-      line-height: 1.65;
-      color: #55665c !important;
+      font-size: 0.98rem !important;
+      line-height: 1.7 !important;
+      color: #4a5c51 !important;
+      max-width: 620px !important;
       margin: 0 !important;
-      max-width: 580px;
       text-align: left !important;
     }
 
     .cta-actions {
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      flex-shrink: 0;
       align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .cta .button {
+    .cta .button.button-light {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       padding: 13px 26px;
-      min-height: 48px;
-      border-radius: 999px;
-      font-family: "DM Sans", "Manrope", sans-serif;
+      border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
       text-decoration: none;
       transition: all 0.25s ease;
-      cursor: pointer;
-    }
-
-    .cta .button.button-light {
-      background: #ffffff !important;
-      color: #263b30 !important;
-      border: 1px solid #ffffff !important;
-      box-shadow: none !important;
-      filter: none !important;
+      white-space: nowrap;
     }
 
     .cta .button.button-light:hover {
-      background: #edf3ec !important;
-      color: #1f533a !important;
+      background: #fdfdfd !important;
       transform: translateY(-2px);
-      box-shadow: none !important;
-      filter: none !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
     .cta .button.button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 9999px;
       background: transparent !important;
       color: #286849 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
       border: 1.5px solid #286849 !important;
-      box-shadow: none;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
     .cta .button.button-outline:hover {
@@ -816,60 +1253,20 @@
     }
 
     /* -------------------------------------------------------------------------
-       Footer Styles Preserved
-       ------------------------------------------------------------------------- */
-    .footer {
-      padding: 68px 0 0;
-      background: var(--dark);
-      color: #fff;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1.35fr 1fr 1fr 1fr;
-    }
-
-    .footer-grid>div {
-      color: #c8daca;
-    }
-
-    .footer-grid .brand,
-    .footer-grid b {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .footer-grid .brand span:last-child span {
-      color: #b9d8bd;
-    }
-
-    .footer-grid a:hover {
-      color: #fff;
-    }
-
-    .footer-bottom {
-      border-top-color: rgba(215, 230, 217, 0.2);
-      color: #b9cbbd;
-    }
-
-    .footer .brand-mark {
-      color: #fff;
-    }
-
-    .footer-link-icon {
-      display: inline-block;
-      width: 1.4em;
-      color: #b9d8bd;
-    }
-
-    /* -------------------------------------------------------------------------
        Responsive Media Queries
        ------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .guides-nav-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: center;
-        padding-top: 35px;
+        padding-top: 25px;
       }
 
       .dog-badge-strip,
@@ -877,11 +1274,15 @@
         margin-inline: auto;
       }
 
-      .hero-copy>p {
+      .hero-copy > p {
         margin-inline: auto;
       }
 
       .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-trust-row {
         justify-content: center;
       }
 
@@ -890,11 +1291,11 @@
       }
 
       .hero-visual {
-        min-height: 360px;
+        min-height: 380px;
       }
 
       .hero-photo {
-        height: 320px;
+        height: 330px;
         width: 85%;
       }
 
@@ -910,7 +1311,12 @@
       .about-preview {
         grid-template-columns: 1fr;
         gap: 36px;
+        padding: 42px 36px;
         text-align: center;
+      }
+
+      .band-features-list {
+        align-items: center;
       }
 
       .band-card .heading-label,
@@ -919,8 +1325,8 @@
         margin-right: auto;
       }
 
-      .band-card img,
-      .about-preview img {
+      .band-media img,
+      .about-media img {
         height: 280px;
         max-width: 540px;
         margin: 0 auto;
@@ -929,85 +1335,50 @@
       .cta {
         flex-direction: column;
         align-items: flex-start;
-        text-align: left;
-        padding: 40px 32px;
-      }
-
-      .cta>div {
-        text-align: left !important;
-      }
-
-      .cta h2,
-      .cta p {
-        text-align: left !important;
-      }
-
-      .cta .eyebrow {
-        text-align: left !important;
+        padding: 40px 32px !important;
       }
 
       .cta-actions {
+        width: 100%;
         justify-content: flex-start;
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        flex-wrap: wrap;
       }
     }
 
     @media (max-width: 768px) {
+      .homepage-section {
+        padding: 65px 0;
+      }
+
+      .guides-nav-strip {
+        padding: 30px 20px 24px;
+        border-radius: 24px;
+      }
+
+      .guides-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
       .dog-topics-heading {
-        padding: 35px 16px 30px;
+        padding: 35px 20px 30px;
         border-radius: 24px;
         margin-bottom: 30px;
       }
 
       .corner-wave {
-        width: 170px;
-        height: 110px;
+        width: 160px;
+        height: 100px;
       }
 
-      .dog-topics-heading h2 {
-        font-size: clamp(20px, 5vw, 26px);
-      }
-
-      .heading-burst {
-        width: 16px;
-        height: 18px;
-      }
-
-      .dog-topics-heading p {
-        font-size: 14px;
-      }
-
-      .heading-label {
-        font-size: 11px;
-        padding: 6px 14px;
-        margin-bottom: 12px;
-      }
-
-      .paw-left-1 {
-        left: 35px;
-        top: 25px;
-        font-size: 34px;
-      }
-
-      .paw-left-2 {
-        left: 18px;
-        bottom: 14px;
-        font-size: 24px;
-      }
-
+      .paw-left-1,
       .paw-right-1 {
-        right: 25px;
-        top: 25px;
-        font-size: 34px;
+        display: none;
       }
 
-      .paw-right-2 {
-        right: 35px;
-        bottom: 14px;
-        font-size: 24px;
+      .card-grid,
+      .how-steps-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1040,74 +1411,71 @@
         left: 0;
       }
 
-      .card-grid,
-      .how-steps-grid {
-        grid-template-columns: 1fr;
+      .band-card,
+      .about-preview {
+        padding: 32px 22px;
       }
 
       .cta {
-        padding: 34px 24px;
-        margin-bottom: 60px;
-        text-align: left;
-      }
-
-      .cta>div,
-      .cta h2,
-      .cta p,
-      .cta .eyebrow {
-        text-align: left !important;
+        padding: 32px 20px !important;
       }
 
       .cta-actions {
-        width: 100%;
         flex-direction: column;
-        margin-top: 18px;
-        gap: 12px;
+        width: 100%;
       }
 
       .cta-actions .button {
         width: 100%;
-        box-shadow: none !important;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       .dog-card,
       .dog-card-media img,
       .how-step-card,
       .button,
-      .dog-card-link {
+      .dog-card-link,
+      .card-arrow-pill,
+      .guide-nav-item {
         transition: none !important;
         transform: none !important;
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
-  <!-- Top Global Header -->
+  <!-- Top Global Header (Preserved) -->
   <div id="header"></div>
 
   <main>
     <!-- Hero Section -->
     <section class="hero section-wrap" id="home">
       <div class="hero-copy">
-        <div class="dog-badge-strip">🐾 PetSathi • Loving Pet Care &amp; Walking</div>
+        <div class="dog-badge-strip">
+          <i class="fa-solid fa-paw"></i>
+          PetSathi • Loving Pet Care &amp; Walking
+        </div>
         <h1>Every Paw Deserves a <em>Happy Walk.</em></h1>
         <p>
           Discover a better way to care for your beloved pets. Find trusted walking companions, explore expert guides
           across every species, and make every day brighter, healthier, and full of joy.
         </p>
         <div class="hero-actions">
-          <a class="button" href="frontend/pages/pets/index.html" id="hero-cta-pets">Explore Pets ↗</a>
-          <a class="button button-outline" href="frontend/pages/walker/index.html" id="hero-cta-walker">Find a
-            Walker</a>
+          <a class="button" href="frontend/pages/pets/index.html" id="hero-cta-pets">
+            Explore Pets ↗
+          </a>
+          <a class="button button-outline" href="frontend/pages/walker/index.html" id="hero-cta-walker">
+            Find a Walker
+          </a>
+        </div>
+        <div class="hero-trust-row">
+          <span class="hero-trust-item"><i class="fa-solid fa-circle-check"></i> Verified Walkers</span>
+          <span class="hero-trust-dot">•</span>
+          <span class="hero-trust-item"><i class="fa-solid fa-shield-heart"></i> Daily Gentle Care</span>
+          <span class="hero-trust-dot">•</span>
+          <span class="hero-trust-item"><i class="fa-solid fa-star"></i> 4.9/5 Care Rating</span>
         </div>
         <div class="hero-note">♥ &nbsp; Dedicated to happy paws and loving homes.</div>
       </div>
@@ -1125,6 +1493,60 @@
         </div>
       </div>
     </section>
+
+    <!-- Quick Navigation Strip (Matching dogs/index.html & cats/index.html) -->
+    <div class="guides-nav-strip">
+      <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+        <i class="fa-solid fa-paw decor-paw decor-paw-1"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-2"></i>
+      </div>
+
+      <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+        <i class="fa-solid fa-paw decor-paw decor-paw-3"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-4"></i>
+      </div>
+
+      <div class="quick-nav-header">
+        <div class="quick-nav-eyebrow-wrap">
+          <span class="quick-nav-line"></span>
+          <div class="quick-nav-badge">
+            <i class="fa-regular fa-compass quick-nav-badge-icon" aria-hidden="true"></i>
+            <span>QUICK NAVIGATION</span>
+          </div>
+          <span class="quick-nav-line"></span>
+        </div>
+        <h3 class="quick-nav-title">
+          Explore Dedicated <span>Pet Knowledge Guides</span>
+        </h3>
+      </div>
+
+      <div class="guides-nav-grid">
+        <a href="frontend/pages/pets/dogs/index.html" class="guide-nav-item" id="hub-link-dogs">
+          <span class="guide-nav-icon"><i class="fa-solid fa-dog" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Dogs</span>
+        </a>
+        <a href="frontend/pages/pets/cats/index.html" class="guide-nav-item" id="hub-link-cats">
+          <span class="guide-nav-icon"><i class="fa-solid fa-cat" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Cats</span>
+        </a>
+        <a href="frontend/pages/pets/birds/index.html" class="guide-nav-item" id="hub-link-birds">
+          <span class="guide-nav-icon"><i class="fa-solid fa-dove" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Birds</span>
+        </a>
+        <a href="frontend/pages/pets/rabbits/index.html" class="guide-nav-item" id="hub-link-rabbits">
+          <span class="guide-nav-icon"><i class="fa-solid fa-carrot" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Rabbits</span>
+        </a>
+        <a href="frontend/pages/pets/other/fish.html" class="guide-nav-item" id="hub-link-fish">
+          <span class="guide-nav-icon"><i class="fa-solid fa-fish" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Aquatic</span>
+        </a>
+        <a href="frontend/pages/pets/other/reptiles.html" class="guide-nav-item" id="hub-link-reptiles">
+          <span class="guide-nav-icon"><i class="fa-solid fa-dragon" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Reptiles</span>
+        </a>
+      </div>
+    </div>
 
     <!-- Explore Pets Section -->
     <section class="section homepage-section" id="pets">
@@ -1157,7 +1579,7 @@
               Meet Your <span>New Best Friend</span>
               <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
             </h2>
-            <p>Every pet is unique. Find helpful information and care inspiration made for them.</p>
+            <p>Every pet is unique. Find helpful information and care inspiration made specifically for them.</p>
           </div>
         </div>
 
@@ -1167,12 +1589,15 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=700&q=90"
                 alt="Golden retriever standing cheerfully outdoors" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-dog"></i> Canine</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-dog"></i> Canine Guide</span>
             </div>
             <div class="dog-card-body">
               <h3>Dogs</h3>
               <p>Loyal, energetic, and playful companions ready for every outdoor adventure and daily walk.</p>
-              <span class="dog-card-link">Explore Dogs <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Dogs</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1181,12 +1606,15 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=85"
                 alt="Attentive cat looking into the camera" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-cat"></i> Feline</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-cat"></i> Feline Guide</span>
             </div>
             <div class="dog-card-body">
               <h3>Cats</h3>
               <p>Independent, affectionate, and curious feline friends who rule the home with gentle grace.</p>
-              <span class="dog-card-link">Explore Cats <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Cats</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1195,12 +1623,15 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1470662061953-318cd8c6c152?auto=format&fit=crop&w=700&q=85"
                 alt="Vibrant green and yellow budgerigar perched attentively on a branch" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-dove"></i> Avian</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-dove"></i> Avian Guide</span>
             </div>
             <div class="dog-card-body">
               <h3>Birds</h3>
               <p>Vibrant, intelligent, and melodic companions that brighten every room with song and charm.</p>
-              <span class="dog-card-link">Explore Birds <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Birds</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1209,12 +1640,15 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=700&q=85"
                 alt="Cute fluffy rabbit sitting peacefully in fresh grass" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-carrot"></i> Rabbits</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-carrot"></i> Rabbits Care</span>
             </div>
             <div class="dog-card-body">
               <h3>Rabbits</h3>
               <p>Playful hops, gentle companionship, wholesome nutrition, and loving indoor pet care.</p>
-              <span class="dog-card-link">Explore Rabbits <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Rabbits</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1223,12 +1657,15 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=700&q=85"
                 alt="Exotic tropical fish swimming in clear water" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-fish"></i> Aquatic</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-fish"></i> Aquatic Haven</span>
             </div>
             <div class="dog-card-body">
               <h3>Aquatic Pets</h3>
               <p>Peaceful, colorful freshwater and saltwater companions that create serene underwater beauty.</p>
-              <span class="dog-card-link">Explore Aquatic <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Aquatic</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1237,12 +1674,15 @@
             <div class="dog-card-media">
               <img src="frontend/assets/images/reptiles/bearded-dragon.jpg"
                 alt="Bearded dragon resting peacefully in terrarium" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Reptiles</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Terrarium Pets</span>
             </div>
             <div class="dog-card-body">
               <h3>Reptiles</h3>
               <p>Fascinating, ancient companions with calm dispositions and specialized terrarium habitats.</p>
-              <span class="dog-card-link">Explore Reptiles <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="dog-card-link">
+                <span>Explore Reptiles</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
         </div>
@@ -1280,7 +1720,7 @@
               Care &amp; Walking <span>Tailored to Them</span>
               <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
             </h2>
-            <p>Professional, loving pet care services designed to give your pet the attention they deserve.</p>
+            <p>Professional, loving pet care services designed to give your pet the dedicated attention they deserve.</p>
           </div>
         </div>
 
@@ -1290,12 +1730,20 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=700&q=85"
                 alt="Dog walking outdoors on a sunny trail" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-person-walking"></i> Active</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-person-walking"></i> Active Walking</span>
             </div>
             <div class="dog-card-body">
               <h3>Dog Walking</h3>
               <p>Daily walks, energetic outdoor exercise, and fresh-air adventures with trusted, vetted companions.</p>
-              <span class="dog-card-link">Explore Service <i class="fa-solid fa-arrow-right"></i></span>
+              <ul class="card-feature-list">
+                <li><i class="fa-solid fa-check"></i> Live GPS Walk Route Tracking</li>
+                <li><i class="fa-solid fa-check"></i> Flexible 30 &amp; 60 Min Walks</li>
+                <li><i class="fa-solid fa-check"></i> Photo Updates After Every Walk</li>
+              </ul>
+              <div class="dog-card-link">
+                <span>Explore Dog Walking</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
@@ -1304,26 +1752,42 @@
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=700&q=85"
                 alt="Cat relaxed in a sunny home spot" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-shield-cat"></i> Home Care</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-shield-cat"></i> Home Visits</span>
             </div>
             <div class="dog-card-body">
               <h3>Cat Care</h3>
               <p>Stress-free drop-in visits, fresh feeding, gentle playtime, and attentive in-home companionship.</p>
-              <span class="dog-card-link">Explore Service <i class="fa-solid fa-arrow-right"></i></span>
+              <ul class="card-feature-list">
+                <li><i class="fa-solid fa-check"></i> Fresh Feeding &amp; Hydration</li>
+                <li><i class="fa-solid fa-check"></i> Gentle Play &amp; Cuddle Sessions</li>
+                <li><i class="fa-solid fa-check"></i> Litter Box Hygiene &amp; Care</li>
+              </ul>
+              <div class="dog-card-link">
+                <span>Explore Cat Care</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
 
-          <!-- Pet Care -->
+          <!-- Pet Care Guidance -->
           <a class="dog-card" href="frontend/pages/services/pet-care.html">
             <div class="dog-card-media">
               <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=700&q=85"
                 alt="Two pets resting happily together" loading="eager" />
-              <span class="dog-card-badge"><i class="fa-solid fa-heart-pulse"></i> Pet Care</span>
+              <span class="dog-card-badge"><i class="fa-solid fa-heart-pulse"></i> Wellness Care</span>
             </div>
             <div class="dog-card-body">
               <h3>Pet Care</h3>
               <p>Everyday care inspiration, wellness support, and reliable routine assistance for your pets.</p>
-              <span class="dog-card-link">Explore Service <i class="fa-solid fa-arrow-right"></i></span>
+              <ul class="card-feature-list">
+                <li><i class="fa-solid fa-check"></i> Balanced Nutrition Guidelines</li>
+                <li><i class="fa-solid fa-check"></i> Health &amp; Hygiene Standards</li>
+                <li><i class="fa-solid fa-check"></i> Routine &amp; Behaviour Support</li>
+              </ul>
+              <div class="dog-card-link">
+                <span>Explore Pet Care</span>
+                <span class="card-arrow-pill"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
             </div>
           </a>
         </div>
@@ -1383,8 +1847,7 @@
               <i class="fa-solid fa-paw"></i>
             </div>
             <h3>Connect With Walkers</h3>
-            <p>Send a direct request, chat about your pet's needs, and set up a meet-and-greet before your first
-              booking.</p>
+            <p>Send a direct request, chat about your pet's needs, and set up a meet-and-greet before your first booking.</p>
           </div>
 
           <!-- Step 3 -->
@@ -1412,10 +1875,14 @@
             <h3>Every Pet Deserves <em>Loving Attention</em></h3>
             <p>
               From energetic morning walks to gentle evening check-ins, PetSathi helps you connect with passionate
-              animal
-              lovers who treat your pets like family. Enjoy verified companions, reliable booking, and dedicated
+              animal lovers who treat your pets like family. Enjoy verified companions, reliable booking, and dedicated
               support.
             </p>
+            <div class="band-features-list">
+              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> 100% Background-Vetted Local Walkers</div>
+              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> Real-Time GPS Tracking &amp; Photo Logs</div>
+              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> Comprehensive Health &amp; Care Guides</div>
+            </div>
             <a class="button" href="frontend/pages/walker/index.html">Find a Local Walker ↗</a>
           </div>
           <div class="band-media">
@@ -1451,7 +1918,7 @@
       </div>
     </section>
 
-    <!-- CTA Banner Section -->
+    <!-- CTA Banner Section (Exact Match to User Reference Screenshot) -->
     <section class="cta section-wrap">
       <div>
         <div class="eyebrow">START YOUR PET'S JOURNEY</div>
@@ -1470,7 +1937,7 @@
     </section>
   </main>
 
-  <!-- Bottom Global Footer -->
+  <!-- Bottom Global Footer (Preserved) -->
   <div id="footer"></div>
   <script src="frontend/js/main.js"></script>
 </body>
