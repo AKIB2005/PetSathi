@@ -44,3 +44,58 @@
   .walker-filters button { justify-content: center; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .walker-card { transition: none; } .walker-card:hover, .walker-card:focus-within { transform: none; } }
+
+/* global.css forces white section backgrounds; restore the Cat Index treatment here only. */
+.walker-page .walker-section-heading {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 45px auto 35px;
+  padding: 44px 35px 38px;
+  border: 1px solid #dcebc9;
+  border-radius: 35px;
+  background-color: #fafcf7 !important;
+  box-shadow: 0 4px 24px rgba(35, 75, 45, .04);
+  text-align: center;
+}
+.walker-page .walker-section-heading::before,
+.walker-page .walker-section-heading::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 85px;
+  background: #edf6e6;
+  pointer-events: none;
+}
+.walker-page .walker-section-heading::before { top: 0; left: 0; border-radius: 0 0 100% 0; }
+.walker-page .walker-section-heading::after { bottom: 0; right: 0; border-radius: 100% 0 0 0; }
+.walker-page .walker-section-heading > * { position: relative; z-index: 1; }
+.walker-page .walker-section-heading h2 {
+  color: #263b30;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.walker-page .walker-section-heading p { color: var(--dark); margin: 0 auto; max-width: 760px; }
+.walker-page .walker-section-heading .eyebrow { justify-content: center; color: var(--green); }
+.walker-page .booking-badge,
+.walker-page .booking-badge.is-progress,
+.walker-page .booking-badge.is-complete { background: #eaf2e9; color: var(--dark); }
+.walker-page .inner-cta {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto 75px;
+  padding: 38px 44px;
+  border: 1px solid #cbd9ce;
+  border-radius: 24px;
+  background-color: var(--soft) !important;
+  background-image: none !important;
+  text-align: left;
+}
+.walker-page .inner-cta h2 { color: var(--dark); margin: 0 0 12px; }
+.walker-page .inner-cta p { color: var(--ink); max-width: 760px; margin: 0; }
+.walker-page .button:hover i { color: inherit; }
+@media (max-width: 700px) {
+  .walker-page .walker-section-heading { padding: 35px 16px 30px; margin: 25px 0; border-radius: 24px; }
+  .walker-page .inner-cta { width: calc(100% - 36px); padding: 28px 24px; margin-bottom: 45px; }
+}
