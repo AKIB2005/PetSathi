@@ -18,11 +18,10 @@
   <style>
     /* -------------------------------------------------------------------------
        PetSathi Main Homepage Stylesheet - Level 3 Refined Design System
-       Consistent with Canine & Feline Guides (dogs/index.html & cats/index.html)
-       Theme: Forest Green (#286849), Soft Cream (#f8faf6), Warm White (#ffffff)
+       Theme: Forest Green (#286849), Soft Cream (#f8faf6), Pure White (#ffffff)
        ------------------------------------------------------------------------- */
 
-    /* Font Awesome 6 Icon Protection */
+    /* Universal Font Awesome 6 Guard */
     body [class*="fa-"],
     body [class*="fa-"]::before,
     body i.fa-solid,
@@ -43,47 +42,49 @@
       font-weight: 400 !important;
     }
 
-    /* Base Section Rhythm & Alternating Canvas */
+    /* Base Section Rhythm - No Horizontal Divider Lines */
     .homepage-section {
-      padding: 90px 0;
+      padding: 85px 0;
       position: relative;
+      border-top: none !important;
+      border-bottom: none !important;
     }
 
     #home {
       background: #ffffff;
       padding-block: 55px 75px;
       position: relative;
+      border: none !important;
     }
 
     #pets {
       background: #f8faf6;
-      border-top: 1px solid #e8ede5;
-      border-bottom: 1px solid #e8ede5;
+      border: none !important;
     }
 
     #services {
       background: #ffffff;
+      border: none !important;
     }
 
     #how-steps {
       background: #f8faf6;
-      border-top: 1px solid #e8ede5;
-      border-bottom: 1px solid #e8ede5;
+      border: none !important;
     }
 
-    .green-band {
+    #difference {
       background: #ffffff;
       padding: 85px 0;
+      border: none !important;
     }
 
     .about-preview-section {
       background: #f8faf6;
-      border-top: 1px solid #e8ede5;
-      border-bottom: 1px solid #e8ede5;
+      border: none !important;
     }
 
     /* -------------------------------------------------------------------------
-       Hero Section (#home) - Balanced, Elevated, Modern Presentation
+       Hero Section (#home)
        ------------------------------------------------------------------------- */
     .hero {
       min-height: 560px;
@@ -192,41 +193,11 @@
       box-shadow: 0 6px 16px rgba(40, 104, 73, 0.12);
     }
 
-    /* Hero Trust Metrics Row */
-    .hero-trust-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 24px;
-      font-family: "DM Sans", "Manrope", sans-serif;
-      font-size: 0.85rem;
-      color: #64736a;
-      flex-wrap: wrap;
-    }
-
-    .hero-trust-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      color: #2a3c31;
-    }
-
-    .hero-trust-item i {
-      color: #286849;
-      font-size: 0.88rem;
-    }
-
-    .hero-trust-dot {
-      color: #b8c9bc;
-      font-weight: 700;
-    }
-
     .hero-note {
-      margin-top: 14px;
+      margin-top: 24px;
       color: #64736a;
       font-family: "DM Sans", "Manrope", sans-serif;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       font-weight: 500;
     }
 
@@ -322,8 +293,8 @@
       position: relative;
       background: #ffffff;
       margin: 35px auto 45px;
-      max-width: 1200px;
-      width: min(1200px, calc(100% - 48px));
+      max-width: 1400px;
+      width: min(1400px, calc(100% - 48px));
       border: 1px solid #dceade;
       border-radius: 32px;
       padding: 40px 36px 36px;
@@ -512,24 +483,19 @@
     }
 
     /* -------------------------------------------------------------------------
-       Signature Section Heading Card (Exact Match to dogs/index.html & cats/index.html)
+       EXACT Signature Section Heading Cards matching dogs/index.html EXACT design
        ------------------------------------------------------------------------- */
     .dog-topics-heading {
       position: relative;
-      max-width: 1200px;
-      width: min(1200px, calc(100% - 48px));
-      margin: 0 auto 44px;
+      max-width: 1400px;
+      margin: 45px auto 35px;
       padding: 44px 35px 38px;
       overflow: hidden;
       text-align: center;
       border-radius: 35px;
       border: 1px solid #dcebc9;
-      background: #ffffff;
-      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
-    }
-
-    #services .dog-topics-heading {
       background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
     }
 
     .corner-wave {
@@ -572,33 +538,23 @@
       font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
-    }
-
-    .heading-label i {
-      color: #246b43;
-      font-size: 14px;
-      line-height: 1;
     }
 
     .dog-topics-heading h2 {
       color: #263b30;
-      font-family: Georgia, "Times New Roman", serif !important;
+      font-family: Georgia, serif;
       font-size: clamp(24px, 3.2vw, 36px);
       font-weight: 700;
       margin: 0 0 12px;
-      line-height: 1.2;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .dog-topics-heading h2 span,
-    .dog-topics-heading h2 em {
+    .dog-topics-heading h2 span {
       color: #28764a;
-      font-style: normal;
     }
 
     .heading-burst {
@@ -675,44 +631,40 @@
       line-height: 1.65;
     }
 
+    /* Paws EXACT MATCH to dogs/index.html */
     .paw {
       position: absolute;
-      pointer-events: none;
+      color: rgba(115, 173, 91, 0.28);
       z-index: 1;
-      opacity: 0.65;
-    }
-
-    .paw i {
-      display: block;
-      color: #c9dec2;
+      pointer-events: none;
     }
 
     .paw-left-1 {
-      left: 75px;
-      top: 36px;
-      font-size: 42px;
-      transform: rotate(-18deg);
-    }
-
-    .paw-left-2 {
-      left: 38px;
-      bottom: 24px;
-      font-size: 30px;
-      transform: rotate(-38deg);
-    }
-
-    .paw-right-1 {
-      right: 65px;
-      top: 36px;
-      font-size: 42px;
+      top: 66px;
+      left: 108px;
+      font-size: 58px;
       transform: rotate(20deg);
     }
 
-    .paw-right-2 {
-      right: 78px;
+    .paw-left-2 {
       bottom: 24px;
-      font-size: 30px;
-      transform: rotate(42deg);
+      left: 82px;
+      font-size: 38px;
+      transform: rotate(-15deg);
+    }
+
+    .paw-right-1 {
+      top: 60px;
+      right: 75px;
+      font-size: 56px;
+      transform: rotate(18deg);
+    }
+
+    .paw-right-2 {
+      bottom: 35px;
+      right: 140px;
+      font-size: 38px;
+      transform: rotate(-15deg);
     }
 
     /* -------------------------------------------------------------------------
@@ -966,62 +918,85 @@
     }
 
     /* -------------------------------------------------------------------------
-       Feature Green Band ("The PetSathi Difference") - Emerald Showcase
+       The PetSathi Difference - Emerald Showcase (Visible & Vibrant)
        ------------------------------------------------------------------------- */
-    .band-card {
+    #difference {
+      background: #ffffff;
+      padding: 75px 0;
+    }
+
+    #difference .difference-container-card {
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       align-items: center;
       gap: 52px;
-      background: linear-gradient(135deg, #13462d 0%, #1e583c 100%);
+      background: #12432a !important;
+      background-image: linear-gradient(135deg, #0f3d26 0%, #195135 100%) !important;
       border-radius: 34px;
       padding: 56px 64px;
-      box-shadow: 0 20px 50px rgba(19, 70, 45, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
+      box-shadow: 0 20px 50px rgba(15, 61, 38, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff !important;
+      position: relative;
+      overflow: hidden;
     }
 
-    .band-copy .heading-label {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.25);
-      color: #c4ebd0;
-      box-shadow: none;
+    #difference .difference-copy {
+      position: relative;
+      z-index: 2;
     }
 
-    .band-copy .heading-label i {
-      color: #c4ebd0;
+    #difference .heading-label {
+      background: rgba(255, 255, 255, 0.16) !important;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      color: #c8edd3 !important;
+      box-shadow: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 7px 20px !important;
+      margin-bottom: 18px !important;
+      border-radius: 50px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.2px !important;
+      text-transform: uppercase !important;
     }
 
-    .band-copy h3 {
+    #difference .heading-label i {
+      color: #c8edd3 !important;
+    }
+
+    #difference h3 {
       font-family: Georgia, "Times New Roman", serif !important;
       font-size: clamp(2rem, 3.2vw, 2.7rem) !important;
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
       color: #ffffff !important;
-      margin: 0 0 18px;
+      margin: 0 0 18px !important;
     }
 
-    .band-copy h3 em {
-      color: #a9e8be;
-      font-style: normal;
+    #difference h3 em {
+      color: #a9e8be !important;
+      font-style: normal !important;
     }
 
-    .band-copy p {
+    #difference p {
       font-family: "DM Sans", "Manrope", sans-serif !important;
-      font-size: 1.02rem;
-      line-height: 1.75;
+      font-size: 1.02rem !important;
+      line-height: 1.75 !important;
       color: #dceade !important;
-      margin: 0 0 26px;
+      margin: 0 0 26px !important;
     }
 
-    .band-features-list {
+    #difference .difference-features-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .band-feature-item {
+    #difference .difference-feature-item {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1031,43 +1006,48 @@
       font-weight: 500;
     }
 
-    .band-feature-item i {
+    #difference .difference-feature-item i {
       color: #a9e8be;
       font-size: 0.95rem;
     }
 
-    .band-copy .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 9999px;
-      background: #ffffff;
-      color: #13462d !important;
+    #difference .button {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 14px 32px !important;
+      border-radius: 9999px !important;
+      background: #ffffff !important;
+      color: #0f3d26 !important;
       font-family: "DM Sans", "Manrope", sans-serif !important;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-      border: 2px solid #ffffff;
+      font-weight: 700 !important;
+      font-size: 0.95rem !important;
+      text-decoration: none !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18) !important;
+      border: 2px solid #ffffff !important;
     }
 
-    .band-copy .button:hover {
-      background: #eaf5ed;
+    #difference .button:hover {
+      background: #eaf5ed !important;
       color: #0c3320 !important;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25) !important;
     }
 
-    .band-media img {
-      width: 100%;
-      height: 330px;
-      object-fit: cover;
-      border-radius: 24px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
-      border: 3px solid rgba(255, 255, 255, 0.2);
+    #difference .difference-media {
+      position: relative;
+      z-index: 2;
+    }
+
+    #difference .difference-media img {
+      width: 100% !important;
+      height: 330px !important;
+      object-fit: cover !important;
+      border-radius: 24px !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28) !important;
+      border: 3px solid rgba(255, 255, 255, 0.2) !important;
     }
 
     /* -------------------------------------------------------------------------
@@ -1282,10 +1262,6 @@
         justify-content: center;
       }
 
-      .hero-trust-row {
-        justify-content: center;
-      }
-
       .hero-note {
         text-align: center;
       }
@@ -1307,7 +1283,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .band-card,
+      #difference .difference-container-card,
       .about-preview {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -1315,17 +1291,17 @@
         text-align: center;
       }
 
-      .band-features-list {
+      #difference .difference-features-list {
         align-items: center;
       }
 
-      .band-card .heading-label,
+      #difference .heading-label,
       .about-preview .heading-label {
         margin-left: auto;
         margin-right: auto;
       }
 
-      .band-media img,
+      #difference .difference-media img,
       .about-media img {
         height: 280px;
         max-width: 540px;
@@ -1361,19 +1337,57 @@
       }
 
       .dog-topics-heading {
-        padding: 35px 20px 30px;
+        padding: 35px 16px 30px;
         border-radius: 24px;
         margin-bottom: 30px;
       }
 
       .corner-wave {
-        width: 160px;
-        height: 100px;
+        width: 170px;
+        height: 110px;
       }
 
-      .paw-left-1,
+      .dog-topics-heading h2 {
+        font-size: clamp(20px, 5vw, 26px);
+      }
+
+      .heading-burst {
+        width: 16px;
+        height: 18px;
+      }
+
+      .dog-topics-heading p {
+        font-size: 14px;
+      }
+
+      .heading-label {
+        font-size: 11px;
+        padding: 6px 14px;
+        margin-bottom: 12px;
+      }
+
+      .paw-left-1 {
+        left: 35px;
+        top: 25px;
+        font-size: 34px;
+      }
+
+      .paw-left-2 {
+        left: 18px;
+        bottom: 14px;
+        font-size: 24px;
+      }
+
       .paw-right-1 {
-        display: none;
+        right: 25px;
+        top: 25px;
+        font-size: 34px;
+      }
+
+      .paw-right-2 {
+        right: 35px;
+        bottom: 14px;
+        font-size: 24px;
       }
 
       .card-grid,
@@ -1411,7 +1425,7 @@
         left: 0;
       }
 
-      .band-card,
+      #difference .difference-container-card,
       .about-preview {
         padding: 32px 22px;
       }
@@ -1469,13 +1483,6 @@
           <a class="button button-outline" href="frontend/pages/walker/index.html" id="hero-cta-walker">
             Find a Walker
           </a>
-        </div>
-        <div class="hero-trust-row">
-          <span class="hero-trust-item"><i class="fa-solid fa-circle-check"></i> Verified Walkers</span>
-          <span class="hero-trust-dot">•</span>
-          <span class="hero-trust-item"><i class="fa-solid fa-shield-heart"></i> Daily Gentle Care</span>
-          <span class="hero-trust-dot">•</span>
-          <span class="hero-trust-item"><i class="fa-solid fa-star"></i> 4.9/5 Care Rating</span>
         </div>
         <div class="hero-note">♥ &nbsp; Dedicated to happy paws and loving homes.</div>
       </div>
@@ -1552,26 +1559,58 @@
     <section class="section homepage-section" id="pets">
       <div class="section-wrap">
         <div class="dog-topics-heading">
-          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-tl"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-br"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+          <div class="paw paw-left-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-left-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
 
           <div class="heading-content">
             <span class="heading-label">
-              <i class="fa-solid fa-paw"></i>
+              <i class="fa-solid fa-paw" aria-hidden="true"></i>
               Explore Their World
             </span>
             <h2>
@@ -1693,26 +1732,58 @@
     <section class="section service-section homepage-section" id="services">
       <div class="section-wrap">
         <div class="dog-topics-heading">
-          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-tl"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-br"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+          <div class="paw paw-left-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-left-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
 
           <div class="heading-content">
             <span class="heading-label">
-              <i class="fa-solid fa-heart-pulse"></i>
+              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
               Dedicated Services
             </span>
             <h2>
@@ -1798,26 +1869,58 @@
     <section class="section homepage-section" id="how-steps">
       <div class="section-wrap">
         <div class="dog-topics-heading">
-          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-tl"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
-            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
-              opacity="0.95" />
+          <svg
+            class="corner-wave wave-br"
+            viewBox="0 0 220 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z"
+              fill="#d8e8ce"
+              opacity="0.7"
+            />
+            <path
+              d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z"
+              fill="#edf6e6"
+              opacity="0.95"
+            />
           </svg>
-          <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-          <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+          <div class="paw paw-left-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-left-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-1">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
+          <div class="paw paw-right-2">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+          </div>
 
           <div class="heading-content">
             <span class="heading-label">
-              <i class="fa-solid fa-shield-cat"></i>
+              <i class="fa-solid fa-shield-cat" aria-hidden="true"></i>
               Simple &amp; Reliable
             </span>
             <h2>
@@ -1863,11 +1966,11 @@
       </div>
     </section>
 
-    <!-- Feature Green Band Section -->
-    <section class="green-band">
+    <!-- The PetSathi Difference Section (Renamed & Styled to be Highly Visible) -->
+    <section class="difference-showcase homepage-section" id="difference">
       <div class="section-wrap">
-        <div class="band-card">
-          <div class="band-copy">
+        <div class="difference-container-card">
+          <div class="difference-copy">
             <span class="heading-label">
               <i class="fa-solid fa-award"></i>
               The PetSathi Difference
@@ -1878,14 +1981,14 @@
               animal lovers who treat your pets like family. Enjoy verified companions, reliable booking, and dedicated
               support.
             </p>
-            <div class="band-features-list">
-              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> 100% Background-Vetted Local Walkers</div>
-              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> Real-Time GPS Tracking &amp; Photo Logs</div>
-              <div class="band-feature-item"><i class="fa-solid fa-circle-check"></i> Comprehensive Health &amp; Care Guides</div>
+            <div class="difference-features-list">
+              <div class="difference-feature-item"><i class="fa-solid fa-circle-check"></i> 100% Background-Vetted Local Walkers</div>
+              <div class="difference-feature-item"><i class="fa-solid fa-circle-check"></i> Real-Time GPS Tracking &amp; Photo Logs</div>
+              <div class="difference-feature-item"><i class="fa-solid fa-circle-check"></i> Comprehensive Health &amp; Care Guides</div>
             </div>
             <a class="button" href="frontend/pages/walker/index.html">Find a Local Walker ↗</a>
           </div>
-          <div class="band-media">
+          <div class="difference-media">
             <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=900&q=85"
               alt="Pet owner smiling warmly with their companion" loading="eager" />
           </div>
