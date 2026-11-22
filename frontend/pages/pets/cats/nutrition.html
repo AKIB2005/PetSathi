@@ -106,6 +106,12 @@
       border-bottom: 1px solid var(--line);
     }
 
+    @media (min-width: 961px) {
+      .nutrition-hero {
+        min-height: calc(100vh - 84px);
+      }
+    }
+
     .nutrition-hero .hero {
       min-height: auto;
       padding-block: 20px 30px;
@@ -770,6 +776,7 @@
       object-fit: contain;
     }
 
+    .cat-media-card:nth-child(4) .cat-media-media img,
     .cat-media-card:nth-child(6) .cat-media-media img {
       object-position: center 75%;
     }
@@ -1047,8 +1054,7 @@
     .cta-nutrition {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      gap: 40px;
       background: #fcecef;
       border: 1px solid var(--cat-warm-border);
       border-radius: 28px;
@@ -1057,13 +1063,23 @@
       max-width: 1200px;
     }
 
+    .cta-nutrition > div:first-child {
+      flex: 1 1 auto;
+      min-width: 0;
+      text-align: left;
+    }
+
     .cta-nutrition .eyebrow {
       color: #9c684e;
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin: 0 0 4px;
+    }
+
+    main > section .cta-nutrition > div:first-child .eyebrow {
+      margin: 0 0 4px;
     }
 
     .cta-nutrition h2 {
@@ -1072,6 +1088,10 @@
       margin: 0 0 8px;
       color: var(--cat-ink);
       line-height: 1.25;
+    }
+
+    main > section .cta-nutrition h2 {
+      text-align: left;
     }
 
     .cta-nutrition h2 em {
@@ -1090,9 +1110,9 @@
     .cta-nutrition .cta-actions {
       display: flex;
       gap: 14px;
+      flex: 0 0 420px;
       flex-wrap: wrap;
-      justify-content: flex-start;
-      flex: 0 1 340px;
+      justify-content: center;
     }
 
     .cta-nutrition .button-outline {
@@ -1108,6 +1128,10 @@
 
     /* Responsive Breakpoints */
     @media (max-width: 960px) {
+      .nutrition-hero {
+        min-height: auto;
+      }
+
       .cat-info-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1119,10 +1143,12 @@
       .cta-nutrition {
         flex-direction: column;
         align-items: stretch;
+        gap: 24px;
       }
 
       .cta-nutrition .cta-actions {
         flex: auto;
+        justify-content: flex-start;
       }
 
       .paw-left-1,
@@ -1147,14 +1173,12 @@
       }
 
       .cta-nutrition {
-        flex-direction: column;
-        align-items: stretch;
+        gap: 18px;
         padding: 28px 20px;
         border-radius: 22px;
       }
 
       .cta-nutrition .cta-actions {
-        flex: auto;
         flex-direction: column;
       }
 
