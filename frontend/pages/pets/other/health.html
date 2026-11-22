@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Comprehensive aquarium fish health, disease identification and treatment guide on PetSathi. Learn to treat Ich, Fin Rot, Dropsy, and set up a quarantine tank.">
+  <title>Aquarium Fish Health &amp; Disease Prevention | PetSathi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Core PetSathi Stylesheets -->
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
+  <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    .fa-solid, .fa-regular, .fa-brands, [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+    .fa-solid { font-weight: 900 !important; }
+    .fa-regular { font-weight: 400 !important; }
+
+    .fish-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .bg-white { background: #ffffff; }
+    .bg-cream { background: #fafcf7; }
+    .bg-soft-green { background: #f4faf5; }
+
+    .fish-section {
+      padding: 60px 0 70px;
+    }
+
+    .section-heading-wrap {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto 36px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+    }
+
+    .corner-wave { position: absolute; pointer-events: none; z-index: 0; }
+    .wave-tl { top: 0; left: 0; width: 220px; height: 130px; }
+    .wave-br { bottom: 0; right: 0; width: 220px; height: 130px; }
+
+    .heading-content { position: relative; z-index: 2; }
+
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #edf7f0;
+      color: #246b43;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: 1px solid #cce4d2;
+      margin-bottom: 12px;
+    }
+
+    .heading-label i { color: #246b43; }
+
+    .section-heading-wrap h2 {
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-heading-wrap h2 em { color: var(--green); font-style: normal; }
+
+    .section-heading-wrap p {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: #55675c;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .disease-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .disease-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.09);
+      border-color: #246b43;
+    }
+
+    .disease-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .badge-parasitic { background: #fee2e2; color: #991b1b; }
+    .badge-bacterial { background: #ffedd5; color: #9a3412; }
+    .badge-fungal { background: #fef3c7; color: #92400e; }
+    .badge-environmental { background: #e0f2fe; color: #075985; }
+
+    .disease-card h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0 0 8px;
+    }
+
+    .disease-card p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #55665b;
+      margin: 0 0 14px;
+    }
+
+    .disease-details {
+      background: #fafcf7;
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid #edf4ee;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    .disease-details div { margin-bottom: 6px; }
+    .disease-details div:last-child { margin-bottom: 0; }
+    .disease-details strong { color: #1a251e; }
+
+    .fish-cta {
+      background: #fbf1ef !important;
+      border: 1px solid #f2dbd6;
+      border-radius: 28px;
+      padding: 44px 50px !important;
+      margin: 40px auto 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 10px 30px rgba(180, 80, 60, 0.06);
+    }
+
+    .fish-cta .eyebrow {
+      color: #9e4636;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fish-cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 700;
+      color: #2b1d1a;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+
+    .fish-cta h2 em { color: #b84a39; font-style: italic; }
+
+    .fish-cta p {
+      color: #6d524d;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .fish-cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+    .fish-cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .fish-cta .button.button-light:hover {
+      background: #fdfdfd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .fish-cta { flex-direction: column; align-items: flex-start; padding: 36px 30px !important; }
+      .fish-cta-actions { width: 100%; flex-wrap: wrap; margin-top: 10px; }
+      .fish-cta-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid-3 { grid-template-columns: 1fr; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .section-heading-wrap { padding: 35px 16px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section-wrap" id="health-hero">
+      <div class="hero-copy">
+        <div class="fish-badge-strip">
+          <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Aquatic Wellness &amp; Disease Guide
+        </div>
+        <h1>Aquarium Fish <em>Health &amp; Wellness</em></h1>
+        <p>
+          Preventative aquatic medicine begins with pristine water parameters and keen daily observation. Learn to identify subtle illness indicators, safely treat common pathogens, and establish an effective quarantine hospital tank.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#common-diseases">Common Diseases <i class="fa-solid fa-arrow-down" style="font-size: 0.82rem; margin-left: 5px;"></i></a>
+          <a class="button button-outline" href="#quarantine-protocol" style="background: transparent; border: 1.5px solid #246b43; color: #246b43;">Quarantine Protocol</a>
+        </div>
+        <div class="hero-note">♥ &nbsp; Dedicated to vibrant aquariums and thriving aquatic life.</div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=1000&q=85"
+          alt="Healthy active aquarium fish in clean planted tank" class="hero-photo"
+          id="hero-health-photo">
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-stethoscope" style="color: var(--green);"></i>
+          <span><b>Early Detection</b><small>Symptoms &amp; Warning Signs</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-shield-virus" style="color: #0284c7;"></i>
+          <span><b>Quarantine Tank</b><small>Protect Display Biome</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Healthy vs Sick Checklist -->
+    <section class="fish-section bg-cream" id="health-checklist">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
+              Daily Observation
+            </span>
+            <h2>
+              Healthy vs. Sick Fish <em>Checklist</em>
+            </h2>
+            <p>Spend 5 minutes during feeding to inspect your fish against these standard health parameters.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-2">
+          <article class="disease-card" style="border-left: 5px solid #16a34a;">
+            <div class="disease-badge" style="background: #dcfce7; color: #15803d;"><i class="fa-solid fa-check"></i> Signs of Vibrant Health</div>
+            <h3>Thriving Aquatic Characteristics</h3>
+            <p>Signs that your tank chemistry, temperature, and nutrition are fully aligned with your fish's biology.</p>
+            <div class="disease-details">
+              <div><strong>Fins:</strong> Fully erect, transparent or rich in color, no tattered edges or clamped posture.</div>
+              <div><strong>Gills:</strong> Rhythmic, calm movement (not gasping or pumping heavily). Deep healthy red interior.</div>
+              <div><strong>Eyes:</strong> Clear, alert, bright pupils with zero cloudiness or bulging protrusion.</div>
+              <div><strong>Swimming:</strong> Buoyant, level, cruising effortlessly across appropriate water zones.</div>
+              <div><strong>Appetite:</strong> Eagerly rushes to surface or food drop within seconds of feeding.</div>
+            </div>
+          </article>
+
+          <article class="disease-card" style="border-left: 5px solid #dc2626;">
+            <div class="disease-badge" style="background: #fee2e2; color: #b91c1c;"><i class="fa-solid fa-triangle-exclamation"></i> Warning Signs of Illness</div>
+            <h3>Urgent Stress &amp; Disease Indicators</h3>
+            <p>Early behavioral cues indicating water toxicity, parasitic infection, or internal systemic disease.</p>
+            <div class="disease-details">
+              <div><strong>Fins:</strong> Clamped tightly against body, fraying margins, white cysts, or bloody streaks.</div>
+              <div><strong>Breathing:</strong> Gasping at surface film, rapid gill pumping, or lethargic bottom-sitting.</div>
+              <div><strong>Scales:</strong> Pineconing outward (Dropsy), velvet golden dust, or patchy white patches.</div>
+              <div><strong>Behavior:</strong> Flashing (rubbing body against rocks), spinning, head-standing, or floating helplessly.</div>
+              <div><strong>Appetite:</strong> Spitting food out, complete disinterest, or sunken belly wasting.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Common Diseases -->
+    <section class="fish-section bg-white" id="common-diseases">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-bacteria" aria-hidden="true"></i>
+              Veterinary Pathology
+            </span>
+            <h2>
+              Common Aquatic Diseases &amp; <em>Treatments</em>
+            </h2>
+            <p>Accurate identification is vital. Never blindly add harsh chemicals to your main display tank.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <!-- Ich -->
+          <article class="disease-card">
+            <span class="disease-badge badge-parasitic">Parasitic</span>
+            <h3>Ich (White Spot Disease)</h3>
+            <p>Caused by the ciliated protozoan <em>Ichthyophthirius multifiliis</em>. Looks like grains of white salt sprinkled across the skin and fins.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> Flashing, clamped fins, white cysts.</div>
+              <div><strong>Treatment:</strong> Raise temperature slowly to 30°C (86°F) for 10 days; add aquarium salt (1 tbsp/5 gal) or ich medication.</div>
+            </div>
+          </article>
+
+          <!-- Fin Rot -->
+          <article class="disease-card">
+            <span class="disease-badge badge-bacterial">Bacterial / Fungal</span>
+            <h3>Fin &amp; Tail Rot</h3>
+            <p>Opportunistic bacterial infection (Aeromonas / Pseudomonas) that attacks fin tissue when water quality deteriorates or fin-nipping occurs.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> Frayed, ragged, whitish or reddish fin margins.</div>
+              <div><strong>Treatment:</strong> Perform 30% daily water changes; test for zero ammonia; apply antibacterial treatment in hospital tank.</div>
+            </div>
+          </article>
+
+          <!-- Swim Bladder -->
+          <article class="disease-card">
+            <span class="disease-badge badge-environmental">Digestive / Anatomical</span>
+            <h3>Swim Bladder Disorder</h3>
+            <p>Loss of buoyancy control caused by intestinal constipation, gulping surface air, or bacterial swelling compressing the swim bladder.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> Floating upside down, sinking like a stone, swimming tilted.</div>
+              <div><strong>Treatment:</strong> Fast for 48 hours; feed blanched, deshelled green peas; add Epsom salt (1 tsp/gal) to ease digestion.</div>
+            </div>
+          </article>
+
+          <!-- Dropsy -->
+          <article class="disease-card">
+            <span class="disease-badge badge-bacterial">Systemic Organ Failure</span>
+            <h3>Dropsy</h3>
+            <p>Severe accumulation of fluid in the abdominal cavity caused by bacterial kidney failure. High mortality if not treated early.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> Bloated body, outward-protruding "pinecone" scales, pop-eye.</div>
+              <div><strong>Treatment:</strong> Isolate immediately in hospital tank; dose broad-spectrum antibiotic (Kanamycin) with Epsom salt.</div>
+            </div>
+          </article>
+
+          <!-- Velvet -->
+          <article class="disease-card">
+            <span class="disease-badge badge-parasitic">Parasitic (Oodinium)</span>
+            <h3>Velvet Disease</h3>
+            <p>Microscopic dinoflagellates that create a shimmering gold or rust-colored velvet dust across the fish's skin and gills.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> Golden dusting (seen under flashlight), extreme scratching, lethargy.</div>
+              <div><strong>Treatment:</strong> Black out tank lighting completely; dose copper sulfate or acriflavine according to instructions.</div>
+            </div>
+          </article>
+
+          <!-- Fungal Cotton -->
+          <article class="disease-card">
+            <span class="disease-badge badge-fungal">Fungal</span>
+            <h3>Cotton Wool Fungus</h3>
+            <p>Secondary fungal colonization (Saprolegnia) settling on open skin wounds, abrasions, or tissue previously damaged by parasites.</p>
+            <div class="disease-details">
+              <div><strong>Symptoms:</strong> White, fluffy cotton-like tufts on skin, lips, or fins.</div>
+              <div><strong>Treatment:</strong> Gentle swab with methylene blue; dose antifungal medication and eliminate tank decor sharp edges.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Quarantine Hospital Tank -->
+    <section class="fish-section bg-cream" id="quarantine-protocol">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-hospital" aria-hidden="true"></i>
+              Biosecurity Protocol
+            </span>
+            <h2>
+              The Quarantine &amp; <em>Hospital Tank</em>
+            </h2>
+            <p>A dedicated 5 to 10-gallon quarantine tank saves entire aquatic communities from imported pathogens and protects delicate biofilters.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="disease-card">
+            <div class="info-card-icon" style="background: #edf7f0; color: #246b43;"><i class="fa-solid fa-box"></i></div>
+            <h3>1. Bare-Bottom Simplicity</h3>
+            <p>Use no gravel or substrate. Bare glass allows easy vacuuming of fish feces and parasitic cysts, preventing pathogens from hiding in gravel beds.</p>
+          </article>
+
+          <article class="disease-card">
+            <div class="info-card-icon" style="background: #edf7f0; color: #246b43;"><i class="fa-solid fa-wind"></i></div>
+            <h3>2. Gentle Sponge Filtration</h3>
+            <p>An air-driven sponge filter provides high oxygen saturation and gentle circulation without sucking up weakened or recovering fish.</p>
+          </article>
+
+          <article class="disease-card">
+            <div class="info-card-icon" style="background: #edf7f0; color: #246b43;"><i class="fa-solid fa-calendar-check"></i></div>
+            <h3>3. 3 to 4-Week Observation</h3>
+            <p>Quarantine all newly purchased fish for a minimum of 21 to 30 days before introducing them to your main display tank. Treat proactively if required.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpage Soft Light Pink CTA -->
+    <section class="fish-cta section-wrap">
+      <div>
+        <div class="eyebrow">PREVENTION IS THE BEST MEDICINE</div>
+        <h2>Maintain Pristine <em>Aquarium Water</em></h2>
+        <p>
+          Over 90% of fish diseases originate from water parameter breakdown. Explore our complete Fish Care guide for cycling, filtration, and water test schedules.
+        </p>
+      </div>
+      <div class="fish-cta-actions">
+        <a class="button button-light" href="care.html">Explore Fish Care <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../../../js/main.js"></script>
+</body>
+
+</html>
