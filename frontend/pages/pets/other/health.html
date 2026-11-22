@@ -151,67 +151,32 @@
       top: 15px;
     }
 
-    /* Breadcrumbs */
-    .rep-breadcrumb {
-      width: min(1280px, calc(100% - 48px));
-      margin: 20px auto 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 0.85rem;
-      color: var(--rep-muted);
-    }
-
-    .rep-breadcrumb a {
-      color: var(--rep-green-primary);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-
-    .rep-breadcrumb a:hover {
-      color: var(--rep-green-dark);
-      text-decoration: underline;
-    }
-
-    .rep-breadcrumb .separator {
-      color: #9cb1a4;
-      font-size: 0.8rem;
-    }
-
-    .rep-breadcrumb .current {
-      color: var(--rep-ink);
-      font-weight: 700;
-    }
-
     /* Section Wrapper */
+    .section-wrap,
     .rep-section-wrap {
-      width: min(1280px, calc(100% - 48px));
+      width: min(1160px, calc(100% - 48px));
       margin: 0 auto;
     }
 
     /* ========================================================
        1. HERO SECTION (Matching Dog Index & Cat Index Layout)
        ======================================================== */
-    .rep-hero {
-      width: min(1280px, calc(100% - 48px));
-      margin: 30px auto 45px;
-      padding: 60px 6%;
+    .rep-hero,
+    .hero.section-wrap {
+      width: min(1160px, calc(100% - 48px));
+      margin: 10px auto 45px;
+      padding: 40px 0 20px;
       min-height: 480px;
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       align-items: center;
       gap: 50px;
-      background: linear-gradient(135deg, #f7faf4 0%, #edf6ee 100%);
-      border: 1px solid var(--rep-line);
-      border-radius: 32px;
-      overflow: hidden;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
       position: relative;
-      box-shadow: 0 6px 24px rgba(35, 75, 45, 0.04);
       box-sizing: border-box;
     }
 
@@ -434,8 +399,7 @@
       position: relative;
       background: var(--rep-white);
       margin: 40px auto 60px;
-      max-width: 1280px;
-      width: calc(100% - 48px);
+      width: min(1160px, calc(100% - 48px));
       border: 1px solid var(--rep-border-green);
       border-radius: 32px;
       padding: 42px 36px 38px;
@@ -804,37 +768,39 @@
     }
 
     /* ========================================================
-       4. CARDS DESIGN (7 Health Information Cards Grid)
+       4. CARDS DESIGN (Matching Dog & Cat Index Card Design)
        ======================================================== */
     .rep-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-bottom: 50px;
+      align-items: stretch;
     }
 
     .rep-card {
       background: var(--rep-white);
       border: 1px solid var(--rep-line);
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      text-align: center;
+      text-align: left;
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      box-shadow: var(--rep-card-shadow);
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.05);
       position: relative;
+      height: 100%;
     }
 
     .rep-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--rep-hover-shadow);
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.12);
       border-color: #cbd9ce;
     }
 
     .rep-card-media {
       position: relative;
-      height: 190px;
+      height: 200px;
       overflow: hidden;
       background: #edf5ee;
     }
@@ -843,12 +809,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       transition: transform 0.35s ease;
     }
 
     .rep-card:hover .rep-card-media img {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
     .rep-card-badge {
@@ -857,15 +824,15 @@
       left: 14px;
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(4px);
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 0.74rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--rep-green-dark);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .rep-card-badge i {
@@ -873,43 +840,22 @@
     }
 
     .rep-card-body {
-      padding: 26px 22px 28px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      align-items: center;
       flex-grow: 1;
-    }
-
-    .rep-card-icon-bubble {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--rep-green-light);
-      border: 1px solid var(--rep-border-green);
-      color: var(--rep-green-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-top: -50px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 12px rgba(35, 75, 45, 0.1);
-      transition: transform 0.25s ease;
-    }
-
-    .rep-card:hover .rep-card-icon-bubble {
-      transform: scale(1.1);
-      background: var(--rep-green-primary);
-      color: #ffffff;
+      text-align: left;
+      align-items: flex-start;
+      height: 100%;
+      box-sizing: border-box;
     }
 
     .rep-card-body h3 {
-      font-size: 1.22rem;
+      font-size: 1.25rem;
       margin: 0 0 10px;
       color: var(--rep-ink);
       font-weight: 700;
+      text-align: left;
     }
 
     .rep-card-body p {
@@ -918,27 +864,24 @@
       margin: 0 0 20px;
       color: var(--rep-muted);
       flex-grow: 1;
+      text-align: left;
     }
 
     .rep-card-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      background: var(--rep-green-soft);
-      border: 1px solid var(--rep-border-green);
-      border-radius: 50px;
-      font-size: 0.84rem;
+      gap: 6px;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--rep-green-primary);
       text-decoration: none;
-      transition: all 0.2s ease;
+      align-self: flex-start;
+      transition: color 0.2s, transform 0.2s;
     }
 
     .rep-card-link:hover {
-      background: var(--rep-green-primary);
-      color: #ffffff;
-      border-color: var(--rep-green-primary);
+      color: var(--rep-green-dark);
+      transform: translateX(4px);
     }
 
     /* ========================================================
@@ -1288,98 +1231,126 @@
     }
 
     /* ========================================================
-       5. FINAL CTA SECTION (Soft Light Pink Background)
+       5. FINAL CTA SECTION (Matching Cat, Dog, & Rabbit Index)
        ======================================================== */
-    .rep-pink-cta {
-      max-width: 1280px;
-      width: calc(100% - 48px);
-      margin: 70px auto 90px;
-      padding: 60px 45px;
-      background: var(--rep-pink-bg);
-      border: 1px solid var(--rep-pink-border);
-      border-radius: 32px;
-      text-align: center;
-      box-shadow: 0 8px 30px rgba(184, 51, 74, 0.05);
-      position: relative;
-      overflow: hidden;
-      box-sizing: border-box;
+    main > .cta,
+    .cta {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 25px !important;
+      width: 85% !important;
+      max-width: 1350px !important;
+      margin: 60px auto 92px !important;
+      margin-inline: auto !important;
+      padding: 48px 56px !important;
+      border: 1px solid #e6d6c6 !important;
+      border-radius: 30px !important;
+      background: #f2e8d9 !important;
+      background-image: none !important;
+      box-sizing: border-box !important;
     }
 
-    .rep-pink-cta-blob {
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246, 213, 219, 0.6) 0%, rgba(246, 213, 219, 0) 70%);
-      pointer-events: none;
+    .cta > div:first-child {
+      flex: 1 !important;
+      min-width: 0 !important;
+      text-align: left !important;
     }
 
-    .rep-pink-cta-blob-left {
-      position: absolute;
-      bottom: -50px;
-      left: -50px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246, 213, 219, 0.6) 0%, rgba(246, 213, 219, 0) 70%);
-      pointer-events: none;
+    .cta .eyebrow {
+      display: block !important;
+      margin: 0 0 14px 0 !important;
+      padding: 0 !important;
+      background: none !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      color: #286849 !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.2px !important;
+      text-transform: uppercase !important;
+      text-align: left !important;
+      width: auto !important;
     }
 
-    .rep-pink-cta-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 18px;
-      background: #fae4e8;
-      border: 1px solid #f2c7ce;
-      border-radius: 999px;
-      color: var(--rep-pink-accent);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .cta h2 {
+      display: block !important;
+      margin: 0 0 8px 0 !important;
+      font-family: Georgia, 'Times New Roman', serif !important;
+      font-size: clamp(24px, 3.2vw, 36px) !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      letter-spacing: normal !important;
+      color: #263b30 !important;
+      text-align: left !important;
     }
 
-    .rep-pink-cta h2 {
-      font-family: Georgia, serif;
-      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-      color: #3b2025;
-      margin: 0 0 16px;
-      font-weight: 700;
+    .cta h2 em {
+      color: #286849 !important;
+      font-family: Georgia, 'Times New Roman', serif !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
     }
 
-    .rep-pink-cta p {
-      max-width: 650px;
-      margin: 0 auto 30px;
-      font-size: 1.02rem;
-      color: #68484e;
-      line-height: 1.7;
+    .cta p {
+      display: block !important;
+      margin: 0 !important;
+      color: #26372e !important;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 400 !important;
+      line-height: 1.65 !important;
+      text-align: left !important;
     }
 
-    .rep-pink-cta .button-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      background: var(--rep-green-primary);
-      color: #ffffff;
-      border: 1px solid var(--rep-green-primary);
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 16px rgba(40, 104, 73, 0.25);
+    .cta-actions {
+      display: flex !important;
+      gap: 14px !important;
+      flex-wrap: wrap !important;
+      flex-shrink: 0 !important;
+      align-items: center !important;
     }
 
-    .rep-pink-cta .button-cta:hover {
-      background: var(--rep-green-hover);
-      border-color: var(--rep-green-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px rgba(40, 104, 73, 0.35);
+    .cta-actions .button-light {
+      background: #ffffff !important;
+      border: 1px solid #ffffff !important;
+      color: #1b3d2b !important;
+      font-weight: 700 !important;
+      padding: 12px 24px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .cta-actions .button-light:hover {
+      background: #286849 !important;
+      border-color: #286849 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+
+    .cta-actions .button-outline {
+      background: transparent !important;
+      border: 1.5px solid #286849 !important;
+      color: #286849 !important;
+      font-weight: 700 !important;
+      padding: 12px 24px !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .cta-actions .button-outline:hover {
+      background: #286849 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
     }
 
     /* Back To Top Button */
@@ -1526,10 +1497,26 @@
         margin: 40px auto 25px;
       }
 
-      .rep-pink-cta {
-        width: calc(100% - 24px);
-        padding: 40px 22px;
-        margin: 50px auto 70px;
+      main > .cta,
+      .cta {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 34px 24px !important;
+        width: calc(100% - 32px) !important;
+      }
+
+      .cta-actions {
+        width: 100% !important;
+        flex-direction: column !important;
+        margin-top: 18px !important;
+      }
+
+      .cta-actions .button,
+      .cta-actions .button-light,
+      .cta-actions .button-outline {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
       }
 
       .rep-hero-actions {
@@ -1553,24 +1540,11 @@
   <!-- Shared Header Placeholder -->
   <div id="header"></div>
 
-  <!-- Breadcrumbs -->
-  <nav class="rep-breadcrumb" aria-label="Breadcrumb">
-    <a href="../../../index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
-    <span class="separator">/</span>
-    <a href="../index.html">Pets</a>
-    <span class="separator">/</span>
-    <a href="index.html">Other Pets</a>
-    <span class="separator">/</span>
-    <a href="reptiles.html">Reptiles</a>
-    <span class="separator">/</span>
-    <span class="current" aria-current="page">Health &amp; Wellness Guide</span>
-  </nav>
-
   <main id="main-content">
     <!-- ========================================================
-         1. HERO SECTION
+         1. HERO SECTION (Matching Dog Index & Cat Index Layout)
          ======================================================== -->
-    <section class="rep-hero" id="reptile-hero">
+    <section class="hero section-wrap" id="reptile-hero">
       <div class="rep-hero-copy">
         <div class="rep-badge-strip">
           <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> PetSathi • Reptile Health &amp; Wellness
@@ -1688,7 +1662,7 @@
     <!-- ========================================================
          4. CARDS DESIGN (7 Health Information Cards Grid)
          ======================================================== -->
-    <section class="rep-section-wrap" id="health-cards-overview">
+    <section class="rep-section-wrap section-wrap" id="health-cards-overview">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -1729,21 +1703,18 @@
         <article class="rep-card" id="card-healthy-signs">
           <div class="rep-card-media">
             <span class="rep-card-badge">
-              <i class="fa-solid fa-check-circle" aria-hidden="true"></i> Vital Baseline
+              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Vital Baseline
             </span>
             <img src="../../../assets/images/reptiles/leopard-gecko.jpg"
               alt="Alert leopard gecko with bright eyes and healthy body condition" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
-            </div>
             <h3>Healthy Reptile Signs</h3>
             <p>
               Observe alert tongue-flicking, clear eyes, robust posture, smooth scale condition, and consistent appetite.
             </p>
-            <a href="#healthy-signs" class="rep-card-link">
-              Explore Signs <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#healthy-signs" class="rep-card-link" id="link-card-healthy-signs">
+              Explore Signs ↗
             </a>
           </div>
         </article>
@@ -1758,15 +1729,12 @@
               alt="Healthy corn snake illustrating healthy skin and respiratory posture" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-notes-medical" aria-hidden="true"></i>
-            </div>
             <h3>Common Health Problems</h3>
             <p>
               Learn the causes and treatment paths for respiratory infections, scale rot, mouth rot, parasites, and dehydration.
             </p>
-            <a href="#common-problems" class="rep-card-link">
-              Read Disorders <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#common-problems" class="rep-card-link" id="link-card-common-problems">
+              Read Disorders ↗
             </a>
           </div>
         </article>
@@ -1781,15 +1749,12 @@
               alt="Ball python curled smoothly in humid hiding environment" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-            </div>
             <h3>Shedding Issues</h3>
             <p>
               Prevent dysecdysis and retained shed rings on toes or eye spectacles with proper humidity chambers and safe soaks.
             </p>
-            <a href="#shedding-problems" class="rep-card-link">
-              Shedding Guide <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#shedding-problems" class="rep-card-link" id="link-card-shedding-issues">
+              Shedding Guide ↗
             </a>
           </div>
         </article>
@@ -1804,15 +1769,12 @@
               alt="Bearded dragon absorbing essential UVB wavelengths on basking rock" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-bone" aria-hidden="true"></i>
-            </div>
             <h3>Metabolic Bone Disease</h3>
             <p>
               Prevent nutritional secondary hyperparathyroidism using linear UVB tubes, calcium dusting, and thermal management.
             </p>
-            <a href="#metabolic-bone-disease" class="rep-card-link">
-              Prevent MBD <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#metabolic-bone-disease" class="rep-card-link" id="link-card-mbd">
+              Prevent MBD ↗
             </a>
           </div>
         </article>
@@ -1827,15 +1789,12 @@
               alt="Russian tortoise feeding on fresh calcium-rich botanical greens" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-temperature-three-quarters" aria-hidden="true"></i>
-            </div>
             <h3>Preventive Care</h3>
             <p>
               Enclosure sanitation, quarantine protocols for newcomers, digital thermostat calibration, and gut-loaded insect diets.
             </p>
-            <a href="#preventive-care" class="rep-card-link">
-              Best Practices <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#preventive-care" class="rep-card-link" id="link-card-preventive-care">
+              Best Practices ↗
             </a>
           </div>
         </article>
@@ -1850,15 +1809,12 @@
               alt="Blue-tongued skink resting comfortably in dry terrarium retreat" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-            </div>
             <h3>Warning Signs</h3>
             <p>
               Identify anorexia, bubbling nostrils, neurological stargazing, lethargy, cloacal swelling, and abnormal postures quickly.
             </p>
-            <a href="#signs-of-illness" class="rep-card-link">
-              Spot Illness <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#signs-of-illness" class="rep-card-link" id="link-card-warning-signs">
+              Spot Illness ↗
             </a>
           </div>
         </article>
@@ -1873,15 +1829,12 @@
               alt="Aquatic turtle with clean shell and clear eyes under water filtration" loading="lazy">
           </div>
           <div class="rep-card-body">
-            <div class="rep-card-icon-bubble">
-              <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
-            </div>
             <h3>Veterinary Support</h3>
             <p>
               Understand why ectotherms require specialized exotic veterinarians, when emergencies demand immediate intervention, and annual checks.
             </p>
-            <a href="#veterinary-care" class="rep-card-link">
-              Find Care <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <a href="#veterinary-care" class="rep-card-link" id="link-card-veterinary-support">
+              Find Care ↗
             </a>
           </div>
         </article>
@@ -1891,7 +1844,7 @@
     <!-- ========================================================
          3A. SIGNS OF A HEALTHY REPTILE
          ======================================================== -->
-    <section class="rep-section-wrap" id="healthy-signs">
+    <section class="rep-section-wrap section-wrap" id="healthy-signs">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2031,7 +1984,7 @@
     <!-- ========================================================
          3B. COMMON REPTILE HEALTH PROBLEMS
          ======================================================== -->
-    <section class="rep-section-wrap" id="common-problems">
+    <section class="rep-section-wrap section-wrap" id="common-problems">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2171,7 +2124,7 @@
     <!-- ========================================================
          3C. SHEDDING PROBLEMS (DYSECDYSIS)
          ======================================================== -->
-    <section class="rep-section-wrap" id="shedding-problems">
+    <section class="rep-section-wrap section-wrap" id="shedding-problems">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2310,7 +2263,7 @@
     <!-- ========================================================
          3D. METABOLIC BONE DISEASE (MBD)
          ======================================================== -->
-    <section class="rep-section-wrap" id="metabolic-bone-disease">
+    <section class="rep-section-wrap section-wrap" id="metabolic-bone-disease">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2458,7 +2411,7 @@
     <!-- ========================================================
          3E. PREVENTIVE CARE
          ======================================================== -->
-    <section class="rep-section-wrap" id="preventive-care">
+    <section class="rep-section-wrap section-wrap" id="preventive-care">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2586,7 +2539,7 @@
     <!-- ========================================================
          3F. SIGNS OF ILLNESS (WARNING SIGNS)
          ======================================================== -->
-    <section class="rep-section-wrap" id="signs-of-illness">
+    <section class="rep-section-wrap section-wrap" id="signs-of-illness">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2714,7 +2667,7 @@
     <!-- ========================================================
          3G. WHEN TO CONSULT A REPTILE VETERINARIAN
          ======================================================== -->
-    <section class="rep-section-wrap" id="veterinary-care">
+    <section class="rep-section-wrap section-wrap" id="veterinary-care">
       <div class="rep-topics-heading">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
@@ -2804,26 +2757,26 @@
     </section>
 
     <!-- ========================================================
-         5. FINAL CTA SECTION (Soft Light Pink Background)
+         5. FINAL CTA SECTION (Matching Cat, Dog, & Rabbit Index)
          ======================================================== -->
-    <section class="rep-pink-cta" id="reptile-behaviour-cta">
-      <div class="rep-pink-cta-blob" aria-hidden="true"></div>
-      <div class="rep-pink-cta-blob-left" aria-hidden="true"></div>
-
-      <div class="rep-pink-cta-badge">
-        <i class="fa-solid fa-brain" aria-hidden="true"></i> Companion Psychology
+    <section class="cta section-wrap" id="reptile-cta">
+      <div>
+        <div class="eyebrow">START YOUR REPTILE JOURNEY</div>
+        <h2>Keep Your Reptile <em>Healthy &amp; Comfortable.</em></h2>
+        <p>
+          Physical wellness and psychological comfort go hand-in-hand. Understanding natural reptile behaviors—such as
+          basking rituals, stress darkening, burrowing tendencies, and gentle handling thresholds—helps you design a truly
+          enriching environment.
+        </p>
       </div>
-
-      <h2>Keep Your Reptile Healthy and Comfortable</h2>
-      <p>
-        Physical wellness and psychological comfort go hand-in-hand. Understanding natural reptile behaviors—such as
-        basking rituals, stress darkening, burrowing tendencies, and gentle handling thresholds—helps you design a truly
-        enriching environment.
-      </p>
-
-      <a href="reptiles.html#reptile-behaviour" class="button-cta" id="btn-explore-behaviour">
-        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Explore Reptile Behaviour
-      </a>
+      <div class="cta-actions">
+        <a class="button button-light" href="care.html" id="cta-reptile-care">
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i> Explore Care Tips ↗
+        </a>
+        <a class="button button-outline" href="reptiles.html" id="cta-all-reptiles">
+          <i class="fa-solid fa-dragon" aria-hidden="true"></i> All Reptiles Overview
+        </a>
+      </div>
     </section>
   </main>
 
