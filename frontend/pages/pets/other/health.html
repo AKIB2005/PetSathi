@@ -399,7 +399,187 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-/* ========================================================
+
+    /* ========================================================
+       3. SIGNATURE SECTION HEADING CARDS (Matching Dogs/Cats Index)
+       ======================================================== */
+    .rep-topics-heading {
+      position: relative;
+      width: 100%;
+      margin: 45px auto 35px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+      box-sizing: border-box;
+    }
+
+    .corner-wave {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wave-tl {
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 130px;
+    }
+
+    .wave-br {
+      bottom: 0;
+      right: 0;
+      width: 220px;
+      height: 130px;
+    }
+
+    .heading-decor-icon {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      color: #c9decb;
+      opacity: 0.55;
+    }
+
+    .decor-pos-1 {
+      left: 35px;
+      top: 25px;
+      font-size: 34px;
+    }
+
+    .decor-pos-2 {
+      left: 18px;
+      bottom: 14px;
+      font-size: 24px;
+    }
+
+    .decor-pos-3 {
+      right: 25px;
+      top: 25px;
+      font-size: 34px;
+    }
+
+    .decor-pos-4 {
+      right: 65px;
+      bottom: 14px;
+      font-size: 24px;
+    }
+
+    .heading-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 20px;
+      margin-bottom: 16px;
+      border-radius: 50px;
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      color: #246b43;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .rep-topics-heading h2 {
+      color: #263b30;
+      font-family: Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .rep-topics-heading h2 span {
+      color: var(--rep-green-primary);
+    }
+
+    .rep-topics-heading p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      color: var(--rep-muted);
+      line-height: 1.65;
+    }
+
+    .heading-burst {
+      display: inline-block;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .heading-burst span {
+      position: absolute;
+      background: #60a872;
+      border-radius: 9999px;
+    }
+
+    .heading-burst.left span {
+      right: 0;
+      transform-origin: right center;
+    }
+
+    .heading-burst.left span:nth-child(1) {
+      top: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(35deg);
+    }
+
+    .heading-burst.left span:nth-child(2) {
+      top: 11px;
+      width: 18px;
+      height: 2.8px;
+    }
+
+    .heading-burst.left span:nth-child(3) {
+      bottom: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(-35deg);
+    }
+
+    .heading-burst.right span {
+      left: 0;
+      transform-origin: left center;
+    }
+
+    .heading-burst.right span:nth-child(1) {
+      top: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(-35deg);
+    }
+
+    .heading-burst.right span:nth-child(2) {
+      top: 11px;
+      width: 18px;
+      height: 2.8px;
+    }
+
+    .heading-burst.right span:nth-child(3) {
+      bottom: 3px;
+      width: 14px;
+      height: 2.8px;
+    }
+
+    /* ========================================================
        4. CARDS DESIGN (Matching Dog Index & Cat Index Card Design)
        ======================================================== */
     .rep-cards-grid {
