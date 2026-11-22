@@ -953,6 +953,19 @@
       margin-top: 0;
       margin-bottom: 92px;
       border: 1px solid #e6d6c6;
+      text-align: left;
+    }
+
+    .cta h2 {
+      text-align: left !important;
+    }
+
+    .cta div {
+      text-align: left;
+    }
+
+    .cta p {
+      text-align: left !important;
     }
 
     .cta-actions {
@@ -1110,7 +1123,7 @@
         </p>
         <div class="hero-actions">
           <a class="button" href="#safety-cards-overview" id="hero-cta-explore">
-            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Explore Fish Safety Tips
+            Explore Fish Safety Tips <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
           <a class="button button-outline" href="#quick-nav" id="hero-cta-nav">
             <i class="fa-solid fa-compass" aria-hidden="true"></i> Quick Navigation
@@ -2277,7 +2290,7 @@
     <section class="cta section-wrap" id="fish-safety-cta">
       <div>
         <div class="eyebrow">START YOUR PET'S JOURNEY</div>
-        <h2>Ready to Give Your Pet the <em>Best Care?</em></h2>
+        <h2 style="text-align: left;">Ready to Give Your Pet the <em>Best Care?</em></h2>
         <p>
           Whether you are preparing to welcome a new companion or looking to give your faithful pet the best daily walks, nutrition, and wellness support, PetSathi is here to guide and support you every step of the way.
         </p>
@@ -2289,33 +2302,11 @@
     </section>
   </main>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-  </button>
-
   <!-- Shared Footer Placeholder -->
   <div id="footer"></div>
 
   <!-- Interactive Scripts -->
   <script>
-    // Back to Top Button Functionality
-    const backToTopBtn = document.getElementById("backToTopBtn");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.add("visible");
-      } else {
-        backToTopBtn.classList.remove("visible");
-      }
-    });
-
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
     // Smooth Anchor Navigation Offset Handling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function (e) {
