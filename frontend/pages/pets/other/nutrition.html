@@ -1,0 +1,1945 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Comprehensive Reptile Nutrition & Feeding Guide on PetSathi - Discover species-specific diets, gut-loaded feeder insects, safe greens, calcium & D3 supplements, feeding schedules, and healthy feeding routines."
+    />
+    <title>Reptile Nutrition &amp; Feeding Guide | PetSathi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <link rel="stylesheet" href="../../../css/home.css" />
+    <link rel="stylesheet" href="../../../css/inner.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      /* ==========================================================
+         Reptile Nutrition & Feeding Guide
+         PetSathi Design Reference: Dog Index & Cat Index
+         ========================================================== */
+
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        src:
+          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2")
+            format("woff2"),
+          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "Font Awesome 6 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src:
+          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2")
+            format("woff2"),
+          url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf")
+            format("truetype");
+      }
+
+      body [class*="fa-"],
+      body [class*="fa-"]::before,
+      .fa-solid,
+      .fa-regular,
+      .fa-brands {
+        font-family: "Font Awesome 6 Free" !important;
+        font-style: normal !important;
+        font-variant: normal !important;
+        text-rendering: auto !important;
+        line-height: 1 !important;
+      }
+
+      .fa-solid {
+        font-weight: 900 !important;
+      }
+
+      .fa-regular {
+        font-weight: 400 !important;
+      }
+
+      /* Base layout & typography matching Cat Index */
+      body {
+        background: #fbfbf8;
+        color: var(--ink);
+      }
+
+      /* Hero section badge strip */
+      .cat-badge-strip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        background: #eaf2e9;
+        color: var(--green);
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .cat-badge-strip i {
+        color: var(--green);
+        font-size: 0.85rem;
+      }
+
+      /* Floating cards */
+      .floating-card i {
+        font-size: 1.15rem;
+        color: var(--green);
+        display: inline-block;
+        line-height: 1;
+      }
+
+      /* Quick Navigation Hub */
+      .guides-nav-strip {
+        position: relative;
+        background: #ffffff;
+        margin: 40px auto;
+        max-width: 1200px;
+        width: calc(100% - 40px);
+        border: 1px solid #dceade;
+        border-radius: 32px;
+        padding: 42px 36px 38px;
+        box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
+        overflow: hidden;
+      }
+
+      .quick-nav-decor {
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+        color: #cde4d3;
+        opacity: 0.55;
+      }
+
+      .decor-top-left {
+        top: -8px;
+        left: -8px;
+        width: 130px;
+        height: 130px;
+        background: radial-gradient(
+          circle at 10% 10%,
+          #eaf5ed 0%,
+          rgba(234, 245, 237, 0) 70%
+        );
+        border-radius: 0 0 100% 0;
+      }
+
+      .decor-bottom-right {
+        bottom: -8px;
+        right: -8px;
+        width: 130px;
+        height: 130px;
+        background: radial-gradient(
+          circle at 90% 90%,
+          #eaf5ed 0%,
+          rgba(234, 245, 237, 0) 70%
+        );
+        border-radius: 100% 0 0 0;
+      }
+
+      .decor-paw {
+        position: absolute;
+        display: inline-block;
+        line-height: 1;
+      }
+
+      .decor-paw-1 {
+        top: 14px;
+        left: 28px;
+        font-size: 28px;
+        transform: rotate(-15deg);
+      }
+
+      .decor-paw-2 {
+        top: 38px;
+        left: 12px;
+        font-size: 19px;
+        transform: rotate(20deg);
+      }
+
+      .decor-paw-3 {
+        bottom: 36px;
+        right: 14px;
+        font-size: 19px;
+        transform: rotate(-25deg);
+      }
+
+      .decor-paw-4 {
+        bottom: 14px;
+        right: 28px;
+        font-size: 28px;
+        transform: rotate(15deg);
+      }
+
+      .quick-nav-header {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .quick-nav-eyebrow-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .quick-nav-line {
+        height: 1px;
+        width: 110px;
+        background: #d6ead9;
+      }
+
+      .quick-nav-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        background: #f4faf5;
+        border: 1px solid #b7deb8;
+        border-radius: 9999px;
+        color: #1e6f43;
+        font-family: "DM Sans", "Manrope", sans-serif !important;
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
+      }
+
+      .quick-nav-badge i {
+        font-size: 0.95rem;
+        line-height: 1;
+        color: #1e6f43;
+        flex-shrink: 0;
+      }
+
+      .quick-nav-title {
+        font-family: "Manrope", sans-serif !important;
+        font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+        font-weight: 800;
+        color: #1a251e;
+        margin: 0;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        text-align: center;
+      }
+
+      .quick-nav-title span {
+        color: #1e6f43;
+        font-weight: 800;
+      }
+
+      .guides-nav-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 0;
+      }
+
+      .guide-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px 10px 10px;
+        background: #edf7f0;
+        border: 1px solid #cce4d2;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+        min-width: 0;
+        cursor: pointer;
+      }
+
+      .guide-nav-item:hover,
+      .guide-nav-item.active-filter {
+        background: #e4f4e8;
+        border-color: #237847;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+      }
+
+      .guide-nav-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #d1ecda;
+        color: #1e6f43;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        font-size: 0.95rem;
+        line-height: 1;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .guide-nav-icon i {
+        display: inline-block;
+        line-height: 1;
+      }
+
+      .guide-nav-item:hover .guide-nav-icon,
+      .guide-nav-item.active-filter .guide-nav-icon {
+        background: #1e6f43;
+        color: #ffffff;
+      }
+
+      .guide-nav-label {
+        font-family: "DM Sans", "Manrope", sans-serif !important;
+        font-size: 0.86rem;
+        font-weight: 700;
+        color: #1c2b20;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Signature Section Heading Cards matching Cat Index */
+      .cat-topics-heading {
+        position: relative;
+        max-width: 1400px;
+        margin: 45px auto 35px;
+        padding: 44px 35px 38px;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 35px;
+        border: 1px solid #dcebc9;
+        background: #fafcf7;
+        box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+      }
+
+      .corner-wave {
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .wave-tl {
+        top: 0;
+        left: 0;
+        width: 220px;
+        height: 130px;
+      }
+
+      .wave-br {
+        bottom: 0;
+        right: 0;
+        width: 220px;
+        height: 130px;
+      }
+
+      .heading-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .heading-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 20px;
+        margin-bottom: 16px;
+        border-radius: 50px;
+        background: #edf6df;
+        border: 1px solid #dcebc9;
+        color: #246b43;
+        font-family: "DM Sans", "Manrope", sans-serif !important;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
+      }
+
+      .heading-label i {
+        font-size: 14px;
+        color: #246b43;
+        line-height: 1;
+      }
+
+      .cat-topics-heading h2 {
+        color: #263b30;
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-size: clamp(24px, 3.2vw, 36px);
+        font-weight: 700;
+        margin: 0 0 12px;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cat-topics-heading h2 span {
+        color: #28764a;
+      }
+
+      .heading-burst {
+        display: inline-block;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        vertical-align: middle;
+      }
+
+      .heading-burst span {
+        position: absolute;
+        background: #60a872;
+        border-radius: 9999px;
+      }
+
+      .heading-burst.left span {
+        right: 0;
+        transform-origin: right center;
+      }
+
+      .heading-burst.left span:nth-child(1) {
+        top: 3px;
+        width: 14px;
+        height: 2.8px;
+        transform: rotate(35deg);
+      }
+
+      .heading-burst.left span:nth-child(2) {
+        top: 11px;
+        width: 18px;
+        height: 2.8px;
+      }
+
+      .heading-burst.left span:nth-child(3) {
+        bottom: 3px;
+        width: 14px;
+        height: 2.8px;
+        transform: rotate(-35deg);
+      }
+
+      .heading-burst.right span {
+        left: 0;
+        transform-origin: left center;
+      }
+
+      .heading-burst.right span:nth-child(1) {
+        top: 3px;
+        width: 14px;
+        height: 2.8px;
+        transform: rotate(-35deg);
+      }
+
+      .heading-burst.right span:nth-child(2) {
+        top: 11px;
+        width: 18px;
+        height: 2.8px;
+      }
+
+      .heading-burst.right span:nth-child(3) {
+        bottom: 3px;
+        width: 14px;
+        height: 2.8px;
+        transform: rotate(35deg);
+      }
+
+      .cat-topics-heading p {
+        max-width: 760px;
+        margin: 0 auto;
+        color: #64736a;
+        font-family: "DM Sans", "Manrope", sans-serif !important;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .paw {
+        position: absolute;
+        color: rgba(115, 173, 91, 0.28);
+        z-index: 1;
+        pointer-events: none;
+        display: inline-block;
+        line-height: 1;
+      }
+
+      .paw-left-1 {
+        top: 66px;
+        left: 108px;
+        font-size: 58px;
+        transform: rotate(20deg);
+      }
+
+      .paw-left-2 {
+        bottom: 24px;
+        left: 82px;
+        font-size: 38px;
+        transform: rotate(-15deg);
+      }
+
+      .paw-right-1 {
+        top: 60px;
+        right: 75px;
+        font-size: 56px;
+        transform: rotate(18deg);
+      }
+
+      .paw-right-2 {
+        bottom: 35px;
+        right: 140px;
+        font-size: 38px;
+        transform: rotate(-15deg);
+      }
+
+      /* Card Grid Layouts (3 Columns Desktop, 2 Tablet, 1 Mobile) */
+      .cat-info-grid,
+      .nutrition-cards-grid,
+      .features-4-grid,
+      .mistakes-6-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .features-4-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .schedule-4-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      /* Standard PetSathi Card */
+      .cat-card,
+      .nutrition-feature-card,
+      .mistake-card,
+      .schedule-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease,
+          border-color 0.28s ease;
+      }
+
+      .cat-card:hover,
+      .nutrition-feature-card:hover,
+      .mistake-card:hover,
+      .schedule-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow);
+        border-color: #cbd9ce;
+      }
+
+      .cat-card-media {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+        background: #f0f3eb;
+      }
+
+      .cat-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+
+      .cat-card:hover .cat-card-media img {
+        transform: scale(1.05);
+      }
+
+      .cat-card-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(4px);
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        z-index: 2;
+      }
+
+      .cat-card-badge i {
+        color: var(--green);
+        font-size: 0.85rem;
+      }
+
+      .cat-card-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        text-align: center;
+        align-items: center;
+      }
+
+      .cat-card-body h3,
+      .cat-card-body h4 {
+        font-size: 1.2rem;
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .cat-card-body p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0 0 16px;
+        flex-grow: 1;
+        color: var(--muted);
+      }
+
+      .cat-card-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        background: #f4faf5;
+        border: 1px solid #d4ead8;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--green);
+        margin-bottom: 14px;
+      }
+
+      .card-points-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 14px;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: #384a3e;
+      }
+
+      .card-points-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        line-height: 1.5;
+      }
+
+      .card-points-list li i {
+        color: var(--green);
+        margin-top: 3px;
+        flex-shrink: 0;
+        font-size: 0.82rem;
+      }
+
+      /* Feature Card Style (Section A) */
+      .nutrition-feature-card {
+        padding: 28px 24px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .feature-icon-wrap {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        background: #eaf2e9;
+        color: var(--green);
+        display: grid;
+        place-items: center;
+        font-size: 1.35rem;
+        margin-bottom: 16px;
+      }
+
+      .nutrition-feature-card h3 {
+        font-size: 1.15rem;
+        margin: 0 0 10px;
+        color: var(--ink);
+      }
+
+      .nutrition-feature-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* Mistake Card Style (Section G) */
+      .mistake-card {
+        padding: 24px 22px;
+        border-left: 4px solid #d45b4c;
+      }
+
+      .mistake-card-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .mistake-icon-wrap {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #fdf2f0;
+        color: #d45b4c;
+        display: grid;
+        place-items: center;
+        font-size: 1.15rem;
+        flex-shrink: 0;
+      }
+
+      .mistake-card h3 {
+        font-size: 1.1rem;
+        margin: 0;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .mistake-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+
+      .mistake-solution {
+        background: #f7fbf8;
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: var(--dark);
+        border: 1px solid #dcebc9;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .mistake-solution i {
+        color: var(--green);
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+
+      /* Schedule Card Style (Section F) */
+      .schedule-card {
+        padding: 24px 20px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .schedule-icon-wrap {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        background: #eaf2e9;
+        color: var(--green);
+        display: grid;
+        place-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+      }
+
+      .schedule-card h3 {
+        font-size: 1.12rem;
+        margin: 0 0 6px;
+        color: var(--ink);
+      }
+
+      .schedule-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background: #edf7f0;
+        border: 1px solid #cce4d2;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--green);
+        margin-bottom: 14px;
+      }
+
+      /* Pro Tip & Alert Boxes */
+      .content-highlight-box {
+        background: #ffffff;
+        border: 1px solid #dcebc9;
+        border-radius: 20px;
+        padding: 24px 28px;
+        margin-top: 28px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        box-shadow: 0 4px 16px rgba(35, 75, 45, 0.03);
+      }
+
+      .content-highlight-box i {
+        font-size: 1.4rem;
+        color: var(--green);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .content-highlight-box h4 {
+        margin: 0 0 6px;
+        font-size: 1.05rem;
+        color: var(--ink);
+      }
+
+      .content-highlight-box p {
+        margin: 0;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      /* Final CTA Section - soft light pink background requested by issue */
+      main > .cta,
+      #nutritionCta.cta,
+      .cta {
+        width: 85%;
+        max-width: 1350px;
+        margin: 60px auto 92px;
+        margin-inline: auto;
+        padding: 48px 56px;
+        border-radius: 30px;
+        background: #f9eae6 !important;
+        background-color: #f9eae6 !important;
+        border: 1px solid #f4e4df !important;
+        box-sizing: border-box;
+      }
+
+      .cta-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+      }
+
+      .cta .button-light {
+        background: #ffffff !important;
+        border-color: #ffffff !important;
+        color: var(--dark) !important;
+      }
+
+      .cta .button-light:hover {
+        background: #edf3ec !important;
+        color: var(--dark) !important;
+        transform: translateY(-2px);
+      }
+
+      .cta .button-outline {
+        background: transparent !important;
+        color: var(--green) !important;
+        border: 1px solid var(--green) !important;
+      }
+
+      .cta .button-outline:hover {
+        background: var(--green) !important;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+      }
+
+      .cta > div:first-child {
+        text-align: left;
+      }
+
+      .cta > div:first-child .eyebrow,
+      .cta > div:first-child h2,
+      .cta > div:first-child p {
+        text-align: left;
+      }
+
+      /* Responsive Media Queries */
+      @media (max-width: 1100px) {
+        .features-4-grid,
+        .schedule-4-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 960px) {
+        .cat-info-grid,
+        .nutrition-cards-grid,
+        .mistakes-6-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .cat-topics-heading {
+          padding: 36px 20px 30px;
+        }
+
+        main > .cta,
+        .cta {
+          width: calc(100% - 40px);
+          padding: 38px 30px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .cat-info-grid,
+        .nutrition-cards-grid,
+        .features-4-grid,
+        .schedule-4-grid,
+        .mistakes-6-grid,
+        .guides-nav-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .guides-nav-strip {
+          padding: 22px 18px;
+        }
+
+        .cat-card-media {
+          height: 180px;
+        }
+
+        .paw-left-1,
+        .paw-right-1 {
+          display: none;
+        }
+
+        .cta-actions {
+          width: 100%;
+          flex-direction: column;
+          margin-top: 18px;
+        }
+
+        .cta-actions .button {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+        }
+
+        main > .cta,
+        .cta {
+          width: calc(100% - 32px);
+          padding: 32px 20px;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Shared Global Header (Do not modify) -->
+    <div id="header"></div>
+
+    <main>
+      <!-- 1. Main Hero Section matching reference index layout -->
+      <section class="hero section-wrap" id="reptile-hero">
+        <div class="hero-copy">
+          <div class="cat-badge-strip">
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i> &nbsp; PETSATHI • REPTILE NUTRITION GUIDE
+          </div>
+          <h1>Reptile Nutrition and <em>Feeding Guide</em></h1>
+          <p>
+            Good nutrition is the foundation of a healthy, active reptile.
+            Learn how species-specific diets, well-fed feeder insects, safe
+            plants, calcium and a consistent feeding routine work together to
+            support growth, digestion and long-term wellness.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#understanding-nutrition" id="hero-cta-tips"
+              >Explore Nutrition Tips ↗</a
+            >
+            <a
+              class="button button-outline"
+              href="reptiles.html"
+              id="hero-cta-reptiles"
+              >Back to Reptiles ↓</a
+            >
+          </div>
+          <div class="hero-note">
+            <i class="fa-solid fa-heart" style="color: var(--green);" aria-hidden="true"></i> &nbsp; Species-appropriate food, thoughtful portions, healthier reptiles.
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <img
+            src="../../../assets/images/reptiles/bearded-dragon-eating.jpg"
+            alt="Bearded dragon eating fresh nutritious greens"
+            class="hero-photo"
+            id="hero-reptile-image"
+          />
+          <div class="floating-card card-top">
+            <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+            <span
+              ><b>Fresh &amp; Varied</b
+              ><small>Species-specific diets</small></span
+            >
+          </div>
+          <div class="floating-card card-bottom">
+            <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+            <span
+              ><b>Balanced Nutrition</b
+              ><small>Built for long-term health</small></span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Quick Navigation Hub immediately after Hero -->
+      <div class="guides-nav-strip" id="nutrition-hub">
+        <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+          <i class="fa-solid fa-leaf decor-paw decor-paw-1"></i>
+          <i class="fa-solid fa-leaf decor-paw decor-paw-2"></i>
+        </div>
+
+        <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+          <i class="fa-solid fa-leaf decor-paw decor-paw-3"></i>
+          <i class="fa-solid fa-leaf decor-paw decor-paw-4"></i>
+        </div>
+
+        <div class="quick-nav-header">
+          <div class="quick-nav-eyebrow-wrap">
+            <span class="quick-nav-line"></span>
+            <div class="quick-nav-badge">
+              <i
+                class="fa-regular fa-compass quick-nav-badge-icon"
+                aria-hidden="true"
+              ></i>
+              <span>QUICK NAVIGATION</span>
+            </div>
+            <span class="quick-nav-line"></span>
+          </div>
+          <h3 class="quick-nav-title">
+            Explore the <span>Reptile Nutrition Guide</span>
+          </h3>
+        </div>
+
+        <nav class="guides-nav-grid" aria-label="Reptile nutrition quick navigation">
+          <a class="guide-nav-item" href="#understanding-nutrition">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Understanding Nutrition</span>
+          </a>
+
+          <a class="guide-nav-item" href="#diet-types">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Types of Reptile Diets</span>
+          </a>
+
+          <a class="guide-nav-item" href="#insect-food">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-bug" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Insect-Based Food</span>
+          </a>
+
+          <a class="guide-nav-item" href="#plant-food">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Plant-Based Food</span>
+          </a>
+
+          <a class="guide-nav-item" href="#calcium-supplements">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-prescription-bottle-medical" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Calcium &amp; Supplements</span>
+          </a>
+
+          <a class="guide-nav-item" href="#feeding-schedule">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Feeding Schedule</span>
+          </a>
+
+          <a class="guide-nav-item" href="#feeding-mistakes">
+            <span class="guide-nav-icon">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            </span>
+            <span class="guide-nav-label">Common Feeding Mistakes</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- 3. Main Content Sections -->
+
+      <!-- A. Understanding Reptile Nutrition -->
+      <section class="section section-wrap" id="understanding-nutrition">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-book-open"></i> Essential Physiology
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Understanding <span>Reptile Nutrition</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Reptiles have unique ectothermic metabolisms. A balanced, species-appropriate diet fuels steady growth, daily energy, healthy digestion, and long-term organ health.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-4-grid">
+          <article class="nutrition-feature-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-bone" aria-hidden="true"></i>
+            </div>
+            <h3>Growth &amp; Development</h3>
+            <p>
+              Calcium, bioavailable protein, and Vitamin D3 support bone density, shell formation in tortoises, and prevent Metabolic Bone Disease (MBD).
+            </p>
+          </article>
+
+          <article class="nutrition-feature-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            </div>
+            <h3>Energy &amp; Activity</h3>
+            <p>
+              Species-appropriate protein, clean fats, and carbohydrates power daily movement, natural foraging behaviors, and basking routines.
+            </p>
+          </article>
+
+          <article class="nutrition-feature-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+            </div>
+            <h3>Digestion &amp; Hydration</h3>
+            <p>
+              Balanced fiber and dietary hydration keep the digestive tract moving smoothly, preventing fatal gut impaction and constipation.
+            </p>
+          </article>
+
+          <article class="nutrition-feature-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+            </div>
+            <h3>Long-Term Health</h3>
+            <p>
+              Balanced vitamins and minerals protect vital organ function, support healthy seasonal sheds, and promote longevity in terrarium pets.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- B. Types of Reptile Diets -->
+      <section class="section section-wrap" id="diet-types">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-utensils"></i> Dietary Classifications
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Types of <span>Reptile Diets</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Reptiles have evolved specialized digestive systems. Feeding according to their natural biological category is critical to their survival.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-4-grid">
+          <!-- Herbivore Card -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge">
+                <i class="fa-solid fa-seedling" aria-hidden="true"></i> Herbivore
+              </span>
+              <img
+                src="../../../assets/images/reptiles/russian-tortoise.jpg"
+                alt="Russian tortoise, a plant-eating reptile"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-card-body">
+              <h3>Herbivore Diet</h3>
+              <span class="cat-card-meta">Exclusively Plant-Based</span>
+              <p>Reptiles that eat mainly plant-based food, leafy greens, high-calcium weeds, and fibrous grasses.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span>Examples: Tortoises, Green Iguanas, Uromastyx.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Zero animal protein to prevent fatal kidney damage.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Carnivore Card -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge">
+                <i class="fa-solid fa-drumstick-bite" aria-hidden="true"></i> Carnivore
+              </span>
+              <img
+                src="../../../assets/images/reptiles/ball-python.jpg"
+                alt="Ball python, a carnivorous reptile"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-card-body">
+              <h3>Carnivore Diet</h3>
+              <span class="cat-card-meta">Whole-Prey Feeders</span>
+              <p>Reptiles that eat animal-based food, whole vertebrate rodents, eggs, and complete prey items.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span>Examples: Ball Pythons, Corn Snakes, Monitors.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Bones and organs supply complete calcium and vitamins.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Insectivore Card -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge">
+                <i class="fa-solid fa-bug" aria-hidden="true"></i> Insectivore
+              </span>
+              <img
+                src="../../../assets/images/reptiles/leopard-gecko.jpg"
+                alt="Leopard gecko, an insect-eating reptile"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-card-body">
+              <h3>Insectivore Diet</h3>
+              <span class="cat-card-meta">Invertebrate Hunters</span>
+              <p>Reptiles that eat live insects, larvae, and other invertebrates requiring active hunting stimulation.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span>Examples: Leopard Geckos, Chameleons, Geckos.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Feeders must be well gut-loaded and dusted with calcium.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Omnivore Card -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge">
+                <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Omnivore
+              </span>
+              <img
+                src="../../../assets/images/reptiles/bearded-dragon-eating.jpg"
+                alt="Bearded dragon eating, an omnivorous reptile"
+                loading="lazy"
+              />
+            </div>
+            <div class="cat-card-body">
+              <h3>Omnivore Diet</h3>
+              <span class="cat-card-meta">Plants &amp; Insects Mix</span>
+              <p>Reptiles that eat both plant and animal-based food, adjusting ratios as they transition to adulthood.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span>Examples: Bearded Dragons, Blue-Tongued Skinks.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span>Juveniles need 80% insects; adults need 80% salads.</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- C. Insect-Based Food -->
+      <section class="section section-wrap" id="insect-food">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-bug"></i> Feeder Invertebrates
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Insect-Based <span>Reptile Food</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Insects are the cornerstone of insectivorous and young omnivorous diets. Learn suitable feeder varieties, proper gut-loading, and why wild-caught insects must be avoided.
+            </p>
+          </div>
+        </div>
+
+        <div class="cat-info-grid">
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-bug"></i> Live Staple</span>
+              <img src="../../../assets/images/reptiles/feeder-crickets.jpg" alt="Live feeder crickets" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Crickets &amp; Roaches</h3>
+              <p>Active live prey providing natural stimulation and high-quality protein for terrarium pets.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span><strong>Crickets:</strong> Active and engaging; stimulating hunting behavior.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>Dubia Roaches:</strong> Excellent meat-to-shell ratio, low odor, easy to digest.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-cubes-stacked"></i> Nutritious Larvae</span>
+              <img src="../../../assets/images/reptiles/feeder-mealworms.jpg" alt="Nutritious feeder mealworms" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Larvae &amp; Worms</h3>
+              <p>Nutritious larvae that offer diverse dietary profiles and valuable calcium enrichment.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span><strong>Black Soldier Fly Larvae (BSFL):</strong> Naturally high in bioavailable calcium.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>Mealworms:</strong> Suitable occasional treats; choose freshly molted larvae.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-apple-whole"></i> Preparation</span>
+              <img src="../../../assets/images/reptiles/leopard-gecko.jpg" alt="Leopard gecko hunting insects" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Gut-Loading &amp; Safety</h3>
+              <p>How feeder insects are prepared directly determines the nutrition your reptile receives.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span><strong>Gut-loading feeder insects:</strong> Feed insects carrots, squash, greens, and oats 24-48 hours before feeding.</span></li>
+                <li><i class="fa-solid fa-ban" style="color: #d45b4c;"></i> <span><strong>Avoiding wild-caught insects:</strong> Wild-caught insects carry lethal pesticides, lawn chemicals, and harmful parasites.</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- D. Plant-Based Food -->
+      <section class="section section-wrap" id="plant-food">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-leaf"></i> Botanical Salads
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Plant-Based <span>Reptile Food</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Safe leafy greens, wholesome vegetables, and occasional fruits provide vital fiber, moisture, and minerals for herbivores and omnivores.
+            </p>
+          </div>
+        </div>
+
+        <div class="cat-info-grid">
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-leaf"></i> Daily Staples</span>
+              <img src="../../../assets/images/reptiles/collard-greens.jpg" alt="Fresh collard greens" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Leafy Greens &amp; Calcium-Rich Plants</h3>
+              <p>Dark, fibrous leafy greens and calcium-rich plant foods form the daily staple salad for tortoises and adult bearded dragons.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span><strong>Collard &amp; Mustard Greens:</strong> Excellent 2:1 Calcium-to-Phosphorus ratio.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>Dandelion Greens:</strong> Outstanding calcium, iron, and prebiotic fiber.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>Turnip Greens &amp; Escarole:</strong> Gentle on digestion and rich in Vitamin A.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-carrot"></i> Nutritious Mix-Ins</span>
+              <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Bearded dragon with salad" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Vegetables &amp; Fruits</h3>
+              <p>Wholesome vegetables and measured fruits offer moisture, beta-carotene, and enrichment.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span><strong>Squash &amp; Peppers:</strong> Butternut squash, acorn squash, zucchini, bell peppers.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>Species Fruits:</strong> Berries and melon strictly as rare treats (under 10%).</span></li>
+                <li><i class="fa-solid fa-check"></i> <span><strong>No fruit for desert tortoises:</strong> Excess sugar causes fatal gut flora disruption.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge" style="color: #d45b4c;"><i class="fa-solid fa-ban"></i> Toxic Items</span>
+              <img src="../../../assets/images/reptiles/russian-tortoise.jpg" alt="Tortoise eating greens" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Avoiding Unsuitable Food Items</h3>
+              <p>Harmful plants containing dangerous oxalates, chemical toxins, and digestive blockers.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-triangle-exclamation" style="color: #d45b4c;"></i> <span><strong>Avocado:</strong> Contains persin, causing lethal cardiac and respiratory failure.</span></li>
+                <li><i class="fa-solid fa-triangle-exclamation" style="color: #d45b4c;"></i> <span><strong>Rhubarb &amp; High Oxalates:</strong> Oxalic acid binds calcium, causing kidney damage.</span></li>
+                <li><i class="fa-solid fa-triangle-exclamation" style="color: #d45b4c;"></i> <span><strong>Iceberg Lettuce &amp; Alliums:</strong> Zero nutrition; onions and garlic rupture red cells.</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- E. Calcium and Supplements -->
+      <section class="section section-wrap" id="calcium-supplements">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-prescription-bottle-medical"></i> Micronutrient Balance
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Calcium and <span>Supplements</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Reptiles cannot absorb dietary calcium without Vitamin D3 and proper UVB exposure. Supplementation must be carefully balanced according to species and habitat setup.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-4-grid">
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-pills"></i> Pure Calcium</span>
+              <img src="../../../assets/images/reptiles/calcium-supplement.jpg" alt="Calcium powder supplement" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Importance of Calcium</h3>
+              <p>Calcium powers skeletal formation, tortoise shells, eggshells, and nerve-muscle transmission.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span>Use plain calcium carbonate without D3 for daily dustings.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>Prevents Metabolic Bone Disease (MBD) and tremors.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-sun"></i> Vitamin D3</span>
+              <img src="../../../assets/images/reptiles/blue-tongued-skink.jpg" alt="Reptile basking under UVB light" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Vitamin D3 Requirements</h3>
+              <p>Vitamin D3 facilitates active intestinal calcium absorption across cell walls.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span>Synthesized naturally under high-quality linear T5 UVB lamps.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>Use calcium with D3 only 1-2 times weekly for low-UVB setups.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-eye"></i> Multivitamins</span>
+              <img src="../../../assets/images/reptiles/crested-gecko.png" alt="Gecko receiving balanced nutrition" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Multivitamin Support</h3>
+              <p>Supplying essential Vitamin A, E, and trace minerals for resilient mucosal linings.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span>Pre-formed Vitamin A supports eyesight and clean shedding.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>Dust once or twice a month for adults; weekly for hatchlings.</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-hand-sparkles"></i> Dusting</span>
+              <img src="../../../assets/images/reptiles/feeder-crickets.jpg" alt="Dusted live feeder insects" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Dusting &amp; Gut-Loading</h3>
+              <p>The "shake and bake" method ensures light, palatable coating without over-caking.</p>
+              <ul class="card-points-list">
+                <li><i class="fa-solid fa-check"></i> <span>Gently swirl insects in a cup with 1/8 tsp powder.</span></li>
+                <li><i class="fa-solid fa-check"></i> <span>Supplementation depends strictly on species, diet, and UVB.</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- F. Feeding Schedule and Portion Control -->
+      <section class="section section-wrap" id="feeding-schedule">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-calendar-days"></i> Husbandry Routines
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Feeding Schedule &amp; <span>Portion Control</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Feeding intervals depend directly on species, age, and metabolism. Monitor appetite, regulate portions, and remove uneaten food promptly.
+            </p>
+          </div>
+        </div>
+
+        <div class="schedule-4-grid">
+          <article class="schedule-card">
+            <div class="schedule-icon-wrap"><i class="fa-solid fa-dragon"></i></div>
+            <h3>Bearded Dragon</h3>
+            <span class="schedule-badge">Omnivore Routine</span>
+            <ul class="card-points-list">
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Hatchling:</strong> 2-3x daily (80% insects).</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Juvenile:</strong> 1-2x daily (50/50 mix).</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Adult:</strong> Daily fresh salad; insects 2-3x weekly.</span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-card">
+            <div class="schedule-icon-wrap"><i class="fa-solid fa-bug"></i></div>
+            <h3>Leopard Gecko</h3>
+            <span class="schedule-badge">Insectivore Routine</span>
+            <ul class="card-points-list">
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Hatchling:</strong> Daily 5-7 small insects.</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Juvenile:</strong> Every other day (6-8 insects).</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Adult:</strong> Every 3-4 days (6-8 insects).</span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-card">
+            <div class="schedule-icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Russian Tortoise</h3>
+            <span class="schedule-badge">Herbivore Routine</span>
+            <ul class="card-points-list">
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Daily:</strong> Fresh salad equal to shell volume.</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Fast Day:</strong> 1 fast day weekly for adult digestive rest.</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Hydration:</strong> Shallow clean water bowl daily.</span></li>
+            </ul>
+          </article>
+
+          <article class="schedule-card">
+            <div class="schedule-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Ball Python</h3>
+            <span class="schedule-badge">Carnivore Routine</span>
+            <ul class="card-points-list">
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Hatchling:</strong> 1 appropriate prey every 5-7 days.</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Juvenile:</strong> 1 prey item every 7-10 days.</span></li>
+              <li><i class="fa-solid fa-clock"></i> <span><strong>Adult:</strong> 1 prey item every 10-14 days.</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="content-highlight-box">
+          <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+          <div>
+            <h4>Monitoring Appetite &amp; Cleaning Uneaten Food</h4>
+            <p>
+              Always remove uneaten salads after 6 to 8 hours to prevent mold and bacterial growth. Never leave live crickets in terrariums overnight, as hungry bugs will chew on sleeping reptiles. Keep track of seasonal appetite shifts during winter brumation periods.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- G. Common Feeding Mistakes -->
+      <section class="section section-wrap" id="feeding-mistakes">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-triangle-exclamation"></i> Preventable Pitfalls
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Common <span>Feeding Mistakes</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Avoid these six critical feeding errors to keep your reptile safe, prevent severe metabolic disorders, and ensure a long life.
+            </p>
+          </div>
+        </div>
+
+        <div class="mistakes-6-grid">
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-ban"></i></div>
+              <h3>Feeding Unsuitable Food</h3>
+            </div>
+            <p>Giving processed foods, dog/cat kibble, or human snacks that overload reptilian organs.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Feed only approved species-specific whole prey, live insects, and safe greens.</span>
+            </div>
+          </article>
+
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-weight-scale"></i></div>
+              <h3>Overfeeding</h3>
+            </div>
+            <p>Excessive calorie intake leads directly to obesity, hepatic lipidosis (fatty liver), and early mortality.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Follow structured age-based schedules and avoid relying on high-fat treat worms.</span>
+            </div>
+          </article>
+
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-dna"></i></div>
+              <h3>Ignoring Species Diet</h3>
+            </div>
+            <p>Feeding animal protein to strict herbivores, or forcing salads on obligate carnivorous snakes.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Match diet to natural biology: zero animal protein for herbivores, whole prey for carnivores.</span>
+            </div>
+          </article>
+
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-bug-slash"></i></div>
+              <h3>Poor Feeder Nutrition</h3>
+            </div>
+            <p>Offering empty, dehydrated pet-store insects straight out of packaging without gut-loading.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Gut-load all live insects with calcium greens, carrots, and grains 24-48 hours before feeding.</span>
+            </div>
+          </article>
+
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-prescription-bottle"></i></div>
+              <h3>Incorrect Supplementation</h3>
+            </div>
+            <p>Either skipping calcium completely (causing MBD) or drastically overdosing synthetic Vitamin D3.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Use plain calcium regularly; reserve Vitamin D3 and multivitamins for scheduled weekly rotations.</span>
+            </div>
+          </article>
+
+          <article class="mistake-card">
+            <div class="mistake-card-head">
+              <div class="mistake-icon-wrap"><i class="fa-solid fa-biohazard"></i></div>
+              <h3>Feeding Wild-Caught Insects</h3>
+            </div>
+            <p>Outdoor wild-caught insects carry agricultural pesticides, lawn chemicals, and lethal parasite loads.</p>
+            <div class="mistake-solution">
+              <i class="fa-solid fa-check"></i>
+              <span>Source all live feeders strictly from clean commercial colonies or captive breeding setups.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. Cards Design: 8 Nutrition Cards matching Issue Requirements -->
+      <section class="section section-wrap" id="nutrition-cards">
+        <div class="cat-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+          </svg>
+          <div class="paw paw-left-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-left-2"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-1"><i class="fa-solid fa-leaf"></i></div>
+          <div class="paw paw-right-2"><i class="fa-solid fa-leaf"></i></div>
+
+          <div class="heading-content">
+            <span class="heading-label">
+              <i class="fa-solid fa-border-all"></i> Quick Reference
+            </span>
+            <h2>
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Reptile Nutrition <span>Cards</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>
+              Eight attractive nutrition cards summarizing core diet categories, staple food groups, and healthy feeding practices.
+            </p>
+          </div>
+        </div>
+
+        <div class="nutrition-cards-grid">
+          <!-- Card 1: Herbivore Diet -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-seedling"></i> Herbivore</span>
+              <img src="../../../assets/images/reptiles/russian-tortoise.jpg" alt="Russian tortoise, a plant-eating reptile" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Herbivore Diet</h3>
+              <p>Leafy greens, high-calcium weeds, and roughage fiber for tortoises, iguanas, and uromastyx without animal protein.</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Carnivore Diet -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-drumstick-bite"></i> Carnivore</span>
+              <img src="../../../assets/images/reptiles/ball-python.jpg" alt="Ball python, a carnivorous reptile" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Carnivore Diet</h3>
+              <p>Appropriately sized whole-prey rodents supplying complete skeletal calcium and internal organs for snakes.</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Insectivore Diet -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-bug"></i> Insectivore</span>
+              <img src="../../../assets/images/reptiles/leopard-gecko.jpg" alt="Leopard gecko, an insect-eating reptile" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Insectivore Diet</h3>
+              <p>Gut-loaded, calcium-dusted live insects matched to interocular spacing for geckos, chameleons, and growing juveniles.</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Omnivore Diet -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-scale-balanced"></i> Omnivore</span>
+              <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Bearded dragon, an omnivorous reptile" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Omnivore Diet</h3>
+              <p>A balanced mix of live insects and fresh botanical salads, transitioning from 80% insects in youth to 80% greens in adults.</p>
+            </div>
+          </article>
+
+          <!-- Card 5: Feeder Insects -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-cubes-stacked"></i> Live Feeders</span>
+              <img src="../../../assets/images/reptiles/feeder-crickets.jpg" alt="Feeder crickets for insect-eating reptiles" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Feeder Insects</h3>
+              <p>Crickets, Dubia roaches, black soldier fly larvae, and mealworms, rotated regularly for balanced micronutrients.</p>
+            </div>
+          </article>
+
+          <!-- Card 6: Plant-Based Food -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-leaf"></i> Fresh Botanicals</span>
+              <img src="../../../assets/images/reptiles/collard-greens.jpg" alt="Fresh collard greens for herbivorous reptiles" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Plant-Based Food</h3>
+              <p>Safe leafy greens, squash, and occasional fruits, washed thoroughly and chopped to suit your reptile's mouth.</p>
+            </div>
+          </article>
+
+          <!-- Card 7: Calcium and Supplements -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-prescription-bottle-medical"></i> Supplements</span>
+              <img src="../../../assets/images/reptiles/calcium-supplement.jpg" alt="Calcium carbonate powder for reptiles" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Calcium and Supplements</h3>
+              <p>Pure calcium carbonate, Vitamin D3, and multivitamins balanced according to your enclosure's UVB light output.</p>
+            </div>
+          </article>
+
+          <!-- Card 8: Healthy Feeding Habits -->
+          <article class="cat-card">
+            <div class="cat-card-media">
+              <span class="cat-card-badge"><i class="fa-solid fa-heart-pulse"></i> Healthy Routine</span>
+              <img src="../../../assets/images/reptiles/blue-tongued-skink.jpg" alt="Blue-tongued skink with healthy feeding habits" loading="lazy" />
+            </div>
+            <div class="cat-card-body">
+              <h3>Healthy Feeding Habits</h3>
+              <p>Consistent feeding times, optimal basking temperatures, sensible portions, and prompt removal of uneaten food.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 5. Final CTA Section - soft light pink background per issue -->
+      <section
+        class="cta section-wrap"
+        id="nutritionCta"
+        style="background: #f9eae6 !important; border: 1px solid #f4e4df !important;"
+      >
+        <div>
+          <div class="eyebrow">PREVENTIVE REPTILE WELLNESS</div>
+          <h2>Healthy Nutrition for a <em>Healthy Reptile</em></h2>
+          <p>
+            Good food is preventive care. Pair a species-appropriate diet with
+            clean water, correct temperatures, suitable UVB and regular health
+            checks to help your reptile stay active and thrive for years.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a
+            class="button button-light"
+            href="reptiles.html#reptile-health"
+            id="cta-reptile-health"
+          >
+            Explore Reptile Health ↗
+          </a>
+          <a
+            class="button button-outline"
+            href="reptiles.html"
+            id="cta-all-reptiles"
+          >
+            Back to Reptiles Guide ↓
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Global Footer (Do not modify) -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile menu toggle
+      const toggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".main-nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+          const open = nav.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", String(open));
+        });
+      }
+
+      // Smooth scroll for quick navigation links
+      document.querySelectorAll(".guide-nav-item").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (targetId && targetId.startsWith("#")) {
+            const targetElem = document.querySelector(targetId);
+            if (targetElem) {
+              e.preventDefault();
+              targetElem.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        });
+      });
+    </script>
+    <script src="../../../js/main.js"></script>
+  </body>
+</html>
