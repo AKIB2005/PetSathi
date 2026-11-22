@@ -180,227 +180,32 @@
       box-sizing: border-box;
     }
 
-    .rep-hero-copy {
-      min-width: 0;
-      z-index: 2;
-    }
-
-    .rep-badge-strip {
+    /* Badge Strip */
+    .dog-badge-strip,
+    .reptile-badge-strip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 18px;
-      background: #eaf3df;
-      color: var(--rep-green-primary);
-      border: 1px solid var(--rep-border-green);
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green, #286849);
       border-radius: 999px;
       font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .rep-hero-copy h1 {
-      margin: 0 0 20px;
-      color: #22372a;
-      font-family: Georgia, "Playfair Display", serif;
-      font-size: clamp(2.3rem, 4.2vw, 3.8rem);
-      line-height: 1.15;
-      letter-spacing: -1.2px;
-    }
-
-    .rep-hero-copy h1 em {
-      color: var(--rep-green-primary);
-      font-style: normal;
-    }
-
-    .rep-hero-copy p {
-      max-width: 540px;
-      margin: 0 0 28px;
-      color: var(--rep-muted);
-      font-size: 1.02rem;
-      line-height: 1.75;
-    }
-
-    .rep-hero-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .rep-hero-actions .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 26px;
-      background: var(--rep-green-primary);
-      color: #ffffff;
-      border: 1px solid var(--rep-green-primary);
-      border-radius: 50px;
-      font-size: 0.95rem;
       font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(40, 104, 73, 0.25);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
-
-    .rep-hero-actions .button:hover {
-      background: var(--rep-green-hover);
-      border-color: var(--rep-green-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.35);
-    }
-
-    .rep-hero-actions .button-outline {
-      background: #ffffff;
-      color: var(--rep-green-primary);
-      border: 1px solid var(--rep-border-green);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .rep-hero-actions .button-outline:hover {
-      background: var(--rep-green-light);
-      border-color: var(--rep-green-primary);
-      color: var(--rep-green-dark);
-    }
-
-    .rep-hero-note {
-      font-size: 0.85rem;
-      color: var(--rep-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .rep-hero-note i {
-      color: #c94a5e;
-    }
-
-    /* Hero Visual */
-    .rep-hero-visual {
-      position: relative;
-      width: 100%;
-      min-width: 0;
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .rep-hero-blob {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(206, 235, 214, 0.65) 0%, rgba(206, 235, 214, 0) 70%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .rep-hero-frame {
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-      height: 380px;
-      border-radius: 40px;
-      overflow: hidden;
-      background: #d8e8dc;
-      box-shadow: 0 20px 48px rgba(35, 75, 45, 0.14);
-      z-index: 2;
-      border: 4px solid #ffffff;
-    }
-
-    .rep-hero-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .rep-hero-frame:hover img {
-      transform: scale(1.04);
-    }
-
-    /* Hero Floating Badges */
-    .rep-floating-badge {
-      position: absolute;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border: 1px solid #dce8dd;
-      border-radius: 18px;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 10px 24px rgba(35, 75, 45, 0.1);
-      animation: floatBadge 3.5s ease-in-out infinite alternate;
-    }
-
-    .badge-top-left {
-      top: 15px;
-      left: -20px;
-    }
-
-    .badge-bottom-right {
-      bottom: 20px;
-      right: -15px;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes floatBadge {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-8px);
-      }
-    }
-
-    .rep-badge-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--rep-green-light);
-      color: var(--rep-green-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .rep-badge-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .rep-badge-text strong {
-      font-size: 0.85rem;
-      color: var(--rep-ink);
-      line-height: 1.2;
-    }
-
-    .rep-badge-text small {
-      font-size: 0.74rem;
-      color: var(--rep-muted);
-    }
-
-    /* ========================================================
-       2. QUICK NAVIGATION HUB (Matching Dog Index / Cat Index)
+/* ========================================================
+       2. QUICK NAVIGATION HUB (Matching Dog Index & Cat Index)
        ======================================================== */
     .guides-nav-strip {
       position: relative;
-      background: var(--rep-white);
-      margin: 40px auto 60px;
-      width: min(1160px, calc(100% - 48px));
-      border: 1px solid var(--rep-border-green);
+      background: #ffffff;
+      margin: 40px auto;
+      max-width: 1200px;
+      width: calc(100% - 40px);
+      border: 1px solid #dceade;
       border-radius: 32px;
       padding: 42px 36px 38px;
       box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
@@ -434,37 +239,37 @@
       border-radius: 100% 0 0 0;
     }
 
-    .decor-leaf {
+    .decor-paw {
       position: absolute;
       display: inline-block;
       line-height: 1;
     }
 
-    .decor-leaf-1 {
+    .decor-paw-1 {
       top: 14px;
       left: 28px;
-      font-size: 26px;
+      font-size: 28px;
       transform: rotate(-15deg);
     }
 
-    .decor-leaf-2 {
+    .decor-paw-2 {
       top: 38px;
       left: 12px;
-      font-size: 18px;
+      font-size: 19px;
       transform: rotate(20deg);
     }
 
-    .decor-leaf-3 {
+    .decor-paw-3 {
       bottom: 36px;
       right: 14px;
-      font-size: 18px;
+      font-size: 19px;
       transform: rotate(-25deg);
     }
 
-    .decor-leaf-4 {
+    .decor-paw-4 {
       bottom: 14px;
       right: 28px;
-      font-size: 26px;
+      font-size: 28px;
       transform: rotate(15deg);
     }
 
@@ -472,7 +277,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
     .quick-nav-eyebrow-wrap {
@@ -480,7 +285,7 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .quick-nav-line {
@@ -494,12 +299,13 @@
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      background: var(--rep-green-soft);
-      border: 1px solid var(--rep-border-green);
+      background: #f4faf5;
+      border: 1px solid #b7deb8;
       border-radius: 9999px;
-      color: var(--rep-green-primary);
+      color: #1e6f43;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
       font-size: 0.74rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
       box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
@@ -508,14 +314,15 @@
     .quick-nav-badge i {
       font-size: 0.95rem;
       line-height: 1;
-      color: var(--rep-green-primary);
+      color: #1e6f43;
+      flex-shrink: 0;
     }
 
     .quick-nav-title {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(1.4rem, 2.3vw, 1.95rem);
+      font-family: 'Manrope', sans-serif !important;
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
       font-weight: 800;
-      color: var(--rep-ink);
+      color: #1a251e;
       margin: 0;
       letter-spacing: -0.02em;
       line-height: 1.25;
@@ -523,7 +330,7 @@
     }
 
     .quick-nav-title span {
-      color: var(--rep-green-primary);
+      color: #1e6f43;
       font-weight: 800;
     }
 
@@ -540,261 +347,81 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 16px 10px 10px;
-      background: var(--rep-green-light);
-      border: 1px solid var(--rep-border-green);
+      padding: 9px 16px 9px 9px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
       border-radius: 9999px;
-      color: var(--rep-green-primary);
       text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 700;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 6px rgba(35, 80, 50, 0.04);
-      justify-content: flex-start;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      min-width: 0;
       cursor: pointer;
     }
 
+    .guide-nav-item:hover,
+    .guide-nav-item.active-filter {
+      background: #e4f4e8;
+      border-color: #237847;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+    }
+
     .guide-nav-icon {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #ffffff;
-      color: var(--rep-green-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.88rem;
+      background: #d1ecda;
+      color: #1e6f43;
+      display: grid;
+      place-items: center;
       flex-shrink: 0;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-      transition: all 0.25s ease;
+      font-size: 1rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .guide-nav-icon i {
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .guide-nav-item:hover .guide-nav-icon,
+    .guide-nav-item.active-filter .guide-nav-icon {
+      background: #1e6f43;
+      color: #ffffff;
     }
 
     .guide-nav-label {
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1c2b20;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
-    .guide-nav-item:hover {
-      background: var(--rep-green-primary);
-      color: #ffffff;
-      border-color: var(--rep-green-primary);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(40, 104, 73, 0.2);
-    }
-
-    .guide-nav-item:hover .guide-nav-icon {
-      background: rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-    }
-
-    /* ========================================================
-       SIGNATURE SECTION HEADING CARDS (Matching Dogs/Cats Index)
-       ======================================================== */
-    .rep-topics-heading {
-      position: relative;
-      max-width: 1280px;
-      margin: 55px auto 35px;
-      padding: 44px 35px 38px;
-      overflow: hidden;
-      text-align: center;
-      border-radius: 35px;
-      border: 1px solid #dcebc9;
-      background: #fafcf7;
-      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
-      box-sizing: border-box;
-    }
-
-    .corner-wave {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .wave-tl {
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 130px;
-    }
-
-    .wave-br {
-      bottom: 0;
-      right: 0;
-      width: 220px;
-      height: 130px;
-    }
-
-    .heading-decor-icon {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-      color: #c9decb;
-      opacity: 0.55;
-    }
-
-    .decor-pos-1 {
-      left: 35px;
-      top: 25px;
-      font-size: 34px;
-    }
-
-    .decor-pos-2 {
-      left: 18px;
-      bottom: 14px;
-      font-size: 24px;
-    }
-
-    .decor-pos-3 {
-      right: 25px;
-      top: 25px;
-      font-size: 34px;
-    }
-
-    .decor-pos-4 {
-      right: 65px;
-      bottom: 14px;
-      font-size: 24px;
-    }
-
-    .heading-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .heading-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 20px;
-      margin-bottom: 16px;
-      border-radius: 50px;
-      background: #edf6df;
-      border: 1px solid #dcebc9;
-      color: #246b43;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .rep-topics-heading h2 {
-      color: #263b30;
-      font-family: Georgia, serif;
-      font-size: clamp(24px, 3.2vw, 36px);
-      font-weight: 700;
-      margin: 0 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .rep-topics-heading h2 span {
-      color: var(--rep-green-primary);
-    }
-
-    .rep-topics-heading p {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 0.98rem;
-      color: var(--rep-muted);
-      line-height: 1.65;
-    }
-
-    .heading-burst {
-      display: inline-block;
-      position: relative;
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      vertical-align: middle;
-    }
-
-    .heading-burst span {
-      position: absolute;
-      background: #60a872;
-      border-radius: 9999px;
-    }
-
-    .heading-burst.left span {
-      right: 0;
-      transform-origin: right center;
-    }
-
-    .heading-burst.left span:nth-child(1) {
-      top: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(35deg);
-    }
-
-    .heading-burst.left span:nth-child(2) {
-      top: 11px;
-      width: 18px;
-      height: 2.8px;
-    }
-
-    .heading-burst.left span:nth-child(3) {
-      bottom: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(-35deg);
-    }
-
-    .heading-burst.right span {
-      left: 0;
-      transform-origin: left center;
-    }
-
-    .heading-burst.right span:nth-child(1) {
-      top: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(-35deg);
-    }
-
-    .heading-burst.right span:nth-child(2) {
-      top: 11px;
-      width: 18px;
-      height: 2.8px;
-    }
-
-    .heading-burst.right span:nth-child(3) {
-      bottom: 3px;
-      width: 14px;
-      height: 2.8px;
-    }
-
-    /* ========================================================
-       4. CARDS DESIGN (Matching Dog & Cat Index Card Design)
+/* ========================================================
+       4. CARDS DESIGN (Matching Dog Index & Cat Index Card Design)
        ======================================================== */
     .rep-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-bottom: 50px;
-      align-items: stretch;
     }
 
     .rep-card {
-      background: var(--rep-white);
-      border: 1px solid var(--rep-line);
+      background: white;
+      border: 1px solid var(--line, #e2eddc);
       border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      text-align: left;
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.05);
-      position: relative;
-      height: 100%;
     }
 
     .rep-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.12);
+      box-shadow: var(--shadow, 0 10px 28px rgba(35, 75, 45, 0.1));
       border-color: #cbd9ce;
     }
 
@@ -802,15 +429,13 @@
       position: relative;
       height: 200px;
       overflow: hidden;
-      background: #edf5ee;
+      background: #f0f3eb;
     }
 
     .rep-card-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      display: block;
       transition: transform 0.35s ease;
     }
 
@@ -828,15 +453,11 @@
       border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--rep-green-dark);
-      display: inline-flex;
+      color: var(--dark, #1b3d2b);
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    }
-
-    .rep-card-badge i {
-      color: var(--rep-green-primary);
     }
 
     .rep-card-body {
@@ -844,27 +465,20 @@
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      text-align: left;
-      align-items: flex-start;
-      height: 100%;
-      box-sizing: border-box;
     }
 
     .rep-card-body h3 {
       font-size: 1.25rem;
       margin: 0 0 10px;
-      color: var(--rep-ink);
-      font-weight: 700;
-      text-align: left;
+      color: var(--ink, #1a251e);
     }
 
     .rep-card-body p {
       font-size: 0.9rem;
       line-height: 1.6;
       margin: 0 0 20px;
-      color: var(--rep-muted);
       flex-grow: 1;
-      text-align: left;
+      color: var(--muted, #55665c);
     }
 
     .rep-card-link {
@@ -873,23 +487,21 @@
       gap: 6px;
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--rep-green-primary);
-      text-decoration: none;
-      align-self: flex-start;
+      color: var(--green, #286849);
       transition: color 0.2s, transform 0.2s;
+      align-self: flex-start;
+      text-decoration: none;
     }
 
     .rep-card-link:hover {
-      color: var(--rep-green-dark);
+      color: var(--dark, #1b3d2b);
       transform: translateX(4px);
     }
-
-    /* ========================================================
+/* ========================================================
        CONTENT SECTIONS STYLING
        ======================================================== */
     .content-box {
       background: var(--rep-white);
-      border: 1px solid var(--rep-line);
       border-radius: 28px;
       padding: 38px 34px;
       margin-bottom: 35px;
@@ -1233,183 +845,30 @@
     /* ========================================================
        5. FINAL CTA SECTION (Matching Cat, Dog, & Rabbit Index)
        ======================================================== */
-    main > .cta,
     .cta {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      gap: 25px !important;
-      width: 85% !important;
-      max-width: 1350px !important;
-      margin: 60px auto 92px !important;
-      margin-inline: auto !important;
-      padding: 48px 56px !important;
-      border: 1px solid #e6d6c6 !important;
-      border-radius: 30px !important;
-      background: #f2e8d9 !important;
-      background-image: none !important;
-      box-sizing: border-box !important;
-    }
-
-    .cta > div:first-child {
-      flex: 1 !important;
-      min-width: 0 !important;
-      text-align: left !important;
-    }
-
-    .cta .eyebrow {
-      display: block !important;
-      margin: 0 0 14px 0 !important;
-      padding: 0 !important;
-      background: none !important;
-      background-color: transparent !important;
-      border: none !important;
-      border-radius: 0 !important;
-      color: #286849 !important;
-      font-size: 13px !important;
-      font-weight: 700 !important;
-      letter-spacing: 1.2px !important;
-      text-transform: uppercase !important;
-      text-align: left !important;
-      width: auto !important;
-    }
-
-    .cta h2 {
-      display: block !important;
-      margin: 0 0 8px 0 !important;
-      font-family: Georgia, 'Times New Roman', serif !important;
-      font-size: clamp(24px, 3.2vw, 36px) !important;
-      font-weight: 700 !important;
-      line-height: 1.2 !important;
-      letter-spacing: normal !important;
-      color: #263b30 !important;
-      text-align: left !important;
-    }
-
-    .cta h2 em {
-      color: #286849 !important;
-      font-family: Georgia, 'Times New Roman', serif !important;
-      font-style: normal !important;
-      font-weight: 700 !important;
-    }
-
-    .cta p {
-      display: block !important;
-      margin: 0 !important;
-      color: #26372e !important;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 15px !important;
-      font-weight: 400 !important;
-      line-height: 1.65 !important;
-      text-align: left !important;
+      margin-top: 0;
+      margin-bottom: 92px;
+      border: 1px solid #e6d6c6;
     }
 
     .cta-actions {
-      display: flex !important;
-      gap: 14px !important;
-      flex-wrap: wrap !important;
-      flex-shrink: 0 !important;
-      align-items: center !important;
-    }
-
-    .cta-actions .button-light {
-      background: #ffffff !important;
-      border: 1px solid #ffffff !important;
-      color: #1b3d2b !important;
-      font-weight: 700 !important;
-      padding: 12px 24px !important;
-      border-radius: 12px !important;
-      text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 8px !important;
-      transition: all 0.2s ease !important;
-    }
-
-    .cta-actions .button-light:hover {
-      background: #286849 !important;
-      border-color: #286849 !important;
-      color: #ffffff !important;
-      transform: translateY(-2px);
-    }
-
-    .cta-actions .button-outline {
-      background: transparent !important;
-      border: 1.5px solid #286849 !important;
-      color: #286849 !important;
-      font-weight: 700 !important;
-      padding: 12px 24px !important;
-      border-radius: 12px !important;
-      text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 8px !important;
-      transition: all 0.2s ease !important;
-    }
-
-    .cta-actions .button-outline:hover {
-      background: #286849 !important;
-      color: #ffffff !important;
-      transform: translateY(-2px);
-    }
-
-    /* Back To Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--rep-green-primary);
-      color: #ffffff;
-      border: none;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 999;
+      gap: 14px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
     }
 
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    .cta .button-outline {
+      background: transparent;
+      color: var(--green, #286849);
+      border-color: var(--green, #286849);
     }
 
-    .back-to-top:hover {
-      background: var(--rep-green-hover);
-      transform: translateY(-3px);
+    .cta .button-outline:hover {
+      background: var(--green, #286849);
+      color: white;
     }
-
-    /* ========================================================
-       RESPONSIVE BREAKPOINTS (Desktop 3, Tablet 2, Mobile 1)
-       ======================================================== */
-    @media (max-width: 1100px) {
-      .guides-nav-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .rep-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .feature-grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
       .rep-hero {
         grid-template-columns: 1fr;
         padding: 45px 5%;
@@ -1453,16 +912,6 @@
     }
 
     @media (max-width: 680px) {
-      .rep-hero {
-        width: calc(100% - 24px);
-        padding: 36px 20px;
-        margin: 20px auto 35px;
-      }
-
-      .rep-floating-badge {
-        display: none;
-      }
-
       .guides-nav-strip {
         width: calc(100% - 24px);
         padding: 28px 18px;
@@ -1470,7 +919,7 @@
       }
 
       .guides-nav-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
@@ -1497,12 +946,10 @@
         margin: 40px auto 25px;
       }
 
-      main > .cta,
       .cta {
         flex-direction: column !important;
         align-items: flex-start !important;
         padding: 34px 24px !important;
-        width: calc(100% - 32px) !important;
       }
 
       .cta-actions {
@@ -1517,17 +964,6 @@
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
-      }
-
-      .rep-hero-actions {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .rep-hero-actions .button,
-      .rep-hero-actions .button-outline {
-        width: 100%;
-        justify-content: center;
       }
     }
   </style>
@@ -1545,9 +981,9 @@
          1. HERO SECTION (Matching Dog Index & Cat Index Layout)
          ======================================================== -->
     <section class="hero section-wrap" id="reptile-hero">
-      <div class="rep-hero-copy">
-        <div class="rep-badge-strip">
-          <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> PetSathi • Reptile Health &amp; Wellness
+      <div class="hero-copy">
+        <div class="reptile-badge-strip">
+          🦎 PetSathi • Reptile Health &amp; Wellness
         </div>
         <h1>Reptile Health and <em>Wellness Guide</em></h1>
         <p>
@@ -1555,45 +991,30 @@
           lighting, precise thermal gradients, and species-tailored humidity. Explore veterinary insights, early warning
           symptoms, ecdysis management, and proactive husbandry practices to keep your scaly companion thriving.
         </p>
-        <div class="rep-hero-actions">
-          <a class="button" href="#healthy-signs" id="hero-cta-explore">
-            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Explore Health Tips
-          </a>
-          <a class="button button-outline" href="#quick-nav" id="hero-cta-nav">
-            <i class="fa-solid fa-compass" aria-hidden="true"></i> Quick Navigation
-          </a>
+        <div class="hero-actions">
+          <a class="button" href="#healthy-signs" id="hero-cta-explore">Explore Health Tips ↗</a>
+          <a class="button button-outline" href="#quick-nav" id="hero-cta-nav">Care Topics ↓</a>
         </div>
-        <div class="rep-hero-note">
-          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Evidence-based husbandry &amp; reptile veterinary
-          guidelines.
+        <div class="hero-note">
+          ♥ &nbsp; Evidence-based husbandry &amp; reptile veterinary guidelines.
         </div>
       </div>
 
-      <div class="rep-hero-visual">
-        <div class="rep-hero-blob" aria-hidden="true"></div>
-        <div class="rep-hero-frame">
-          <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
-            alt="Healthy bearded dragon basking under controlled terrarium lighting" id="hero-reptile-image">
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img
+          src="../../../assets/images/reptiles/bearded-dragon.jpg"
+          alt="Healthy bearded dragon basking under controlled terrarium lighting"
+          class="hero-photo"
+          id="hero-reptile-image"
+        />
+        <div class="floating-card card-top">
+          🌡️
+          <span><b>Thermal Gradients</b><small>Active thermoregulation</small></span>
         </div>
-
-        <div class="rep-floating-badge badge-top-left">
-          <div class="rep-badge-icon">
-            <i class="fa-solid fa-temperature-arrow-up" aria-hidden="true"></i>
-          </div>
-          <div class="rep-badge-text">
-            <strong>Thermal Gradients</strong>
-            <small>Active ectothermic thermoregulation</small>
-          </div>
-        </div>
-
-        <div class="rep-floating-badge badge-bottom-right">
-          <div class="rep-badge-icon">
-            <i class="fa-solid fa-sun" aria-hidden="true"></i>
-          </div>
-          <div class="rep-badge-text">
-            <strong>Linear UVB Lighting</strong>
-            <small>Essential Vitamin D3 &amp; calcium</small>
-          </div>
+        <div class="floating-card card-bottom">
+          ☀️
+          <span><b>Linear UVB</b><small>Vitamin D3 &amp; calcium</small></span>
         </div>
       </div>
     </section>
@@ -1603,20 +1024,20 @@
          ======================================================== -->
     <div class="guides-nav-strip" id="quick-nav">
       <div class="quick-nav-decor decor-top-left" aria-hidden="true">
-        <i class="fa-solid fa-leaf decor-leaf decor-leaf-1"></i>
-        <i class="fa-solid fa-leaf decor-leaf decor-leaf-2"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-1"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-2"></i>
       </div>
 
       <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
-        <i class="fa-solid fa-leaf decor-leaf decor-leaf-3"></i>
-        <i class="fa-solid fa-leaf decor-leaf decor-leaf-4"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-3"></i>
+        <i class="fa-solid fa-paw decor-paw decor-paw-4"></i>
       </div>
 
       <div class="quick-nav-header">
         <div class="quick-nav-eyebrow-wrap">
           <span class="quick-nav-line"></span>
           <div class="quick-nav-badge">
-            <i class="fa-regular fa-compass" aria-hidden="true"></i>
+            <i class="fa-regular fa-compass quick-nav-badge-icon" aria-hidden="true"></i>
             <span>QUICK NAVIGATION</span>
           </div>
           <span class="quick-nav-line"></span>
@@ -1627,34 +1048,34 @@
       </div>
 
       <div class="guides-nav-grid">
-        <a class="guide-nav-item" href="#healthy-signs" id="nav-healthy-signs">
+        <a class="guide-nav-item" href="#healthy-signs" id="hub-link-healthy-signs">
           <span class="guide-nav-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Healthy Reptile Signs</span>
+          <span class="guide-nav-label">Signs</span>
         </a>
 
-        <a class="guide-nav-item" href="#common-problems" id="nav-common-problems">
+        <a class="guide-nav-item" href="#common-problems" id="hub-link-common-problems">
           <span class="guide-nav-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Common Problems</span>
+          <span class="guide-nav-label">Problems</span>
         </a>
 
-        <a class="guide-nav-item" href="#shedding-problems" id="nav-shedding-problems">
+        <a class="guide-nav-item" href="#shedding-problems" id="hub-link-shedding">
           <span class="guide-nav-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Shedding Problems</span>
+          <span class="guide-nav-label">Shedding</span>
         </a>
 
-        <a class="guide-nav-item" href="#metabolic-bone-disease" id="nav-mbd">
+        <a class="guide-nav-item" href="#metabolic-bone-disease" id="hub-link-mbd">
           <span class="guide-nav-icon"><i class="fa-solid fa-bone" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Metabolic Bone Disease</span>
+          <span class="guide-nav-label">Bone Care</span>
         </a>
 
-        <a class="guide-nav-item" href="#preventive-care" id="nav-preventive-care">
+        <a class="guide-nav-item" href="#preventive-care" id="hub-link-preventive">
           <span class="guide-nav-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Preventive Care</span>
+          <span class="guide-nav-label">Prevention</span>
         </a>
 
-        <a class="guide-nav-item" href="#veterinary-care" id="nav-veterinary-care">
+        <a class="guide-nav-item" href="#veterinary-care" id="hub-link-veterinary">
           <span class="guide-nav-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Veterinary Care</span>
+          <span class="guide-nav-label">Vet Care</span>
         </a>
       </div>
     </div>
@@ -2761,21 +2182,15 @@
          ======================================================== -->
     <section class="cta section-wrap" id="reptile-cta">
       <div>
-        <div class="eyebrow">START YOUR REPTILE JOURNEY</div>
-        <h2>Keep Your Reptile <em>Healthy &amp; Comfortable.</em></h2>
+        <div class="eyebrow">START YOUR PET'S JOURNEY</div>
+        <h2>Ready to Give Your Pet the <em>Best Care?</em></h2>
         <p>
-          Physical wellness and psychological comfort go hand-in-hand. Understanding natural reptile behaviors—such as
-          basking rituals, stress darkening, burrowing tendencies, and gentle handling thresholds—helps you design a truly
-          enriching environment.
+          Whether you are preparing to welcome a new companion or looking to give your faithful pet the best daily walks, nutrition, and wellness support, PetSathi is here to guide and support you every step of the way.
         </p>
       </div>
       <div class="cta-actions">
-        <a class="button button-light" href="care.html" id="cta-reptile-care">
-          <i class="fa-solid fa-leaf" aria-hidden="true"></i> Explore Care Tips ↗
-        </a>
-        <a class="button button-outline" href="reptiles.html" id="cta-all-reptiles">
-          <i class="fa-solid fa-dragon" aria-hidden="true"></i> All Reptiles Overview
-        </a>
+        <a class="button button-light" href="care.html" id="cta-get-started">Get Started Free ↗</a>
+        <a class="button button-outline" href="reptiles.html" id="cta-explore-services">Explore Services</a>
       </div>
     </section>
   </main>
