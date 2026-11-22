@@ -664,7 +664,7 @@
       font-family: "DM Sans", "Manrope", sans-serif !important;
       font-size: 0.75rem;
       font-weight: 700;
-      color: #1a251e;
+      color: var(--dark, #1e3325);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -674,6 +674,7 @@
     }
 
     .popular-rep-badge i {
+      color: var(--green, #246b43);
       font-size: 0.8rem;
       line-height: 1;
     }
@@ -763,19 +764,24 @@
       left: 12px;
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(4px);
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 0.73rem;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: #1a251e;
+      color: var(--dark, #1e3325);
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.7);
+      z-index: 2;
     }
 
     .category-badge i {
-      color: #246b43;
+      color: var(--green, #246b43);
+      font-size: 0.8rem;
+      line-height: 1;
     }
 
     .category-body {
@@ -882,90 +888,115 @@
     }
 
     /* -------------------------------------------------------------
-       FINAL CTA - Exact Match to main index.html
+       FINAL CTA (EXACT MATCH TO fish.html & main index.html)
        ------------------------------------------------------------- */
-    .cta.section-wrap {
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
       background: #f2e8d9 !important;
       border: 1px solid #e6d7c3 !important;
       border-radius: 30px !important;
-      box-shadow: 0 10px 30px rgba(35, 75, 45, 0.04);
-      margin-top: 0;
-      margin-bottom: 92px;
-      padding: 56px 48px;
+      padding: 48px 56px !important;
+      margin: 40px auto 85px !important;
+      box-shadow: 0 10px 30px rgba(70, 50, 20, 0.05);
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
     }
 
-    .cta.section-wrap .eyebrow {
-      color: #246b43 !important;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      margin-bottom: 12px;
+    .cta .eyebrow {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 1.6px !important;
+      color: #286849 !important;
+      text-transform: uppercase !important;
+      margin-bottom: 12px !important;
+      display: block !important;
     }
 
-    .cta.section-wrap h2 {
-      font-family: Georgia, serif !important;
-      font-size: clamp(2rem, 3.2vw, 2.75rem);
-      color: #1a251e !important;
-      margin: 0 0 16px;
-      line-height: 1.2;
+    .cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+      font-weight: 700 !important;
+      color: #1a2e22 !important;
+      line-height: 1.2 !important;
+      margin: 0 0 14px 0 !important;
+      text-align: left !important;
     }
 
-    .cta.section-wrap h2 em {
-      color: #246b43 !important;
-      font-style: normal;
+    .cta h2 em {
+      color: #286849 !important;
+      font-style: normal !important;
     }
 
-    .cta.section-wrap p {
-      color: #4f5f54 !important;
-      max-width: 680px;
-      font-size: 1rem;
-      line-height: 1.65;
-      margin: 0 0 28px;
+    .cta p {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.98rem !important;
+      line-height: 1.7 !important;
+      color: #4a5c51 !important;
+      max-width: 620px !important;
+      margin: 0 !important;
+      text-align: left !important;
     }
 
     .cta-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .cta-actions .button-light {
-      background: #ffffff !important;
-      color: #1e6f43 !important;
-      border: 1.5px solid #ffffff !important;
-      font-weight: 700;
+    .cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       padding: 13px 26px;
       border-radius: 9999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
       text-decoration: none;
       transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
-    .cta-actions .button-light:hover {
-      background: #1e6f43 !important;
-      color: #ffffff !important;
-      border-color: #1e6f43 !important;
+    .cta .button.button-light:hover {
+      background: #fdfdfd !important;
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(30, 111, 67, 0.2);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
-    .cta-actions .button-outline {
-      background: transparent !important;
-      color: #1e6f43 !important;
-      border: 1.5px solid #1e6f43 !important;
-      font-weight: 700;
-      padding: 13px 26px;
+    .cta .button.button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
       border-radius: 9999px;
+      background: transparent !important;
+      color: #286849 !important;
+      border: 1.5px solid #286849 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
       text-decoration: none;
       transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
-    .cta-actions .button-outline:hover {
-      background: #1e6f43 !important;
+    .cta .button.button-outline:hover {
+      background: #286849 !important;
       color: #ffffff !important;
       transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.2);
     }
 
     /* -------------------------------------------------------------
@@ -993,6 +1024,24 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 36px 30px !important;
+      }
+
+      .cta-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .cta-actions .button {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 768px) {
       .guides-nav-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1012,10 +1061,6 @@
 
       .basics-grid {
         grid-template-columns: 1fr;
-      }
-
-      .cta.section-wrap {
-        padding: 40px 24px;
       }
     }
 
@@ -1155,17 +1200,20 @@
         <!-- Floating Reptile Decor Accents -->
         <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
         <div class="rep-heading-decor rep-decor-left-2" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
-        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-right-2" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Comprehensive Reptile Care</span>
+          <span class="heading-label"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Comprehensive Reptile
+            Care</span>
           <h2>
             <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
             Explore Reptile Care <em>and Information</em>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Navigate through our in-depth guides covering reptile breeds, terrarium engineering, clinical nutrition, wellness, and habitat safety.</p>
+          <p>Navigate through our in-depth guides covering reptile breeds, terrarium engineering, clinical nutrition,
+            wellness, and habitat safety.</p>
         </div>
       </div>
 
@@ -1188,7 +1236,8 @@
         <!-- Card 2: Reptile Care -->
         <article class="rep-guide-card">
           <div class="guide-card-media">
-            <span class="guide-card-badge"><i class="fa-solid fa-temperature-high" aria-hidden="true"></i> Habitat</span>
+            <span class="guide-card-badge"><i class="fa-solid fa-temperature-high" aria-hidden="true"></i>
+              Habitat</span>
             <img src="https://images.unsplash.com/photo-1768346614944-e4227340bf52?auto=format&fit=crop&w=800&q=80"
               alt="Bioactive reptile terrarium habitat with heat lamp and natural landscape" loading="lazy" />
           </div>
@@ -1279,7 +1328,8 @@
         <!-- Floating Reptile Decor Accents -->
         <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
         <div class="rep-heading-decor rep-decor-left-2" aria-hidden="true"><i class="fa-solid fa-sun"></i></div>
-        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-right-2" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
 
         <div class="heading-content">
@@ -1289,7 +1339,8 @@
             Popular <span>Reptile Species</span>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Discover distinct behavioral traits, adult sizes, and environmental criteria for the most celebrated companion reptiles.</p>
+          <p>Discover distinct behavioral traits, adult sizes, and environmental criteria for the most celebrated
+            companion reptiles.</p>
         </div>
       </div>
 
@@ -1298,16 +1349,19 @@
         <!-- 1. Bearded Dragon -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull; Diurnal</span>
-            <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
-              alt="Bearded dragon resting on desert sand" loading="lazy" />
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Diurnal</span>
+            <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Bearded dragon resting on desert sand"
+              loading="lazy" />
           </div>
           <div class="popular-rep-body">
             <h3>Bearded Dragon</h3>
             <span class="popular-rep-sci">Pogona vitticeps</span>
             <p>
-              Inquisitive and calm Australian desert lizards renowned for animated arm-waving gestures and gentle dispositions.
-              They thrive in spacious 4x2x2 foot vivariums featuring high-output UVB lighting and a dedicated 40°C basking zone.
+              Inquisitive and calm Australian desert lizards renowned for animated arm-waving gestures and gentle
+              dispositions.
+              They thrive in spacious 4x2x2 foot vivariums featuring high-output UVB lighting and a dedicated 40°C
+              basking zone.
             </p>
           </div>
         </article>
@@ -1315,9 +1369,10 @@
         <!-- 2. Leopard Gecko -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull; Crepuscular</span>
-            <img src="../../../assets/images/reptiles/leopard-gecko.jpg"
-              alt="Spotted leopard gecko on natural rock" loading="lazy" />
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Crepuscular</span>
+            <img src="../../../assets/images/reptiles/leopard-gecko.jpg" alt="Spotted leopard gecko on natural rock"
+              loading="lazy" />
           </div>
           <div class="popular-rep-body">
             <h3>Leopard Gecko</h3>
@@ -1332,7 +1387,8 @@
         <!-- 3. Crested Gecko -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-tree" aria-hidden="true"></i> Lizard &bull; Arboreal</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-tree" aria-hidden="true"></i> Lizard &bull;
+              Arboreal</span>
             <img src="../../../assets/images/reptiles/crested-gecko.png"
               alt="Crested gecko clinging vertically to foliage" loading="lazy" />
           </div>
@@ -1340,8 +1396,10 @@
             <h3>Crested Gecko</h3>
             <span class="popular-rep-sci">Correlophus ciliatus</span>
             <p>
-              Charming New Caledonian rainforest geckos with fringed eyelash crests and prehensile tails. They flourish at
-              room temperatures without heat lamps, enjoying vertical terrariums, dense foliage, and complete fruit powder diets.
+              Charming New Caledonian rainforest geckos with fringed eyelash crests and prehensile tails. They flourish
+              at
+              room temperatures without heat lamps, enjoying vertical terrariums, dense foliage, and complete fruit
+              powder diets.
             </p>
           </div>
         </article>
@@ -1349,7 +1407,8 @@
         <!-- 4. Ball Python -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull; Docile</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull;
+              Docile</span>
             <img src="../../../assets/images/reptiles/ball-python.jpg"
               alt="Ball python coiled peacefully on bark substrate" loading="lazy" />
           </div>
@@ -1357,7 +1416,8 @@
             <h3>Ball Python</h3>
             <span class="popular-rep-sci">Python regius</span>
             <p>
-              Serene and heavy-bodied West African constrictors that curl into a protective ball when timid. They appreciate
+              Serene and heavy-bodied West African constrictors that curl into a protective ball when timid. They
+              appreciate
               snug dark hides, steady 55%–65% ambient humidity, gentle belly warmth, and predictable feeding routines.
             </p>
           </div>
@@ -1366,16 +1426,18 @@
         <!-- 5. Corn Snake -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull; Active</span>
-            <img src="../../../assets/images/reptiles/corn-snake.jpg"
-              alt="Vibrant orange corn snake gracefully coiled" loading="lazy" />
+            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull;
+              Active</span>
+            <img src="../../../assets/images/reptiles/corn-snake.jpg" alt="Vibrant orange corn snake gracefully coiled"
+              loading="lazy" />
           </div>
           <div class="popular-rep-body">
             <h3>Corn Snake</h3>
             <span class="popular-rep-sci">Pantherophis guttatus</span>
             <p>
               Wonderfully docile, slender colubrid snakes displaying brilliant crimson patterns and active curiosity.
-              Exceptional companions for first-time snake owners, feeding reliably on frozen rodents in escape-proof enclosures.
+              Exceptional companions for first-time snake owners, feeding reliably on frozen rodents in escape-proof
+              enclosures.
             </p>
           </div>
         </article>
@@ -1383,7 +1445,8 @@
         <!-- 6. Blue-Tongued Skink -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull; Omnivore</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Omnivore</span>
             <img src="../../../assets/images/reptiles/blue-tongued-skink.jpg"
               alt="Blue-tongued skink flashing its cobalt blue tongue" loading="lazy" />
           </div>
@@ -1392,7 +1455,8 @@
             <span class="popular-rep-sci">Tiliqua scincoides</span>
             <p>
               Substantial, sausage-shaped Australian lizards known for bright cobalt tongues and high intelligence.
-              True omnivores that thrive on varied diets of dark leafy greens, protein, and fruit in deep burrowing substrate.
+              True omnivores that thrive on varied diets of dark leafy greens, protein, and fruit in deep burrowing
+              substrate.
             </p>
           </div>
         </article>
@@ -1400,7 +1464,8 @@
         <!-- 7. Russian Tortoise -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Tortoise &bull; Herbivore</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Tortoise &bull;
+              Herbivore</span>
             <img src="../../../assets/images/reptiles/russian-tortoise.jpg"
               alt="Russian tortoise grazing on broadleaf greens" loading="lazy" />
           </div>
@@ -1408,8 +1473,10 @@
             <h3>Russian Tortoise</h3>
             <span class="popular-rep-sci">Testudo horsfieldii</span>
             <p>
-              Hardy, terrestrial land tortoises that relish digging deep burrows and exploring open enclosures. They feed
-              strictly on high-fiber wild weeds and grasses, thriving in wide, well-ventilated tortoise tables under strong UVB.
+              Hardy, terrestrial land tortoises that relish digging deep burrows and exploring open enclosures. They
+              feed
+              strictly on high-fiber wild weeds and grasses, thriving in wide, well-ventilated tortoise tables under
+              strong UVB.
             </p>
           </div>
         </article>
@@ -1417,7 +1484,8 @@
         <!-- 8. Red-Eared Slider Turtle -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-water" aria-hidden="true"></i> Turtle &bull; Semiaquatic</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-water" aria-hidden="true"></i> Turtle &bull;
+              Semiaquatic</span>
             <img src="../../../assets/images/reptiles/red-eared-slider.jpg"
               alt="Red-eared slider turtle basking on a dock" loading="lazy" />
           </div>
@@ -1426,7 +1494,8 @@
             <span class="popular-rep-sci">Trachemys scripta elegans</span>
             <p>
               Energetic aquatic chelonians recognizable by distinctive scarlet ear markings and spirited paddling.
-              They require large aquarium volumes, powerful external canister filters, and completely dry basking docks under dual lamps.
+              They require large aquarium volumes, powerful external canister filters, and completely dry basking docks
+              under dual lamps.
             </p>
           </div>
         </article>
@@ -1434,7 +1503,8 @@
         <!-- 9. Veiled Chameleon -->
         <article class="popular-rep-card">
           <div class="popular-rep-media">
-            <span class="popular-rep-badge"><i class="fa-solid fa-eye" aria-hidden="true"></i> Lizard &bull; Arboreal</span>
+            <span class="popular-rep-badge"><i class="fa-solid fa-eye" aria-hidden="true"></i> Lizard &bull;
+              Arboreal</span>
             <img src="https://images.unsplash.com/photo-1542625331-b72c87806d21?auto=format&fit=crop&w=700&q=85"
               alt="Vibrant veiled chameleon perched on branch" loading="lazy" />
           </div>
@@ -1442,8 +1512,10 @@
             <h3>Veiled Chameleon</h3>
             <span class="popular-rep-sci">Chamaeleo calyptratus</span>
             <p>
-              Mesmerizing tree-dwellers featuring independently mobile turret eyes, prehensile gripping feet, and rapid tongue strikes.
-              They thrive in tall, well-ventilated screen enclosures with daily drip hydration and high-intensity linear UVB lighting.
+              Mesmerizing tree-dwellers featuring independently mobile turret eyes, prehensile gripping feet, and rapid
+              tongue strikes.
+              They thrive in tall, well-ventilated screen enclosures with daily drip hydration and high-intensity linear
+              UVB lighting.
             </p>
           </div>
         </article>
@@ -1472,17 +1544,20 @@
         <!-- Floating Reptile Decor Accents -->
         <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
         <div class="rep-heading-decor rep-decor-left-2" aria-hidden="true"><i class="fa-solid fa-leaf"></i></div>
-        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-right-2" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Biological Diversity</span>
+          <span class="heading-label"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Biological
+            Diversity</span>
           <h2>
             <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
             Reptile <span>Categories</span>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Explore the four primary companion reptile orders, understanding their unique physiology, habitat adaptations, and specialized husbandry requirements.</p>
+          <p>Explore the four primary companion reptile orders, understanding their unique physiology, habitat
+            adaptations, and specialized husbandry requirements.</p>
         </div>
       </div>
 
@@ -1492,18 +1567,21 @@
         <article class="category-card">
           <div class="category-media">
             <span class="category-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizards</span>
-            <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
-              alt="Lizard basking in natural sunlight" loading="lazy" />
+            <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Lizard basking in natural sunlight"
+              loading="lazy" />
           </div>
           <div class="category-body">
             <h3>Lizards (Lacertilia)</h3>
             <p>
-              Remarkably diverse reptiles possessing moveable eyelids, visible ear openings, and complex social body language.
+              Remarkably diverse reptiles possessing moveable eyelids, visible ear openings, and complex social body
+              language.
               They range from ground-dwelling desert species to tropical arboreal climbers.
             </p>
             <ul class="category-list">
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Strict UVB &amp; thermal basking needs</li>
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Varied omnivorous &amp; insectivorous diets</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Strict UVB &amp; thermal basking needs
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Varied omnivorous &amp; insectivorous
+                diets</li>
               <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Bearded Dragons, Leopard Geckos</li>
             </ul>
           </div>
@@ -1513,18 +1591,20 @@
         <article class="category-card">
           <div class="category-media">
             <span class="category-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snakes</span>
-            <img src="../../../assets/images/reptiles/corn-snake.jpg"
-              alt="Corn snake coiled elegantly" loading="lazy" />
+            <img src="../../../assets/images/reptiles/corn-snake.jpg" alt="Corn snake coiled elegantly"
+              loading="lazy" />
           </div>
           <div class="category-body">
             <h3>Snakes (Serpentes)</h3>
             <p>
-              Graceful, limbless carnivores equipped with kinetic skulls, specialized heat-sensing pits, and fork-tongued chemoreception.
+              Graceful, limbless carnivores equipped with kinetic skulls, specialized heat-sensing pits, and
+              fork-tongued chemoreception.
               Known for calm temperaments and infrequent, predictable feeding schedules.
             </p>
             <ul class="category-list">
               <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 100% carnivorous whole-prey nutrition</li>
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Escape-proof, secure locking enclosures</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Escape-proof, secure locking enclosures
+              </li>
               <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Ball Pythons, Corn Snakes</li>
             </ul>
           </div>
@@ -1534,18 +1614,21 @@
         <article class="category-card">
           <div class="category-media">
             <span class="category-badge"><i class="fa-solid fa-water" aria-hidden="true"></i> Turtles</span>
-            <img src="../../../assets/images/reptiles/red-eared-slider.jpg"
-              alt="Red-eared slider turtle swimming" loading="lazy" />
+            <img src="../../../assets/images/reptiles/red-eared-slider.jpg" alt="Red-eared slider turtle swimming"
+              loading="lazy" />
           </div>
           <div class="category-body">
             <h3>Turtles (Testudines)</h3>
             <p>
-              Semiaquatic and fully aquatic chelonians featuring streamlined shells and webbed feet designed for efficient swimming.
+              Semiaquatic and fully aquatic chelonians featuring streamlined shells and webbed feet designed for
+              efficient swimming.
               They require large aquarium volumes combined with completely dry basking docks.
             </p>
             <ul class="category-list">
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> High-capacity external canister filtration</li>
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Dedicated dual-lamp overhead basking areas</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> High-capacity external canister filtration
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Dedicated dual-lamp overhead basking areas
+              </li>
               <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Red-Eared Sliders, Mud Turtles</li>
             </ul>
           </div>
@@ -1555,19 +1638,23 @@
         <article class="category-card">
           <div class="category-media">
             <span class="category-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Tortoises</span>
-            <img src="../../../assets/images/reptiles/russian-tortoise.jpg"
-              alt="Russian tortoise walking on substrate" loading="lazy" />
+            <img src="../../../assets/images/reptiles/russian-tortoise.jpg" alt="Russian tortoise walking on substrate"
+              loading="lazy" />
           </div>
           <div class="category-body">
             <h3>Tortoises (Testudinidae)</h3>
             <p>
-              Exclusively terrestrial land chelonians distinguished by domed protective carapaces, sturdy column legs, and exceptional lifespans.
+              Exclusively terrestrial land chelonians distinguished by domed protective carapaces, sturdy column legs,
+              and exceptional lifespans.
               Strict herbivores requiring broad, well-ventilated open habitats.
             </p>
             <ul class="category-list">
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Pure vegetarian high-fiber wild weed diet</li>
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Wide, shallow open-air tortoise tables</li>
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Russian Tortoises, Hermann's Tortoises</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Pure vegetarian high-fiber wild weed diet
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Wide, shallow open-air tortoise tables
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Russian Tortoises, Hermann's Tortoises
+              </li>
             </ul>
           </div>
         </article>
@@ -1594,19 +1681,23 @@
         </svg>
 
         <!-- Floating Reptile Decor Accents -->
-        <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-circle-question"></i></div>
+        <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-circle-question"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-left-2" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i></div>
-        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-right-2" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Honest Keeping Realities</span>
+          <span class="heading-label"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Honest Keeping
+            Realities</span>
           <h2>
             <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
             Why Choose <span>Reptiles?</span>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Reptiles make rewarding and tranquil companions, but they are specialized wild animals with non-negotiable biological dependencies. Understand what makes them unique.</p>
+          <p>Reptiles make rewarding and tranquil companions, but they are specialized wild animals with non-negotiable
+            biological dependencies. Understand what makes them unique.</p>
         </div>
       </div>
 
@@ -1616,42 +1707,48 @@
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i></div>
           <h3>Hypoallergenic &amp; Low Dander</h3>
-          <p>Unlike cats and dogs, reptiles do not produce fur, feather dust, or dander. They are ideal companions for household members who suffer from severe mammalian pet allergies.</p>
+          <p>Unlike cats and dogs, reptiles do not produce fur, feather dust, or dander. They are ideal companions for
+            household members who suffer from severe mammalian pet allergies.</p>
         </article>
 
         <!-- 2. Quiet & Observational Fascination -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-volume-xmark" aria-hidden="true"></i></div>
           <h3>Tranquil &amp; Peaceful Presence</h3>
-          <p>Reptiles make zero noise, require no outdoor leash walking, and exhibit captivating prehistoric behaviors, such as precision tongue-flicking, thermal basking, and intricate shedding cycles.</p>
+          <p>Reptiles make zero noise, require no outdoor leash walking, and exhibit captivating prehistoric behaviors,
+            such as precision tongue-flicking, thermal basking, and intricate shedding cycles.</p>
         </article>
 
         <!-- 3. Specialized Environmental Realities -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-temperature-arrow-up" aria-hidden="true"></i></div>
           <h3>Precision Temperature &amp; UVB</h3>
-          <p>Reptiles are ectothermic—they cannot generate internal body heat. Keepers must install digital thermostat-controlled basking zones and replace specialized UVB lamps every 6–12 months.</p>
+          <p>Reptiles are ectothermic—they cannot generate internal body heat. Keepers must install digital
+            thermostat-controlled basking zones and replace specialized UVB lamps every 6–12 months.</p>
         </article>
 
         <!-- 4. NOT "Low Maintenance" Pets -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div>
           <h3>Not "Beginner Easy" Novelties</h3>
-          <p>Never assume reptiles are effortless starter pets. Neglecting micro-climates, humidity, or dietary calcium leads rapidly to irreversible Metabolic Bone Disease (MBD) and organ failure.</p>
+          <p>Never assume reptiles are effortless starter pets. Neglecting micro-climates, humidity, or dietary calcium
+            leads rapidly to irreversible Metabolic Bone Disease (MBD) and organ failure.</p>
         </article>
 
         <!-- 5. Significant Lifespan Commitments -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></div>
           <h3>Multi-Decade Lifespans</h3>
-          <p>Bearded dragons live 10–15 years, ball pythons live 25–35 years, and tortoises easily exceed 50–80 years. Acquiring a reptile is a binding commitment that may span generations.</p>
+          <p>Bearded dragons live 10–15 years, ball pythons live 25–35 years, and tortoises easily exceed 50–80 years.
+            Acquiring a reptile is a binding commitment that may span generations.</p>
         </article>
 
         <!-- 6. Specialized Veterinary Medicine -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
           <h3>Exotic Veterinary Access</h3>
-          <p>General veterinarians rarely treat reptiles. Keepers must locate a board-certified exotic pet practitioner experienced in reptile anesthesia, radiology, parasitology, and clinical care.</p>
+          <p>General veterinarians rarely treat reptiles. Keepers must locate a board-certified exotic pet practitioner
+            experienced in reptile anesthesia, radiology, parasitology, and clinical care.</p>
         </article>
       </div>
     </section>
@@ -1676,19 +1773,23 @@
         </svg>
 
         <!-- Floating Reptile Decor Accents -->
-        <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="rep-heading-decor rep-decor-left-1" aria-hidden="true"><i
+            class="fa-solid fa-hand-holding-heart"></i></div>
         <div class="rep-heading-decor rep-decor-left-2" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
-        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="rep-heading-decor rep-decor-right-1" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i>
+        </div>
         <div class="rep-heading-decor rep-decor-right-2" aria-hidden="true"><i class="fa-solid fa-dragon"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Lifetime Welfare</span>
+          <span class="heading-label"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Lifetime
+            Welfare</span>
           <h2>
             <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
             Responsible <span>Reptile Ownership</span>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Essential ethical principles, habitat preparation, and welfare obligations every prospective reptile guardian must uphold.</p>
+          <p>Essential ethical principles, habitat preparation, and welfare obligations every prospective reptile
+            guardian must uphold.</p>
         </div>
       </div>
 
@@ -1698,56 +1799,62 @@
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
           <h3>Rigorous Pre-Purchase Research</h3>
-          <p>Never purchase a reptile impulsively. Thoroughly research adult size, environmental requirements, dietary costs, and behavioral tendencies before bringing any reptile home.</p>
+          <p>Never purchase a reptile impulsively. Thoroughly research adult size, environmental requirements, dietary
+            costs, and behavioral tendencies before bringing any reptile home.</p>
         </article>
 
         <!-- 2. Understanding Space Demands -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></div>
           <h3>Adult Space Requirements</h3>
-          <p>Hatchling reptiles grow quickly. A 6-inch baby bearded dragon requires a 120-gallon (4x2x2 ft) enclosure as an adult. Ensure your home has sufficient permanent physical space.</p>
+          <p>Hatchling reptiles grow quickly. A 6-inch baby bearded dragon requires a 120-gallon (4x2x2 ft) enclosure as
+            an adult. Ensure your home has sufficient permanent physical space.</p>
         </article>
 
         <!-- 3. Habitat Preparation in Advance -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
           <h3>Pre-Calibrated Vivarium Setup</h3>
-          <p>Assemble and test heating lamps, UVB fixtures, and thermostats 48 hours before animal arrival. Verify thermal gradients and humidity using digital probes, not inaccurate analog dials.</p>
+          <p>Assemble and test heating lamps, UVB fixtures, and thermostats 48 hours before animal arrival. Verify
+            thermal gradients and humidity using digital probes, not inaccurate analog dials.</p>
         </article>
 
         <!-- 4. Species-Appropriate Diets -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-plate-wheat" aria-hidden="true"></i></div>
           <h3>Nutritional Integrity &amp; Gut Loading</h3>
-          <p>Provide gut-loaded live feeder insects, fresh pesticide-free greens, or ethically sourced frozen rodents. Dust meals with pure calcium and vitamin D3 on a strict veterinary schedule.</p>
+          <p>Provide gut-loaded live feeder insects, fresh pesticide-free greens, or ethically sourced frozen rodents.
+            Dust meals with pure calcium and vitamin D3 on a strict veterinary schedule.</p>
         </article>
 
         <!-- 5. Escape Prevention & Safe Handling -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
           <h3>Escape-Proof Enclosures</h3>
-          <p>Reptiles are master escape artists. Fit sliding vivarium glass with keyed wedge locks and secure wire screen mesh lids with heavy-duty metal tension clips.</p>
+          <p>Reptiles are master escape artists. Fit sliding vivarium glass with keyed wedge locks and secure wire
+            screen mesh lids with heavy-duty metal tension clips.</p>
         </article>
 
         <!-- 6. Never Release Captive Pets -->
         <article class="basic-card">
           <div class="basic-icon-wrap"><i class="fa-solid fa-ban" aria-hidden="true"></i></div>
           <h3>Never Release Into the Wild</h3>
-          <p>Releasing captive reptiles into the wild is illegal, inhumane, and devastates local ecosystems. If you can no longer care for your pet, contact a certified exotic rescue organization.</p>
+          <p>Releasing captive reptiles into the wild is illegal, inhumane, and devastates local ecosystems. If you can
+            no longer care for your pet, contact a certified exotic rescue organization.</p>
         </article>
       </div>
     </section>
 
     <!-- ========================================================
-         8. FINAL CTA SECTION (Exact Match to Dog Index & index.html)
+         8. FINAL CTA SECTION (Exact match to fish.html & index.html)
          ======================================================== -->
     <section class="cta section-wrap" id="reptile-cta">
       <div>
         <div class="eyebrow">START YOUR REPTILE JOURNEY</div>
         <h2>Give Your Reptile the <em>Care It Deserves</em></h2>
         <p>
-          Encourage visitors to explore the dedicated reptile guides and understand their responsibilities before choosing a reptile companion.
-          Whether designing a specialized desert vivarium or lush tropical terrarium, PetSathi provides the expert guidance you need.
+          Explore our dedicated reptile guides to learn everything you need about terrarium engineering, thermal gradients,
+          species-tailored nutrition, and responsible lifelong companion care.
         </p>
       </div>
       <div class="cta-actions">
