@@ -15,39 +15,89 @@
   <link rel="stylesheet" href="../../../css/global.css">
   <link rel="stylesheet" href="../../../css/home.css">
   <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
-    /* Custom Scoped Styles for Bird Nutrition Page */
+    /* Font Awesome 6 Free Webfont definition & Protection */
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+           url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2"),
+           url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf") format("truetype");
+    }
+
+    body .nutrition-card-icon i,
+    body .nutrition-card-icon i::before,
+    body .guide-nav-icon i,
+    body .guide-nav-icon i::before,
+    body .quick-nav-badge i,
+    body .quick-nav-badge i::before,
+    body .bird-badge-strip i,
+    body .bird-badge-strip i::before,
+    body .heading-label i,
+    body .heading-label i::before,
+    body .guides-nav-strip [class*="fa-"],
+    body .guides-nav-strip [class*="fa-"]::before,
+    body [class*="fa-"],
+    body [class*="fa-"]::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+
+    body .fa-solid,
+    body .fa-solid::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+    }
+
+    body .fa-regular,
+    body .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 400 !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id] {
+      scroll-margin-top: 85px;
+    }
+
+    /* Palette Variables matching PetSathi Theme */
     :root {
-      --bird-accent: #2e7d32;
-      --bird-accent-hover: #1b5e20;
-      --bird-accent-soft: #edf7ed;
-      --bird-accent-border: #c8e6c9;
-      --bird-badge-bg: #eaf2e9;
-      --bird-badge-text: #286849;
-      --bird-card-bg: #ffffff;
-      --bird-card-border: #e2e8df;
-      --bird-soft-bg: #f5f8f3;
-      --bird-gold: #c67d0a;
-      --bird-gold-soft: #fef7ec;
-      --bird-gold-border: #f9e2b8;
-      --alert-red-bg: #fff1f0;
-      --alert-red-border: #ffccc7;
-      --alert-red-text: #a8071a;
-      --alert-amber-bg: #fffbe6;
-      --alert-amber-border: #ffe58f;
-      --alert-amber-text: #ad6800;
-      --alert-green-bg: #f6ffed;
-      --alert-green-border: #b7eb8f;
-      --alert-green-text: #237804;
-      --shadow-sm: 0 4px 14px rgba(35, 57, 43, 0.05);
-      --shadow-md: 0 12px 32px rgba(35, 57, 43, 0.08);
-      --shadow-lg: 0 20px 48px rgba(35, 57, 43, 0.12);
+      --bird-green: #237847;
+      --bird-green-dark: #1b5e37;
+      --bird-green-soft: #edf7f0;
+      --bird-green-pale: #f4faf5;
+      --bird-cream: #fafcf7;
+      --bird-pink-bg: #fdf2f4;
+      --bird-pink-border: #f5d5db;
+      --bird-pink-badge: #fce4e8;
+      --bird-pink-text: #9d2b45;
+      --bird-border: #dceade;
+      --bird-border-light: #e8eee9;
+      --bird-ink: #1a251e;
+      --bird-muted: #5d7164;
     }
 
     /* Breadcrumbs */
     .breadcrumb-nav {
-      padding: 10px 0 14px;
+      padding: 10px 0 16px;
       font-size: 0.85rem;
       color: var(--muted);
       display: flex;
@@ -57,6 +107,7 @@
     }
     .breadcrumb-nav a {
       color: var(--muted);
+      text-decoration: none;
       transition: color 0.2s ease;
     }
     .breadcrumb-nav a:hover {
@@ -71,275 +122,552 @@
       font-weight: 600;
     }
 
-    /* Page Hero */
-    .nutrition-hero {
-      background: linear-gradient(180deg, #edf4ee 0%, #fcfaf5 100%);
-      padding: 36px 20px 54px;
-      text-align: center;
+    /* Main Hero Section matching Dog Index & Cat Index */
+    .hero-section-wrapper {
+      background: linear-gradient(180deg, #edf4ee 0%, #fafcf7 100%);
       border-bottom: 1px solid var(--line);
+      padding: 10px 0 40px;
     }
-    .nutrition-hero .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: rgba(40, 104, 73, 0.1);
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .nutrition-hero h1 {
-      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
-      margin: 8px 0 16px;
-      letter-spacing: -2px;
-    }
-    .nutrition-hero p.hero-intro {
-      max-width: 780px;
-      margin: 0 auto 24px;
-      font-size: 1.08rem;
-      line-height: 1.8;
-      color: #4a5c52;
-    }
-    .hero-meta-strip {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin: 24px auto 0;
-      padding-top: 20px;
-      border-top: 1px dashed #d5e0d3;
-      max-width: 860px;
-    }
-    .hero-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--muted);
-      text-align: left;
-    }
-    .hero-meta-item strong {
-      display: block;
-      color: var(--ink);
-      font-size: 0.98rem;
-      font-family: Manrope, sans-serif;
-    }
-    .hero-meta-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      display: grid;
-      place-items: center;
-      font-size: 1.25rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--line);
-      flex-shrink: 0;
-    }
-
-    /* Sticky Quick Jump Navigation Bar */
-    .quick-nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(252, 250, 245, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 10px 0;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
-    }
-    .quick-nav-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 4px 0;
-    }
-    .quick-nav-container::-webkit-scrollbar {
-      display: none;
-    }
-    .quick-nav-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: #4f6357;
-      background: white;
-      border: 1px solid var(--line);
-      white-space: nowrap;
-      transition: all 0.22s ease;
-    }
-    .quick-nav-link:hover,
-    .quick-nav-link.active {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* Section Foundations */
-    .care-section {
-      padding-block: 75px;
-      border-bottom: 1px solid var(--line);
-    }
-    .care-section.alt-bg {
-      background: #f7f9f5;
-    }
-    .section-header-wrap {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .section-header-wrap .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background: #eaf2e9;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-    .section-header-wrap h2 {
-      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-      margin: 0 0 12px;
-    }
-    .section-header-wrap p {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    /* Layout Grids */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    /* Content Cards */
-    .care-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-    .care-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: #cde1d4;
-    }
-    .card-icon-bubble {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: #eaf3ed;
-      color: var(--green);
-      display: grid;
-      place-items: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-    }
-    .care-card h3 {
-      font-size: 1.25rem;
-      margin: 0 0 12px;
-      color: var(--ink);
-    }
-    .care-card p {
-      font-size: 0.92rem;
-      line-height: 1.65;
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-    .care-card ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.9rem;
-      color: #4a5c52;
-      line-height: 1.7;
-    }
-    .care-card li {
-      margin-bottom: 6px;
-    }
-
-    /* Media + Text Split Banner */
-    .media-split-box {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
+    .hero {
+      min-height: 520px;
+      padding-block: 25px 50px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 36px;
+      align-items: center;
+      gap: 40px;
     }
-    .media-split-image {
-      position: relative;
-      min-height: 320px;
-      background: #f0f3eb;
-    }
-    .media-split-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .media-split-badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(4px);
+    .bird-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
       border-radius: 999px;
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--green);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
-    .media-split-content {
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .media-split-content h3 {
-      font-size: 1.65rem;
-      margin: 0 0 14px;
-      letter-spacing: -0.5px;
-    }
-    .media-split-content p {
-      font-size: 0.95rem;
-      line-height: 1.7;
+    .hero h1 {
+      max-width: 600px;
       margin: 0 0 18px;
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+    }
+    .hero h1 em {
+      color: var(--green);
+      font-style: italic;
+    }
+    .hero-copy > p {
+      max-width: 550px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4a5c52;
+      margin: 0;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    .hero-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .hero-visual {
+      min-height: 420px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+    .hero-blob {
+      position: absolute;
+      width: 85%;
+      height: 88%;
+      background: #e4efe0;
+      border-radius: 48% 52% 42% 58%;
+    }
+    .hero-photo {
+      position: relative;
+      width: 78%;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 48% 48% 24px 24px;
+      box-shadow: var(--shadow);
+    }
+    .floating-card {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e2ebe4;
+    }
+    .floating-card span {
+      display: grid;
+    }
+    .floating-card b {
+      font-size: 0.84rem;
+      color: var(--ink);
+    }
+    .floating-card small {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .card-top {
+      top: 40px;
+      right: 0;
+    }
+    .card-bottom {
+      bottom: 25px;
+      left: 0;
     }
 
-    /* Diet Ratio Breakdown Bar */
+    /* Quick Navigation Hub - Bird Index Design */
+    .guides-nav-strip {
+      position: relative;
+      background: #ffffff;
+      margin: 40px auto 45px;
+      max-width: 1200px;
+      width: calc(100% - 40px);
+      border: 1px solid #dceade;
+      border-radius: 32px;
+      padding: 40px 36px 36px;
+      box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
+      overflow: hidden;
+    }
+    .quick-nav-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      color: #cde4d3;
+      opacity: 0.55;
+    }
+    .decor-top-left {
+      top: -8px;
+      left: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 10% 10%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 0 0 100% 0;
+    }
+    .decor-bottom-right {
+      bottom: -8px;
+      right: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 90% 90%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 100% 0 0 0;
+    }
+    .decor-paw {
+      position: absolute;
+      display: inline-block;
+      line-height: 1;
+    }
+    .decor-paw-1 {
+      top: 14px;
+      left: 28px;
+      font-size: 26px;
+      transform: rotate(-15deg);
+    }
+    .decor-paw-2 {
+      top: 38px;
+      left: 12px;
+      font-size: 18px;
+      transform: rotate(20deg);
+    }
+    .decor-paw-3 {
+      bottom: 36px;
+      right: 14px;
+      font-size: 18px;
+      transform: rotate(-25deg);
+    }
+    .decor-paw-4 {
+      bottom: 14px;
+      right: 28px;
+      font-size: 26px;
+      transform: rotate(15deg);
+    }
+    .quick-nav-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .quick-nav-eyebrow-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .quick-nav-line {
+      height: 1px;
+      width: 90px;
+      background: #d6ead9;
+    }
+    .quick-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      border-radius: 9999px;
+      color: #246b43;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .quick-nav-badge i {
+      font-size: 0.85rem;
+      line-height: 1;
+      color: #1e6f43;
+      flex-shrink: 0;
+    }
+    .quick-nav-title {
+      font-family: "Manrope", sans-serif !important;
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      font-weight: 800;
+      color: #1a251e;
+      margin: 0;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .quick-nav-title span {
+      color: #1e6f43;
+      font-weight: 800;
+    }
+    .guides-nav-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0;
+    }
+    .guide-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px 9px 9px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      min-width: 0;
+      cursor: pointer;
+    }
+    .guide-nav-item:hover {
+      background: #e4f4e8;
+      border-color: #237847;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+    }
+    .guide-nav-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.95rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .guide-nav-item:hover .guide-nav-icon {
+      background: #1e6f43;
+      color: #ffffff;
+    }
+    .guide-nav-label {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1c2b20;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Section Foundations & Alternating Backgrounds */
+    .nutrition-section {
+      padding: 65px 0 75px;
+      border-bottom: 1px solid var(--line);
+    }
+    .bg-cream {
+      background: #fafcf7;
+    }
+    .bg-white {
+      background: #ffffff;
+    }
+    .bg-soft-green {
+      background: #edf7f0;
+    }
+
+    /* Signature Heading Cards matching Dog Index & Cat Index */
+    .bird-topics-heading {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto 36px;
+      padding: 40px 32px 34px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 32px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+    }
+    .bg-cream .bird-topics-heading {
+      background: #ffffff;
+    }
+    .corner-wave {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wave-tl {
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 120px;
+    }
+    .wave-br {
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 120px;
+    }
+    .heading-content {
+      position: relative;
+      z-index: 2;
+    }
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      margin-bottom: 14px;
+      border-radius: 50px;
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      color: #246b43;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .bird-topics-heading h2 {
+      color: #263b30;
+      font-family: Georgia, serif !important;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      line-height: 1.25;
+    }
+    .bird-topics-heading h2 span {
+      color: #28764a;
+    }
+    .heading-burst {
+      display: inline-block;
+      position: relative;
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .heading-burst span {
+      position: absolute;
+      background: #60a872;
+      border-radius: 9999px;
+    }
+    .heading-burst.left span {
+      right: 0;
+      transform-origin: right center;
+    }
+    .heading-burst.left span:nth-child(1) {
+      top: 3px;
+      width: 13px;
+      height: 2.6px;
+      transform: rotate(35deg);
+    }
+    .heading-burst.left span:nth-child(2) {
+      top: 10px;
+      width: 17px;
+      height: 2.6px;
+    }
+    .heading-burst.left span:nth-child(3) {
+      bottom: 3px;
+      width: 13px;
+      height: 2.6px;
+      transform: rotate(-35deg);
+    }
+    .heading-burst.right span {
+      left: 0;
+      transform-origin: left center;
+    }
+    .heading-burst.right span:nth-child(1) {
+      top: 3px;
+      width: 13px;
+      height: 2.6px;
+      transform: rotate(-35deg);
+    }
+    .heading-burst.right span:nth-child(2) {
+      top: 10px;
+      width: 17px;
+      height: 2.6px;
+    }
+    .heading-burst.right span:nth-child(3) {
+      bottom: 3px;
+      width: 13px;
+      height: 2.6px;
+      transform: rotate(35deg);
+    }
+    .bird-topics-heading p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #64736a;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .paw {
+      position: absolute;
+      color: rgba(115, 173, 91, 0.22);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .paw-left-1 {
+      top: 48px;
+      left: 80px;
+      font-size: 42px;
+      transform: rotate(20deg);
+    }
+    .paw-right-1 {
+      top: 45px;
+      right: 70px;
+      font-size: 40px;
+      transform: rotate(18deg);
+    }
+
+    /* Redesigned Consistent Nutrition Cards */
+    .nutrition-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nutrition-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(35, 57, 43, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .nutrition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(35, 57, 43, 0.08);
+      border-color: #cbd9ce;
+    }
+    .nutrition-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #eaf2e9;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .nutrition-card:hover .nutrition-card-icon {
+      background: var(--green);
+      color: #ffffff;
+    }
+    .nutrition-card h3 {
+      font-size: 1.18rem;
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .nutrition-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0 0 16px;
+      color: var(--muted);
+      flex-grow: 1;
+    }
+    .nutrition-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+      margin-top: auto;
+    }
+    .nutrition-card-link:hover {
+      color: var(--dark);
+      transform: translateX(3px);
+    }
+
+    /* Toxic Food Card Variant */
+    .nutrition-card.toxic-card {
+      border-color: #ffe3e3;
+      background: #ffffff;
+    }
+    .nutrition-card.toxic-card .nutrition-card-icon {
+      background: #fff1f0;
+      color: #cf1322;
+    }
+    .nutrition-card.toxic-card:hover {
+      border-color: #ff7875;
+      box-shadow: 0 10px 24px rgba(207, 19, 34, 0.08);
+    }
+    .nutrition-card.toxic-card:hover .nutrition-card-icon {
+      background: #cf1322;
+      color: #ffffff;
+    }
+    .nutrition-card.toxic-card h3 {
+      color: #a8071a;
+    }
+
+    /* Visual Diet Ratio Bar */
     .ratio-bar-wrap {
       background: white;
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 26px 30px;
-      margin-top: 36px;
-      box-shadow: var(--shadow-sm);
+      margin: 32px auto 0;
+      max-width: 1200px;
+      box-shadow: 0 4px 14px rgba(35, 57, 43, 0.04);
     }
     .ratio-bar-title {
       font-size: 1.15rem;
@@ -349,6 +677,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--ink);
     }
     .ratio-visual-bar {
       display: flex;
@@ -416,156 +745,40 @@
       border-radius: 50%;
     }
 
-    /* Toxic Foods Breakdown */
-    .danger-food-card {
-      background: white;
-      border: 1px solid var(--alert-red-border);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 4px 14px rgba(168, 7, 26, 0.04);
-      display: flex;
-      flex-direction: column;
-    }
-    .danger-food-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .danger-food-header h4 {
-      margin: 0;
-      font-size: 1.15rem;
-      color: var(--alert-red-text);
-    }
-    .danger-food-card p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin: 0;
-      color: #4a5c52;
-    }
-
-    /* Species Nutrition Interactive Tabs */
-    .species-tabs-nav {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-    .species-tab-btn {
-      padding: 10px 22px;
-      border-radius: 999px;
-      font-family: Manrope, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      background: white;
-      border: 1px solid var(--line);
-      color: #4a5c52;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .species-tab-btn:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
-    .species-tab-btn.active {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-      box-shadow: var(--shadow-sm);
-    }
-    .species-tab-panel {
-      display: none;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-    .species-tab-panel.active {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-    }
-    .species-panel-image {
-      position: relative;
-      min-height: 380px;
-      background: #f0f3eb;
-    }
-    .species-panel-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .species-panel-content {
-      padding: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .species-panel-content h3 {
-      font-size: 1.6rem;
-      margin: 0 0 10px;
-    }
-    .species-panel-content p {
-      font-size: 0.94rem;
-      line-height: 1.7;
-      margin: 0 0 18px;
-    }
-    .species-diet-pill-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .species-diet-pill {
-      background: #f5f8f4;
-      border: 1px solid #dce8df;
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 0.86rem;
-    }
-    .species-diet-pill strong {
-      display: block;
-      color: var(--ink);
-      font-size: 0.92rem;
-      margin-bottom: 2px;
-    }
-
     /* Avian Disclaimer Banner */
     .avian-vet-box {
       background: linear-gradient(135deg, #f0f7f3 0%, #e7efe9 100%);
       border: 2px dashed #9bc3ac;
       border-radius: 20px;
-      padding: 28px 32px;
-      margin: 36px 0;
+      padding: 24px 28px;
+      margin: 32px auto 0;
+      max-width: 1200px;
       display: flex;
       align-items: flex-start;
-      gap: 20px;
+      gap: 18px;
     }
     .avian-vet-icon {
-      font-size: 2.2rem;
+      font-size: 2rem;
+      color: var(--green);
       flex-shrink: 0;
       line-height: 1;
     }
     .avian-vet-text h4 {
       margin: 0 0 6px;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--dark);
     }
     .avian-vet-text p {
       margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.65;
+      font-size: 0.9rem;
+      line-height: 1.6;
       color: #334e3f;
     }
 
     /* FAQ Accordion */
     .faq-accordion {
       max-width: 860px;
-      margin: 0 auto;
+      margin: 30px auto 0;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -597,10 +810,11 @@
       cursor: pointer;
     }
     .faq-toggle-icon {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--green);
       transition: transform 0.28s ease;
       flex-shrink: 0;
+      line-height: 1;
     }
     .faq-item.open .faq-toggle-icon {
       transform: rotate(45deg);
@@ -622,879 +836,1041 @@
       color: #4a5c52;
     }
 
-    /* CTA Section */
-    .bird-cta-section {
-      background: linear-gradient(135deg, #1d5039 0%, #286849 100%);
-      color: white;
-      border-radius: 28px;
-      padding: 56px 40px;
-      text-align: center;
-      margin: 60px 0;
-      box-shadow: 0 20px 50px rgba(29, 80, 57, 0.25);
-    }
-    .bird-cta-section h2 {
-      color: white;
-      font-size: clamp(2rem, 3.8vw, 3rem);
-      margin: 0 0 16px;
-    }
-    .bird-cta-section p {
-      color: #e2ede6;
-      max-width: 680px;
-      margin: 0 auto 30px;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .bird-cta-buttons {
+    /* Final Light Pink CTA Section - Requirement 6 */
+    .bird-pink-cta {
+      position: relative;
+      background: var(--bird-pink-bg);
+      border: 1px solid var(--bird-pink-border);
+      border-radius: 32px;
+      padding: 44px 48px;
       display: flex;
-      justify-content: center;
-      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin: 50px auto 75px;
+      max-width: 1200px;
+      width: calc(100% - 40px);
+      box-shadow: 0 4px 24px rgba(214, 51, 108, 0.04);
+      overflow: hidden;
+    }
+    .bird-pink-cta .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--bird-pink-badge);
+      border: 1px solid #f8c8d2;
+      border-radius: 9999px;
+      color: var(--bird-pink-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .bird-pink-cta h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.7rem, 2.7vw, 2.25rem);
+      margin: 0 0 10px;
+      color: #1a251e;
+      line-height: 1.25;
+    }
+    .bird-pink-cta h2 em {
+      color: var(--green);
+      font-style: normal;
+    }
+    .bird-pink-cta p {
+      color: #55665b;
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0;
+      line-height: 1.65;
+    }
+    .bird-pink-cta-actions {
+      display: flex;
+      gap: 12px;
       flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    .bird-pink-cta-actions .button {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+    }
+    .bird-pink-cta-actions .button:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+    }
+    .bird-pink-cta-actions .button-outline {
+      background: white;
+      color: var(--green);
+      border-color: var(--green);
+    }
+    .bird-pink-cta-actions .button-outline:hover {
+      background: #edf7f0;
+      color: var(--dark);
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 980px) {
-      .grid-3 {
+    /* Responsive Design - Requirement 7 */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .nutrition-card-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .grid-4 {
+      .guides-nav-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .media-split-box,
-      .species-tab-panel.active {
-        grid-template-columns: 1fr;
+      .guides-nav-grid .guide-nav-item:nth-child(9) {
+        grid-column: span 2;
       }
-      .media-split-image,
-      .species-panel-image {
-        min-height: 250px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .grid-2,
-      .grid-3,
-      .grid-4,
-      .species-diet-pill-grid {
-        grid-template-columns: 1fr;
-      }
-      .care-section {
-        padding-block: 55px;
-      }
-      .bird-cta-section {
-        padding: 40px 24px;
-      }
-      .avian-vet-box {
+      .bird-pink-cta {
         flex-direction: column;
-        padding: 22px;
+        align-items: flex-start;
+        padding: 34px 28px;
+      }
+      .bird-topics-heading {
+        padding: 34px 20px 28px;
+      }
+      .paw-left-1, .paw-right-1 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nutrition-card-grid {
+        grid-template-columns: 1fr;
+      }
+      .guides-nav-grid {
+        grid-template-columns: 1fr;
+      }
+      .guides-nav-grid .guide-nav-item:nth-child(9) {
+        grid-column: span 1;
+      }
+      .hero-photo {
+        height: 280px;
+      }
+      .bird-pink-cta {
+        padding: 26px 20px;
+      }
+      .bird-pink-cta-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+      .bird-pink-cta-actions .button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .guides-nav-strip {
+        padding: 24px 18px;
+      }
+      .ratio-legend {
+        flex-direction: column;
+        gap: 8px;
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-<!-- Header Navigation -->
+  <!-- Reusable Header Navigation -->
   <div id="header"></div>
 
-<main id="main-content">
+  <main id="main-content">
 
-  <!-- Hero Section -->
-  <section class="page-hero nutrition-hero" aria-labelledby="hero-title">
-    <div class="section-wrap">
-      <!-- Breadcrumb Navigation -->
-      <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
-        <a href="../../../../index.html">Home</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="../index.html">Explore Pets</a>
-        <span class="breadcrumb-separator">/</span>
-        <a href="index.html">Birds</a>
-        <span class="breadcrumb-separator">/</span>
-        <span class="breadcrumb-current" aria-current="page">Food & Nutrition</span>
-      </nav>
+    <!-- 1. Main Hero Section -->
+    <div class="hero-section-wrapper">
+      <section class="hero section-wrap" id="bird-nutrition-hero">
+        <div class="hero-copy">
+          <!-- Breadcrumb Navigation -->
+          <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
+            <a href="../../../../index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../index.html">Explore Pets</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="index.html">Birds</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current" aria-current="page">Food &amp; Nutrition</span>
+          </nav>
 
-      <div class="eyebrow">PetSathi • AVIAN NUTRITION GUIDE</div>
-      <h1 id="hero-title">Complete Guide to Bird Food & Nutrition</h1>
-      <p class="hero-intro">
-        Nourish your feathered companion with scientifically balanced diets, vibrant fresh greens, seasonal fruits, and vital hydration. Learn why species-specific nutrition is essential for brilliant plumage, sharp minds, and long, healthy lives.
-      </p>
-
-      <div class="hero-meta-strip">
-        <div class="hero-meta-item">
-          <div class="hero-meta-icon" aria-hidden="true">🥣</div>
-          <div>
-            <strong>Pellet Foundation</strong>
-            <span>50%–70% balanced core</span>
+          <div class="bird-badge-strip">
+            <i class="fa-solid fa-feather-pointed" aria-hidden="true"></i>
+            <span>PetSathi • Avian Nutrition &amp; Feeding Guide</span>
+          </div>
+          <h1>Wholesome Food for <em>Healthy Birds</em></h1>
+          <p>
+            Nourish your feathered companion with scientifically balanced diets, vibrant fresh greens, seasonal fruits, and vital hydration. Learn why species-specific nutrition is essential for brilliant plumage, sharp minds, and long, healthy lives.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#balanced-diet" id="hero-cta-diet">Explore Balanced Diet ↗</a>
+            <a class="button button-outline" href="#quick-nav" id="hero-cta-nav">Quick Navigation ↓</a>
+          </div>
+          <div class="hero-note">
+            ♥ &nbsp; Dedicated to healthy feathers and joyful songs.
           </div>
         </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-icon" aria-hidden="true">🥬</div>
-          <div>
-            <strong>Fresh Vegetables & Fruits</strong>
-            <span>Vitamins, minerals, fiber</span>
-          </div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-icon" aria-hidden="true">🚫</div>
-          <div>
-            <strong>Toxic Food Awareness</strong>
-            <span>Avocado, chocolate & more</span>
-          </div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-icon" aria-hidden="true">🐦</div>
-          <div>
-            <strong>Species Tailoring</strong>
-            <span>Budgies to large parrots</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Sticky Quick Jump Navigation Bar -->
-  <nav class="quick-nav-bar" aria-label="Quick jump to bird nutrition sections">
-    <div class="section-wrap">
-      <div class="quick-nav-container">
-        <a class="quick-nav-link" href="#healthy-diet">Healthy Diet</a>
-        <a class="quick-nav-link" href="#foods-to-avoid">Foods to Avoid</a>
-        <a class="quick-nav-link" href="#feeding-guidelines">⚖️ Feeding Guidelines</a>
-        <a class="quick-nav-link" href="#species-nutrition">Nutrition by Bird Type</a>
-        <a class="quick-nav-link" href="#feeding-tips">Feeding & Hygiene Tips</a>
-        <a class="quick-nav-link" href="#faqs">❓ FAQs</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- SECTION A: Healthy Bird Diet -->
-  <section id="healthy-diet" class="care-section" aria-labelledby="heading-diet">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow">DIETARY FOUNDATIONS</div>
-        <h2 id="heading-diet">The Pillars of a Healthy Bird Diet</h2>
-        <p>
-          Contrary to outdated popular myths, companion birds cannot thrive on an all-seed diet. In the wild, birds forage across hundreds of plant species. Replicating balanced nutrition at home requires a structured combination of formulated pellets, wholesome vegetables, moderate fruits, and controlled seeds.
-        </p>
-      </div>
-
-      <!-- Feature Split Banner -->
-      <div class="media-split-box">
-        <div class="media-split-image">
-          <span class="media-split-badge">Formulated Pellets</span>
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
           <img
-            src="https://images.unsplash.com/photo-1591198936750-16d8e15edb9e?auto=format&fit=crop&w=800&q=85"
-            alt="Companion birds eating a variety of nutritious pellets and fresh vegetables"
-            loading="lazy"
+            src="https://images.unsplash.com/photo-1591198936750-16d8e15edb9e?auto=format&fit=crop&w=1000&q=85"
+            alt="Companion birds eating a variety of nutritious pellets, fresh fruits and healthy seeds"
+            class="hero-photo"
+            id="hero-bird-image"
           >
+          <div class="floating-card card-top">
+            <i class="fa-solid fa-seedling" style="color: var(--green); font-size: 1.3rem;" aria-hidden="true"></i>
+            <span><b>100% Balanced</b><small>Pellets, greens &amp; seeds</small></span>
+          </div>
+          <div class="floating-card card-bottom">
+            <i class="fa-solid fa-feather-pointed" style="color: var(--green); font-size: 1.3rem;" aria-hidden="true"></i>
+            <span><b>Vibrant Health</b><small>Vitamins &amp; hydration</small></span>
+          </div>
         </div>
-        <div class="media-split-content">
-          <h3>Why Pellets Are the Golden Standard</h3>
-          <p>
-            High-quality formulated avian pellets form the cornerstone of modern pet bird health, ideally making up <strong>50% to 70%</strong> of your bird's daily intake:
-          </p>
-          <ul>
-            <li><strong>Prevents Selective Eating:</strong> In seed mixes, birds pick out fatty seeds and ignore nutrient-rich grains. Pellets provide uniform nutrition in every single bite.</li>
-            <li><strong>Complete Vitamin & Mineral Balance:</strong> Fortified with vitamin A, vitamin D3, calcium, and amino acids that raw seeds critically lack.</li>
-            <li><strong>Low in Saturated Fats:</strong> Minimizes the risk of hepatic lipidosis (fatty liver disease), the number-one killer of captive pet birds on seed diets.</li>
-          </ul>
-        </div>
+      </section>
+    </div>
+
+    <!-- 2. Quick Navigation Hub -->
+    <div class="guides-nav-strip" id="quick-nav">
+      <!-- Decorative Corner Accents -->
+      <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+        <i class="fa-solid fa-feather-pointed decor-paw decor-paw-1"></i>
+        <i class="fa-solid fa-dove decor-paw decor-paw-2"></i>
       </div>
 
-      <!-- 4 Core Diet Components Grid -->
-      <div class="grid-4">
-        <!-- Pellets -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🥣</div>
-          <h3>Formulated Pellets</h3>
-          <p>
-            Choose organic, dye-free extruded pellets formulated specifically for your bird's species and beak size.
-          </p>
-          <ul>
-            <li><strong>Daily Share:</strong> 50%–70% of total daily calorie intake.</li>
-            <li><strong>Key Benefit:</strong> Consistent delivery of calcium, trace minerals, and essential amino acids.</li>
-            <li><strong>Tip:</strong> Avoid brightly colored pellets containing artificial food dyes that can discolor droppings and cause feather plucking.</li>
-          </ul>
-        </article>
-
-        <!-- Fresh Vegetables -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🥦</div>
-          <h3>Fresh Vegetables</h3>
-          <p>
-            Fresh vegetables provide vital hydration, phytonutrients, enzymes, and natural foraging enrichment.
-          </p>
-          <ul>
-            <li><strong>Daily Share:</strong> 20%–30% of daily food volume.</li>
-            <li><strong>Top Choices:</strong> Dark leafy greens (kale, collards, dandelion greens), broccoli florets, bell peppers with seeds, grated carrots, and squash.</li>
-            <li><strong>Vitamin A Power:</strong> Orange and deep green vegetables protect respiratory membranes and immune health.</li>
-          </ul>
-        </article>
-
-        <!-- Suitable Fruits -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🫐</div>
-          <h3>Suitable Fruits</h3>
-          <p>
-            Fruits are packed with vitamins and antioxidants, but should be served in moderation due to natural fruit sugars (fructose).
-          </p>
-          <ul>
-            <li><strong>Daily Share:</strong> 5%–10% of total diet.</li>
-            <li><strong>Best Picks:</strong> Blueberries, blackberries, papaya, mango, seeded pomegranate, and sliced apples.</li>
-            <li><strong>Safety Rule:</strong> Always core and remove apple seeds and stone fruit pits before serving, as seeds contain toxic cyanogenic compounds.</li>
-          </ul>
-        </article>
-
-        <!-- Seeds in Moderation -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🌾</div>
-          <h3>Seeds in Moderation</h3>
-          <p>
-            Seeds are high in lipids and calorie-dense; treat them as occasional foraging rewards rather than the primary meal.
-          </p>
-          <ul>
-            <li><strong>Daily Share:</strong> 5%–10% for large parrots; up to 15%–20% for small active granivores like budgies.</li>
-            <li><strong>Foraging Tool:</strong> Place seeds inside foraging toys or puzzles to encourage mental exercise and natural hunting behaviors.</li>
-            <li><strong>Sprouted Seeds:</strong> Sprouting seeds dramatically lowers fat content and increases bioavailable vitamins and living enzymes.</li>
-          </ul>
-        </article>
+      <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+        <i class="fa-solid fa-feather-pointed decor-paw decor-paw-3"></i>
+        <i class="fa-solid fa-dove decor-paw decor-paw-4"></i>
       </div>
 
-      <!-- Visual Diet Ratio Bar -->
-      <div class="ratio-bar-wrap">
-        <div class="ratio-bar-title">
-          <span aria-hidden="true">📊</span>
-          <span>Companion Psittacine Dietary Model (Educational Baseline)</span>
+      <!-- Centered Header -->
+      <div class="quick-nav-header">
+        <div class="quick-nav-eyebrow-wrap">
+          <span class="quick-nav-line"></span>
+          <div class="quick-nav-badge">
+            <i class="fa-regular fa-compass quick-nav-badge-icon" aria-hidden="true"></i>
+            <span>QUICK NAVIGATION HUB</span>
+          </div>
+          <span class="quick-nav-line"></span>
         </div>
-        <div class="ratio-visual-bar" role="img" aria-label="Diet ratio model for common psittacines: approximately 60% Formulated Pellets, 25% Fresh Vegetables, 10% Fruits, 5% Seeds & Treats">
-          <div class="ratio-segment-pellets">60% Pellets</div>
-          <div class="ratio-segment-veggies">25% Veggies</div>
-          <div class="ratio-segment-fruits">10% Fruits</div>
-          <div class="ratio-segment-seeds">5% Seeds</div>
-        </div>
-        <div class="ratio-legend">
-          <div class="ratio-legend-item">
-            <span class="ratio-dot" style="background: #286849;"></span>
-            <span><strong>Formulated Pellets (50–70%):</strong> Baseline complete nutrition for hookbills</span>
-          </div>
-          <div class="ratio-legend-item">
-            <span class="ratio-dot" style="background: #52a46e;"></span>
-            <span><strong>Fresh Vegetables & Chop (20–30%):</strong> Micronutrients, fiber & hydration</span>
-          </div>
-          <div class="ratio-legend-item">
-            <span class="ratio-dot" style="background: #e8a838;"></span>
-            <span><strong>Fresh Fruits (5–10%):</strong> Antioxidants & occasional training treats</span>
-          </div>
-          <div class="ratio-legend-item">
-            <span class="ratio-dot" style="background: #b5803e;"></span>
-            <span><strong>Quality Seeds & Nuts (5–10%):</strong> Controlled foraging enrichment</span>
-          </div>
-        </div>
-        <p style="margin: 14px 0 0; font-size: 0.88rem; color: #5a6b61; text-align: center; line-height: 1.5;">
-          <em>Note on species divergence:</em> This ratio serves as an educational benchmark for typical companion psittacines (parrots, conures). Specialized species have vastly different requirements: nectarivores (lories/lorikeets) require commercial nectar and pollen formulas; Eclectus require high-fiber fresh produce with minimal fortification; while active granivores (budgies, cockatiels) tolerate higher seed/grain inclusions (up to 15%–20%). Always consult an avian veterinarian.
-        </p>
+        <h3 class="quick-nav-title">
+          Explore Dedicated <span>Bird Nutrition Chapters</span>
+        </h3>
+      </div>
+
+      <!-- Navigation Links Grid -->
+      <div class="guides-nav-grid">
+        <a href="#nutrition-basics" class="guide-nav-item" id="hub-link-basics">
+          <span class="guide-nav-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Nutrition Basics</span>
+        </a>
+
+        <a href="#balanced-diet" class="guide-nav-item" id="hub-link-diet">
+          <span class="guide-nav-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Balanced Diet</span>
+        </a>
+
+        <a href="#seeds-grains" class="guide-nav-item" id="hub-link-seeds">
+          <span class="guide-nav-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Seeds &amp; Grains</span>
+        </a>
+
+        <a href="#fruits-vegetables" class="guide-nav-item" id="hub-link-produce">
+          <span class="guide-nav-icon"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Fruits &amp; Vegetables</span>
+        </a>
+
+        <a href="#pellets-food" class="guide-nav-item" id="hub-link-pellets">
+          <span class="guide-nav-icon"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Pellets &amp; Food</span>
+        </a>
+
+        <a href="#feeding-guide" class="guide-nav-item" id="hub-link-guide">
+          <span class="guide-nav-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Feeding Guide</span>
+        </a>
+
+        <a href="#foods-to-avoid" class="guide-nav-item" id="hub-link-avoid">
+          <span class="guide-nav-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Foods to Avoid</span>
+        </a>
+
+        <a href="#feeding-schedule" class="guide-nav-item" id="hub-link-schedule">
+          <span class="guide-nav-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Feeding Schedule</span>
+        </a>
+
+        <a href="#hydration" class="guide-nav-item" id="hub-link-hydration">
+          <span class="guide-nav-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Hydration</span>
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- SECTION B: Foods to Avoid -->
-  <section id="foods-to-avoid" class="care-section alt-bg" aria-labelledby="heading-avoid">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow" style="background: var(--alert-red-bg); color: var(--alert-red-text);">AVIAN TOXICOLOGY</div>
-        <h2 id="heading-avoid">Dangerous Foods Birds Must Never Consume</h2>
-        <p>
-          Birds have unique metabolic pathways, exceptionally fast metabolic rates, and compact digestive tracts. Foods harmless to humans can cause immediate respiratory collapse, cardiac arrest, or fatal kidney failure in birds.
-        </p>
-      </div>
+    <!-- 3. Section 1: Nutrition Basics -->
+    <section id="nutrition-basics" class="nutrition-section bg-cream" aria-labelledby="heading-basics">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <i class="fa-solid fa-feather paw paw-left-1" aria-hidden="true"></i>
+          <i class="fa-solid fa-dove paw paw-right-1" aria-hidden="true"></i>
 
-      <div class="grid-3">
-        <!-- Avocado -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🥑</span>
-            <h4>Avocado (Guacamole)</h4>
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+              <span>AVIAN NUTRITION BASICS</span>
+            </div>
+            <h2 id="heading-basics">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Nutrition Needs by <span>Bird Species</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Every companion bird species has distinct dietary physiology evolved from its natural ecological habitat, from arid grassland granivores to tropical canopy hookbills.</p>
           </div>
-          <p>
-            <strong>The Toxic Agent: Persin.</strong> All parts of the avocado plant — skin, pit, leaves, and flesh (particularly Guatemalan varieties) — contain persin, a fungicidal toxin. In birds, persin causes acute myocardial necrosis, hydropericardium (fluid around the heart), and lethal pulmonary edema. Clinical signs like lethargy and dyspnea can begin within hours, and sudden death frequently occurs within 12 to 24 hours (or even faster in small birds). Any ingestion is an immediate life-threatening emergency.
-          </p>
-        </article>
-
-        <!-- Chocolate -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🍫</span>
-            <h4>Chocolate & Cocoa</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Theobromine & Caffeine.</strong> Birds metabolize methylxanthines extremely poorly. Even tiny crumbs of dark or milk chocolate trigger severe vomiting, diarrhea, rapid hyperactivity, cardiac arrhythmias, seizures, and fatal central nervous system failure.
-          </p>
-        </article>
-
-        <!-- Caffeine -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">☕</span>
-            <h4>Caffeine (Coffee, Tea, Soda)</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Caffeine Alkaloids.</strong> Caffeinated beverages dramatically increase avian heart rates, induce cardiac hyperactivity, cause severe metabolic arrhythmias, and can trigger sudden cardiac arrest in small birds with rapid resting pulses.
-          </p>
-        </article>
-
-        <!-- Alcohol -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🍷</span>
-            <h4>Alcohol & Fermented Beverages</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Ethanol.</strong> Alcohol is a potent avian central nervous system depressant. Because of a bird's small body mass, mere drops cause severe disorientation, hypothermia, acute respiratory depression, metabolic acidosis, liver failure, and death.
-          </p>
-        </article>
-
-        <!-- Fruit Seeds and Pits -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🍎</span>
-            <h4>Apple Seeds & Stone Fruit Pits</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Cyanogenic Glycosides (Amygdalin).</strong> The seeds of apples, pears, and pits of cherries, plums, peaches, and apricots break down into toxic cyanide when crushed by powerful beaks. Always thoroughly core and slice fruit before offering it.
-          </p>
-        </article>
-
-        <!-- Onions & Garlic -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🧅</span>
-            <h4>Onions, Garlic, Leeks & Chives</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Thiosulfates & Disulfides.</strong> Allium family plants contain sulfur compounds that rupture avian red blood cells, causing severe hemolytic anemia, crop ulcers, lethargy, and gastrointestinal irritation.
-          </p>
-        </article>
-
-        <!-- Salt & Salty Snacks -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🧂</span>
-            <h4>High-Sodium Snacks & Chips</h4>
-          </div>
-          <p>
-            <strong>The Toxic Hazard: Sodium Ion Toxicity.</strong> Birds cannot process high salt loads. Table scraps like chips, salted crackers, or pretzels disrupt delicate electrolyte balances, leading to excessive thirst, dehydration, kidney strain, and death.
-          </p>
-        </article>
-
-        <!-- Rhubarb Leaves -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🌿</span>
-            <h4>Rhubarb Leaves & Stems</h4>
-          </div>
-          <p>
-            <strong>The Toxic Agent: Soluble Oxalates.</strong> Rhubarb contains concentrated oxalic acid salts that bind bioavailable blood calcium, forming insoluble calcium oxalate crystals that damage renal tubules and cause acute kidney failure.
-          </p>
-        </article>
-
-        <!-- Xylitol & Artificial Sweeteners -->
-        <article class="danger-food-card">
-          <div class="danger-food-header">
-            <span style="font-size: 1.8rem;" aria-hidden="true">🍬</span>
-            <h4>Xylitol & Artificial Sweeteners</h4>
-          </div>
-          <p>
-            <strong>The Toxic Hazard: Metabolic Toxicity.</strong> Found in sugar-free baked goods, chewing gum, and diet peanut butters. Xylitol causes severe metabolic disruptions, rapid liver necrosis, and life-threatening hypoglycemia across companion animals.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION C: Feeding Guidelines -->
-  <section id="feeding-guidelines" class="care-section" aria-labelledby="heading-guidelines">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow">DAILY ROUTINE & PRACTICES</div>
-        <h2 id="heading-guidelines">Feeding Guidelines & Daily Routine</h2>
-        <p>
-          Consistent meal routines, clean presentation, and precise portion monitoring prevent obesity, nutrient loss, and bacterial contamination.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <!-- Hydration -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">💧</div>
-          <h3>Fresh Drinking Water 24/7</h3>
-          <p>
-            Water is indispensable for avian metabolism, crop digestion, and thermoregulation. Birds can dehydrate fatally within 24 to 48 hours without water.
-          </p>
-          <ul>
-            <li><strong>Twice-Daily Water Changes:</strong> Birds frequently dip food, bathe, or defecate into water dishes. Refresh water once in the morning and once in the late afternoon.</li>
-            <li><strong>Stainless Steel or Glass:</strong> Use non-porous stainless steel or heavy ceramic bowls that resist bacterial biofilm buildup.</li>
-            <li><strong>Disinfect Daily:</strong> Wash water bowls daily with hot water and bird-safe, unscented dish soap; rinse thoroughly until zero residue remains.</li>
-          </ul>
-        </article>
-
-        <!-- Portion Sizes -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">⚖️</div>
-          <h3>Body-Weight Calibrated Portions</h3>
-          <p>
-            Overfeeding companion birds encourages selective sorting, fatty seed addiction, and obesity. Calibrate rations to body weight:
-          </p>
-          <ul>
-            <li><strong>Intake Guideline:</strong> Most companion birds consume approximately 10% to 15% of their total body weight daily across formulated pellets and fresh foods.</li>
-            <li><strong>Small Hookbills (Budgies ~30–40g, Cockatiels ~80–100g):</strong> Typically consume roughly 1 to 2 level tablespoons of pellets plus fresh chop daily, adjusted for individual activity.</li>
-            <li><strong>Medium & Large Parrots:</strong> Measure species-calibrated rations rather than filling food bowls to the brim, discouraging selective waste.</li>
-            <li><strong>Digital Gram Scale Tracking:</strong> Weigh your bird weekly at the same morning hour; subtle weight loss is often the only early sign of subclinical disease.</li>
-          </ul>
-        </article>
-
-        <!-- Feeding Frequency -->
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">⏰</div>
-          <h3>Daily Feeding Schedule & Fresh Food Removal</h3>
-          <p>
-            Mimic natural wild foraging rhythms to stimulate active metabolism while safeguarding hygienic freshness.
-          </p>
-          <ul>
-            <li><strong>Morning Fresh Feast:</strong> Serve fresh vegetable chop, sprouted seeds, and legumes in the morning during peak natural foraging hours.</li>
-            <li><strong>The 1-to-2 Hour Food Removal Rule:</strong> Perishable moist vegetables, cooked grains, and fruits cultivate rapid bacterial proliferation and fungal spores. In warm ambient conditions, remove uneaten fresh food after 1 to 2 hours (up to 4 hours maximum only in cool indoor rooms).</li>
-            <li><strong>All-Day Measured Pellets:</strong> Keep clean, dry, formulated pellets accessible in a separate stainless steel bowl for continuous, hygienic nutrition.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION D: Nutrition by Bird Type -->
-  <section id="species-nutrition" class="care-section alt-bg" aria-labelledby="heading-species">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow">SPECIES-SPECIFIC NUTRITION</div>
-        <h2 id="heading-species">Nutrition Tailored by Bird Type</h2>
-        <p>
-          <strong>No two bird species have identical dietary requirements.</strong> A Macaw thriving on tropical tree nuts would develop life-threatening fatty liver disease on a Cockatiel's diet, while an African Grey requires substantially higher bioavailable calcium. Explore species-specific dietary recommendations below:
-        </p>
-      </div>
-
-      <!-- Interactive Species Tabs -->
-      <div class="species-tabs-nav" role="tablist" aria-label="Bird species nutrition selector">
-        <button class="species-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-budgies" id="tab-budgies">
-          <span aria-hidden="true">🦜</span> Budgies (Parakeets)
-        </button>
-        <button class="species-tab-btn" role="tab" aria-selected="false" aria-controls="panel-cockatiels" id="tab-cockatiels">
-          <span aria-hidden="true">💛</span> Cockatiels
-        </button>
-        <button class="species-tab-btn" role="tab" aria-selected="false" aria-controls="panel-lovebirds" id="tab-lovebirds">
-          <span aria-hidden="true">💚</span> Lovebirds
-        </button>
-        <button class="species-tab-btn" role="tab" aria-selected="false" aria-controls="panel-parrots" id="tab-parrots">
-          <span aria-hidden="true">🦜</span> Parrots (Conures, Amazons, Greys)
-        </button>
-      </div>
-
-      <!-- Tab 1: Budgies -->
-      <div class="species-tab-panel active" id="panel-budgies" role="tabpanel" aria-labelledby="tab-budgies">
-        <div class="species-panel-image">
-          <img
-            src="https://images.unsplash.com/photo-1549608276-5786777e6587?auto=format&fit=crop&w=800&q=85"
-            alt="Vibrant small budgerigar perching peacefully"
-            loading="lazy"
-          >
         </div>
-        <div class="species-panel-content">
-          <h3>Budgerigar (Budgie) Nutrition</h3>
-          <p>
-            Native to the arid Australian outback, wild budgies are ground-foraging nomadic granivores. In domestic environments, sedentary lifestyles make an all-seed diet disastrous, causing iodine deficiency, goiter, and lipomas (fatty tumors).
-          </p>
-          <div class="species-diet-pill-grid">
-            <div class="species-diet-pill">
-              <strong>50%–60% Micro-Pellets:</strong> Formulated specifically for parakeets to deliver complete baseline nutrition.
+
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-dove" aria-hidden="true"></i></div>
+            <h3>Budgies &amp; Parakeets</h3>
+            <p>Nomadic granivores requiring 50%–60% micro-pellets, daily green chop, controlled millet treats, and essential dietary iodine to prevent goiter.</p>
+            <a href="species.html" class="nutrition-card-link">View Species Guide ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-feather" aria-hidden="true"></i></div>
+            <h3>Cockatiels &amp; Conures</h3>
+            <p>Prone to seed addiction and Vitamin A deficiency; thrive on 60% small pellets, orange veggies (squash, carrots), and cuttlebone calcium.</p>
+            <a href="species.html" class="nutrition-card-link">View Species Guide ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+            <h3>Lovebirds &amp; Small Hookbills</h3>
+            <p>High energetic metabolic rates; benefit from 60%–70% pellets, shredded zucchini, sweet corn, sprouted pulses, and foraging puzzle toys.</p>
+            <a href="species.html" class="nutrition-card-link">View Species Guide ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <h3>African Greys &amp; Amazons</h3>
+            <p>African Greys require high bioavailable calcium and UV lighting; Amazons require lean vegetable chop to prevent hepatic lipidosis.</p>
+            <a href="species.html" class="nutrition-card-link">View Species Guide ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-tree" aria-hidden="true"></i></div>
+            <h3>Macaws &amp; Large Parrots</h3>
+            <p>Naturally adapted to tropical canopy nuts; require higher healthy lipid rations including raw walnuts, macadamias, and palm fruit oils.</p>
+            <a href="species.html" class="nutrition-card-link">View Species Guide ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i></div>
+            <h3>Lories &amp; Softbills</h3>
+            <p>Specialized nectarivores requiring formulated commercial nectar and pollen; Eclectus require high-fiber fresh produce with minimal fortification.</p>
+            <a href="care.html" class="nutrition-card-link">View Care Guide ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Section 2: Balanced Diet -->
+    <section id="balanced-diet" class="nutrition-section bg-white" aria-labelledby="heading-diet">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+              <span>DIETARY FOUNDATIONS</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>20%–30% Fresh Greens:</strong> Grated carrots, spinach, broccoli florets, and dandelion leaves.
+            <h2 id="heading-diet">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              The Pillars of a <span>Balanced Daily Diet</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Replicating balanced nutrition at home requires a structured foundation of formulated pellets, wholesome fresh vegetables, controlled fruits, and measured seeds.</p>
+          </div>
+        </div>
+
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i></div>
+            <h3>Pellet Core (50%–70%)</h3>
+            <p>Forms the complete daily baseline, delivering uniform calcium, trace minerals, and vitamins without selective seed sorting.</p>
+            <a href="#pellets-food" class="nutrition-card-link">Explore Pellets ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-carrot" aria-hidden="true"></i></div>
+            <h3>Fresh Veggies (20%–30%)</h3>
+            <p>Nutrient-rich dark leafy greens, carrots, broccoli, and peppers provide vital beta-carotene, living enzymes, and hydration.</p>
+            <a href="#fruits-vegetables" class="nutrition-card-link">Explore Veggies ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i></div>
+            <h3>Fruits &amp; Seeds (10%–15%)</h3>
+            <p>Reserved as high-value training rewards and foraging treats, keeping natural fruit sugars and dietary lipids balanced.</p>
+            <a href="#seeds-grains" class="nutrition-card-link">Seeds &amp; Fruits ↓</a>
+          </article>
+        </div>
+
+        <!-- Visual Diet Ratio Bar -->
+        <div class="ratio-bar-wrap">
+          <div class="ratio-bar-title">
+            <i class="fa-solid fa-chart-pie" style="color: var(--green);" aria-hidden="true"></i>
+            <span>Companion Psittacine Dietary Ratio Model (Educational Baseline)</span>
+          </div>
+          <div class="ratio-visual-bar" role="img" aria-label="Diet ratio model: 60% Formulated Pellets, 25% Fresh Veggies, 10% Fruits, 5% Seeds">
+            <div class="ratio-segment-pellets">60% Pellets</div>
+            <div class="ratio-segment-veggies">25% Veggies</div>
+            <div class="ratio-segment-fruits">10% Fruits</div>
+            <div class="ratio-segment-seeds">5% Seeds</div>
+          </div>
+          <div class="ratio-legend">
+            <div class="ratio-legend-item">
+              <span class="ratio-dot" style="background: #286849;"></span>
+              <span><strong>Formulated Pellets (50–70%):</strong> Baseline complete nutrition</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>10%–15% Seed Mix:</strong> High-quality canary seed, white millet, or sprouted seeds for natural foraging.
+            <div class="ratio-legend-item">
+              <span class="ratio-dot" style="background: #52a46e;"></span>
+              <span><strong>Fresh Vegetables &amp; Chop (20–30%):</strong> Micronutrients &amp; fiber</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>Calcium & Mineral Block:</strong> Provide cuttlebone (calcium carbonate) for bone density and mechanical beak conditioning; note that cuttlebone contains negligible iodine.
+            <div class="ratio-legend-item">
+              <span class="ratio-dot" style="background: #e8a838;"></span>
+              <span><strong>Fresh Fruits (5–10%):</strong> Antioxidants &amp; training treats</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>Iodine Goiter Prevention:</strong> Budgies on unfortified seeds are prone to thyroid hyperplasia (goiter). Ensure iodine via formulated pellets or vet-directed supplementation.
+            <div class="ratio-legend-item">
+              <span class="ratio-dot" style="background: #b5803e;"></span>
+              <span><strong>Quality Seeds &amp; Nuts (5–10%):</strong> Controlled foraging enrichment</span>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Tab 2: Cockatiels -->
-      <div class="species-tab-panel" id="panel-cockatiels" role="tabpanel" aria-labelledby="tab-cockatiels">
-        <div class="species-panel-image">
-          <img
-            src="https://images.unsplash.com/photo-1480044965905-02098d419e96?auto=format&fit=crop&w=800&q=85"
-            alt="Gentle yellow cockatiel showing signature crest feathers"
-            loading="lazy"
-          >
-        </div>
-        <div class="species-panel-content">
-          <h3>Cockatiel Dietary Requirements</h3>
-          <p>
-            Cockatiels are notorious seed addicts prone to hepatic lipidosis and chronic vitamin A deficiency. Overcoming seed addiction requires consistent, gradual transition to balanced nutrition.
-          </p>
-          <div class="species-diet-pill-grid">
-            <div class="species-diet-pill">
-              <strong>60% Small Formulated Pellets:</strong> Uniform extruded pellets prevent selective eating of fatty sunflower seeds.
+    <!-- 5. Section 3: Seeds & Grains -->
+    <section id="seeds-grains" class="nutrition-section bg-cream" aria-labelledby="heading-seeds">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+              <span>SEEDS &amp; GRAINS</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>25% Vitamin A-Rich Veggies:</strong> Sweet potato, cooked butternut squash, kale, dark leaf romaine, and red bell peppers.
-            </div>
-            <div class="species-diet-pill">
-              <strong>10% Seed & Grain Mix:</strong> Whole oat groats, hemp seeds, and millet sprays reserved as training treats.
-            </div>
-            <div class="species-diet-pill">
-              <strong>Breeding Female Calcium:</strong> Egg-laying hens require enhanced bioavailable calcium to avoid life-threatening egg binding.
-            </div>
+            <h2 id="heading-seeds">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Seeds &amp; Grains <span>Feeding Guidelines</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>While an all-seed diet is harmful, controlled portions of quality seeds, wholesome cooked grains, and sprouted pulses provide vital foraging enrichment.</p>
           </div>
         </div>
-      </div>
 
-      <!-- Tab 3: Lovebirds -->
-      <div class="species-tab-panel" id="panel-lovebirds" role="tabpanel" aria-labelledby="tab-lovebirds">
-        <div class="species-panel-image">
-          <img
-            src="https://images.unsplash.com/photo-1470116073782-48ae2ccd8ffd?auto=format&fit=crop&w=800&q=85"
-            alt="Pair of colorful companion lovebirds perched close together"
-            loading="lazy"
-          >
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+            <h3>Controlled Portions</h3>
+            <p>Restrict dry seeds to 5%–10% for parrots and up to 15%–20% for active budgies to safeguard against obesity and hepatic lipidosis.</p>
+            <a href="#feeding-guide" class="nutrition-card-link">Portion Sizes ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
+            <h3>Sprouted Living Seeds</h3>
+            <p>Soaking and sprouting seeds drastically reduces fat levels while increasing living enzymes, digestible proteins, and bioavailable vitamins.</p>
+            <a href="#feeding-schedule" class="nutrition-card-link">Sprout Hygiene ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i></div>
+            <h3>Wholesome Whole Grains</h3>
+            <p>Cooked organic quinoa, brown rice, whole oat groats, and barley deliver complex carbohydrates and dietary fiber for energetic birds.</p>
+            <a href="#balanced-diet" class="nutrition-card-link">Diet Pillars ↑</a>
+          </article>
         </div>
-        <div class="species-panel-content">
-          <h3>Lovebird Nutritional Plan</h3>
-          <p>
-            These energetic African dwarf parrots have high metabolic rates. They require high-energy, nutrient-dense nutrition paired with active foraging stimulation.
-          </p>
-          <div class="species-diet-pill-grid">
-            <div class="species-diet-pill">
-              <strong>60%–70% Pellets:</strong> High-grade small parrot pellets providing vital amino acids and immune support.
+      </div>
+    </section>
+
+    <!-- 6. Section 4: Fruits & Vegetables -->
+    <section id="fruits-vegetables" class="nutrition-section bg-white" aria-labelledby="heading-produce">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-apple-whole" aria-hidden="true"></i>
+              <span>FRESH PRODUCE</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>20%–25% Finely Chopped Vegetables:</strong> Shredded zucchini, sweet corn, peas in the pod, and wheatgrass.
-            </div>
-            <div class="species-diet-pill">
-              <strong>10% Grains, Seeds & Sprouted Pulses:</strong> Quinoa, sprouted mung beans, and chia seeds.
-            </div>
-            <div class="species-diet-pill">
-              <strong>Foraging Stimulation:</strong> Scatter food inside puzzle boxes or shredded paper to mimic natural canopy foraging.
-            </div>
+            <h2 id="heading-produce">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Fresh Vegetables &amp; <span>Nutritious Fruits</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Fresh vegetables and antioxidant-packed seasonal fruits provide vital hydration, phytonutrients, enzymes, and natural chewing enrichment.</p>
           </div>
         </div>
-      </div>
 
-      <!-- Tab 4: Medium to Large Parrots -->
-      <div class="species-tab-panel" id="panel-parrots" role="tabpanel" aria-labelledby="tab-parrots">
-        <div class="species-panel-image">
-          <img
-            src="https://images.unsplash.com/photo-1539664030485-a936c7d29c6e?auto=format&fit=crop&w=800&q=85"
-            alt="Majestic colorful parrot eating wholesome fresh food"
-            loading="lazy"
-          >
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+            <h3>Dark Leafy Greens</h3>
+            <p>Kale, dandelion greens, broccoli florets, and collards protect respiratory membranes and strengthen immune health with natural Vitamin A.</p>
+            <a href="#nutrition-basics" class="nutrition-card-link">Nutrient Basics ↑</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-pepper-hot" aria-hidden="true"></i></div>
+            <h3>Crunchy Veggies &amp; Peppers</h3>
+            <p>Bell peppers and spicy chili peppers (birds do not register capsaicin heat!) deliver high carotenoids and stimulating textures.</p>
+            <a href="#feeding-schedule" class="nutrition-card-link">Serving Schedule ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-lemon" aria-hidden="true"></i></div>
+            <h3>Antioxidant-Rich Berries</h3>
+            <p>Blueberries, blackberries, papaya, and sliced apples offer vitamins; always core apples and discard pits containing toxic cyanogenic seeds.</p>
+            <a href="#foods-to-avoid" class="nutrition-card-link">Check Unsafe Foods ↓</a>
+          </article>
         </div>
-        <div class="species-panel-content">
-          <h3>Medium & Large Parrots (Conures, Amazons, Greys, Macaws)</h3>
-          <p>
-            Larger parrots have sophisticated cognitive and physiological requirements. Diets must be tailored strictly to genus and ecological origin:
-          </p>
-          <div class="species-diet-pill-grid">
-            <div class="species-diet-pill">
-              <strong>60% Large Species Pellets:</strong> Formulated for medium-to-large hookbills without added sucrose or artificial colorings.
+      </div>
+    </section>
+
+    <!-- 7. Section 5: Pellets & Commercial Food -->
+    <section id="pellets-food" class="nutrition-section bg-soft-green" aria-labelledby="heading-pellets">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-bowl-food" aria-hidden="true"></i>
+              <span>FORMULATED NUTRITION</span>
             </div>
-            <div class="species-diet-pill">
-              <strong>25% Varied Daily Chop:</strong> Steamed sweet potatoes, spicy chili peppers (parrots cannot taste capsaicin!), cooked beans, and kale.
-            </div>
-            <div class="species-diet-pill">
-              <strong>African Grey Calcium Focus:</strong> Prone to hypocalcemia; require calcium-rich dark greens, broccoli, and avian UV lighting for D3 synthesis.
-            </div>
-            <div class="species-diet-pill">
-              <strong>Macaw Healthy Lipids:</strong> Macaws require higher healthy fat contents; provide raw walnuts, macadamias, and palm fruit oils in moderation.
-            </div>
+            <h2 id="heading-pellets">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Pellets &amp; <span>Commercial Bird Food</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Veterinary-formulated extruded pellets eliminate selective picking and deliver 100% complete daily micronutrient balance in every single bite.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SECTION E: Feeding Tips & Hygiene -->
-  <section id="feeding-tips" class="care-section" aria-labelledby="heading-tips">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow">BEST PRACTICES</div>
-        <h2 id="heading-tips">Feeding Hygiene & Diet Conversion Tips</h2>
-        <p>
-          Mastering safe kitchen practices and gentle transition methods transforms your bird into a healthy, enthusiastic eater.
-        </p>
-      </div>
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></div>
+            <h3>Organic Dye-Free Pellets</h3>
+            <p>Select cold-pressed or extruded pellets formulated specifically for your bird’s beak size without artificial food dyes that trigger feather plucking.</p>
+            <a href="#balanced-diet" class="nutrition-card-link">Daily Ratios ↑</a>
+          </article>
 
-      <!-- 3 Key Pillars of Feeding Management -->
-      <div class="grid-3">
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🧼</div>
-          <h3>Strict Food & Dish Hygiene</h3>
-          <p>
-            Avian respiratory and digestive systems are highly vulnerable to bacterial pathogens like <em>Salmonella</em>, <em>E. coli</em>, and fungal spores like <em>Aspergillus</em>:
-          </p>
-          <ul>
-            <li><strong>Daily Sterilization:</strong> Wash food and water dishes in hot water using unscented dishwashing liquid or clean in a high-temperature dishwasher.</li>
-            <li><strong>Airtight Food Storage:</strong> Store dry pellets and seeds in sealed, airtight containers in a cool, dry pantry away from sunlight and moisture.</li>
-            <li><strong>Refrigerate Surplus Chop:</strong> Prepare vegetable chop in large batches, divide into small silicone freezing trays, and thaw only what you need for each day.</li>
-            <li><strong>Dry Thoroughly:</strong> Wet feeding dishes promote mold growth; always dry stainless steel bowls completely before filling with dry pellets.</li>
-          </ul>
-        </article>
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <h3>Complete Fortification</h3>
+            <p>Fortified with vital Vitamin D3, calcium, zinc, and amino acids that raw seeds critically lack, preventing metabolic bone disorders.</p>
+            <a href="#feeding-guide" class="nutrition-card-link">Portion Calibration ↓</a>
+          </article>
 
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🔄</div>
-          <h3>Converting Seed Addicts to Pellets</h3>
-          <p>
-            Birds are neophobic (hesitant toward unfamiliar foods) and will literally starve rather than recognize novel pellets as food. Transitions must be gentle, gradual, and safely monitored:
-          </p>
-          <ul>
-            <li><strong>Never Withhold Familiar Food:</strong> Small companion birds have intense metabolic rates and tiny glycogen stores. Withholding food to force pellet consumption causes severe hypoglycemia and fatal hepatic lipidosis. Never starve a bird into eating pellets.</li>
-            <li><strong>The Gradual Co-Presentation Method:</strong> Mix finely ground or whole pellets directly into familiar seeds (starting with 90% seeds and 10% pellets) so the familiar seeds are coated with pellet powder. Gradually adjust the proportion over 4 to 8+ weeks.</li>
-            <li><strong>Moistened Mash & Foraging:</strong> Soften pellets with pure warm water into a crumbly mash to alter texture (discard within 1–2 hours to prevent bacterial bloom). Conceal pellets inside foraging puzzles alongside favorite healthy treats.</li>
-            <li><strong>Flock Social Modeling:</strong> Birds are social foragers. Pretend to eat fresh vegetables or pellets enthusiastically in front of your bird to stimulate innate flock curiosity and confidence.</li>
-          </ul>
-        </article>
-
-        <article class="care-card">
-          <div class="card-icon-bubble" aria-hidden="true">🩺</div>
-          <h3>Veterinary Supervision & Gram-Scale Tracking</h3>
-          <p>
-            Dietary conversions must be conducted under avian veterinary guidance with strict objective monitoring:
-          </p>
-          <ul>
-            <li><strong>Daily Digital Gram-Scale Weighing:</strong> Weigh your bird every morning before feeding on an accurate digital gram scale to establish a reliable baseline. If you notice persistent weight loss or reduced fecal volume, halt the transition immediately, offer familiar food, and consult an avian veterinarian to evaluate safe individual parameters.</li>
-            <li><strong>Annual Avian Wellness Exam:</strong> Schedule regular physical checkups with a board-certified avian veterinarian to examine choanal papillae, body condition score, and plumage quality.</li>
-            <li><strong>Baseline Diagnostic Blood Panels:</strong> Routine blood biochemistry evaluates liver enzymes (AST, bile acids) and uric acid to detect subclinical hepatic lipidosis or renal stress.</li>
-            <li><strong>Life-Stage Calibration:</strong> Consult your avian veterinarian to customize dietary protein, calcium, and lipid levels during juvenile growth, seasonal molting, or senior life stages.</li>
-          </ul>
-        </article>
-      </div>
-
-      <!-- Avian Vet Disclaimer -->
-      <aside class="avian-vet-box" role="note" aria-label="Avian Veterinary Disclaimer">
-        <div class="avian-vet-icon" aria-hidden="true">🩺</div>
-        <div class="avian-vet-text">
-          <h4>Avian Veterinary Guidance & Wellness Disclaimer</h4>
-          <p>
-            PetSathi's bird nutrition guide is developed for general educational awareness and responsible pet parenting. <strong>This guide does not provide medical diagnoses, prescriptions, treatment regimens, or clinical advice.</strong> Avian dietary needs vary significantly based on species, health history, age, cage environment, and flight activity. Always consult a board-certified avian veterinarian before making dramatic alterations to your companion's diet.
-          </p>
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></div>
+            <h3>Gentle Pellet Conversion</h3>
+            <p>Gradually introduce pellets over 4 to 8 weeks by blending with familiar seeds; never attempt to starve a bird into accepting new food.</p>
+            <a href="#feeding-tips" class="nutrition-card-link">Conversion Guide ↓</a>
+          </article>
         </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- SECTION F: Frequently Asked Questions -->
-  <section id="faqs" class="care-section alt-bg" aria-labelledby="heading-faqs">
-    <div class="section-wrap">
-      <div class="section-header-wrap">
-        <div class="eyebrow">COMMON QUERIES</div>
-        <h2 id="heading-faqs">Frequently Asked Questions</h2>
-        <p>
-          Straightforward answers to the most common questions bird owners ask regarding daily feeding, fresh foods, and dietary transitions.
-        </p>
       </div>
+    </section>
 
-      <div class="faq-accordion" id="faqAccordion">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Why is an all-seed diet dangerous for pet birds?</span>
-            <span class="faq-toggle-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
+    <!-- 8. Section 6: Feeding Guide -->
+    <section id="feeding-guide" class="nutrition-section bg-white" aria-labelledby="heading-guide">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+              <span>PORTIONS &amp; METHODS</span>
+            </div>
+            <h2 id="heading-guide">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Avian Feeding Guidelines &amp; <span>Portion Control</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Accurately calibrated portions, regular digital scale tracking, and active foraging enrichment maintain peak health and prevent avian obesity.</p>
+          </div>
+        </div>
+
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+            <h3>10%–15% Body Weight Rule</h3>
+            <p>Most companion birds consume approximately 10% to 15% of their total body weight daily across measured pellets and fresh vegetables.</p>
+            <a href="#feeding-schedule" class="nutrition-card-link">View Schedule ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-weight-scale" aria-hidden="true"></i></div>
+            <h3>Digital Gram Scale Weighing</h3>
+            <p>Weigh your bird weekly every morning before feeding; subtle weight reduction is often the earliest indicator of illness or diet refusal.</p>
+            <a href="care.html#health" class="nutrition-card-link">Health Tracking ↗</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></div>
+            <h3>Foraging Enrichment</h3>
+            <p>Conceal daily pellets and healthy seeds inside puzzle toys, woven palm strips, and skewers to stimulate natural intelligence and wild foraging.</p>
+            <a href="behaviour.html" class="nutrition-card-link">Enrichment Guide ↗</a>
+          </article>
+        </div>
+
+        <!-- Avian Vet Disclaimer -->
+        <aside class="avian-vet-box" role="note" aria-label="Avian Veterinary Disclaimer">
+          <div class="avian-vet-icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></div>
+          <div class="avian-vet-text">
+            <h4>Avian Veterinary Guidance &amp; Wellness Notice</h4>
             <p>
-              Seed mixes sold in grocery stores are extremely high in saturated fats and carbohydrates, while lacking critical vitamins (especially Vitamin A and D3), calcium, and essential amino acids. An all-seed diet causes fatty liver disease (hepatic lipidosis), severe vitamin A deficiency (leading to respiratory infections), brittle beaks, feather destruction, and drastically reduced lifespans. Formulated pellets combined with fresh vegetables are essential for longevity.
+              PetSathi's bird nutrition guide is developed for educational awareness. Avian dietary needs vary significantly based on species, health history, age, and flight activity. Always consult a board-certified avian veterinarian before making major alterations to your companion's diet.
             </p>
           </div>
-        </div>
+        </aside>
+      </div>
+    </section>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Can pet birds eat raw or cooked vegetables?</span>
-            <span class="faq-toggle-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Most vegetables can be served either raw or gently steamed (without butter, salt, or oil). Dark leafy greens, broccoli, carrots, cucumbers, and bell peppers are excellent raw. However, hard vegetables like sweet potatoes and squash are more easily digested when lightly steamed. Always ensure that dried beans and legumes are thoroughly cooked, as raw dried beans contain hemagglutinin, a toxin destroyed by cooking.
-            </p>
+    <!-- 9. Section 7: Foods to Avoid -->
+    <section id="foods-to-avoid" class="nutrition-section bg-cream" aria-labelledby="heading-avoid">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label" style="background: #ffe8e8; border-color: #ffd6d6; color: #a8071a;">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+              <span>AVIAN TOXICOLOGY</span>
+            </div>
+            <h2 id="heading-avoid">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Dangerous Foods Birds <span>Must Never Consume</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Birds possess rapid metabolisms and compact digestive tracts. Everyday human foods that seem harmless can trigger rapid respiratory collapse or fatal organ failure.</p>
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Why do birds need fresh vegetables removed within 1 to 2 hours?</span>
-            <span class="faq-toggle-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Fresh fruits, leafy vegetables, sprouts, and moist cooked grains spoil quickly at room temperature. High moisture combined with warmth creates a rapid culture medium for opportunistic bacterial pathogens (such as <em>Salmonella</em>, <em>Pseudomonas</em>, and <em>E. coli</em>) and fungal mold spores. Removing uneaten moist food within 1 to 2 hours (or a maximum of 4 hours in cool indoor rooms) protects your bird from severe bacterial crop stasis, enteritis, and systemic toxicity.
-            </p>
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-ban" aria-hidden="true"></i></div>
+            <h3>Avocado (Persin Toxin)</h3>
+            <p>Persin in avocado skin, flesh, and pit causes acute heart muscle necrosis, fluid around the heart, respiratory failure, and death within 12–24 hours.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Lethal Emergency</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i></div>
+            <h3>Chocolate &amp; Cocoa</h3>
+            <p>Theobromine and caffeine cause severe vomiting, rapid hyperactivity, heart arrhythmias, seizures, and fatal nervous system breakdown.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Severe Poison</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
+            <h3>Caffeine (Coffee &amp; Teas)</h3>
+            <p>Caffeine alkaloids dramatically spike heart rates, triggering metabolic distress and sudden cardiac arrest in small companion birds.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Cardiac Toxin</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-wine-glass" aria-hidden="true"></i></div>
+            <h3>Alcohol &amp; Spirits</h3>
+            <p>Ethanol acts as an extreme depressant; mere drops cause hypothermia, acute respiratory failure, irreversible liver necrosis, and death.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Severe Depressant</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i></div>
+            <h3>Apple Seeds &amp; Stone Pits</h3>
+            <p>Seeds of apples, pears, and stone fruit pits release cyanide when crushed by beaks; always core and slice fruits thoroughly before offering.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Cyanide Hazard</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-burst" aria-hidden="true"></i></div>
+            <h3>Onions &amp; Garlic</h3>
+            <p>Sulfur compounds in allium plants rupture avian red blood cells, causing severe hemolytic anemia, crop ulcers, and gastrointestinal distress.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Hemolytic Agent</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i></div>
+            <h3>High-Sodium Snacks</h3>
+            <p>Salty table scraps like chips and pretzels severely disrupt delicate electrolyte balance, causing dehydration and acute renal failure.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Kidney Damage</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+            <h3>Rhubarb Stems &amp; Leaves</h3>
+            <p>High soluble oxalates bind blood calcium, forming insoluble crystals that obstruct renal tubules and trigger sudden kidney failure.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Renal Toxin</span>
+          </article>
+
+          <article class="nutrition-card toxic-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-candy-cane" aria-hidden="true"></i></div>
+            <h3>Xylitol &amp; Sweeteners</h3>
+            <p>Found in diet gums and sugar-free peanut butter; causes extreme metabolic shock, severe hypoglycemia, and rapid liver damage.</p>
+            <span class="nutrition-card-link" style="color: #a8071a;">Metabolic Poison</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Section 8: Feeding Schedule -->
+    <section id="feeding-schedule" class="nutrition-section bg-soft-green" aria-labelledby="heading-schedule">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>DAILY ROUTINE</span>
+            </div>
+            <h2 id="heading-schedule">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Daily Feeding Schedule &amp; <span>Meal Hygiene</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Mimic natural flock foraging rhythms in the morning while practicing strict time limits on perishable foods to avoid bacterial contamination.</p>
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>Can birds eat spicy peppers with seeds?</span>
-            <span class="faq-toggle-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Yes! Birds lack the specific neurological receptor (TRPV1) that mammals have to register capsaicin heat. To a parrot or cockatiel, a hot chili pepper or jalapeño is simply a delicious, sweet, vitamin-rich treat. Chili peppers are an outstanding source of Vitamin A and antioxidants.
-            </p>
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></div>
+            <h3>Morning Fresh Chop Feast</h3>
+            <p>Serve fresh vegetables, sprouted seeds, and cooked grains early in the morning during peak natural wild foraging hours.</p>
+            <a href="#fruits-vegetables" class="nutrition-card-link">Vegetable Ideas ↑</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></div>
+            <h3>1-to-2 Hour Removal Rule</h3>
+            <p>Discard uneaten fresh food after 1 to 2 hours (up to 4 hours in cool rooms) to prevent rapid growth of Salmonella and fungal molds.</p>
+            <a href="#feeding-tips" class="nutrition-card-link">Hygiene Details ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-bowl-rice" aria-hidden="true"></i></div>
+            <h3>All-Day Clean Pellets</h3>
+            <p>Maintain measured, dry formulated pellets in a separate dish throughout the day for steady, clean, non-perishable nourishment.</p>
+            <a href="#pellets-food" class="nutrition-card-link">Pellet Guide ↑</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Section 9: Fresh Water & Hydration -->
+    <section id="hydration" class="nutrition-section bg-white" aria-labelledby="heading-hydration">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-droplet" aria-hidden="true"></i>
+              <span>VITAL HYDRATION</span>
+            </div>
+            <h2 id="heading-hydration">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Fresh Water &amp; <span>Hydration Essentials</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Clean water is indispensable for avian crop digestion, temperature regulation, and kidney wellness. Birds can fatally dehydrate in 24–48 hours.</p>
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>How do I know if my bird is drinking enough water?</span>
-            <span class="faq-toggle-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>
-              Birds produce three-part droppings consisting of green/brown feces, white urates, and clear liquid urine. A well-hydrated bird will have a small, clear ring of liquid urine around the formed dropping. If droppings are excessively dry or if urates appear yellow or chalky, or if the skin around the eyes appears wrinkled and sunken, your bird may be dehydrated. Ensure fresh water is changed twice daily and keep water dishes clean.
-            </p>
+        <div class="nutrition-card-grid">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i></div>
+            <h3>Twice-Daily Water Changes</h3>
+            <p>Birds frequently bathe or dunk pellets in their dishes; refresh drinking water every morning and late afternoon to ensure cleanliness.</p>
+            <a href="#feeding-schedule" class="nutrition-card-link">Daily Routine ↑</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+            <h3>Stainless Steel or Glass</h3>
+            <p>Use non-porous stainless steel or heavy glazed ceramic bowls that resist microscopic scratches and stop bacterial biofilms from forming.</p>
+            <a href="#feeding-tips" class="nutrition-card-link">Sanitization Tips ↓</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-pump-soap" aria-hidden="true"></i></div>
+            <h3>Daily Disinfection</h3>
+            <p>Wash water dishes daily using hot water and bird-safe, unscented soap; rinse thoroughly until zero slippery residue remains.</p>
+            <a href="#feeding-tips" class="nutrition-card-link">Cleaning Tips ↓</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Feeding Tips, Diet Conversion & FAQs -->
+    <section id="feeding-tips" class="nutrition-section bg-cream" aria-labelledby="heading-tips">
+      <div class="section-wrap">
+        <div class="bird-topics-heading">
+          <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+          <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7"/>
+            <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95"/>
+          </svg>
+
+          <div class="heading-content">
+            <div class="heading-label">
+              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+              <span>QUESTIONS &amp; BEST PRACTICES</span>
+            </div>
+            <h2 id="heading-tips">
+              <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+              Feeding Best Practices &amp; <span>Common FAQs</span>
+              <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+            </h2>
+            <p>Practical expert answers to common bird owner questions regarding daily feeding hygiene, picky eaters, and healthy seed conversions.</p>
+          </div>
+        </div>
+
+        <div class="nutrition-card-grid" style="margin-bottom: 40px;">
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-soap" aria-hidden="true"></i></div>
+            <h3>Dish &amp; Food Hygiene</h3>
+            <p>Store dry pellets in airtight containers in a cool pantry. Divide batch-prepped vegetable chop into silicone trays and freeze until needed.</p>
+            <a href="#feeding-schedule" class="nutrition-card-link">View Schedule ↑</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-arrows-spin" aria-hidden="true"></i></div>
+            <h3>Converting Seed Addicts</h3>
+            <p>Mix crushed pellets into familiar seeds so seed coats absorb pellet flavor. Never withhold food completely to force transition.</p>
+            <a href="#feeding-guide" class="nutrition-card-link">Portion Control ↑</a>
+          </article>
+
+          <article class="nutrition-card">
+            <div class="nutrition-card-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+            <h3>Veterinary Checkups</h3>
+            <p>Schedule an annual checkup with an avian vet for baseline blood chemistry, beak condition examination, and body condition scoring.</p>
+            <a href="care.html" class="nutrition-card-link">Bird Care Guide ↗</a>
+          </article>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-accordion" id="faqs">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Why is an all-seed diet dangerous for pet birds?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Store-bought seed mixes are excessively high in saturated fats while lacking essential Vitamin A, Vitamin D3, calcium, and amino acids. An all-seed diet frequently leads to hepatic lipidosis (fatty liver disease), respiratory infections, brittle beaks, and drastically reduced life expectancies. Formulated pellets combined with fresh vegetables are essential for longevity.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can companion birds eat raw or cooked vegetables?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Most vegetables can be served raw or gently steamed (without salt, butter, or oil). Dark leafy greens, broccoli, carrots, and bell peppers are excellent raw. Hard vegetables like sweet potatoes and squash are easier to digest when lightly steamed. Always ensure dried beans and legumes are thoroughly cooked, as raw dried beans contain hemagglutinin toxins.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Why must fresh vegetables be removed within 1 to 2 hours?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Moist fresh produce, sprouted seeds, and cooked grains cultivate rapid bacterial proliferation (like Salmonella and E. coli) and fungal mold spores at room temperature. Removing uneaten fresh food within 1 to 2 hours (or up to 4 hours in cool indoor rooms) protects your bird from crop infections and severe enteritis.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can pet birds eat spicy chili peppers with seeds?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! Birds lack the specific neurological receptor (TRPV1) that mammals have to register capsaicin burn. To birds, hot chili peppers and jalapeños are sweet, delicious, crunchy treats loaded with Vitamin A and protective antioxidants.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How can I tell if my bird is drinking enough water?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Bird droppings consist of three components: green/brown feces, white urates, and a clear liquid urine ring. A well-hydrated bird will exhibit a clear, distinct ring of liquid urine around the dropping. If droppings are dry, urates appear yellowish, or eyes look sunken, ensure fresh water is provided and consult an avian veterinarian.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="section-wrap" aria-labelledby="cta-heading">
-    <div class="bird-cta-section">
-      <h2 id="cta-heading">Provide the Care Your Feathered Friend Deserves</h2>
-      <p>
-        Healthy nutrition is the key to vibrant feathers, enthusiastic singing, and playful companionship. Continue your learning with PetSathi's dedicated bird guides or find trusted bird caregivers in your area.
-      </p>
-      <div class="bird-cta-buttons">
-        <a class="button button-light" href="index.html" id="cta-back-birds">← Back to Birds Landing Page</a>
-        <a class="button button-outline" style="border-color: white; color: white;" href="species.html" id="cta-explore-species">Explore Bird Species ↗</a>
-        <a class="button button-outline" style="border-color: white; color: white;" href="care.html" id="cta-care-guide">Bird Care & Health ↗</a>
-        <a class="button button-outline" style="border-color: white; color: white;" href="behaviour.html" id="cta-behaviour-guide">Behaviour & Training ↗</a>
+    <!-- 13. Final CTA Section - Requirement 6 -->
+    <section class="section-wrap" aria-labelledby="cta-heading">
+      <div class="bird-pink-cta">
+        <div>
+          <div class="eyebrow">
+            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            <span>HEALTHY NUTRITION FOR HAPPY BIRDS</span>
+          </div>
+          <h2 id="cta-heading">Every Feathered Friend Deserves <em>Healthy Nutrition</em></h2>
+          <p>
+            From wholesome daily pellets and fresh greens to vital hydration, providing species-tailored nutrition is the key to brilliant plumage, enthusiastic singing, and a long, joyful life together.
+          </p>
+        </div>
+        <div class="bird-pink-cta-actions">
+          <a class="button" href="index.html" id="cta-birds-overview">Explore Birds Overview ↗</a>
+          <a class="button button-outline" href="species.html" id="cta-bird-species">Bird Species Guide</a>
+          <a class="button button-outline" href="care.html" id="cta-bird-care">Care &amp; Health</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+  </main>
 
-<!-- Standard PetSathi Footer -->
+  <!-- Reusable Footer -->
   <div id="footer"></div>
 
-<script src="../../../js/main.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Species Tabs Switcher
-    const tabButtons = document.querySelectorAll('.species-tab-btn');
-    const tabPanels = document.querySelectorAll('.species-tab-panel');
+  <!-- Main JS (loads header & footer) -->
+  <script src="../../../js/main.js"></script>
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('aria-controls');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // FAQ Accordion Toggle
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
 
-        tabButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        tabPanels.forEach(p => {
-          p.classList.remove('active');
-        });
+          document.querySelectorAll('.faq-item').forEach(other => {
+            if (other !== item) {
+              other.classList.remove('open');
+              const otherBtn = other.querySelector('.faq-question');
+              if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
 
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        const activePanel = document.getElementById(targetId);
-        if (activePanel) {
-          activePanel.classList.add('active');
-        }
-      });
-    });
-
-    // Keyboard navigation for species tabs
-    const tabList = document.querySelector('.species-tabs-nav');
-    if (tabList) {
-      tabList.addEventListener('keydown', (e) => {
-        const tabs = Array.from(tabButtons);
-        const currentIndex = tabs.indexOf(document.activeElement);
-        if (currentIndex === -1) return;
-
-        let nextIndex = null;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          nextIndex = (currentIndex + 1) % tabs.length;
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        } else if (e.key === 'Home') {
-          nextIndex = 0;
-        } else if (e.key === 'End') {
-          nextIndex = tabs.length - 1;
-        }
-
-        if (nextIndex !== null) {
-          e.preventDefault();
-          tabs[nextIndex].focus();
-          tabs[nextIndex].click();
-        }
-      });
-    }
-
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-
-        // Close other FAQ items
-        document.querySelectorAll('.faq-item').forEach(other => {
-          if (other !== item) {
-            other.classList.remove('open');
-            const otherBtn = other.querySelector('.faq-question');
-            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          if (isOpen) {
+            item.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
           }
         });
-
-        // Toggle current item
-        if (isOpen) {
-          item.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
       });
-    });
 
-    // Quick Jump Scrollspy
-    const navLinks = document.querySelectorAll('.quick-nav-link');
-    const sections = document.querySelectorAll('section[id]');
-
-    function onScroll() {
-      let currentId = '';
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 140 && rect.bottom >= 140) {
-          currentId = section.getAttribute('id');
-        }
-      });
-      if (currentId) {
-        navLinks.forEach(link => {
-          const isActive = link.getAttribute('href') === `#${currentId}`;
-          link.classList.toggle('active', isActive);
-          if (isActive) {
-            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      // Quick Nav Smooth Scroll Handling
+      document.querySelectorAll('.guide-nav-item').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href');
+          if (targetId && targetId.startsWith('#')) {
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }
         });
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  });
-</script>
+      });
+    });
+  </script>
 </body>
 </html>
