@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Generate and download your official PetSathi Contributor Certificate for Nexus Spring of Code (NSoC) 2026 – Winter Edition. Enter your GitHub username to celebrate your open-source journey." />
+  <title>Contributor Certificate Generator | NSoC Winter 2026 | PetSathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/certificate.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src:
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    }
+
+    body [class*="fa-"],
+    body [class*="fa-"]::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+      font-style: normal !important;
+    }
+
+    body .fa-brands,
+    body .fa-brands::before {
+      font-family: "Font Awesome 6 Brands" !important;
+      font-weight: 400 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Global Shared Site Header -->
+  <div id="header"></div>
+
+  <main id="main-content" class="cert-page">
+    <!-- Hero / Introduction Section -->
+    <section class="cert-hero">
+      <div class="cert-badge-eyebrow">
+        <i class="fa-solid fa-award" aria-hidden="true"></i> NSoC Winter Edition 2026 Recognition
+      </div>
+      <h1>Celebrate Your <span>Contribution!</span></h1>
+      <p>
+        Recognizing the incredible open-source developers who built, fixed, and enhanced PetSathi during
+        <strong>Nexus Spring of Code (NSoC) 2026 – Winter Edition</strong>. Enter your GitHub username below to
+        generate your personalized certificate of contribution.
+      </p>
+
+      <!-- Input Card -->
+      <div class="cert-input-card">
+        <div class="cert-form-group">
+          <div class="cert-input-wrap">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <input type="text" id="github-username" placeholder="Enter your GitHub username (e.g. octocat)"
+              autocomplete="off" spellcheck="false" aria-label="GitHub username" />
+          </div>
+          <button id="btn-generate" class="cert-btn-generate" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Generate Certificate
+          </button>
+        </div>
+
+        <!-- Quick Sample Usernames -->
+        <div class="cert-samples-row">
+          <span>Try a sample:</span>
+          <button type="button" class="cert-sample-pill" data-user="octocat">@octocat</button>
+          <button type="button" class="cert-sample-pill" data-user="torvalds">@torvalds</button>
+          <button type="button" class="cert-sample-pill" data-user="gaearon">@gaearon</button>
+        </div>
+
+        <!-- Error & Info Alerts -->
+        <div id="cert-error-alert" class="cert-alert error" role="alert">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span id="cert-error-msg">GitHub user not found.</span>
+        </div>
+
+        <!-- Contributor Profile Preview -->
+        <div id="contributor-preview" class="contributor-preview-card">
+          <img id="preview-avatar" class="contributor-avatar-preview"
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+            alt="Contributor profile picture" />
+          <div class="contributor-details">
+            <h4 id="preview-name">Contributor Name</h4>
+            <span id="preview-handle">@username</span>
+          </div>
+          <div class="contributor-verified-badge">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified GitHub Profile
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate Showcase & Actions -->
+    <section class="cert-showcase-section" id="cert-showcase">
+      <div class="cert-toolbar">
+        <div>
+          <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; color: #1d5039; margin: 0;">
+            Certificate Live Preview
+          </h2>
+          <span style="font-size: 0.88rem; color: #697d72;">Ready to download and share on LinkedIn & social
+            media</span>
+        </div>
+        <div class="cert-toolbar-actions">
+          <button id="btn-download-png" class="cert-btn-download" type="button">
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Download Certificate (PNG)
+          </button>
+          <button id="btn-share-linkedin" class="cert-btn-share" type="button">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
+          </button>
+          <button id="btn-copy-link" class="cert-btn-outline" type="button">
+            <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- The Certificate Sheet (Live View) -->
+      <div class="cert-outer-wrapper">
+        <article class="certificate-sheet" id="certificate-render-target">
+          <!-- Double Ornamental Frame -->
+          <div class="certificate-border-frame" aria-hidden="true"></div>
+          <div class="certificate-border-inner" aria-hidden="true"></div>
+
+          <!-- 4 Gold Corner Embellishments -->
+          <div class="cert-corner cert-corner-tl" aria-hidden="true"></div>
+          <div class="cert-corner cert-corner-tr" aria-hidden="true"></div>
+          <div class="cert-corner cert-corner-bl" aria-hidden="true"></div>
+          <div class="cert-corner cert-corner-br" aria-hidden="true"></div>
+
+          <!-- Certificate Header -->
+          <div class="cert-header">
+            <div class="cert-brand-left">
+              <svg class="cert-brand-logo" viewBox="0 0 40 40" role="img" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" fill="currentColor" />
+                <circle cx="21" cy="8" r="4" fill="currentColor" />
+                <circle cx="30" cy="12" r="4" fill="currentColor" />
+                <path d="M20 17c-6 0-11 5-11 11 0 4 3 6 6 6 2 0 3-2 5-2s3 2 5 2c4 0 6-2 6-6 0-6-5-11-11-11Z"
+                  fill="currentColor" />
+              </svg>
+              <span class="cert-brand-text">Pet<span>Sathi</span></span>
+            </div>
+
+            <!-- Official NSoC Logo Asset -->
+            <div class="cert-nsoc-right">
+              <div class="cert-nsoc-text">
+                <div class="cert-nsoc-title">Nexus Spring of Code</div>
+                <div class="cert-nsoc-sub">Winter Edition 2026</div>
+              </div>
+              <img src="../assets/images/nsoc/nsoc-winter-logo-clean-transparent.png"
+                alt="Official Nexus Spring of Code Winter Edition 2026 logo" class="cert-nsoc-logo-img"
+                id="cert-nsoc-logo" />
+            </div>
+          </div>
+
+          <!-- Certificate Body -->
+          <div class="cert-body">
+            <span class="cert-title-badge">★ Official Recognition of Open Source Excellence ★</span>
+            <h2 class="cert-main-title">Certificate of Contribution</h2>
+            <div class="cert-presentation-text">This certificate is proudly awarded to</div>
+
+            <!-- Recipient Information Block -->
+            <div class="cert-recipient-block">
+              <img id="cert-avatar-img" class="cert-avatar"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+                alt="Recipient avatar" />
+              <div class="cert-recipient-info">
+                <h3 id="cert-recipient-name" class="cert-recipient-name">PetSathi Contributor</h3>
+                <div id="cert-recipient-handle" class="cert-recipient-handle">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> @contributor
+                </div>
+              </div>
+            </div>
+
+            <!-- Citation Paragraph -->
+            <p class="cert-citation">
+              In sincere appreciation of your dedicated contributions to <strong>PetSathi</strong> during the
+              <strong>Nexus Spring of Code (NSoC) Winter Edition 2026</strong>. Your valuable open-source participation,
+              code craftsmanship, and collaborative spirit have directly helped empower pet parents and companions
+              across the community.
+            </p>
+          </div>
+
+          <!-- Certificate Footer -->
+          <div class="cert-footer">
+            <!-- Left: Issue Date -->
+            <div class="cert-footer-col left">
+              <span class="cert-meta-label">Date of Issuance</span>
+              <span id="cert-issue-date" class="cert-meta-val">November 23, 2026</span>
+              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">NSoC Winter Edition 2026</div>
+            </div>
+
+            <!-- Center: Gold Verification Seal -->
+            <div class="cert-footer-col center cert-seal-wrap">
+              <div class="cert-seal" aria-hidden="true">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <span class="cert-seal-text">Official Seal</span>
+            </div>
+
+            <!-- Right: Maintainer Signature -->
+            <div class="cert-footer-col right">
+              <div class="cert-signature-img">PetSathi Core Team</div>
+              <div class="cert-sig-line"></div>
+              <span class="cert-meta-label">Project Maintainers & Mentors</span>
+              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">PetSathi Open Source Project</div>
+            </div>
+          </div>
+
+          <!-- Bottom Verification Bar -->
+          <div class="cert-verification-bar" id="cert-verification-id">
+            ID: NSOC-PS26-PREVIEW
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Why Claim Your Certificate / FAQ -->
+    <section class="cert-info-section">
+      <div class="cert-info-grid">
+        <article class="cert-info-card">
+          <div class="cert-info-icon">
+            <i class="fa-solid fa-code-pull-request" aria-hidden="true"></i>
+          </div>
+          <h3>Open Source Impact</h3>
+          <p>
+            PetSathi is a community-driven initiative under NSoC Winter Edition 2026. Every pull request, design
+            refinement, and feature directly shapes an inclusive platform for pets.
+          </p>
+        </article>
+
+        <article class="cert-info-card">
+          <div class="cert-info-icon">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </div>
+          <h3>LinkedIn & Portfolio Ready</h3>
+          <p>
+            Download your high-resolution PNG certificate to showcase your real-world contributions on your resume,
+            portfolio, and LinkedIn Licenses & Certifications.
+          </p>
+        </article>
+
+        <article class="cert-info-card">
+          <div class="cert-info-icon">
+            <i class="fa-solid fa-shield-cat" aria-hidden="true"></i>
+          </div>
+          <h3>Verified & Official</h3>
+          <p>
+            Generated using public GitHub profile data with official Nexus Spring of Code Winter Edition 2026
+            branding and PetSathi recognition.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Shared Site Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/certificate.js"></script>
+</body>
+
+</html>
