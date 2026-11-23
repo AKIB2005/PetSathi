@@ -7,8 +7,9 @@
   <meta name="description"
     content="Comprehensive Fish Safety and Aquarium Protection Guide on PetSathi. Learn stable aquarium setup, water parameter safety, equipment maintenance, fish compatibility, safe acclimation, and emergency care.">
   <title>Fish Safety and Aquarium Protection | PetSathi</title>
+    content="Keep your reptile safe with practical guidance on secure enclosures, heating, lighting, substrate, handling, hygiene and emergency care.">
+  <title>Reptile Safety &amp; Habitat Protection | PetSathi</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -59,6 +60,9 @@
 
     body [class*="fa-"],
     body [class*="fa-"]::before {
+    .fa-solid,
+    .fa-regular,
+    [class*="fa-"] {
       font-family: "Font Awesome 6 Free" !important;
       font-weight: 900 !important;
       font-style: normal !important;
@@ -183,18 +187,25 @@
     /* Badge Strip */
     .dog-badge-strip,
     .fish-badge-strip {
+
+    .fa-solid { font-weight: 900 !important; }
+    .fa-regular { font-weight: 400 !important; }
+
+    .safety-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
+      margin-bottom: 16px;
+      border-radius: 999px;
       background: #eaf2e9;
       color: var(--green, #286849);
       border-radius: 999px;
+      color: var(--green);
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 16px;
     }
 /* ========================================================
        2. QUICK NAVIGATION HUB (Matching Dog Index & Cat Index)
@@ -409,8 +420,81 @@
       overflow: hidden;
       text-align: center;
       border-radius: 35px;
-      border: 1px solid #dcebc9;
+    .hero-note i { color: var(--green); }
+
+    .quick-nav-section {
+      padding: 42px 0 52px;
+      background: #f4faf5;
+      border-top: 1px solid #e1ece0;
+      border-bottom: 1px solid #e1ece0;
+    }
+
+    .quick-nav-heading {
+      margin: 0 0 24px;
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      text-align: center;
+    }
+
+    .quick-nav-heading span { color: var(--green); }
+
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .quick-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 7px 16px 7px 8px;
+      border: 1px solid #cce4d2;
+      border-radius: 999px;
+      background: #edf7f0;
+      color: #1c2b20;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .quick-nav-link:hover,
+    .quick-nav-link:focus-visible {
+      transform: translateY(-2px);
+      background: #e4f4e8;
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+    }
+
+    .quick-nav-icon {
+      display: grid;
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
+      font-size: 1rem;
+    }
+
+    .safety-overview {
+      padding: 64px 0 74px;
       background: #fafcf7;
+    }
+
+    .section-heading-wrap {
+      max-width: 1400px;
+      margin: 0 auto 34px;
+      padding: 38px 28px;
+      border: 1px solid #dcebc9;
+      border-radius: 30px;
+      background: #ffffff;
+      text-align: center;
       box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
       box-sizing: border-box;
     }
@@ -483,6 +567,17 @@
       border: 1px solid #dcebc9;
       color: #246b43;
       font-size: 13px;
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 15px;
+      border: 1px solid #cce4d2;
+      border-radius: 999px;
+      background: #edf7f0;
+      color: #246b43;
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
@@ -499,6 +594,12 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+    .section-heading-wrap h2 {
+      margin: 0 0 10px;
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.25;
     }
 
     .safe-topics-heading h2 span {
@@ -675,7 +776,171 @@
     }
 
     .safe-card-link {
+    .section-heading-wrap p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #55675c;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .safety-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .safety-card {
+      display: flex;
+      min-height: 245px;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 24px;
+      border: 1px solid #dceade;
+      border-radius: 22px;
+      background: #ffffff;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .safety-card:hover {
+      transform: translateY(-5px);
+      border-color: #9fc5a7;
+      box-shadow: 0 12px 30px rgba(35, 75, 45, 0.09);
+    }
+
+    .safety-card-icon {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      place-items: center;
+      margin-bottom: 17px;
+      border-radius: 18px;
+      background: #edf7f0;
+      color: #246b43;
+      font-size: 1.45rem;
+    }
+
+    .safety-card h3 {
+      margin: 0 0 9px;
+      color: #1a251e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.17rem;
+    }
+
+    .safety-card p {
+      margin: 0;
+      color: #55665b;
+      font-size: 0.91rem;
+      line-height: 1.6;
+    }
+
+    .safety-card a {
       display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .safety-section {
+      padding: 58px 0 66px;
+      scroll-margin-top: 24px;
+    }
+
+    .safety-section:nth-of-type(even) { background: #fafcf7; }
+
+    .safety-detail {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      align-items: start;
+      gap: 32px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .safety-detail h3 {
+      margin: 0 0 12px;
+      color: #1a251e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+    }
+
+    .safety-detail p {
+      margin: 0;
+      color: #55665b;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .safety-detail ul {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 24px 28px 24px 48px;
+      border: 1px solid #dceade;
+      border-radius: 20px;
+      background: #ffffff;
+      color: #45574a;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.035);
+    }
+
+    .safety-detail li::marker { color: #287348; }
+
+    .safety-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 40px auto 60px;
+      padding: 44px 50px !important;
+      border: 1px solid #f2dbd6;
+      border-radius: 28px;
+      background: #fbf1ef !important;
+      box-shadow: 0 10px 30px rgba(180, 80, 60, 0.06);
+    }
+
+    .safety-cta .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: #9e4636;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .safety-cta h2 {
+      margin: 0 0 12px;
+      color: #2b1d1a;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+      line-height: 1.2;
+    }
+
+    .safety-cta p {
+      max-width: 620px;
+      margin: 0;
+      color: #6d524d;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .safety-cta .button.button-light {
+      display: inline-flex;
+      flex-shrink: 0;
       align-items: center;
       gap: 6px;
       font-size: 0.88rem;
@@ -707,6 +972,64 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
       margin-top: 24px;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 26px;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      border-radius: 999px;
+      background: #ffffff !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .safety-cta .button.button-light:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .quick-nav-grid,
+      .safety-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .safety-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 36px 30px !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .safety-detail { grid-template-columns: 1fr; gap: 18px; }
+      .safety-detail ul { padding: 20px 22px 20px 42px; }
+    }
+
+    @media (max-width: 600px) {
+      .quick-nav-grid,
+      .safety-card-grid { grid-template-columns: 1fr; }
+
+      .quick-nav-link { min-height: 50px; }
+      .safety-overview { padding: 46px 0 54px; }
+      .section-heading-wrap { padding: 30px 18px; }
+      .safety-section { padding: 42px 0 50px; }
+      .safety-card { min-height: 0; }
+      .safety-cta { padding: 30px 22px !important; }
+      .safety-cta .button.button-light { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .quick-nav-link,
+      .safety-card,
+      .safety-cta .button.button-light { transition: none; }
+
+      .quick-nav-link:hover,
+      .safety-card:hover,
+      .safety-cta .button.button-light:hover { transform: none; }
     }
 
     .feature-grid-2 {
@@ -1149,6 +1472,41 @@
         <div class="floating-card card-bottom">
           🔌
           <span><b>Drip Loop Safety</b><small>Protected electrical cords</small></span>
+  <main id="main-content">
+    <section class="hero section-wrap" id="safety-hero">
+      <div class="hero-copy">
+        <div class="safety-badge">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          Reptile Safety &amp; Habitat Protection
+        </div>
+        <h1>Reptile Safety and <em>Habitat Protection</em></h1>
+        <p>
+          A secure, carefully monitored habitat helps reptiles stay healthy and prevents avoidable escapes and injuries.
+          Learn how to make every part of your terrarium safer, from heating and substrate to gentle handling and
+          emergency readiness.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#safe-terrarium-setup">
+            Explore Safety Tips <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="hero-note">
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+          &nbsp; Thoughtful habitats help reptiles thrive.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob"></div>
+        <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
+          alt="Bearded dragon resting safely in a natural terrarium habitat" class="hero-photo">
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-temperature-half" style="color: var(--green);" aria-hidden="true"></i>
+          <span><b>Safe Heat</b><small>Thermostat controlled</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-shield-halved" style="color: var(--green);" aria-hidden="true"></i>
+          <span><b>Secure Habitat</b><small>Checked and escape-proof</small></span>
         </div>
       </div>
     </section>
@@ -1538,6 +1896,85 @@
               cracks.
             </p>
           </div>
+    <section class="quick-nav-section" id="quick-navigation" aria-labelledby="quick-nav-title">
+      <div class="section-wrap">
+        <h2 class="quick-nav-heading" id="quick-nav-title">Quick Navigation <span>Hub</span></h2>
+        <nav class="quick-nav-grid" aria-label="Reptile safety topics">
+          <a class="quick-nav-link" href="#safe-terrarium-setup"><span class="quick-nav-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span>Safe Terrarium Setup</a>
+          <a class="quick-nav-link" href="#enclosure-security"><span class="quick-nav-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>Enclosure Security</a>
+          <a class="quick-nav-link" href="#heating-lighting-safety"><span class="quick-nav-icon"><i class="fa-solid fa-temperature-three-quarters" aria-hidden="true"></i></span>Heating and Lighting Safety</a>
+          <a class="quick-nav-link" href="#substrate-safety"><span class="quick-nav-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>Substrate Safety</a>
+          <a class="quick-nav-link" href="#humidity-ventilation"><span class="quick-nav-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></span>Humidity and Ventilation</a>
+          <a class="quick-nav-link" href="#safe-handling"><span class="quick-nav-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></span>Safe Handling</a>
+          <a class="quick-nav-link" href="#hygiene-cleaning"><span class="quick-nav-icon"><i class="fa-solid fa-hands-bubbles" aria-hidden="true"></i></span>Hygiene and Cleaning</a>
+          <a class="quick-nav-link" href="#common-habitat-hazards"><span class="quick-nav-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>Common Habitat Hazards</a>
+          <a class="quick-nav-link" href="#emergency-care"><span class="quick-nav-icon"><i class="fa-solid fa-kit-medical" aria-hidden="true"></i></span>Emergency Care</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="safety-overview" aria-labelledby="safety-overview-title">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> A safer habitat, step by step</span>
+          <h2 id="safety-overview-title">Reptile Safety <em>Essentials</em></h2>
+          <p>Use these quick guides to spot the key safeguards, then explore each topic below for practical details.</p>
+        </div>
+        <div class="safety-card-grid">
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></div>
+            <h3>Terrarium Safety</h3>
+            <p>Choose a roomy, stable enclosure with safe furnishings, good airflow, and places to hide and bask.</p>
+            <a href="#safe-terrarium-setup">Setup essentials <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+            <h3>Enclosure Security</h3>
+            <p>Secure doors and lids with reliable closures and make quick checks part of your routine.</p>
+            <a href="#enclosure-security">Secure the enclosure <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i></div>
+            <h3>Heating Safety</h3>
+            <p>Use thermostats and safe equipment placement to prevent burns, overheating, and cold spots.</p>
+            <a href="#heating-lighting-safety">Manage heat safely <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></div>
+            <h3>UVB Lighting Safety</h3>
+            <p>Install the correct UVB lamp at the species-appropriate distance and check it regularly.</p>
+            <a href="#heating-lighting-safety">Check lighting setup <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+            <h3>Substrate Safety</h3>
+            <p>Match flooring to the species and life stage, and reduce the chance of accidental ingestion.</p>
+            <a href="#substrate-safety">Choose safe substrate <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></div>
+            <h3>Humidity Management</h3>
+            <p>Monitor humidity and airflow to avoid conditions that are too dry, damp, or stagnant.</p>
+            <a href="#humidity-ventilation">Monitor habitat air <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+            <h3>Safe Handling</h3>
+            <p>Handle calmly, support the whole body, and recognize when your reptile needs space.</p>
+            <a href="#safe-handling">Handle with care <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-hands-bubbles" aria-hidden="true"></i></div>
+            <h3>Hygiene and Cleaning</h3>
+            <p>Follow consistent handwashing and cleaning routines to protect people and pets.</p>
+            <a href="#hygiene-cleaning">Keep clean safely <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
+          <article class="safety-card">
+            <div class="safety-card-icon"><i class="fa-solid fa-kit-medical" aria-hidden="true"></i></div>
+            <h3>Emergency Preparedness</h3>
+            <p>Know what to do if equipment fails, your reptile escapes, or an injury occurs.</p>
+            <a href="#emergency-care">Prepare for emergencies <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </article>
         </div>
       </div>
     </section>
@@ -1670,7 +2107,24 @@
               During 20–25% weekly water changes, always match the replacement water temperature to within 1°C (2°F) of the
               tank water. Dumping cold water induces thermal osmotic shock and weakens fish immune systems against Ich.
             </p>
+    <section class="safety-section" id="safe-terrarium-setup">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-house" aria-hidden="true"></i> Start with the habitat</span>
+          <h2>Safe Terrarium <em>Setup</em></h2>
+          <p>A thoughtfully planned enclosure gives your reptile room to move while reducing risks from unstable equipment and unsuitable furnishings.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Build around your species</h3>
+            <p>Research adult size, activity, and environmental needs before choosing an enclosure. It should allow a healthy temperature gradient and enough usable space for normal movement and natural behaviours.</p>
           </div>
+          <ul>
+            <li>Place the enclosure on a level, sturdy stand away from direct sun, drafts, busy walkways, and other pets.</li>
+            <li>Use a species-appropriate substrate and stable decorations without sharp edges, narrow traps, or toxic materials.</li>
+            <li>Provide secure hiding areas and correctly positioned basking space so the reptile can choose its preferred conditions.</li>
+            <li>Keep ventilation unobstructed and ensure décor cannot fall or block access to water and shelter.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1804,6 +2258,48 @@
               onto the floor. Install a simple one-way plastic check valve in every airline line to eliminate siphoning.
             </p>
           </div>
+
+    <section class="safety-section" id="enclosure-security">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-lock" aria-hidden="true"></i> Prevent escapes</span>
+          <h2>Enclosure <em>Security</em></h2>
+          <p>Reptiles can squeeze through small gaps, push light lids, or find unsecured doors. Make every opening secure before leaving the habitat unattended.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Make closure checks routine</h3>
+            <p>Choose closures designed for your enclosure and species. Re-check them after feeding, cleaning, or maintenance, when doors and lids are most likely to be left ajar.</p>
+          </div>
+          <ul>
+            <li>Close and latch doors fully; add a suitable lock or clip if your reptile can push or lift the door.</li>
+            <li>Use a strong, correctly fitted lid that cannot slide, bow, or be lifted by the animal.</li>
+            <li>Check corners, cable ports, ventilation panels, and damaged seals for escape-sized gaps.</li>
+            <li>Inspect hinges, mesh, latches, and the enclosure frame regularly, and repair wear promptly.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-section" id="heating-lighting-safety">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-temperature-three-quarters" aria-hidden="true"></i> Monitor every source</span>
+          <h2>Heating and Lighting <em>Safety</em></h2>
+          <p>Heat and UVB equipment are essential for many reptiles, but incorrect placement or failed controls can cause burns, overheating, or inadequate exposure.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Control heat, verify light</h3>
+            <p>Follow reputable, species-specific husbandry guidance for temperatures, UVB strength, distance, and photoperiod. Measure conditions at the animal's level rather than relying on a device dial alone.</p>
+          </div>
+          <ul>
+            <li>Connect heat sources to a correctly rated thermostat and position its probe as instructed by the equipment maker.</li>
+            <li>Secure heaters and guards so the reptile cannot touch a hot element, and keep equipment clear of flammable materials.</li>
+            <li>Create a temperature gradient and use reliable thermometers to check both warm and cool areas.</li>
+            <li>Install UVB lamps at the specified distance without glass or plastic blocking the output; replace and inspect them on schedule.</li>
+            <li>Check cables, plugs, guards, timers, thermostats, and lights for damage or unusual heat during regular inspections.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -2083,7 +2579,24 @@
               oxygen that dissolves from the air pocket into the water; filling the bag with too much water starves them of
               oxygen.
             </p>
+    <section class="safety-section" id="substrate-safety">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Choose safe flooring</span>
+          <h2>Substrate <em>Safety</em></h2>
+          <p>The right flooring depends on species, age, health, and habitat conditions. When unsure, ask a reptile-experienced veterinarian about the safest option.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Reduce ingestion risks</h3>
+            <p>Some loose substrates may be swallowed with food, especially when feeding directly on the floor. Ingestion can contribute to impaction, so consider the animal's feeding behaviour and health history when selecting substrate.</p>
           </div>
+          <ul>
+            <li>Use a substrate appropriate for the species' natural habitat and husbandry needs.</li>
+            <li>For reptiles prone to eating bedding, juveniles, or animals recovering from illness, discuss a safe, easy-to-clean surface with a veterinarian.</li>
+            <li>Avoid materials with sharp particles, harmful chemicals, strong fragrances, or excessive dust.</li>
+            <li>Remove soiled material promptly and keep the enclosure floor clean and dry as appropriate to the species.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -2180,6 +2693,25 @@
               </li>
             </ul>
           </div>
+
+    <section class="safety-section" id="humidity-ventilation">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Keep conditions in balance</span>
+          <h2>Humidity and <em>Ventilation</em></h2>
+          <p>Humidity requirements vary widely between reptiles. Good measurement and airflow help maintain a suitable habitat without letting surfaces stay excessively damp.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Measure, then adjust</h3>
+            <p>Use species-specific care guidance to set a humidity range and monitor it across the enclosure. A digital hygrometer is more useful than judging moisture by appearance alone.</p>
+          </div>
+          <ul>
+            <li>Position a digital hygrometer where it represents the reptile's environment and check it regularly.</li>
+            <li>Maintain unobstructed air circulation while providing the humidity level and local moist areas the species needs.</li>
+            <li>Address persistent condensation, wet bedding, or stagnant air; excessive moisture can encourage mould and poor air quality.</li>
+            <li>Review readings after misting, changing water, or adjusting heating and ventilation.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -2280,6 +2812,48 @@
               by the <em>World Aquatic Veterinary Medical Association (WAVMA)</em> for prescription antimicrobial treatment.
             </p>
           </div>
+    <section class="safety-section" id="safe-handling">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-hand" aria-hidden="true"></i> Handle calmly</span>
+          <h2>Safe <em>Handling</em></h2>
+          <p>Gentle, brief handling reduces stress and lowers the chance of a fall, bite, scratch, or defensive reaction. Some reptiles prefer minimal handling.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Read the reptile's signals</h3>
+            <p>Approach slowly and support the body securely rather than grabbing, squeezing, or restraining the tail. If the animal appears distressed or defensive, return it calmly to its enclosure and give it space.</p>
+          </div>
+          <ul>
+            <li>Support the body and limbs with both hands as appropriate; keep the reptile low over a secure surface.</li>
+            <li>Avoid sudden movements, loud disturbances, and handling during vulnerable or stressful periods.</li>
+            <li>Learn the species' defensive signals and never force interaction when it is trying to retreat.</li>
+            <li>Keep handling short and necessary, especially while an animal is new, ill, shedding, or recovering.</li>
+            <li>Supervise children closely and never allow handling near stairs, other pets, or places where the reptile could fall.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-section" id="hygiene-cleaning">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-hands-bubbles" aria-hidden="true"></i> Protect people and pets</span>
+          <h2>Hygiene and <em>Cleaning</em></h2>
+          <p>Reptiles and their environments can carry germs even when they look healthy. Simple hygiene habits reduce the risk of spreading them around your home.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Clean with care</h3>
+            <p>Keep reptile supplies separate from kitchen and household items. Use cleaning products suitable for animal enclosures, follow label directions, and rinse or ventilate as directed before returning the reptile.</p>
+          </div>
+          <ul>
+            <li>Wash hands thoroughly with soap and water before and after handling reptiles, food, bowls, or enclosure items.</li>
+            <li>Clean food and water bowls frequently and refresh water with clean, appropriate supplies.</li>
+            <li>Remove waste promptly and perform regular enclosure cleaning on a consistent schedule.</li>
+            <li>Do not use harsh, scented, or unapproved products around the reptile; never mix cleaning chemicals.</li>
+            <li>Use dedicated tools and avoid cross-contamination between reptiles, their food, and household surfaces.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -2298,7 +2872,60 @@
       <div class="cta-actions">
         <a class="button button-light" href="care.html" id="cta-get-started">Get Started Free ↗</a>
         <a class="button button-outline" href="fish.html" id="cta-explore-services">Explore Services</a>
+    <section class="safety-section" id="common-habitat-hazards">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Notice problems early</span>
+          <h2>Common Habitat <em>Hazards</em></h2>
+          <p>A quick daily look around the enclosure can catch loose fittings, unsafe materials, and environmental changes before they become emergencies.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Check the whole setup</h3>
+            <p>Keep a simple routine for checking the enclosure, equipment, and recorded conditions. Correct problems promptly and seek expert advice if safe settings are unclear for your species.</p>
+          </div>
+          <ul>
+            <li>Uncontrolled heating equipment, exposed hot surfaces, damaged cords, and overheating.</li>
+            <li>Loose lids, unlatched doors, gaps around cables, or weakened enclosure panels.</li>
+            <li>Toxic plants or materials, sharp or unstable decorations, and items that could trap or injure the reptile.</li>
+            <li>Poor ventilation, mould, standing water, or substrate that remains too wet.</li>
+            <li>Incorrect temperatures or humidity, including sudden changes after equipment failure or room-temperature shifts.</li>
+          </ul>
+        </div>
       </div>
+    </section>
+
+    <section class="safety-section" id="emergency-care">
+      <div class="section-wrap">
+        <div class="section-heading-wrap">
+          <span class="heading-label"><i class="fa-solid fa-kit-medical" aria-hidden="true"></i> Be ready to respond</span>
+          <h2>Emergency <em>Care</em></h2>
+          <p>Act calmly, make the immediate environment safe, and contact a reptile-experienced veterinarian when your reptile is injured, unwell, or exposed to unsafe conditions.</p>
+        </div>
+        <div class="safety-detail">
+          <div>
+            <h3>Prioritize safety and expert help</h3>
+            <p>Keep your veterinarian's contact details and an appropriate transport carrier accessible. Do not attempt home treatment for serious injuries or use medications unless a veterinarian directs you.</p>
+          </div>
+          <ul>
+            <li><strong>Equipment failure:</strong> Check the animal's conditions with a reliable thermometer, move it only to a secure suitable backup habitat if needed, and arrange safe replacement or repair.</li>
+            <li><strong>Overheating:</strong> Remove the heat source or reduce it safely, move the reptile from immediate danger without chilling it abruptly, and call a veterinarian for guidance.</li>
+            <li><strong>Escape:</strong> Secure other pets and exterior doors, search nearby warm, dark hiding places carefully, and return the reptile to its enclosure once found.</li>
+            <li><strong>Visible injury or distress:</strong> Minimize handling, keep the reptile secure and appropriately warm, and contact a reptile-experienced veterinarian promptly.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-cta section-wrap">
+      <div>
+        <div class="eyebrow"><i class="fa-solid fa-leaf" aria-hidden="true"></i> SAFE HABITATS SUPPORT HEALTHY REPTILES</div>
+        <h2>A Safe Habitat Makes a Happy Reptile</h2>
+        <p>Explore PetSathi's reptile care guide for more help with species, habitat, nutrition, and everyday wellbeing—and give your reptile a safe foundation to thrive.</p>
+      </div>
+      <a class="button button-light" href="reptiles.html">
+        Explore Reptile Care <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </section>
   </main>
 

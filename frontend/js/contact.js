@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (submitBtn) {
       submitBtn.disabled = true;
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = `<span>⏳ Sending message...</span>`;
+      submitBtn.innerHTML = `<span><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending message...</span>`;
 
       // Simulate network response
       setTimeout(() => {
