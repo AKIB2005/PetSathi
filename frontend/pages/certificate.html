@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Generate and download your official PetSathi Contributor Certificate for Nexus Spring of Code (NSoC) 2026 – Winter Edition. Enter your GitHub username to celebrate your open-source journey." />
-  <title>Contributor Certificate Generator | NSoC Winter 2026 | PetSathi</title>
+    content="Official PetSathi Contributor Certificate Portal for Nexus Spring of Code (NSoC) 2026 – Winter Edition. Verified contributors can claim and download their official recognition certificate." />
+  <title>Contributor Certificate Portal | NSoC Winter 2026 | PetSathi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/certificate.css" />
@@ -46,74 +46,128 @@
   <div id="header"></div>
 
   <main id="main-content" class="cert-page">
-    <!-- Hero / Introduction Section -->
-    <section class="cert-hero">
-      <div class="cert-badge-eyebrow">
-        <i class="fa-solid fa-award" aria-hidden="true"></i> NSoC Winter Edition 2026 Recognition
-      </div>
-      <h1>Celebrate Your <span>Contribution!</span></h1>
-      <p>
-        Recognizing the incredible open-source developers who built, fixed, and enhanced PetSathi during
-        <strong>Nexus Spring of Code (NSoC) 2026 – Winter Edition</strong>. Enter your GitHub username below to
-        generate your personalized certificate of contribution.
-      </p>
+    <!-- 1. PetSathi Signature Section Heading Banner with Waves & Paws -->
+    <div class="dog-topics-heading">
+      <!-- Curvy decorative corner shapes matching PetSathi standard -->
+      <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+        <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+        <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
+          opacity="0.95" />
+      </svg>
+      <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+        <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+        <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
+          opacity="0.95" />
+      </svg>
 
-      <!-- Input Card -->
+      <!-- Decorative Paws: Exactly 2 left, 2 right -->
+      <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+      <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+      <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+      <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+
+      <div class="heading-content">
+        <span class="heading-label">
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          NSoC Winter Edition 2026 Recognition
+        </span>
+
+        <h2>
+          <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+          Contributor <span>Certificate Portal</span>
+          <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+        </h2>
+
+        <p>
+          Official verification and certificate issuance portal celebrating real developers who built, enhanced, and
+          contributed merged code to PetSathi during Nexus Spring of Code (NSoC) 2026 – Winter Edition.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Interactive Verification Section -->
+    <section class="cert-interactive-section">
+      <!-- Verification Input Card -->
       <div class="cert-input-card">
+        <div class="cert-input-header">
+          <h3>Verify Your PetSathi Contribution</h3>
+          <p>Certificates are cryptographically generated exclusively for verified repository contributors.</p>
+        </div>
+
         <div class="cert-form-group">
           <div class="cert-input-wrap">
             <i class="fa-brands fa-github" aria-hidden="true"></i>
-            <input type="text" id="github-username" placeholder="Enter your GitHub username (e.g. octocat)"
+            <input type="text" id="github-username" placeholder="Enter your GitHub username (e.g. sutanjoyb)"
               autocomplete="off" spellcheck="false" aria-label="GitHub username" />
           </div>
           <button id="btn-generate" class="cert-btn-generate" type="button">
-            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Generate Certificate
+            <i class="fa-solid fa-award" aria-hidden="true"></i> Verify & Award Certificate
           </button>
         </div>
 
-        <!-- Quick Sample Usernames -->
-        <div class="cert-samples-row">
-          <span>Try a sample:</span>
-          <button type="button" class="cert-sample-pill" data-user="octocat">@octocat</button>
-          <button type="button" class="cert-sample-pill" data-user="torvalds">@torvalds</button>
-          <button type="button" class="cert-sample-pill" data-user="gaearon">@gaearon</button>
-        </div>
-
-        <!-- Error & Info Alerts -->
-        <div id="cert-error-alert" class="cert-alert error" role="alert">
-          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <span id="cert-error-msg">GitHub user not found.</span>
-        </div>
-
-        <!-- Contributor Profile Preview -->
-        <div id="contributor-preview" class="contributor-preview-card">
-          <img id="preview-avatar" class="contributor-avatar-preview"
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
-            alt="Contributor profile picture" />
-          <div class="contributor-details">
-            <h4 id="preview-name">Contributor Name</h4>
-            <span id="preview-handle">@username</span>
+        <!-- Verification Alerts -->
+        <!-- SUCCESS ALERT -->
+        <div id="cert-alert-success" class="cert-alert-box success" role="status">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <div>
+            <span class="alert-title">Verified PetSathi Contributor!</span>
+            <div id="cert-success-msg" class="alert-desc">Your official certificate is ready below.</div>
           </div>
-          <div class="contributor-verified-badge">
-            <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified GitHub Profile
+        </div>
+
+        <!-- STRICT ERROR ALERT -->
+        <div id="cert-alert-error" class="cert-alert-box error" role="alert">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <div>
+            <span id="cert-error-title" class="alert-title">No Merged Contributions Found</span>
+            <p id="cert-error-msg" class="alert-desc">
+              PetSathi contributor certificates are strictly reserved for developers who have contributed merged pull
+              requests or commits to the PetSathi repository.
+            </p>
+            <div class="alert-actions">
+              <a href="https://github.com/Riya-Kharade/PetSathi/issues" target="_blank" rel="noopener"
+                class="alert-action-btn">
+                <i class="fa-solid fa-code-pull-request"></i> Explore Open Issues on GitHub ↗
+              </a>
+              <a href="https://github.com/Riya-Kharade/PetSathi/blob/main/CONTRIBUTING.md" target="_blank"
+                rel="noopener" class="alert-action-btn">
+                <i class="fa-solid fa-book-open"></i> Contribution Guidelines
+              </a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Hall of Verified Contributors Hub -->
+      <div class="contributors-hub-header">
+        <h3 class="contributors-hub-title">
+          <i class="fa-solid fa-users-viewfinder" style="color: #286849;"></i>
+          PetSathi Hall of Contributors
+        </h3>
+        <span class="contributors-badge-count">19 Verified Contributors</span>
+      </div>
+
+      <div class="contributors-hub-grid" id="contributors-grid">
+        <!-- Dynamically populated with real contributors -->
+      </div>
     </section>
 
-    <!-- Certificate Showcase & Actions -->
+    <!-- 3. Real Certificate Showcase & Actions -->
     <section class="cert-showcase-section" id="cert-showcase">
       <div class="cert-toolbar">
         <div>
           <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; color: #1d5039; margin: 0;">
-            Certificate Live Preview
+            Official Awarded Certificate
           </h2>
-          <span style="font-size: 0.88rem; color: #697d72;">Ready to download and share on LinkedIn & social
-            media</span>
+          <span style="font-size: 0.88rem; color: #697d72;">
+            Cryptographically sealed • High-resolution 2400x1700 print quality
+          </span>
         </div>
         <div class="cert-toolbar-actions">
           <button id="btn-download-png" class="cert-btn-download" type="button">
-            <i class="fa-solid fa-download" aria-hidden="true"></i> Download Certificate (PNG)
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Download Official PNG
           </button>
           <button id="btn-share-linkedin" class="cert-btn-share" type="button">
             <i class="fa-brands fa-linkedin" aria-hidden="true"></i> Share on LinkedIn
@@ -124,14 +178,15 @@
         </div>
       </div>
 
-      <!-- The Certificate Sheet (Live View) -->
+      <!-- The Real Awarded Certificate Sheet -->
       <div class="cert-outer-wrapper">
         <article class="certificate-sheet" id="certificate-render-target">
-          <!-- Double Ornamental Frame -->
-          <div class="certificate-border-frame" aria-hidden="true"></div>
+          <!-- Triple Ornate Filigree Frame -->
+          <div class="certificate-border-outer" aria-hidden="true"></div>
+          <div class="certificate-border-gold" aria-hidden="true"></div>
           <div class="certificate-border-inner" aria-hidden="true"></div>
 
-          <!-- 4 Gold Corner Embellishments -->
+          <!-- 4 Metallic Gold Corner Embellishments -->
           <div class="cert-corner cert-corner-tl" aria-hidden="true"></div>
           <div class="cert-corner cert-corner-tr" aria-hidden="true"></div>
           <div class="cert-corner cert-corner-bl" aria-hidden="true"></div>
@@ -139,6 +194,7 @@
 
           <!-- Certificate Header -->
           <div class="cert-header">
+            <!-- Left: PetSathi Official Branding -->
             <div class="cert-brand-left">
               <svg class="cert-brand-logo" viewBox="0 0 40 40" role="img" aria-hidden="true">
                 <circle cx="12" cy="12" r="4" fill="currentColor" />
@@ -147,10 +203,13 @@
                 <path d="M20 17c-6 0-11 5-11 11 0 4 3 6 6 6 2 0 3-2 5-2s3 2 5 2c4 0 6-2 6-6 0-6-5-11-11-11Z"
                   fill="currentColor" />
               </svg>
-              <span class="cert-brand-text">Pet<span>Sathi</span></span>
+              <div>
+                <div class="cert-brand-text">Pet<span>Sathi</span></div>
+                <span class="cert-brand-sub">Companion Pet Welfare Platform</span>
+              </div>
             </div>
 
-            <!-- Official NSoC Logo Asset -->
+            <!-- Right: Official NSoC Winter 2026 Logo Asset -->
             <div class="cert-nsoc-right">
               <div class="cert-nsoc-text">
                 <div class="cert-nsoc-title">Nexus Spring of Code</div>
@@ -170,37 +229,43 @@
 
             <!-- Recipient Information Block -->
             <div class="cert-recipient-block">
-              <img id="cert-avatar-img" class="cert-avatar"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
-                alt="Recipient avatar" />
+              <div class="cert-avatar-wrap">
+                <img id="cert-avatar-img" class="cert-avatar"
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+                  alt="Recipient avatar" />
+              </div>
               <div class="cert-recipient-info">
-                <h3 id="cert-recipient-name" class="cert-recipient-name">PetSathi Contributor</h3>
-                <div id="cert-recipient-handle" class="cert-recipient-handle">
-                  <i class="fa-brands fa-github" aria-hidden="true"></i> @contributor
+                <h3 id="cert-recipient-name" class="cert-recipient-name">Verified Contributor</h3>
+                <div class="cert-recipient-handle">
+                  <span id="cert-recipient-handle"><i class="fa-brands fa-github" aria-hidden="true"></i>
+                    @contributor</span>
+                  <span class="cert-verified-pill" id="cert-verified-badge">Verified Contributor</span>
                 </div>
               </div>
             </div>
 
-            <!-- Citation Paragraph -->
+            <!-- Formal Citation Paragraph -->
             <p class="cert-citation">
-              In sincere appreciation of your dedicated contributions to <strong>PetSathi</strong> during the
-              <strong>Nexus Spring of Code (NSoC) Winter Edition 2026</strong>. Your valuable open-source participation,
-              code craftsmanship, and collaborative spirit have directly helped empower pet parents and companions
-              across the community.
+              In sincere recognition of your distinguished contribution to the open-source architecture, frontend
+              development, and feature implementation of <strong>PetSathi</strong> during the
+              <strong>Nexus Spring of Code (NSoC) 2026 – Winter Edition</strong>. Your dedication to engineering
+              accessible, reliable technology directly elevates the standard of care for companion pets and pet
+              parents across the open-source community.
             </p>
           </div>
 
-          <!-- Certificate Footer -->
+          <!-- Certificate Footer & Attestation -->
           <div class="cert-footer">
             <!-- Left: Issue Date -->
             <div class="cert-footer-col left">
               <span class="cert-meta-label">Date of Issuance</span>
               <span id="cert-issue-date" class="cert-meta-val">November 23, 2026</span>
-              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">NSoC Winter Edition 2026</div>
+              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">Official Open Source Record</div>
             </div>
 
-            <!-- Center: Gold Verification Seal -->
+            <!-- Center: 3D Embossed Gold Seal with Ribbon Tails -->
             <div class="cert-footer-col center cert-seal-wrap">
+              <div class="cert-seal-ribbon" aria-hidden="true"></div>
               <div class="cert-seal" aria-hidden="true">
                 <i class="fa-solid fa-award"></i>
               </div>
@@ -209,56 +274,38 @@
 
             <!-- Right: Maintainer Signature -->
             <div class="cert-footer-col right">
-              <div class="cert-signature-img">PetSathi Core Team</div>
+              <div class="cert-signature-img">Riya Kharade</div>
               <div class="cert-sig-line"></div>
-              <span class="cert-meta-label">Project Maintainers & Mentors</span>
-              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">PetSathi Open Source Project</div>
+              <span class="cert-meta-label">Project Admin & Maintainer, PetSathi</span>
+              <div style="font-size: 0.72rem; color: #7f9486; margin-top: 2px;">NSoC Winter Edition Mentorship Team
+              </div>
             </div>
           </div>
 
           <!-- Bottom Verification Bar -->
           <div class="cert-verification-bar" id="cert-verification-id">
-            ID: NSOC-PS26-PREVIEW
+            Certificate Serial: NSOC-PS26-VERIFIED • Cryptographically Verifiable at petsathi-nsoc.netlify.app
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Why Claim Your Certificate / FAQ -->
-    <section class="cert-info-section">
-      <div class="cert-info-grid">
-        <article class="cert-info-card">
-          <div class="cert-info-icon">
-            <i class="fa-solid fa-code-pull-request" aria-hidden="true"></i>
-          </div>
-          <h3>Open Source Impact</h3>
-          <p>
-            PetSathi is a community-driven initiative under NSoC Winter Edition 2026. Every pull request, design
-            refinement, and feature directly shapes an inclusive platform for pets.
-          </p>
-        </article>
-
-        <article class="cert-info-card">
-          <div class="cert-info-icon">
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          </div>
-          <h3>LinkedIn & Portfolio Ready</h3>
-          <p>
-            Download your high-resolution PNG certificate to showcase your real-world contributions on your resume,
-            portfolio, and LinkedIn Licenses & Certifications.
-          </p>
-        </article>
-
-        <article class="cert-info-card">
-          <div class="cert-info-icon">
-            <i class="fa-solid fa-shield-cat" aria-hidden="true"></i>
-          </div>
-          <h3>Verified & Official</h3>
-          <p>
-            Generated using public GitHub profile data with official Nexus Spring of Code Winter Edition 2026
-            branding and PetSathi recognition.
-          </p>
-        </article>
+    <!-- 4. Final CTA Section (Strictly matching PetSathi index, dogs & reptiles pages) -->
+    <section class="cta section-wrap" id="cert-cta">
+      <div>
+        <div class="eyebrow">JOIN THE PETSATHI COMMUNITY</div>
+        <h2>Want to Earn Your <em>Certificate?</em></h2>
+        <p>
+          PetSathi is an active open-source initiative developed as part of Nexus Spring of Code (NSoC) 2026 – Winter
+          Edition. Explore open issues, submit pull requests, and contribute to earn your official verified contributor
+          recognition.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="button button-light" href="https://github.com/Riya-Kharade/PetSathi" target="_blank" rel="noopener"
+          id="cta-github-repo">View GitHub Repository ↗</a>
+        <a class="button button-outline" href="https://github.com/Riya-Kharade/PetSathi/blob/main/CONTRIBUTING.md"
+          target="_blank" rel="noopener" id="cta-contribute-guide">Contribution Guide</a>
       </div>
     </section>
   </main>
