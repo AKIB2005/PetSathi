@@ -299,22 +299,22 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
     }
 
     .guide-nav-item {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 13px 18px;
+      gap: 10px;
+      padding: 11px 12px;
       border-radius: 999px;
       background: #fafcf8;
       border: 1.5px solid #dbe8dd;
       color: #2d4536;
       text-decoration: none;
       font-weight: 700;
-      font-size: 13.5px;
+      font-size: 12.5px;
       transition: all 0.25s ease;
       box-shadow: 0 2px 6px rgba(35, 80, 50, 0.02);
     }
@@ -330,12 +330,12 @@
     .guide-nav-icon {
       display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: #eaf3eb;
       color: #246b43;
-      font-size: 14px;
+      font-size: 13px;
       flex-shrink: 0;
       transition: all 0.25s ease;
     }
@@ -371,7 +371,7 @@
     }
 
     /* -------------------------------------------------------------
-       Signature Section Heading Cards matching Dog/Cat Index
+       Signature Section Heading Cards matching reptiles.html & dogs/index.html
        ------------------------------------------------------------- */
     .section-heading-wrap {
       position: relative;
@@ -408,42 +408,41 @@
       right: 0;
     }
 
-    /* Decorative Paw Accents */
+    /* Floating Paw Background Accents (Exact match to reptiles.html & dogs/index.html) */
     .paw {
       position: absolute;
+      color: rgba(115, 173, 91, 0.28);
       z-index: 1;
       pointer-events: none;
-      color: #c9e0c5;
-      font-size: 32px;
-      opacity: 0.5;
+      line-height: 1;
     }
 
     .paw-left-1 {
-      top: 22px;
-      left: 28px;
-      transform: rotate(-25deg);
+      top: 66px;
+      left: 108px;
+      font-size: 58px;
+      transform: rotate(20deg);
     }
 
     .paw-left-2 {
-      bottom: 22px;
-      left: 70px;
-      font-size: 24px;
-      transform: rotate(15deg);
-      opacity: 0.35;
+      bottom: 24px;
+      left: 82px;
+      font-size: 38px;
+      transform: rotate(-15deg);
     }
 
     .paw-right-1 {
-      top: 22px;
-      right: 28px;
-      transform: rotate(25deg);
+      top: 60px;
+      right: 75px;
+      font-size: 56px;
+      transform: rotate(18deg);
     }
 
     .paw-right-2 {
-      bottom: 22px;
-      right: 70px;
-      font-size: 24px;
+      bottom: 35px;
+      right: 140px;
+      font-size: 38px;
       transform: rotate(-15deg);
-      opacity: 0.35;
     }
 
     .heading-content {
@@ -454,17 +453,17 @@
     .heading-label {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 6px 16px;
-      border-radius: 999px;
+      gap: 10px;
+      padding: 7px 20px;
+      margin-bottom: 16px;
+      border-radius: 50px;
       background: #edf6df;
-      border: 1px solid #dce8ce;
+      border: 1px solid #dcebc9;
       color: #246b43;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      margin-bottom: 12px;
     }
 
     .heading-label i {
@@ -473,6 +472,7 @@
       line-height: 1;
     }
 
+    .heading-content h2,
     .section-heading-wrap h2 {
       color: #263b30;
       font-family: Georgia, serif !important;
@@ -487,8 +487,12 @@
       flex-wrap: wrap;
     }
 
-    .section-heading-wrap h2 span {
-      color: #28764a;
+    .heading-content h2 span,
+    .heading-content h2 em,
+    .section-heading-wrap h2 span,
+    .section-heading-wrap h2 em {
+      color: #28764a !important;
+      font-style: normal !important;
     }
 
     .heading-burst {
@@ -502,14 +506,17 @@
 
     .heading-burst span {
       position: absolute;
-      display: block;
-      background-color: #28764a;
-      border-radius: 2px;
+      background: #60a872;
+      border-radius: 9999px;
+    }
+
+    .heading-burst.left span {
+      right: 0;
+      transform-origin: right center;
     }
 
     .heading-burst.left span:nth-child(1) {
       top: 3px;
-      right: 0;
       width: 14px;
       height: 2.8px;
       transform: rotate(35deg);
@@ -517,17 +524,20 @@
 
     .heading-burst.left span:nth-child(2) {
       top: 11px;
-      right: 0;
       width: 18px;
       height: 2.8px;
     }
 
     .heading-burst.left span:nth-child(3) {
       bottom: 3px;
-      right: 0;
       width: 14px;
       height: 2.8px;
       transform: rotate(-35deg);
+    }
+
+    .heading-burst.right span {
+      left: 0;
+      transform-origin: left center;
     }
 
     .heading-burst.right span:nth-child(1) {
@@ -662,7 +672,7 @@
       background: #f7faf7;
       padding: 12px 14px;
       border-radius: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 0;
       border: 1px solid #e4ede6;
       text-align: left;
     }
@@ -871,6 +881,19 @@
       box-shadow: 0 6px 18px rgba(36, 107, 67, 0.2);
     }
 
+    .rep-pink-cta-actions .button-outline {
+      background: #ffffff !important;
+      color: #246b43 !important;
+      border: 1.5px solid #246b43 !important;
+    }
+
+    .rep-pink-cta-actions .button-outline:hover {
+      background: #246b43 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(36, 107, 67, 0.2);
+    }
+
     /* -------------------------------------------------------------
        Responsive Design (Desktop 3, Tablet 2, Mobile 1)
        ------------------------------------------------------------- */
@@ -1027,7 +1050,7 @@
       <div class="guides-nav-grid">
         <a href="#popular-species" class="guide-nav-item" id="hub-link-popular">
           <span class="guide-nav-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Popular Reptile Species</span>
+          <span class="guide-nav-label">Popular Species</span>
         </a>
         <a href="#lizards" class="guide-nav-item" id="hub-link-lizards">
           <span class="guide-nav-icon"><i class="fa-solid fa-dragon" aria-hidden="true"></i></span>
@@ -1043,11 +1066,11 @@
         </a>
         <a href="#beginner-friendly" class="guide-nav-item" id="hub-link-beginner">
           <span class="guide-nav-icon"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Beginner-Friendly Reptiles</span>
+          <span class="guide-nav-label">Beginner Friendly</span>
         </a>
         <a href="#choosing-reptile" class="guide-nav-item" id="hub-link-choosing">
           <span class="guide-nav-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span>
-          <span class="guide-nav-label">Choosing the Right Reptile</span>
+          <span class="guide-nav-label">Choosing Guide</span>
         </a>
       </div>
     </div>
@@ -1106,7 +1129,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Omnivore (Greens &amp; Insects)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">120 Gallons (4x2x2 ft)</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1126,7 +1148,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Insectivore (Crickets &amp; Roaches)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">20–40 Gallons</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1146,7 +1167,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Frugivore (Complete Meal Puree)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">20 Gallon Tall (Arboreal)</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1166,7 +1186,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Carnivore (Frozen-Thawed Rodents)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">40–75 Gallons</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1186,7 +1205,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Carnivore (Frozen-Thawed Rodents)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">120 Gallons (4x2x2 ft)</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1206,7 +1224,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Omnivore (Greens, Vegetables, Insects)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">120 Gallons (4x2x2 ft)</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1226,7 +1243,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Herbivore (High-Fiber Weeds &amp; Grasses)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">Tortoise Table (4x2 ft minimum)</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1246,7 +1262,6 @@
                 <div class="spec-item"><span class="spec-label">Diet</span><span class="spec-val">Omnivore (Pellets, Greens, Insects)</span></div>
                 <div class="spec-item"><span class="spec-label">Enclosure</span><span class="spec-val">75–120 Gallon Aquaterrarium</span></div>
               </div>
-              <a href="care.html#housing" class="species-card-link">Care Guide &rarr;</a>
             </div>
           </article>
 
@@ -1599,7 +1614,7 @@
     <section class="section-wrap" aria-labelledby="cta-heading">
       <div class="rep-pink-cta">
         <div>
-          <div class="eyebrow">READY TO WELCOME A REPTILE COMPANION?</div>
+          <div class="eyebrow">START YOUR REPTILE JOURNEY</div>
           <h2 id="cta-heading">Ready to Welcome a <em>Reptile Companion?</em></h2>
           <p>
             Explore proper reptile care, vivarium engineering, and dietary requirements before choosing a species. Ensure you have the time, habitat, and commitment for a healthy, lifelong partnership.
@@ -1608,6 +1623,9 @@
         <div class="rep-pink-cta-actions">
           <a class="button" href="care.html" id="cta-explore-care">
             Explore Reptile Care &rarr;
+          </a>
+          <a class="button button-outline" href="reptiles.html" id="cta-back-reptiles">
+            Back to Reptiles Guide
           </a>
         </div>
       </div>
