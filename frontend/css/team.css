@@ -1,0 +1,1365 @@
+/* ==========================================================================
+   PetSathi - Team & Contributors Leaderboard Stylesheet
+   frontend/css/team.css
+   Matches PetSathi's warm, earthy, green, cream, and accessible design system.
+   ========================================================================== */
+
+:root {
+  --team-green: #286849;
+  --team-dark: #1d5039;
+  --team-ink: #26372e;
+  --team-muted: #718078;
+  --team-cream: #fcfaf5;
+  --team-line: #e8ebe4;
+  --team-soft: #f1f4ed;
+  --team-peach: #f8e5d8;
+  --team-white: #ffffff;
+  
+  /* Metallic accents for podium */
+  --gold-primary: #d49b28;
+  --gold-light: #fef8e7;
+  --gold-border: #f1c40f;
+  --gold-glow: rgba(212, 155, 40, 0.25);
+
+  --silver-primary: #64748b;
+  --silver-light: #f1f5f9;
+  --silver-border: #94a3b8;
+  --silver-glow: rgba(100, 116, 139, 0.2);
+
+  --bronze-primary: #a85f2d;
+  --bronze-light: #fbf2ea;
+  --bronze-border: #c77d48;
+  --bronze-glow: rgba(168, 95, 45, 0.2);
+
+  --team-shadow: 0 16px 40px rgba(35, 57, 43, 0.08);
+  --team-shadow-hover: 0 20px 48px rgba(35, 57, 43, 0.14);
+  --team-radius: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   1. BREADCRUMBS
+   -------------------------------------------------------------------------- */
+.team-breadcrumb {
+  width: min(1160px, calc(100% - 48px));
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--team-muted);
+}
+
+.team-breadcrumb a {
+  color: var(--team-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.team-breadcrumb a:hover {
+  color: var(--team-dark);
+  text-decoration: underline;
+}
+
+.team-breadcrumb .separator {
+  color: #a7b5ac;
+  font-size: 0.8rem;
+}
+
+.team-breadcrumb .current {
+  color: var(--team-ink);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.team-hero {
+  padding-block: 45px 55px;
+  text-align: center;
+  position: relative;
+}
+
+.team-hero-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.team-hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eaf3ec;
+  padding: 6px 16px;
+  border-radius: 999px;
+  color: var(--team-green);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1px solid #d4e6d8;
+}
+
+.team-hero h1 {
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  color: var(--team-dark);
+  margin: 0 0 18px;
+  line-height: 1.18;
+  letter-spacing: -1.5px;
+}
+
+.team-hero h1 em {
+  color: var(--team-green);
+  font-style: italic;
+}
+
+.team-hero-desc {
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  line-height: 1.7;
+  color: #3b4e43;
+  margin: 0 auto 30px;
+  max-width: 720px;
+}
+
+/* Hero community highlight pills */
+.team-hero-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.team-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: var(--team-white);
+  border: 1px solid var(--team-line);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--team-ink);
+  box-shadow: 0 4px 12px rgba(35, 57, 43, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.team-pill:hover {
+  transform: translateY(-2px);
+  border-color: #b8cfbb;
+}
+
+.team-pill i {
+  color: var(--team-green);
+  font-size: 0.95rem;
+}
+
+/* Hero community illustration banner */
+.team-hero-visual {
+  margin-top: 40px;
+  padding: 24px 30px;
+  background: linear-gradient(135deg, #f0f7f2 0%, #fdfbf7 100%);
+  border: 1px solid #dceade;
+  border-radius: var(--team-radius);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(35, 57, 43, 0.04);
+}
+
+.visual-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.visual-badge-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #dbeef1;
+  color: var(--team-dark);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.visual-badge:nth-child(1) .visual-badge-icon { background: #d7edd9; color: var(--team-green); }
+.visual-badge:nth-child(2) .visual-badge-icon { background: #fbebd8; color: #a85f2d; }
+.visual-badge:nth-child(3) .visual-badge-icon { background: #dceaf7; color: #28547a; }
+
+.visual-badge:hover .visual-badge-icon {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.visual-badge-text strong {
+  display: block;
+  font-size: 1.15rem;
+  color: var(--team-dark);
+}
+
+.visual-badge-text span {
+  font-size: 0.82rem;
+  color: var(--team-muted);
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION HEADERS (SHARED)
+   -------------------------------------------------------------------------- */
+.section-header-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 35px;
+}
+
+.section-header-center .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--team-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-header-center h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  color: var(--team-dark);
+  margin: 0 0 10px;
+  letter-spacing: -1px;
+}
+
+.section-header-center h2 em {
+  color: var(--team-green);
+  font-style: italic;
+}
+
+.section-header-center p {
+  color: var(--team-muted);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. PROJECT ADMIN SECTION
+   -------------------------------------------------------------------------- */
+.team-admin-section {
+  padding-block: 40px 60px;
+}
+
+.admin-card-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.admin-profile-card {
+  background: var(--team-white);
+  border: 2px solid #b8d9c2;
+  border-radius: var(--team-radius);
+  padding: 36px 40px;
+  box-shadow: var(--team-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.admin-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--team-shadow-hover);
+  border-color: var(--team-green);
+}
+
+.admin-ribbon {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #eaf5ee;
+  color: var(--team-green);
+  border: 1px solid #c2e2cc;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.admin-ribbon i {
+  color: var(--team-green);
+}
+
+.admin-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.admin-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.admin-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e2f0e5;
+  box-shadow: 0 6px 18px rgba(35, 57, 43, 0.12);
+  background: var(--team-soft);
+  transition: transform 0.3s ease;
+}
+
+.admin-profile-card:hover .admin-avatar {
+  transform: scale(1.04);
+  border-color: var(--team-green);
+}
+
+.admin-badge-indicator {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 28px;
+  height: 28px;
+  background: var(--team-green);
+  color: var(--team-white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  border: 2px solid var(--team-white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.admin-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-name {
+  font-size: 1.6rem;
+  color: var(--team-dark);
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+  word-break: break-word;
+}
+
+.admin-username {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--team-green);
+  margin-bottom: 12px;
+}
+
+.admin-bio {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #43544a;
+  margin: 0 0 16px;
+}
+
+.admin-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.84rem;
+  color: var(--team-muted);
+  margin-bottom: 20px;
+}
+
+.admin-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-meta-item i {
+  color: var(--team-green);
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: var(--team-green);
+  color: var(--team-white);
+  border: 1px solid var(--team-green);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.admin-profile-btn:hover {
+  background: var(--team-dark);
+  transform: translateY(-2px);
+  color: var(--team-white);
+  box-shadow: 0 4px 12px rgba(29, 80, 57, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   5. REPOSITORY INPUT SECTION
+   -------------------------------------------------------------------------- */
+.team-repo-section {
+  padding-block: 40px 50px;
+}
+
+.repo-card {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--team-white);
+  border: 1px solid var(--team-line);
+  border-radius: var(--team-radius);
+  padding: 36px 40px;
+  box-shadow: var(--team-shadow);
+}
+
+.repo-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.repo-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+}
+
+.repo-input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--team-muted);
+  font-size: 1.15rem;
+  pointer-events: none;
+}
+
+.repo-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 44px 0 48px;
+  background: var(--team-cream);
+  border: 2px solid var(--team-line);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--team-ink);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.repo-input:focus {
+  border-color: var(--team-green);
+  background: var(--team-white);
+  box-shadow: 0 0 0 4px rgba(40, 104, 73, 0.12);
+}
+
+.repo-input.is-invalid {
+  border-color: #d93838;
+  background: #fdf5f5;
+}
+
+.repo-clear-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--team-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.repo-clear-btn:hover {
+  background: #e6eae7;
+  color: var(--team-ink);
+}
+
+.repo-submit-btn {
+  height: 52px;
+  padding: 0 26px;
+  background: var(--team-green);
+  color: var(--team-white);
+  border: none;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.repo-submit-btn:hover:not(:disabled) {
+  background: var(--team-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(29, 80, 57, 0.2);
+}
+
+.repo-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Quick select chips */
+.repo-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--team-muted);
+}
+
+.repo-chips-label {
+  font-weight: 600;
+}
+
+.repo-chip {
+  background: #edf5ef;
+  border: 1px solid #c7e3ce;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--team-green);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.repo-chip:hover {
+  background: var(--team-green);
+  color: var(--team-white);
+  border-color: var(--team-green);
+}
+
+/* API Status & Alert Box */
+.api-alert {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  display: none;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+  animation: fadeInAlert 0.25s ease;
+}
+
+@keyframes fadeInAlert {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.api-alert.is-visible {
+  display: flex;
+}
+
+.api-alert-error {
+  background: #fdf2f2;
+  border: 1px solid #f5c2c2;
+  color: #a82323;
+}
+
+.api-alert-error i {
+  color: #c93b3b;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.api-alert-warning {
+  background: #fef8eb;
+  border: 1px solid #f6deb3;
+  color: #925807;
+}
+
+.api-alert-warning i {
+  color: #d49b28;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.api-alert-info {
+  background: #f0f7f3;
+  border: 1px solid #c5e4d0;
+  color: var(--team-dark);
+}
+
+.api-alert-info i {
+  color: var(--team-green);
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. DYNAMIC CONTRIBUTORS LEADERBOARD SECTION
+   -------------------------------------------------------------------------- */
+.team-leaderboard-section {
+  padding-block: 40px 70px;
+}
+
+.leaderboard-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+  padding: 16px 24px;
+  background: var(--team-white);
+  border: 1px solid var(--team-line);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(35, 57, 43, 0.04);
+}
+
+.leaderboard-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--team-ink);
+}
+
+.stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.stat-item i {
+  color: var(--team-green);
+}
+
+.stat-value {
+  color: var(--team-dark);
+  font-weight: 700;
+}
+
+.admin-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--team-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.admin-toggle-wrapper input[type="checkbox"] {
+  accent-color: var(--team-green);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Loading state spinner */
+.leaderboard-loading {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.leaderboard-loading.is-active {
+  display: block;
+}
+
+.loading-spinner {
+  width: 52px;
+  height: 52px;
+  border: 4px solid #e2ece4;
+  border-top-color: var(--team-green);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--team-dark);
+  margin: 0 0 6px;
+}
+
+.loading-subtext {
+  font-size: 0.88rem;
+  color: var(--team-muted);
+  margin: 0;
+}
+
+/* Empty State */
+.leaderboard-empty {
+  display: none;
+  text-align: center;
+  padding: 50px 24px;
+  background: var(--team-white);
+  border: 1px dashed #c8dbcc;
+  border-radius: var(--team-radius);
+  margin: 20px 0;
+}
+
+.leaderboard-empty.is-active {
+  display: block;
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f1f6f2;
+  color: var(--team-green);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  margin: 0 auto 18px;
+}
+
+.leaderboard-empty h3 {
+  font-size: 1.35rem;
+  color: var(--team-dark);
+  margin: 0 0 8px;
+}
+
+.leaderboard-empty p {
+  color: var(--team-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. TOP 3 PODIUM SECTION
+   -------------------------------------------------------------------------- */
+.podium-wrapper {
+  margin-bottom: 50px;
+}
+
+.podium-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.podium-heading h3 {
+  font-size: 1.6rem;
+  color: var(--team-dark);
+  margin: 0 0 6px;
+}
+
+.podium-heading p {
+  color: var(--team-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.podium-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: end;
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Base Podium Card */
+.podium-card {
+  background: var(--team-white);
+  border-radius: 20px 20px 14px 14px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  box-shadow: var(--team-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podium-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--team-shadow-hover);
+}
+
+.podium-pedestal {
+  width: 100%;
+  border-radius: 12px;
+  padding: 14px 10px;
+  margin-top: 18px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* 1st Place - Gold */
+.podium-card.rank-gold {
+  border: 2px solid var(--gold-border);
+  box-shadow: 0 16px 45px var(--gold-glow);
+  order: 2;
+  z-index: 2;
+  padding-top: 36px;
+}
+
+.podium-card.rank-gold .podium-avatar {
+  width: 96px;
+  height: 96px;
+  border: 4px solid var(--gold-primary);
+  box-shadow: 0 6px 20px var(--gold-glow);
+}
+
+.podium-card.rank-gold .podium-badge-icon {
+  background: linear-gradient(135deg, #f5c518, #d49b28);
+  color: #ffffff;
+}
+
+.podium-card.rank-gold .podium-pedestal {
+  background: linear-gradient(180deg, #fef7e6 0%, #faeac0 100%);
+  border: 1px solid #f3d489;
+  color: #8c5d06;
+}
+
+/* 2nd Place - Silver */
+.podium-card.rank-silver {
+  border: 2px solid var(--silver-border);
+  box-shadow: 0 12px 35px var(--silver-glow);
+  order: 1;
+}
+
+.podium-card.rank-silver .podium-avatar {
+  width: 82px;
+  height: 82px;
+  border: 4px solid var(--silver-primary);
+  box-shadow: 0 4px 16px var(--silver-glow);
+}
+
+.podium-card.rank-silver .podium-badge-icon {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  color: #ffffff;
+}
+
+.podium-card.rank-silver .podium-pedestal {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+/* 3rd Place - Bronze */
+.podium-card.rank-bronze {
+  border: 2px solid var(--bronze-border);
+  box-shadow: 0 12px 35px var(--bronze-glow);
+  order: 3;
+}
+
+.podium-card.rank-bronze .podium-avatar {
+  width: 82px;
+  height: 82px;
+  border: 4px solid var(--bronze-primary);
+  box-shadow: 0 4px 16px var(--bronze-glow);
+}
+
+.podium-card.rank-bronze .podium-badge-icon {
+  background: linear-gradient(135deg, #c77d48, #a85f2d);
+  color: #ffffff;
+}
+
+.podium-card.rank-bronze .podium-pedestal {
+  background: linear-gradient(180deg, #fcf4ee 0%, #f3decb 100%);
+  border: 1px solid #e7c2a4;
+  color: #7c3e16;
+}
+
+/* Podium Elements */
+.podium-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.podium-avatar-wrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.podium-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--team-soft);
+  transition: transform 0.25s ease;
+}
+
+.podium-card:hover .podium-avatar {
+  transform: scale(1.06);
+}
+
+.podium-rank-tag {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: 2px solid var(--team-white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+
+.rank-gold .podium-rank-tag { background: #d49b28; color: #ffffff; }
+.rank-silver .podium-rank-tag { background: #64748b; color: #ffffff; }
+.rank-bronze .podium-rank-tag { background: #a85f2d; color: #ffffff; }
+
+.podium-username {
+  font-size: 1.15rem;
+  color: var(--team-dark);
+  margin: 0 0 6px;
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.podium-username a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.podium-username a:hover {
+  color: var(--team-green);
+  text-decoration: underline;
+}
+
+.podium-contributions {
+  font-size: 0.9rem;
+  color: var(--team-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.podium-contributions strong {
+  color: var(--team-ink);
+  font-weight: 700;
+}
+
+.podium-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--team-green);
+  padding: 6px 14px;
+  border: 1px solid #c9decb;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.podium-profile-link:hover {
+  background: var(--team-green);
+  color: var(--team-white);
+  border-color: var(--team-green);
+}
+
+/* --------------------------------------------------------------------------
+   8. REMAINING CONTRIBUTORS (RANK 4+)
+   -------------------------------------------------------------------------- */
+.remaining-wrapper {
+  margin-top: 50px;
+}
+
+.remaining-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--team-line);
+}
+
+.remaining-header h3 {
+  font-size: 1.45rem;
+  color: var(--team-dark);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remaining-header h3 i {
+  color: var(--team-green);
+  font-size: 1.15rem;
+}
+
+.remaining-count-badge {
+  background: #eaf3ec;
+  color: var(--team-green);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.contributors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Contributor Card (4th onward) */
+.contributor-card {
+  background: var(--team-white);
+  border: 1px solid var(--team-line);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.contributor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(35, 57, 43, 0.08);
+  border-color: #b8cfbb;
+}
+
+.contributor-rank-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #edf4ef;
+  color: var(--team-green);
+  border: 1px solid #c7e0cd;
+  display: grid;
+  place-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.contributor-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e1eee3;
+  background: var(--team-soft);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.contributor-card:hover .contributor-avatar {
+  transform: scale(1.06);
+  border-color: var(--team-green);
+}
+
+.contributor-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.contributor-name {
+  font-size: 1rem;
+  color: var(--team-dark);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contributor-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contributor-name a:hover {
+  color: var(--team-green);
+  text-decoration: underline;
+}
+
+.contributor-commits {
+  font-size: 0.82rem;
+  color: var(--team-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contributor-commits i {
+  color: var(--team-green);
+  font-size: 0.8rem;
+}
+
+.contributor-link-btn {
+  color: var(--team-muted);
+  font-size: 0.95rem;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.contributor-card:hover .contributor-link-btn {
+  color: var(--team-green);
+  background: #edf5ee;
+}
+
+/* --------------------------------------------------------------------------
+   9. PAGINATION & LOAD MORE
+   -------------------------------------------------------------------------- */
+.pagination-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--team-white);
+  border: 2px solid var(--team-green);
+  color: var(--team-green);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(40, 104, 73, 0.08);
+}
+
+.load-more-btn:hover:not(:disabled) {
+  background: var(--team-green);
+  color: var(--team-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(40, 104, 73, 0.18);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: var(--team-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. FINAL CTA SECTION (MATCHING PETSATHI DESIGN)
+   -------------------------------------------------------------------------- */
+.team-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 75px;
+  padding: 44px 50px;
+  border-radius: 24px;
+  background: #f2e9dc;
+  border: 1px solid #ebd9c5;
+}
+
+.team-cta h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  color: var(--team-dark);
+  margin: 0 0 10px;
+  letter-spacing: -1px;
+}
+
+.team-cta h2 em {
+  color: var(--team-green);
+  font-style: italic;
+}
+
+.team-cta p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3b4e43;
+  margin: 0;
+  max-width: 580px;
+}
+
+.team-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.team-cta .button-light {
+  background: var(--team-white);
+  color: var(--team-dark);
+  border: 1px solid var(--team-white);
+}
+
+.team-cta .button-light:hover {
+  background: #f7faf7;
+  color: var(--team-green);
+}
+
+.team-cta .button-outline {
+  background: transparent;
+  color: var(--team-green);
+  border: 1px solid #b7ceba;
+}
+
+.team-cta .button-outline:hover {
+  background: var(--team-green);
+  color: var(--team-white);
+  border-color: var(--team-green);
+}
+
+/* --------------------------------------------------------------------------
+   11. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .podium-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 480px;
+  }
+
+  .podium-card.rank-gold { order: 1; }
+  .podium-card.rank-silver { order: 2; }
+  .podium-card.rank-bronze { order: 3; }
+
+  .team-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 28px;
+  }
+
+  .team-cta p {
+    margin: 0 auto;
+  }
+
+  .team-cta-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .admin-card-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin-meta {
+    justify-content: center;
+  }
+
+  .admin-actions {
+    justify-content: center;
+  }
+
+  .admin-ribbon {
+    position: static;
+    display: inline-flex;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-hero {
+    padding-block: 30px 40px;
+  }
+
+  .team-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .team-hero-desc {
+    font-size: 0.98rem;
+  }
+
+  .repo-card,
+  .admin-profile-card {
+    padding: 24px 20px;
+  }
+
+  .repo-form {
+    flex-direction: column;
+  }
+
+  .repo-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .leaderboard-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contributors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-hero-visual {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
