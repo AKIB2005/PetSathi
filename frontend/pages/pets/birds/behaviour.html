@@ -12,800 +12,750 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
   <link rel="stylesheet" href="../../../css/inner.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
     /* ========================================
        PETSATHI BIRD BEHAVIOUR PAGE
     ======================================== */
 
-    .visual-hero {
-      padding: 52px 0;
-      background: linear-gradient(135deg, #edf5e9, #fcfaf5);
-      overflow: hidden;
+    /* Font Awesome 6 Free Webfont definitions (Solid + Regular) */
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
     }
 
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 45px;
+    /* Font Awesome protection against global.css * font-family override */
+    body [class*="fa-"],
+    body [class*="fa-"]::before,
+    body .guides-nav-strip i,
+    body .guides-nav-strip i::before,
+    body .bird-topics-heading i,
+    body .bird-topics-heading i::before,
+    body .training-card-icon i,
+    body .training-card-icon i::before,
+    body .tip-item-icon i,
+    body .tip-item-icon i::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
     }
 
-    .hero-copy h1 {
-      font-size: clamp(2.7rem, 5vw, 4.5rem);
-      margin: 10px 0 18px;
-      letter-spacing: -2.5px;
+    body .fa-solid,
+    body .fa-solid::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
     }
 
-    .hero-copy p {
-      max-width: 530px;
-      font-size: 1rem;
-      line-height: 1.8;
-      margin: 0 0 25px;
+    body .fa-regular,
+    body .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 400 !important;
     }
 
-    .hero-photo {
+    body .fa-brands,
+    body .fa-brands::before {
+      font-family: "Font Awesome 6 Brands" !important;
+      font-weight: 400 !important;
+    }
+
+    .bird-topics-heading {
       position: relative;
-      margin: 0;
+      max-width: 1400px;
+      margin: 45px auto 35px;
+      padding: 44px 35px 38px;
+      overflow: hidden;
+      text-align: center;
+      border-radius: 35px;
+      border: 1px solid #dcebc9;
+      background: #fafcf7;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
     }
 
-    .hero-photo img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 28px;
-      box-shadow: 0 20px 45px rgba(35,57,43,.13);
-    }
-
-    .photo-credit {
-      margin-top: 7px;
-      text-align: right;
-      font-size: .67rem;
-      color: #718078;
-    }
-
-    .photo-credit a {
-      color: var(--green);
-      text-decoration: underline;
-    }
-
-    .hero-sticker {
+    .corner-wave {
       position: absolute;
-      bottom: 42px;
-      left: -20px;
-      background: white;
-      padding: 15px 20px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(35,57,43,.13);
-      font-size: .85rem;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wave-tl { top: 0; left: 0; width: 220px; height: 130px; }
+    .wave-br { bottom: 0; right: 0; width: 220px; height: 130px; }
+
+    .bird-topics-heading h2 {
+      color: #263b30;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(24px, 3.2vw, 36px);
       font-weight: 700;
-      color: var(--dark);
-    }
-
-    .hero-sticker span {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 2px;
-    }
-
-    .hero-actions {
+      margin: 0 0 12px;
+      line-height: 1.2;
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    /* Section navigation */
+    .bird-topics-heading h2 span { color: #28764a; }
 
-    .visual-nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(252,250,245,.97);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 4px 15px rgba(35,57,43,.04);
-    }
+    .heading-content { position: relative; z-index: 2; }
 
-    .visual-nav .section-wrap {
-      display: flex;
+    .heading-label {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      overflow-x: auto;
-      padding-block: 12px;
-      scrollbar-width: none;
-    }
-
-    .visual-nav .section-wrap::-webkit-scrollbar {
-      display: none;
-    }
-
-    .visual-nav a {
-      flex-shrink: 0;
-      padding: 8px 15px;
-      border-radius: 999px;
-      background: white;
-      border: 1px solid var(--line);
-      color: var(--ink);
-      font-size: .82rem;
+      padding: 7px 20px;
+      margin-bottom: 16px;
+      border-radius: 50px;
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      color: #246b43;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 13px;
       font-weight: 700;
-      transition: .2s;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
     }
 
-    .visual-nav a:hover,
-    .visual-nav a.active {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
+    .heading-label i { font-size: 14px; color: #246b43; line-height: 1; }
+
+    .heading-burst {
+      display: inline-block;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      vertical-align: middle;
     }
 
-    /* Common section styling */
-
-    .visual-section {
-      padding: 75px 0;
-      scroll-margin-top: 75px;
+    .heading-burst span {
+      position: absolute;
+      background: #60a872;
+      border-radius: 9999px;
     }
 
-    .visual-section.soft {
-      background: #f5f8f2;
+    .heading-burst.left span { right: 0; transform-origin: right center; }
+    .heading-burst.left span:nth-child(1) { top: 3px; width: 14px; height: 2.8px; transform: rotate(35deg); }
+    .heading-burst.left span:nth-child(2) { top: 11px; width: 18px; height: 2.8px; }
+    .heading-burst.left span:nth-child(3) { bottom: 3px; width: 14px; height: 2.8px; transform: rotate(-35deg); }
+    .heading-burst.right span { left: 0; transform-origin: left center; }
+    .heading-burst.right span:nth-child(1) { top: 3px; width: 14px; height: 2.8px; transform: rotate(-35deg); }
+    .heading-burst.right span:nth-child(2) { top: 11px; width: 18px; height: 2.8px; }
+    .heading-burst.right span:nth-child(3) { bottom: 3px; width: 14px; height: 2.8px; transform: rotate(35deg); }
+
+    .bird-topics-heading p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #64736a;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
-    .visual-section-header {
-      max-width: 690px;
-      margin-bottom: 32px;
+    .paw {
+      position: absolute;
+      color: rgba(115, 173, 91, 0.28);
+      z-index: 1;
+      pointer-events: none;
+      display: inline-block;
+      line-height: 1;
     }
 
-    .visual-section-header.center {
-      text-align: center;
-      margin-inline: auto;
+    .paw-left-1  { top: 66px;  left: 108px; font-size: 58px; transform: rotate(20deg); }
+    .paw-left-2  { bottom: 24px; left: 82px; font-size: 38px; transform: rotate(-15deg); }
+    .paw-right-1 { top: 60px;  right: 75px; font-size: 56px; transform: rotate(18deg); }
+    .paw-right-2 { bottom: 35px; right: 140px; font-size: 38px; transform: rotate(-15deg); }
+
+    .paw i,
+    .bird-topics-heading i,
+    .bird-topics-heading [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+      font-style: normal !important;
+      line-height: 1 !important;
     }
 
-    .visual-section-header h2 {
-      margin: 7px 0 12px;
+    /* ========================================================
+       MAIN HERO SECTION (Matching cats/index.html)
+       ======================================================== */
+    .bird-badge-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #eaf2e9;
+      color: var(--green);
+      border-radius: 999px;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
-    .visual-section-header p {
+    #bird-training-hero {
+      padding-block: 52px 64px;
+    }
+
+    #bird-training-hero h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    #bird-training-hero .hero-copy > p {
+      color: var(--dog-muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    #bird-training-hero .hero-note {
+      color: var(--muted);
+    }
+
+    /* =============================================
+       QUICK NAV STRIP (Matches cats/index.html)
+       ============================================= */
+    .guides-nav-strip {
+      position: relative;
+      background: #ffffff;
+      margin: 40px auto;
+      max-width: 1200px;
+      width: calc(100% - 40px);
+      border: 1px solid #dceade;
+      border-radius: 32px;
+      padding: 42px 36px 38px;
+      box-shadow: 0 4px 24px rgba(35, 80, 50, 0.04);
+      overflow: hidden;
+    }
+
+    .quick-nav-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      color: #cde4d3;
+      opacity: 0.55;
+    }
+
+    .decor-top-left {
+      top: -8px; left: -8px; width: 130px; height: 130px;
+      background: radial-gradient(circle at 10% 10%, #eaf5ed 0%, rgba(234,245,237,0) 70%);
+      border-radius: 0 0 100% 0;
+    }
+
+    .decor-bottom-right {
+      bottom: -8px; right: -8px; width: 130px; height: 130px;
+      background: radial-gradient(circle at 90% 90%, #eaf5ed 0%, rgba(234,245,237,0) 70%);
+      border-radius: 100% 0 0 0;
+    }
+
+    .decor-paw { position: absolute; display: inline-block; line-height: 1; }
+    .decor-paw-1 { top: 14px; left: 28px; font-size: 28px; transform: rotate(-15deg); }
+    .decor-paw-2 { top: 38px; left: 12px; font-size: 19px; transform: rotate(20deg); }
+    .decor-paw-3 { bottom: 36px; right: 14px; font-size: 19px; transform: rotate(-25deg); }
+    .decor-paw-4 { bottom: 14px; right: 28px; font-size: 28px; transform: rotate(15deg); }
+
+    .quick-nav-header {
+      position: relative; z-index: 1;
+      text-align: center; margin-bottom: 30px;
+    }
+
+    .quick-nav-eyebrow-wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin-bottom: 14px;
+    }
+
+    .quick-nav-line { height: 1px; width: 110px; background: #d6ead9; }
+
+    .quick-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #f4faf5;
+      border: 1px solid #b7deb8;
+      border-radius: 9999px;
+      color: #1e6f43;
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
+    }
+
+    .quick-nav-badge i { font-size: 0.95rem; line-height: 1; color: #1e6f43; flex-shrink: 0; }
+
+    .quick-nav-title {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+      font-weight: 800;
+      color: #1a251e;
       margin: 0;
-      line-height: 1.7;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-align: center;
     }
 
-    .visual-section-header .eyebrow {
-      margin-bottom: 10px;
+    .quick-nav-title span { color: #1e6f43; font-weight: 800; }
+
+   .guides-nav-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    width: 100%;
+}
+
+    .guide-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 9px 18px 9px 9px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .guide-nav-item:hover {
+      background: #e4f4e8;
+      border-color: #237847;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
+    }
+
+    .guide-nav-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .guide-nav-item:hover .guide-nav-icon { background: #1e6f43; color: #ffffff; }
+
+    .guide-nav-label {
+      font-family: 'DM Sans', 'Manrope', sans-serif !important;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1c2b20;
+      white-space: nowrap;
+    }
+
+    .guides-nav-strip i,
+    .guides-nav-strip [class*="fa-"] {
+      font-family: "Font Awesome 6 Free" !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      line-height: 1 !important;
+    }
+
+    /* =============================================
+       SECTION BACKGROUND & SPACING
+       ============================================= */
+    .beh-section {
+      padding: 60px 0;
+    }
+
+    .beh-section-alt {
+      background: #f7faf5;
+      padding: 60px 0;
+      border-top: 1px solid #e7efe9;
+      border-bottom: 1px solid #e7efe9;
+    }
+    
+    /* =============================================
+       STANDARD SECTION HEADING
+       ============================================= */
+    .section-heading-wrap {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 38px;
+    }
+
+    .section-heading-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: #246b43;
+      margin-bottom: 12px;
+    }
+
+    .section-heading-wrap h2 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 700;
+      color: #1e3325;
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+
+    .section-heading-wrap h2 span {
+      color: #28764a;
+    }
+
+    .section-heading-wrap p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #5c6b62;
+      margin: 0 auto;
     }
 
     /* ========================================
        1. BODY LANGUAGE
     ======================================== */
 
-    .signal-layout {
+    .behaviour-cards-grid {
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 25px;
-      align-items: stretch;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .signal-photo {
-      position: relative;
-      min-height: 360px;
+    .beh-card {
+      background: #ffffff;
+      border: 1px solid var(--line, #e2eae4);
+      border-radius: 20px;
       overflow: hidden;
-      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      height: 100%;
     }
 
-    .signal-photo img {
+    .beh-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(40, 104, 73, 0.12);
+      border-color: #cbd9ce;
+    }
+
+    .beh-card-media {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #f0f3eb;
+    }
+
+    .beh-card-media img {
       width: 100%;
       height: 100%;
-      min-height: 360px;
       object-fit: cover;
-    }
-
-    .signal-photo-label {
-      position: absolute;
-      left: 15px;
-      bottom: 15px;
-      padding: 9px 14px;
-      background: white;
-      border-radius: 999px;
-      color: var(--dark);
-      font-size: .8rem;
-      font-weight: 700;
-    }
-
-    .signal-explorer {
-      padding: 25px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-    }
-
-    .signal-explorer h3 {
-      margin: 0 0 7px;
-      font-size: 1.3rem;
-    }
-
-    .signal-explorer > p {
-      margin: 0 0 20px;
-      font-size: .88rem;
-    }
-
-    .signal-options {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-      margin-bottom: 20px;
-    }
-
-    .signal-button {
-      padding: 14px 7px;
-      border: 1px solid var(--line);
-      background: #fcfaf5;
-      border-radius: 13px;
-      color: var(--ink);
-      font: inherit;
-      cursor: pointer;
-      font-size: .8rem;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .signal-button span {
+      transition: transform 0.4s ease;
       display: block;
-      font-size: 1.5rem;
-      margin-bottom: 5px;
     }
 
-    .signal-button.active,
-    .signal-button:hover {
-      background: var(--green);
-      border-color: var(--green);
-      color: white;
+    .beh-card:hover .beh-card-media img {
+      transform: scale(1.05);
     }
 
-    .signal-output {
-      padding: 20px;
-      border-radius: 15px;
-      background: #edf4e9;
-      min-height: 135px;
+    .beh-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--dark, #1c2b20);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      z-index: 2;
     }
 
-    .signal-output h4 {
-      margin: 0 0 8px;
-      color: var(--dark);
-      font-size: 1.1rem;
-    }
+    .beh-card-badge i { color: var(--green, #28764a); font-size: 0.85rem; }
 
-    .signal-output p {
-      margin: 0;
-      font-size: .88rem;
-      line-height: 1.7;
-    }
-
-    .signal-note {
-      margin-top: 15px;
-      font-size: .77rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* Vocalisations strip */
-
-    .sound-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .sound-card {
-      padding: 19px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 15px;
+    .beh-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
+      flex-grow: 1;
     }
 
-    .sound-card .sound-icon {
-      font-size: 1.8rem;
-      margin-bottom: 7px;
-    }
-
-    .sound-card h4 {
-      margin: 0 0 5px;
-      font-size: .95rem;
-    }
-
-    .sound-card p {
-      margin: 0;
-      font-size: .8rem;
-      line-height: 1.55;
-    }
-
-    /* ========================================
-       2. TRAINING
-    ======================================== */
-
-    .training-feature {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .training-feature figure {
-      margin: 0;
-    }
-
-    .training-feature img {
-      width: 100%;
-      height: 370px;
-      border-radius: 22px;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .training-copy h3 {
-      font-size: 1.7rem;
-      margin: 8px 0 12px;
-    }
-
-    .training-copy p {
-      font-size: .93rem;
-      line-height: 1.75;
-    }
-
-    .reward-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      background: #edf4e9;
-      border-radius: 999px;
-      color: var(--green);
-      font-size: .8rem;
+    .beh-card-body h3 {
+      font-size: 1.15rem;
       font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--ink, #1c2b20);
     }
 
-    .training-steps {
+    .beh-card-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--muted, #5c6b62);
+      flex-grow: 1;
+    }
+
+    /* Empty state */
+    .no-results-card {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 24px;
+      background: #fafcf8;
+      border: 1px dashed #cde0d1;
+      border-radius: 20px;
+      margin: 10px 0;
+    }
+
+    .no-results-card .no-results-icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .no-results-card h3 {
+      font-size: 1.25rem;
+      color: #1e3325;
+      margin: 0 0 8px;
+    }
+
+    .no-results-card p {
+      font-size: 0.92rem;
+      color: #64736a;
+      max-width: 460px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       INFO CARDS GRID (Icon-Based Sections)
+       ============================================= */
+    .info-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 35px;
+      gap: 24px;
     }
 
-    .training-step {
-      padding: 22px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      position: relative;
-    }
-
-    .step-number {
-      display: grid;
-      place-items: center;
-      height: 38px;
-      width: 38px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      font-weight: 800;
-      margin-bottom: 13px;
-    }
-
-    .training-step h4 {
-      margin: 0 0 7px;
-      font-size: 1rem;
-    }
-
-    .training-step p {
-      margin: 0;
-      font-size: .83rem;
-      line-height: 1.65;
-    }
-
-    /* ========================================
-       3. ENRICHMENT GALLERY
-    ======================================== */
-
-    .enrichment-gallery {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
-    }
-
-    .enrichment-feature {
-      position: relative;
-      overflow: hidden;
-      min-height: 380px;
-      border-radius: 22px;
-      background: #eaf0e6;
-    }
-
-    .enrichment-feature img {
-      width: 100%;
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--line, #e2eae4);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
       height: 100%;
-      min-height: 380px;
-      object-fit: cover;
-      transition: transform .4s ease;
+      box-sizing: border-box;
     }
 
-    .enrichment-feature:hover img {
-      transform: scale(1.035);
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(40, 104, 73, 0.10);
+      border-color: #b8d2bf;
     }
 
-    .enrichment-feature .image-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      padding: 17px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.94);
-    }
-
-    .image-caption h3 {
-      margin: 0 0 5px;
-      font-size: 1.1rem;
-    }
-
-    .image-caption p {
-      margin: 0;
-      font-size: .82rem;
-      line-height: 1.55;
-    }
-
-    .enrichment-side {
-      display: grid;
-      gap: 15px;
-    }
-
-    .enrichment-mini {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 20px;
-      border-radius: 17px;
-      background: white;
-      border: 1px solid var(--line);
-    }
-
-    .enrichment-mini .mini-icon {
-      display: grid;
-      place-items: center;
-      width: 60px;
-      height: 60px;
-      flex-shrink: 0;
+    .info-card-icon {
+      width: 52px;
+      height: 52px;
       border-radius: 16px;
-      background: #edf4e9;
-      font-size: 1.9rem;
-    }
-
-    .enrichment-mini h4 {
-      margin: 0 0 5px;
-      font-size: .98rem;
-    }
-
-    .enrichment-mini p {
-      margin: 0;
-      font-size: .81rem;
-      line-height: 1.55;
-    }
-
-    /* Activity picker */
-
-    .activity-picker {
-      margin-top: 25px;
-      padding: 23px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .activity-picker-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .activity-picker h3 {
-      margin: 0;
-      font-size: 1.15rem;
-    }
-
-    .activity-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .activity-controls button {
-      padding: 8px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fcfaf5;
-      color: var(--ink);
-      cursor: pointer;
-      font: inherit;
-      font-weight: 700;
-      font-size: .78rem;
-    }
-
-    .activity-controls button.active,
-    .activity-controls button:hover {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-    }
-
-    .activity-result {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 17px;
-      border-radius: 13px;
-      background: #edf4e9;
-    }
-
-    .activity-result .activity-icon {
-      font-size: 2.4rem;
-    }
-
-    .activity-result h4 {
-      margin: 0 0 5px;
-      font-size: 1rem;
-      color: var(--dark);
-    }
-
-    .activity-result p {
-      margin: 0;
-      font-size: .84rem;
-      line-height: 1.6;
-    }
-
-    /* ========================================
-       4. SOCIAL INTERACTION
-    ======================================== */
-
-    .bond-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .bond-photo {
-      margin: 0;
-    }
-
-    .bond-photo img {
-      width: 100%;
-      height: 390px;
-      object-fit: cover;
-      border-radius: 22px;
-    }
-
-    .bond-content h3 {
-      margin: 7px 0 12px;
-      font-size: 1.7rem;
-    }
-
-    .bond-content > p {
-      font-size: .91rem;
-      line-height: 1.75;
-    }
-
-    .bond-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .bond-point {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .bond-point span {
+      background: #edf6df;
+      border: 1px solid #dcebc9;
+      color: #246b43;
       display: grid;
       place-items: center;
-      flex-shrink: 0;
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: #edf4e9;
       font-size: 1.25rem;
+      margin: 0 auto 16px;
+      flex-shrink: 0;
+      transition: background 0.25s, color 0.25s, transform 0.25s;
     }
 
-    .bond-point strong {
-      display: block;
-      font-size: .91rem;
-      margin-bottom: 2px;
+    .info-card:hover .info-card-icon {
+      background: #246b43;
+      color: #ffffff;
+      transform: scale(1.06);
     }
 
-    .bond-point small {
-      color: var(--muted);
-      font-size: .79rem;
+    .info-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--ink, #1c2b20);
+      margin: 0 0 10px;
+      line-height: 1.35;
     }
 
-    /* ========================================
-       5. BEHAVIOURAL PROBLEMS
-    ======================================== */
-
-    .problems-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+    .info-card p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--muted, #5c6b62);
+      margin: 0;
+      flex-grow: 1;
     }
 
-    .problem-card {
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      overflow: hidden;
-      background: white;
+    /* Numbered activity cards */
+    .activity-number-badge {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #246b43;
+      margin: 0 auto 14px;
+      line-height: 1;
+      font-family: 'Manrope', sans-serif;
+      background: #edf6df;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid #dcebc9;
+      display: inline-block;
     }
 
-    .problem-card summary {
+    /* =============================================
+       SEARCH & FILTER BAR
+       ============================================= */
+    .search-filter-container {
+      max-width: 980px;
+      margin: 0 auto 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .search-input-wrap i.search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7aaa88;
+      font-size: 0.95rem;
+      pointer-events: none;
+    }
+
+    .search-input-wrap input {
+      width: 100%;
+      padding: 12px 18px 12px 44px;
+      border: 1.5px solid #d0e4d5;
+      border-radius: 999px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ink, #1c2b20);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      box-sizing: border-box;
+    }
+
+    .search-input-wrap input:focus {
+      border-color: #28764a;
+      box-shadow: 0 0 0 3px rgba(40, 118, 74, 0.12);
+    }
+
+    .filter-pills-row {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 19px;
-      cursor: pointer;
-      list-style: none;
-      font-weight: 700;
-      font-size: .96rem;
-    }
-
-    .problem-card summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .problem-icon {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      border-radius: 14px;
-      background: #edf4e9;
-      font-size: 1.5rem;
-    }
-
-    .problem-card summary::after {
-      content: "+";
-      margin-left: auto;
-      color: var(--green);
-      font-size: 1.3rem;
-    }
-
-    .problem-card[open] summary::after {
-      content: "−";
-    }
-
-    .problem-info {
-      padding: 0 19px 20px 81px;
-    }
-
-    .problem-info p {
-      font-size: .85rem;
-      line-height: 1.65;
-      margin: 0 0 10px;
-    }
-
-    .problem-info .response {
-      padding: 12px;
-      border-radius: 10px;
-      background: #edf4e9;
-      color: #53675a;
-      font-size: .81rem;
-      line-height: 1.6;
-    }
-
-    .vet-reminder {
-      display: flex;
-      gap: 13px;
-      align-items: flex-start;
-      padding: 19px;
-      margin-top: 22px;
-      border-radius: 15px;
-      border: 1px solid #f0d5bd;
-      background: #fff8f1;
-    }
-
-    .vet-reminder > span {
-      font-size: 1.5rem;
-    }
-
-    .vet-reminder strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #80451f;
-    }
-
-    .vet-reminder p {
-      margin: 0;
-      font-size: .85rem;
-      line-height: 1.65;
-    }
-
-    /* Credits and resources */
-
-    .photo-credits {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      background: white;
-    }
-
-    .photo-credits h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-    }
-
-    .photo-credits p {
-      margin: 7px 0;
-      font-size: .78rem;
-      line-height: 1.6;
-    }
-
-    .photo-credits a {
-      color: var(--green);
-      text-decoration: underline;
-    }
-
-    .resource-links {
-      display: flex;
+      justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 18px;
     }
 
-    .resource-links a {
-      padding: 9px 13px;
-      border: 1px solid var(--line);
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 18px;
+      border: 1.5px solid #d0e4d5;
       border-radius: 999px;
-      color: var(--green);
-      font-size: .78rem;
+      background: #f4faf5;
+      color: #246b43;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.84rem;
       font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.18s, box-shadow 0.18s;
+      white-space: nowrap;
     }
 
-    .resource-links a:hover {
-      background: var(--green);
-      border-color: var(--green);
-      color: white;
+    .filter-btn:hover {
+      background: #e6f4ea;
+      border-color: #28764a;
+      transform: translateY(-2px);
     }
+
+    .filter-btn.active {
+      background: #246b43;
+      border-color: #246b43;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(36, 107, 67, 0.2);
+    }
+
+    .filter-btn i { font-size: 0.88rem; }
 
     /* CTA */
+    .cta {
+      margin-top: 0;
+      margin-bottom: 92px;
+      border: 1px solid #e6d6c6;
+    }
 
-    .behaviour-cta {
-      margin: 55px auto 65px;
-      padding: 43px 25px;
-      border-radius: 23px;
-      background: #1d5039;
+    .cta.section-wrap {
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .cta .button-outline {
+      background: transparent;
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .cta .button-outline:hover {
+      background: var(--green);
       color: white;
-      text-align: center;
     }
 
-    .behaviour-cta h2 {
-      color: white;
-      margin: 7px 0 12px;
-    }
-
-    .behaviour-cta p {
-      max-width: 620px;
-      margin: 0 auto 22px;
-      color: #dce9df;
-      line-height: 1.7;
-    }
-
-    .behaviour-cta .button {
-      color: var(--dark);
-      background: white;
-      border-color: white;
-    }
+    .cta > div:first-child .eyebrow,
+    .cta > div:first-child h2,
+    .cta > div:first-child p {
+        text-align: left;
+      }
 
     /* Back to top */
-
     .back-to-top {
       position: fixed;
       right: 24px;
@@ -836,800 +786,726 @@
       background: var(--dark);
     }
 
-    /* Responsive */
-
-    @media (max-width: 850px) {
-      .hero-layout,
-      .signal-layout,
-      .training-feature,
-      .bond-layout {
-        grid-template-columns: 1fr;
+    /* =============================================
+       RESPONSIVE BREAKPOINTS
+       ============================================= */
+    @media (max-width: 960px) {
+      .behaviour-cards-grid,
+      .info-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-photo img {
-        height: 340px;
-      }
-
-      .hero-sticker {
-        left: 12px;
-      }
-
-      .signal-photo,
-      .signal-photo img {
-        min-height: 280px;
-        height: 280px;
-      }
-
-      .training-feature img {
-        height: 330px;
-      }
-
-      .bond-photo img {
-        height: 330px;
+      .guides-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
-      .visual-section {
-        padding: 52px 0;
+    @media (max-width: 768px) {
+      .bird-topics-heading {
+        margin: 25px 0;
+        padding: 35px 16px 30px;
+        border-radius: 24px;
       }
 
-      .training-steps,
-      .sound-strip {
-        grid-template-columns: 1fr;
-      }
+      .bird-topics-heading h2 { font-size: clamp(20px, 5vw, 26px); gap: 8px; }
+      .bird-topics-heading p { font-size: 14px; }
+      .heading-label { font-size: 11px; padding: 6px 14px; margin-bottom: 12px; }
 
-      .enrichment-gallery {
-        grid-template-columns: 1fr;
-      }
+      .paw-left-1  { left: 35px;  top: 25px;    font-size: 34px; }
+      .paw-left-2  { left: 18px;  bottom: 14px; font-size: 24px; }
+      .paw-right-1 { right: 25px; top: 25px;    font-size: 34px; }
+      .paw-right-2 { right: 65px; bottom: 14px; font-size: 24px; }
 
-      .enrichment-feature,
-      .enrichment-feature img {
-        min-height: 290px;
-        height: 290px;
-      }
-
-      .problems-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .signal-options {
-        gap: 6px;
-      }
-
-      .signal-button {
-        font-size: .72rem;
-      }
-
-      .signal-button span {
-        font-size: 1.3rem;
-      }
-
-      .problem-info {
-        padding-left: 19px;
-      }
-
-      .behaviour-cta {
-        padding: 33px 20px;
-      }
-
-      .back-to-top {
-        right: 17px;
-        bottom: 17px;
-      }
-
-      .footer .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      .guides-nav-strip { padding: 22px 18px; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+    @media (max-width: 600px) {
+      .behaviour-cards-grid,
+      .info-cards-grid {
+        grid-template-columns: 1fr;
       }
 
-      *,
-      *::before,
-      *::after {
-        transition-duration: .01ms !important;
-      }
+      .beh-card-media { height: 185px; }
+
+      .guides-nav-grid { grid-template-columns: 1fr; }
+
+      .cta-actions { width: 100%; flex-direction: column; margin-top: 18px; }
+      .cta-actions .button { width: 100%; }
+
+      .search-filter-container { align-items: stretch; }
+      .search-input-wrap { max-width: 100%; }
+      .filter-pills-row { justify-content: flex-start; overflow-x: auto; padding-bottom: 6px; }
     }
+
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
   <!-- HEADER -->
-
   <div id="header"></div>
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO -->
-
-    <section class="visual-hero">
-
-      <div class="section-wrap hero-layout">
-
+    <section class="hero section-wrap" id="bird-training-hero">
         <div class="hero-copy">
-
-          <div class="eyebrow">PETSATHI • BIRD BEHAVIOUR GUIDE</div>
-
-          <h1>
-            Every Chirp<br>
-            Tells a <em>Story.</em>
-          </h1>
-
+          <div class="bird-badge-strip">🐾 PETSATHI • BIRD BEHAVIOUR GUIDE</div>
+          <h1>Every Chirp Has a <em>Meaning!</em></h1>
           <p>
             Discover how birds communicate, learn, play and bond.
             Get to know your feathered companion beyond the cage.
           </p>
-
           <div class="hero-actions">
-            <a class="button" href="#understanding">Explore Behaviour ↓</a>
+            <a class="button" href="#understanding-section">Explore Behaviour ↓</a>
             <a class="button button-outline" href="../birds/index.html">Birds Home ↗</a>
           </div>
-
+          <div class="hero-note">♥ &nbsp; Dedicated to happy wings, healthy habits, and lifelong feathered friendships.</div>
         </div>
 
-        <figure class="hero-photo">
-
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Budgerigar_%28Melopsittacus_undulatus%29.jpg"
-            alt="A budgerigar standing on a play perch surrounded by toys"
-            fetchpriority="high">
-
-          <div class="hero-sticker">
-            <span>🪶</span>
-            Curious minds. Happy birds.
-          </div>
-
-          <figcaption class="photo-credit">
-            Photo:
-            <a href="https://commons.wikimedia.org/wiki/File:Budgerigar_(Melopsittacus_undulatus).jpg" target="_blank" rel="noopener noreferrer">Anna Saccheri</a>
-            · <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>
-          </figcaption>
-
-        </figure>
-
-      </div>
-
+            src="https://images.unsplash.com/photo-1522926193341-e9ffd686c60f?auto=format&fit=crop&w=1000&q=85"
+            alt="A bird singing while perched on a tree branch"
+            class="hero-photo"
+            id="hero-bird-image">
+         <div class="floating-card card-top">
+          <span><b>Natural Instincts</b><small>Encourage healthy bird behaviour</small></span></div>
+        <div class="floating-card card-bottom">
+          🕊️ <span><b>Trust & Bonding</b><small>Build trust through gentle care</small></span></div>
+        </div>
     </section>
 
-    <!-- QUICK NAVIGATION -->
+<!-- QUICK NAVIGATION -->
+<div class="guides-nav-strip">
+  <div class="quick-nav-decor decor-top-left" aria-hidden="true">
+    <i class="fa-solid fa-feather decor-paw decor-paw-1"></i>
+    <i class="fa-solid fa-feather decor-paw decor-paw-2"></i>
+  </div>
+  <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
+    <i class="fa-solid fa-feather decor-paw decor-paw-3"></i>
+    <i class="fa-solid fa-feather decor-paw decor-paw-4"></i>
+  </div>
 
-    <nav class="visual-nav" aria-label="Page sections">
-
-      <div class="section-wrap">
-        <a href="#understanding">Behaviour</a>
-        <a href="#training">🎯 Training</a>
-        <a href="#stimulation">Enrichment</a>
-        <a href="#social">Bonding</a>
-        <a href="#problems">Challenges</a>
+  <div class="quick-nav-header">
+    <div class="quick-nav-eyebrow-wrap">
+      <span class="quick-nav-line"></span>
+      <div class="quick-nav-badge">
+        <i class="fa-regular fa-compass" aria-hidden="true"></i>
+        <span>QUICK NAVIGATION</span>
       </div>
+      <span class="quick-nav-line"></span>
+    </div>
+    <h3 class="quick-nav-title">Explore Dedicated <span>Behaviour Topics</span></h3>
+  </div>
 
-    </nav>
+  <div class="guides-nav-grid">
 
-    <!-- 1. UNDERSTANDING BIRD BEHAVIOUR -->
+    <!-- 1. Understanding Bird Behaviour -->
+    <a href="#understanding-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-feather" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Understanding Behaviour</span>
+    </a>
 
-    <section class="visual-section" id="understanding">
+    <!-- 2. Body Language -->
+    <a href="#body-lang-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Body Language</span>
+    </a>
 
-      <div class="section-wrap">
+    <!-- 3. Bird Communication -->
+    <a href="#communication-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Bird Communication</span>
+    </a>
 
-        <div class="visual-section-header">
+    <!-- 4. Social Behaviour -->
+    <a href="#social-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-users" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Social Behaviour</span>
+    </a>
 
-          <div class="eyebrow">01 • READ THE SIGNS</div>
+    <!-- 5. Common Bird Habits -->
+    <a href="#habits-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Common Bird Habits</span>
+    </a>
 
-          <h2>Understand Their <em>Body Language</em></h2>
+    <!-- 6. Stress & Anxiety -->
+    <a href="#stress-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Stress &amp; Anxiety</span>
+    </a>
 
-          <p>
-            Birds communicate through movement, posture, sounds and social cues.
-            Explore a few common patterns below.
-          </p>
+    <!-- 7. Common Behaviour Problems -->
+    <a href="#problems-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Behaviour Problems</span>
+    </a>
 
-        </div>
+    <!-- 8. Training & Enrichment -->
+    <a href="#training-enrichmant-section" class="guide-nav-item">
+      <span class="guide-nav-icon">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+      </span>
+      <span class="guide-nav-label">Training &amp; Enrichment</span>
+    </a>
 
-        <div class="signal-layout">
+  </div>
+</div>
 
-          <div class="signal-photo">
+<!-- ===== 1. UNDERSTANDING BIRD BEHAVIOUR ===== -->
+<section class="beh-section section-wrap" id="understanding-section">
+  <div class="section-heading-wrap">
+    <span class="section-heading-label"><i class="fa-solid fa-feather"></i> Understanding Bird Behaviour</span>
+    <h2>Discover Their <span>Natural Instincts &amp; Habits</span></h2>
+    <p>Birds display a variety of natural behaviours that help them survive, explore, and adapt to their surroundings. Understanding these instincts helps provide better care and a healthier environment.</p>
+  </div>
 
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/60/Cockatiel_kept_as_pet.jpg"
-              alt="A pet cockatiel perched on a person's finger"
-              loading="lazy">
+  <div class="info-cards-grid">
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+      <h3>Exploration &amp; Curiosity</h3>
+      <p>Birds naturally investigate objects and surroundings using their beaks, feet, and vision. Providing safe opportunities to explore encourages mental stimulation.</p>
+    </article>
 
-            <span class="signal-photo-label">Look beyond the feathers</span>
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+      <h3>Foraging Instincts</h3>
+      <p>Searching, picking, and manipulating food are natural activities for birds. Foraging opportunities help keep them engaged and encourage species-appropriate feeding behaviours.</p>
+    </article>
 
-          </div>
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i></div>
+      <h3>Preening &amp; Grooming</h3>
+      <p>Birds use their beaks to clean, arrange, and maintain their feathers. Many species also use preen glands to help condition their plumage.</p>
+    </article>
 
-          <div class="signal-explorer">
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-sun" aria-hidden="true"></i></div>
+      <h3>Sunbathing &amp; Bathing</h3>
+      <p>Many birds enjoy bathing and carefully regulated exposure to sunlight. These activities can support feather maintenance and natural grooming routines.</p>
+    </article>
 
-            <div class="eyebrow">TAP TO EXPLORE</div>
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-moon" aria-hidden="true"></i></div>
+      <h3>Resting &amp; Sleeping</h3>
+      <p>Birds need regular, uninterrupted sleep to maintain their health. Suitable resting areas and consistent light-dark cycles support healthy sleep patterns.</p>
+    </article>
 
-            <h3>What is your bird expressing?</h3>
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-dove" aria-hidden="true"></i></div>
+      <h3>Flight &amp; Movement</h3>
+      <p>Flying, climbing, hopping, and perching are important natural activities. Providing appropriate space and safe opportunities for movement supports physical fitness.</p>
+    </article>
+  </div>
+</section>
 
-            <p>Choose a behaviour to see possible clues.</p>
+<!-- ===== 2. BODY LANGUAGE ===== -->
+<section class="beh-section-alt" id="body-lang-section">
+  <div class="section-wrap">
+    <div class="section-heading-wrap">
+      <span class="section-heading-label"><i class="fa-solid fa-comment-dots"></i> Body Language</span>
+      <h2>Understanding Bird <span>Body Language &amp; Signals</span></h2>
+      <p>Birds communicate through their posture, feather movements, wing positions, and head gestures. Learn to recognise these physical signals to better understand their needs and emotions.</p>
+    </div>
 
-            <div class="signal-options">
+    <div class="info-cards-grid">
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-person" aria-hidden="true"></i></div>
+        <h3>Body Posture</h3>
+        <p>An upright, relaxed stance often indicates alertness, while crouching low with a tense body may signal fear or discomfort.</p>
+      </article>
 
-              <button class="signal-button active" data-signal="relaxed" aria-pressed="true">
-                <span>🌿</span>
-                Relaxed
-              </button>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-feather" aria-hidden="true"></i></div>
+        <h3>Feather Positioning</h3>
+        <p>Gently fluffed feathers can indicate relaxation, while feathers held tightly against the body may suggest alertness or fear. Persistent fluffing can also indicate illness.</p>
+      </article>
 
-              <button class="signal-button" data-signal="curious" aria-pressed="false">
-                <span>👀</span>
-                Curious
-              </button>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></div>
+        <h3>Eye Pinning</h3>
+        <p>Some birds, especially parrots, rapidly change their pupil size when excited, curious, or agitated. Look at their overall posture to understand the signal.</p>
+      </article>
 
-              <button class="signal-button" data-signal="uneasy" aria-pressed="false">
-                <span>⚠️</span>
-                Uneasy
-              </button>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-dove" aria-hidden="true"></i></div>
+        <h3>Wing Positioning</h3>
+        <p>Stretching one or both wings is a normal behaviour, while wings held away from the body can indicate overheating, stress, or discomfort.</p>
+      </article>
 
-            </div>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-arrows-up-down" aria-hidden="true"></i></div>
+        <h3>Head Movements</h3>
+        <p>Tilting the head often helps birds observe objects from different angles, while head bobbing can be associated with excitement or courtship.</p>
+      </article>
 
-            <div class="signal-output" aria-live="polite">
-              <h4 id="signalTitle">A relaxed bird</h4>
-              <p id="signalDescription">
-                Comfortable posture, gentle preening and familiar activity
-                can be signs that your bird feels at ease.
-              </p>
-            </div>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+        <h3>Foot &amp; Claw Signals</h3>
+        <p>Standing comfortably on one foot can indicate relaxation, while gripping a perch tightly or repeatedly shifting feet may suggest insecurity or discomfort.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-            <p class="signal-note">
-              Behaviour varies by species and individual. Always consider
-              the bird's usual patterns and the surrounding situation.
-            </p>
 
-          </div>
+<!-- ===== 3. BIRD COMMUNICATION ===== -->
+<section class="beh-section-alt" id="communication-section">
+  <div class="section-wrap">
+    <div class="section-heading-wrap">
+      <span class="section-heading-label"><i class="fa-solid fa-volume-high"></i> Bird Communication</span>
+      <h2>Understanding Their <span>Sounds &amp; Signals</span></h2>
+      <p>Birds communicate through songs, calls, and other sounds to interact with their flock, attract mates, express needs, and respond to their environment.</p>
+    </div>
 
-        </div>
+    <div class="info-cards-grid">
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-music" aria-hidden="true"></i></div>
+        <h3>Singing</h3>
+        <p>Many birds sing to attract mates, defend territories, and communicate with others. Singing patterns and frequency vary between species and individuals.</p>
+      </article>
 
-        <div class="sound-strip">
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></div>
+        <h3>Chirping &amp; Twittering</h3>
+        <p>Short, repeated chirps and twittering sounds can occur during social interaction, everyday activity, or periods of excitement. Their meaning depends on the context.</p>
+      </article>
 
-          <article class="sound-card">
-            <div class="sound-icon">🎵</div>
-            <h4>Singing & Chirping</h4>
-            <p>Can be used for contact, expression and communication.</p>
-          </article>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
+        <h3>Contact Calls</h3>
+        <p>Birds use contact calls to maintain communication with flock members and check their whereabouts, especially when separated or out of sight.</p>
+      </article>
 
-          <article class="sound-card">
-            <div class="sound-icon">📣</div>
-            <h4>Contact Calls</h4>
-            <p>May help birds maintain contact with familiar companions.</p>
-          </article>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></div>
+        <h3>Alarm Calls</h3>
+        <p>Sharp or repeated calls can warn other birds about potential threats. Some species use different calls depending on the type or location of danger.</p>
+      </article>
 
-          <article class="sound-card">
-            <div class="sound-icon">🪶</div>
-            <h4>Body Signals</h4>
-            <p>Posture and movement add context to vocal communication.</p>
-          </article>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></div>
+        <h3>Mimicry &amp; Vocal Learning</h3>
+        <p>Parrots and several other bird species can imitate sounds, including human speech and environmental noises. Mimicry is often part of their social learning.</p>
+      </article>
 
-        </div>
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i></div>
+        <h3>Non-Vocal Signals</h3>
+        <p>Along with sounds, birds use movements, displays, and visual cues to communicate during courtship, territorial interactions, and social encounters.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
+<!-- ===== 4. SOCIAL BEHAVIOUR ===== -->
+<section class="beh-section section-wrap" id="social-section">
+  <div class="section-heading-wrap">
+    <span class="section-heading-label"><i class="fa-solid fa-heart"></i> Social Behaviour</span>
+    <h2>Understanding Bird <span>Social Behaviour &amp; Bonding</span></h2>
+    <p>Birds are social creatures that communicate and form bonds through interaction, shared activities, and flock behaviours. Discover how to support their social needs.</p>
+  </div>
+
+  <div class="info-cards-grid">
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+      <h3>Respect Personal Space</h3>
+      <p>Allow birds to approach and interact at their own pace. Avoid forced handling, respect signs of discomfort, and give them space when needed.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
+      <h3>Interactive Playtime</h3>
+      <p>Spend time playing with bird-safe toys, practising simple activities, and offering supervised opportunities for exploration to strengthen your bond.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+      <h3>Flock Interactions</h3>
+      <p>Many bird species enjoy socialising with their own kind. Provide compatible companions with enough space, food stations, and resources to reduce competition.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></div>
+      <h3>Social Environment</h3>
+      <p>Place the bird's enclosure in a calm area where it can observe household activity without constant disturbance, loud noises, or excessive handling.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i></div>
+      <h3>Gradual Introductions</h3>
+      <p>Introduce new birds or people gradually. Keep unfamiliar birds in separate enclosures initially and allow them to become comfortable before supervised interactions.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></div>
+      <h3>Building Trust &amp; Bonding</h3>
+      <p>Use calm voices, predictable routines, and positive reinforcement. Consistent, gentle interactions help birds develop confidence and trust with their caregivers.</p>
+    </article>
+  </div>
+</section>
+
+
+<!-- ===== 5. COMMON BIRD HABITS (With Search & Filter) ===== -->
+<section class="beh-section section-wrap" id="habits-section">
+  <div class="bird-topics-heading">
+    <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+      <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+    </svg>
+    <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+      <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+    </svg>
+
+    <div class="paw paw-left-1"><i class="fa-solid fa-feather"></i></div>
+    <div class="paw paw-left-2"><i class="fa-solid fa-dove"></i></div>
+    <div class="paw paw-right-1"><i class="fa-solid fa-feather"></i></div>
+    <div class="paw paw-right-2"><i class="fa-solid fa-dove"></i></div>
+
+    <div class="heading-content">
+      <span class="heading-label">
+        <i class="fa-solid fa-feather"></i>
+        Common Bird Habits
+      </span>
+      <h2>
+        <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+        Discover Everyday <span>Bird Habits</span>
+        <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+      </h2>
+      <p>
+        From preening their feathers to exploring their surroundings, discover the natural habits that shape a bird's everyday life.
+      </p>
+    </div>
+  </div>
+
+  <!-- Search & Filter Controls -->
+  <div class="search-filter-container" role="search" aria-label="Filter bird behaviours">
+    <div class="search-input-wrap">
+      <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+      <input
+        type="search"
+        id="behaviour-search"
+        placeholder="Search a habit (e.g. preening, bathing, foraging)..."
+        aria-label="Search bird behaviours">
+    </div>
+
+    <div class="filter-pills-row" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">
+        <i class="fa-solid fa-border-all" aria-hidden="true"></i> All Habits
+      </button>
+      <button class="filter-btn" data-filter="emotion" aria-pressed="false">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i> Comfort &amp; Care
+      </button>
+      <button class="filter-btn" data-filter="communication" aria-pressed="false">
+        <i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Communication
+      </button>
+      <button class="filter-btn" data-filter="instinct" aria-pressed="false">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i> Natural Instinct
+      </button>
+    </div>
+  </div>
+
+  <!-- Bird Behaviour Cards Grid (7 Items) -->
+  <div class="behaviour-cards-grid" id="behaviour-cards-grid">
+
+    <!-- 1. Preening -->
+    <article class="beh-card" data-category="emotion">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-heart" aria-hidden="true"></i> Grooming</span>
+        <img src="../../../assets/images/birds/bird-preening.png" alt="Bird using its beak to clean and arrange its feathers" loading="lazy">
       </div>
-
-    </section>
-
-    <!-- 2. BIRD TRAINING -->
-
-    <section class="visual-section soft" id="training">
-
-      <div class="section-wrap">
-
-        <div class="visual-section-header">
-          <div class="eyebrow">02 • LEARN TOGETHER</div>
-          <h2>Training Through <em>Trust</em></h2>
-          <p>
-            No force. No punishment. Just patience, clear signals and
-            positive reinforcement.
-          </p>
-        </div>
-
-        <div class="training-feature">
-
-          <figure>
-
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1e/My_pet_budgerigar_sitting_on_my_shoulder.jpg"
-              alt="A pet budgerigar sitting on its owner's shoulder"
-              loading="lazy">
-
-            <figcaption class="photo-credit">
-              Photo:
-              <a href="https://commons.wikimedia.org/wiki/File:My_pet_budgerigar_sitting_on_my_shoulder.jpg" target="_blank" rel="noopener noreferrer">BudgieGuy16</a>
-              · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
-            </figcaption>
-
-          </figure>
-
-          <div class="training-copy">
-
-            <span class="reward-label">⭐ Reward-based learning</span>
-
-            <h3>Make learning a happy experience.</h3>
-
-            <p>
-              Reward your bird immediately when it voluntarily performs
-              a desired action. Suitable food treats, praise or a
-              favourite activity can be positive rewards.
-            </p>
-
-            <p>
-              Keep training gentle and short. Let your bird choose
-              whether to participate.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="training-steps">
-
-          <article class="training-step">
-            <div class="step-number">1</div>
-            <h4>Build familiarity</h4>
-            <p>Start calmly. Let your bird approach at its own pace.</p>
-          </article>
-
-          <article class="training-step">
-            <div class="step-number">2</div>
-            <h4>Reward progress</h4>
-            <p>Mark and reward small voluntary steps towards the goal.</p>
-          </article>
-
-          <article class="training-step">
-            <div class="step-number">3</div>
-            <h4>Practice gently</h4>
-            <p>Repeat in short sessions and stop when your bird needs a break.</p>
-          </article>
-
-        </div>
-
+      <div class="beh-card-body">
+        <h3>Preening</h3>
+        <p>Birds regularly use their beaks to clean, align, and maintain their feathers. This essential grooming habit helps keep their plumage in good condition.</p>
       </div>
+    </article>
 
-    </section>
-
-    <!-- 3. MENTAL STIMULATION -->
-
-    <section class="visual-section" id="stimulation">
-
-      <div class="section-wrap">
-
-        <div class="visual-section-header">
-          <div class="eyebrow">03 • PLAY, EXPLORE, DISCOVER</div>
-          <h2>Make Every Day an <em>Adventure</em></h2>
-          <p>
-            Enrichment gives birds opportunities to forage, climb,
-            investigate and solve simple challenges.
-          </p>
-        </div>
-
-        <div class="enrichment-gallery">
-
-          <figure class="enrichment-feature">
-
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Psittacus_erithacus_erithacus_-pet_playing_with_bell-6a.jpg"
-              alt="An African grey parrot playing upside down with a hanging bell toy"
-              loading="lazy">
-
-            <figcaption class="image-caption">
-
-              <h3>Play & Exploration 🧸</h3>
-
-              <p>
-                Offer bird-safe toys for climbing, chewing and discovery.
-              </p>
-
-              <div class="photo-credit">
-                Photo:
-                <a href="https://commons.wikimedia.org/wiki/File:Psittacus_erithacus_erithacus_-pet_playing_with_bell-6a.jpg" target="_blank" rel="noopener noreferrer">Nigel Wedge</a>
-                · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>
-              </div>
-
-            </figcaption>
-
-          </figure>
-
-          <div class="enrichment-side">
-
-            <article class="enrichment-mini">
-
-              <div class="mini-icon">🌾</div>
-
-              <div>
-                <h4>Foraging</h4>
-                <p>Let your bird search for small portions of suitable food.</p>
-              </div>
-
-            </article>
-
-            <article class="enrichment-mini">
-
-              <div class="mini-icon">🧩</div>
-
-              <div>
-                <h4>Puzzle Play</h4>
-                <p>Introduce easy, bird-safe food puzzles and discovery toys.</p>
-              </div>
-
-            </article>
-
-            <article class="enrichment-mini">
-
-              <div class="mini-icon">🪜</div>
-
-              <div>
-                <h4>Climbing</h4>
-                <p>Use suitable ladders, perches and supervised play areas.</p>
-              </div>
-
-            </article>
-
-            <article class="enrichment-mini">
-
-              <div class="mini-icon">🔄</div>
-
-              <div>
-                <h4>Variety</h4>
-                <p>Rotate familiar activities gradually to encourage curiosity.</p>
-              </div>
-
-            </article>
-
-          </div>
-
-        </div>
-
-        <!-- INTERACTIVE ACTIVITY PICKER -->
-
-        <div class="activity-picker">
-
-          <div class="activity-picker-head">
-
-            <h3>Need an activity idea? 💡</h3>
-
-            <div class="activity-controls">
-
-              <button class="active" data-activity="foraging" aria-pressed="true">
-                Foraging
-              </button>
-
-              <button data-activity="puzzle" aria-pressed="false">
-                Puzzle
-              </button>
-
-              <button data-activity="play" aria-pressed="false">
-                Play
-              </button>
-
-            </div>
-
-          </div>
-
-          <div class="activity-result" aria-live="polite">
-
-            <div class="activity-icon" id="activityIcon">🌾</div>
-
-            <div>
-              <h4 id="activityTitle">Food Discovery</h4>
-              <p id="activityDescription">
-                Hide a small portion of suitable food in an easy-to-open,
-                bird-safe paper wrap and let your bird investigate.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
+    <!-- 2. Bathing -->
+    <article class="beh-card" data-category="emotion">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-droplet" aria-hidden="true"></i> Hygiene</span>
+        <img src="../../../assets/images/birds/bird-bathing.png" alt="Bird bathing and splashing in shallow water" loading="lazy">
       </div>
-
-    </section>
-
-    <!-- 4. SOCIAL INTERACTION -->
-
-    <section class="visual-section soft" id="social">
-
-      <div class="section-wrap">
-
-        <div class="bond-layout">
-
-          <figure class="bond-photo">
-
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/60/Cockatiel_kept_as_pet.jpg"
-              alt="A cockatiel comfortably perched on its owner's hand"
-              loading="lazy">
-
-            <figcaption class="photo-credit">
-              Photo:
-              <a href="https://commons.wikimedia.org/wiki/File:Cockatiel_kept_as_pet.jpg" target="_blank" rel="noopener noreferrer">Hrzn64</a>
-              · <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>
-            </figcaption>
-
-          </figure>
-
-          <div class="bond-content">
-
-            <div class="eyebrow">04 • A BOND BUILT ON TRUST</div>
-
-            <h3>Be their favourite part of the day. 💚</h3>
-
-            <p>
-              Birds have different personalities and social needs.
-              Consistent, respectful interactions help build a
-              comfortable relationship.
-            </p>
-
-            <div class="bond-points">
-
-              <div class="bond-point">
-                <span>💬</span>
-                <div>
-                  <strong>Talk together</strong>
-                  <small>Use gentle voices and familiar interaction.</small>
-                </div>
-              </div>
-
-              <div class="bond-point">
-                <span>⏰</span>
-                <div>
-                  <strong>Make time every day</strong>
-                  <small>Balance play, training and quiet time.</small>
-                </div>
-              </div>
-
-              <div class="bond-point">
-                <span>🤝</span>
-                <div>
-                  <strong>Respect boundaries</strong>
-                  <small>Allow your bird to approach voluntarily.</small>
-                </div>
-              </div>
-
-              <div class="bond-point">
-                <span>🪺</span>
-                <div>
-                  <strong>Know their personality</strong>
-                  <small>Adapt interaction to their individual needs.</small>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
+      <div class="beh-card-body">
+        <h3>Bathing</h3>
+        <p>Many birds enjoy splashing in shallow water or bathing in rain. Bathing helps remove dirt and supports healthy feather maintenance.</p>
       </div>
+    </article>
 
-    </section>
-
-    <!-- 5. COMMON BEHAVIOURAL PROBLEMS -->
-
-    <section class="visual-section" id="problems">
-
-      <div class="section-wrap">
-
-        <div class="visual-section-header center">
-
-          <div class="eyebrow">05 • UNDERSTAND, DON'T PUNISH</div>
-
-          <h2>When Behaviour <em>Changes</em></h2>
-
-          <p>
-            Explore common challenges. Click a card to see what may
-            contribute and how to respond.
-          </p>
-
-        </div>
-
-        <div class="problems-grid">
-
-          <details class="problem-card">
-
-            <summary>
-              <span class="problem-icon">📢</span>
-              Excessive Screaming
-            </summary>
-
-            <div class="problem-info">
-
-              <p>
-                Frequent or sudden loud calling may relate to social
-                needs, changes in routine, fear or other triggers.
-              </p>
-
-              <div class="response">
-                <strong>Try:</strong> Observe patterns, check the bird's
-                needs and provide appropriate enrichment. Avoid shouting
-                back or punishment.
-              </div>
-
-            </div>
-
-          </details>
-
-          <details class="problem-card">
-
-            <summary>
-              <span class="problem-icon">🪶</span>
-              Feather Plucking
-            </summary>
-
-            <div class="problem-info">
-
-              <p>
-                Feather damage can have medical, environmental or
-                behavioural causes. It should never be assumed to
-                be simply boredom.
-              </p>
-
-              <div class="response">
-                <strong>Try:</strong> Arrange an avian veterinary
-                assessment and review the bird's environment with
-                professional guidance.
-              </div>
-
-            </div>
-
-          </details>
-
-          <details class="problem-card">
-
-            <summary>
-              <span class="problem-icon">🦜</span>
-              Biting
-            </summary>
-
-            <div class="problem-info">
-
-              <p>
-                Biting may be a response to fear, discomfort, unwanted
-                handling or a need for personal space.
-              </p>
-
-              <div class="response">
-                <strong>Try:</strong> Notice warning signs, respect
-                boundaries and reward calm voluntary interactions.
-                Never hit or frighten your bird.
-              </div>
-
-            </div>
-
-          </details>
-
-          <details class="problem-card">
-
-            <summary>
-              <span class="problem-icon">😕</span>
-              Boredom & Stress
-            </summary>
-
-            <div class="problem-info">
-
-              <p>
-                Limited enrichment, insufficient rest, unpredictable
-                surroundings or unmet social needs may contribute
-                to stress.
-              </p>
-
-              <div class="response">
-                <strong>Try:</strong> Offer suitable foraging,
-                enrichment, predictable routines and opportunities
-                for quiet rest.
-              </div>
-
-            </div>
-
-          </details>
-
-        </div>
-
-        <div class="vet-reminder">
-
-          <span>🩺</span>
-
-          <div>
-            <strong>When in doubt, consult an avian veterinarian.</strong>
-            <p>
-              Sudden behavioural changes, feather damage, persistent
-              screaming, unusual inactivity or aggression may need
-              professional assessment. This guide is educational,
-              not a diagnosis.
-            </p>
-          </div>
-
-        </div>
-
+    <!-- 3. Perching -->
+    <article class="beh-card" data-category="instinct">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-tree" aria-hidden="true"></i> Natural Instinct</span>
+        <img src="../../../assets/images/birds/bird-perching.png" alt="Bird resting on a natural tree branch" loading="lazy">
       </div>
+      <div class="beh-card-body">
+        <h3>Perching</h3>
+        <p>Birds use their feet to grip branches and other suitable surfaces while resting, observing their surroundings, and sleeping.</p>
+      </div>
+    </article>
 
-    </section>
+    <!-- 4. Foraging -->
+    <article class="beh-card" data-category="instinct">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Instinct</span>
+        <img src="../../../assets/images/birds/bird-foraging.png" alt="Bird searching for food among leaves and branches" loading="lazy">
+      </div>
+      <div class="beh-card-body">
+        <h3>Foraging</h3>
+        <p>Birds naturally search for food by probing, picking, and exploring their surroundings. Their foraging methods vary depending on their species and diet.</p>
+      </div>
+    </article>
 
-    <!-- PHOTO CREDITS & LEARNING RESOURCES -->
+    <!-- 5. Beak Grinding -->
+    <article class="beh-card" data-category="emotion">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-heart" aria-hidden="true"></i> Relaxation</span>
+        <img src="../../../assets/images/birds/bird-beak-grinding.png" alt="Parrot gently grinding its beak while resting" loading="lazy">
+      </div>
+      <div class="beh-card-body">
+        <h3>Beak Grinding</h3>
+        <p>Some birds, particularly parrots, gently rub their upper and lower beaks together, producing a soft grinding sound. This commonly occurs during relaxed resting periods.</p>
+      </div>
+    </article>
 
-    <section class="section-wrap" style="padding-bottom:35px;">
+    <!-- 6. Nest Building -->
+    <article class="beh-card" data-category="instinct">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-house" aria-hidden="true"></i> Nesting</span>
+        <img src="../../../assets/images/birds/bird-nest-building.png" alt="Bird collecting nesting materials to build a nest" loading="lazy">
+      </div>
+      <div class="beh-card-body">
+        <h3>Nest Building</h3>
+        <p>Many bird species collect twigs, leaves, grass, and other materials to construct nests. Nest-building behaviour is closely linked to breeding and raising young.</p>
+      </div>
+    </article>
 
-      <div class="photo-credits">
+    <!-- 7. Head Tilting -->
+    <article class="beh-card" data-category="communication">
+      <div class="beh-card-media">
+        <span class="beh-card-badge"><i class="fa-solid fa-eye" aria-hidden="true"></i> Observation</span>
+        <img src="../../../assets/images/birds/bird-head-tilting.png" alt="Bird tilting its head while observing something nearby" loading="lazy">
+      </div>
+      <div class="beh-card-body">
+        <h3>Head Tilting</h3>
+        <p>Birds often tilt their heads to view objects from different angles. This movement helps them use their vision to inspect food, surroundings, and unfamiliar objects.</p>
+      </div>
+    </article>
 
-        <div class="eyebrow">IMAGE CREDITS & FURTHER READING</div>
+    <!-- No Results Fallback -->
+    <div id="no-results-msg" class="no-results-card" style="display: none;">
+      <div class="no-results-icon">🐦</div>
+      <h3>No matching bird habits found</h3>
+      <p>Try searching for another keyword like "preening", "bathing", or "foraging", or reset the category filter.</p>
+      <button class="button button-small" id="reset-filter-btn" type="button">Reset Filters</button>
+    </div>
 
-        <h3>Photography Credits</h3>
+  </div>
+</section>
 
+
+<!-- ===== 6. STRESS & ANXIETY ===== -->
+<section class="beh-section-alt" id="stress-section">
+  <div class="section-wrap">
+    <div class="bird-topics-heading">
+      <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+        <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6" opacity="0.95" />
+      </svg>
+      <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+        <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6" opacity="0.95" />
+      </svg>
+
+      <div class="paw paw-left-1"><i class="fa-solid fa-feather"></i></div>
+      <div class="paw paw-left-2"><i class="fa-solid fa-dove"></i></div>
+      <div class="paw paw-right-1"><i class="fa-solid fa-feather"></i></div>
+      <div class="paw paw-right-2"><i class="fa-solid fa-dove"></i></div>
+
+      <div class="heading-content">
+        <span class="heading-label">
+          <i class="fa-solid fa-shield-heart"></i>
+          Stress &amp; Anxiety
+        </span>
+        <h2>
+          <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+          Recognising &amp; Reducing <span>Bird Stress &amp; Anxiety</span>
+          <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+        </h2>
         <p>
-          Budgerigar play perch:
-          Anna Saccheri, Wikimedia Commons,
-          <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>.
+          Birds can be sensitive to changes in their surroundings, daily routines, and social environment. Understanding their stress triggers helps create a safer and more comfortable living space.
         </p>
-
-        <p>
-          Budgerigar on shoulder:
-          BudgieGuy16, Wikimedia Commons,
-          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-        </p>
-
-        <p>
-          African grey playing with bell:
-          Nigel Wedge, Wikimedia Commons,
-          <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>.
-        </p>
-
-        <p>
-          Cockatiel photograph:
-          Hrzn64, Wikimedia Commons,
-          <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>.
-        </p>
-
-        <div class="resource-links">
-
-          <a href="https://www.rspca.org.uk/adviceandwelfare/pets/birds/training" target="_blank" rel="noopener noreferrer">
-            RSPCA Training ↗
-          </a>
-
-          <a href="https://www.rspca.org.uk/adviceandwelfare/pets/birds/enrichment" target="_blank" rel="noopener noreferrer">
-            RSPCA Enrichment ↗
-          </a>
-
-          <a href="https://www.merckvetmanual.com/bird-owners/choosing-and-taking-care-of-a-pet-bird/behavior-of-pet-birds" target="_blank" rel="noopener noreferrer">
-            Merck Bird Behaviour ↗
-          </a>
-
-        </div>
-
       </div>
+    </div>
 
-    </section>
+    <div class="info-cards-grid">
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></div>
+        <h3>Noise &amp; Environmental Stress</h3>
+        <p>Loud music, shouting, sudden movements, and unfamiliar surroundings can frighten birds. Keep their living area away from excessive noise and disturbances.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-house-circle-exclamation" aria-hidden="true"></i></div>
+        <h3>Changes in Surroundings</h3>
+        <p>Moving an enclosure, introducing unfamiliar objects, or changing household routines can make birds feel unsettled. Introduce changes gradually whenever possible.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i></div>
+        <h3>Temperature &amp; Living Conditions</h3>
+        <p>Extreme temperatures, poor ventilation, inadequate lighting, and uncomfortable living conditions can affect a bird's well-being. Maintain a suitable, species-appropriate environment.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-user-group" aria-hidden="true"></i></div>
+        <h3>Social Isolation</h3>
+        <p>Many bird species have strong social needs. Insufficient interaction or lack of appropriate companionship can contribute to stress. Provide suitable social contact based on the bird's species and individual needs.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+        <h3>Creating a Safe Environment</h3>
+        <p>Provide secure resting areas, suitable perches, and predictable surroundings. Keep the enclosure away from household hazards and ensure the bird has opportunities to retreat when needed.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+        <h3>When to Seek Veterinary Help</h3>
+        <p>Persistent changes in activity, appetite, droppings, or feather condition may indicate illness rather than stress alone. Consult an avian veterinarian promptly to identify the underlying cause.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. COMMON BEHAVIOUR PROBLEMS ===== -->
+<section class="beh-section section-wrap" id="problems-section">
+  <div class="section-heading-wrap">
+    <span class="section-heading-label"><i class="fa-solid fa-triangle-exclamation"></i> Common Behaviour Problems</span>
+    <h2>Recognising &amp; Addressing <span>Behaviour Challenges</span></h2>
+    <p>Changes in a bird's behaviour can result from stress, boredom, fear, environmental changes, or underlying health conditions. Recognising the causes is the first step towards helping them.</p>
+  </div>
+
+  <div class="info-cards-grid">
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-volume-xmark" aria-hidden="true"></i></div>
+      <h3>Excessive Screaming</h3>
+      <p>Frequent loud calling may be associated with attention-seeking, fear, boredom, or normal contact-calling behaviour. Identify triggers and provide enrichment while rewarding calm behaviour.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+      <h3>Biting &amp; Aggression</h3>
+      <p>Biting can occur due to fear, discomfort, territorial behaviour, or unwanted handling. Respect warning signals, avoid punishment, and build trust through gradual positive interactions.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-feather" aria-hidden="true"></i></div>
+      <h3>Feather Plucking</h3>
+      <p>Feather-damaging behaviour may be linked to medical issues, stress, or environmental factors. Consult an avian veterinarian to investigate the cause before making changes to care routines.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-hammer" aria-hidden="true"></i></div>
+      <h3>Destructive Chewing</h3>
+      <p>Chewing and shredding are natural activities, but damage to unsafe household objects can be dangerous. Provide bird-safe materials and suitable toys to redirect this behaviour.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i></div>
+      <h3>Fear &amp; Avoidance</h3>
+      <p>Hiding, retreating, or resisting interaction may indicate fear or a lack of confidence. Introduce new people and experiences gradually without forcing contact.</p>
+    </article>
+
+    <article class="info-card">
+      <div class="info-card-icon"><i class="fa-solid fa-arrows-spin" aria-hidden="true"></i></div>
+      <h3>Repetitive Behaviours</h3>
+      <p>Repeated pacing, excessive rocking, or other repetitive movements may indicate an unsuitable environment, stress, or health concerns. Seek veterinary advice and review daily enrichment.</p>
+    </article>
+  </div>
+</section>
+    
+<!-- ===== 8. TRAINING AND ENRICHMENT ===== -->
+<section class="beh-section-alt" id="training-enrichmant-section">
+  <div class="section-wrap">
+    <div class="section-heading-wrap">
+      <span class="section-heading-label"><i class="fa-solid fa-graduation-cap"></i> Positive Behaviour Training</span>
+      <h2>Bird Training &amp; <span>Enrichment Activities</span></h2>
+      <p>Birds thrive with patience, positive reinforcement, and mental stimulation. Encourage natural behaviours through gentle training and engaging activities.</p>
+    </div>
+
+    <div class="info-cards-grid">
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-hand" aria-hidden="true"></i></div>
+        <h3>Step-Up Training</h3>
+        <p>Teach your bird to step onto your hand or a perch using gentle cues and rewards. Never force interaction, and allow your bird to build confidence gradually.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+        <h3>Positive Reinforcement</h3>
+        <p>Reward desired behaviours immediately with small, bird-safe treats or praise. Consistent rewards help birds associate positive actions with pleasant experiences.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></div>
+        <h3>Foraging Activities</h3>
+        <p>Encourage natural food-searching instincts with bird-safe foraging toys, paper-based puzzles, and hidden food rewards to keep your bird mentally engaged.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
+        <h3>Toys &amp; Playtime</h3>
+        <p>Provide safe toys for chewing, shredding, climbing, and exploring. Rotate toys regularly to maintain curiosity and prevent boredom.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+        <h3>Target Training</h3>
+        <p>Teach your bird to touch a target stick with its beak. Reward each successful attempt to encourage learning and make everyday interactions easier.</p>
+      </article>
+
+      <article class="info-card">
+        <div class="info-card-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+        <h3>Daily Routines</h3>
+        <p>Maintain consistent feeding, sleep, exercise, and interaction schedules. Predictable routines help birds feel secure and support their overall well-being.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
     <!-- CTA -->
-
-    <section class="section-wrap">
-
-      <div class="behaviour-cta">
-
-        <div class="eyebrow" style="color:#cce5d1;">
-          THE LITTLE THINGS MATTER
-        </div>
-
-        <h2>Listen. Learn. Bond. 💚</h2>
-
-        <p>
-          Every bird has its own personality. Give it patience,
-          opportunities to explore and a relationship built on trust.
-        </p>
-
-        <a class="button" href="../birds/index.html">
-          ← Explore Bird Information
-        </a>
-
-      </div>
-
-    </section>
+<section class="cta section-wrap">
+  <div>
+    <div class="eyebrow">CONTINUE YOUR BIRD CARE JOURNEY</div>
+    <h2>Every Bird Deserves a <em>Happy, Healthy Life.</em></h2>
+    <p>
+      Understanding your bird's behaviour is the first step towards building trust and providing the right care. Explore our bird guides to learn about their natural instincts, communication, and well-being.
+    </p>
+  </div>
+  <div class="cta-actions">
+    <a class="button button-light" href="index.html" id="cta-care-guide">Explore Bird Information ↗</a>
+    <a class="button button-outline" href="species.html" id="cta-breeds">Explore Bird Species ↗</a>
+  </div>
+</section>
 
   </main>
 
@@ -1650,208 +1526,69 @@
   <script src="../../../js/main.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    // ── Search & Filter Logic ────────────────────────────────────────────────
+    const searchInput = document.getElementById('behaviour-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#behaviour-cards-grid .beh-card');
+    const noResultsMsg = document.getElementById('no-results-msg');
+    const resetFilterBtn = document.getElementById('reset-filter-btn');
 
-      /* 1. BODY LANGUAGE EXPLORER */
+    let activeFilter = 'all';
 
-      const signals = {
-        relaxed: {
-          title: "A relaxed bird",
-          description:
-            "Comfortable posture, gentle preening and familiar activity can be signs that your bird feels at ease."
-        },
+    function applyFilters() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      let visibleCount = 0;
 
-        curious: {
-          title: "A curious bird",
-          description:
-            "Looking around, tilting the head and investigating objects may show interest. Allow safe exploration without forcing contact."
-        },
+      cards.forEach(card => {
+        const category = card.dataset.category || '';
+        const text = card.textContent.toLowerCase();
 
-        uneasy: {
-          title: "A bird that needs space",
-          description:
-            "Moving away, leaning back, hissing or lunging can be signs of discomfort. Pause the interaction and give your bird room."
+        const matchesFilter = activeFilter === 'all' || category === activeFilter;
+        const matchesQuery = !query || text.includes(query);
+
+        if (matchesFilter && matchesQuery) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
         }
-      };
-
-      const signalButtons =
-        document.querySelectorAll(".signal-button");
-
-      const signalTitle =
-        document.getElementById("signalTitle");
-
-      const signalDescription =
-        document.getElementById("signalDescription");
-
-      signalButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-          const selected = signals[button.dataset.signal];
-
-          if (!selected) return;
-
-          signalButtons.forEach(item => {
-
-            const active = item === button;
-
-            item.classList.toggle("active", active);
-
-            item.setAttribute(
-              "aria-pressed",
-              String(active)
-            );
-
-          });
-
-          signalTitle.textContent = selected.title;
-
-          signalDescription.textContent =
-            selected.description;
-
-        });
-
       });
 
-
-      /* 2. ENRICHMENT ACTIVITY PICKER */
-
-      const activityIdeas = {
-        foraging: {
-          icon: "🌾",
-          title: "Food Discovery",
-          description:
-            "Hide a small portion of suitable food in an easy-to-open, bird-safe paper wrap and let your bird investigate."
-        },
-
-        puzzle: {
-          icon: "🧩",
-          title: "Simple Puzzle",
-          description:
-            "Introduce a bird-safe puzzle feeder with an easy starting challenge. Let your bird discover how to reach the reward."
-        },
-
-        play: {
-          icon: "🧸",
-          title: "Toy Exploration",
-          description:
-            "Offer a suitable chew or manipulation toy. Watch which textures and activities your bird enjoys."
-        }
-      };
-
-      const activityButtons =
-        document.querySelectorAll(".activity-controls button");
-
-      const activityIcon =
-        document.getElementById("activityIcon");
-
-      const activityTitle =
-        document.getElementById("activityTitle");
-
-      const activityDescription =
-        document.getElementById("activityDescription");
-
-      activityButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-          const selected =
-            activityIdeas[button.dataset.activity];
-
-          if (!selected) return;
-
-          activityButtons.forEach(item => {
-
-            const active = item === button;
-
-            item.classList.toggle("active", active);
-
-            item.setAttribute(
-              "aria-pressed",
-              String(active)
-            );
-
-          });
-
-          activityIcon.textContent = selected.icon;
-          activityTitle.textContent = selected.title;
-          activityDescription.textContent =
-            selected.description;
-
-        });
-
-      });
-
-
-      /* 3. ONE BEHAVIOUR CARD OPEN AT A TIME */
-
-      const problemCards =
-        document.querySelectorAll(".problem-card");
-
-      problemCards.forEach(card => {
-
-        card.addEventListener("toggle", () => {
-
-          if (card.open) {
-
-            problemCards.forEach(otherCard => {
-
-              if (otherCard !== card) {
-                otherCard.open = false;
-              }
-
-            });
-
-          }
-
-        });
-
-      });
-
-
-      /* 4. ACTIVE SECTION NAVIGATION */
-
-      const navLinks = document.querySelectorAll(
-        ".visual-nav a[href^='#']"
-      );
-
-      const sections = Array.from(navLinks)
-        .map(link => document.querySelector(link.getAttribute("href")))
-        .filter(Boolean);
-
-      if ("IntersectionObserver" in window) {
-
-        const observer = new IntersectionObserver(entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              navLinks.forEach(link => {
-
-                const active =
-                  link.getAttribute("href") ===
-                  "#" + entry.target.id;
-
-                link.classList.toggle("active", active);
-
-              });
-
-            }
-
-          });
-
-        }, {
-          rootMargin: "-20% 0px -65% 0px"
-        });
-
-        sections.forEach(section => observer.observe(section));
-
+      if (noResultsMsg) {
+        noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
       }
+    }
 
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        filterBtns.forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-pressed', String(isActive));
+        });
+        applyFilters();
+      });
+    });
 
-      /* 5. BACK TO TOP */
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilters);
+    }
 
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        activeFilter = 'all';
+        filterBtns.forEach(b => {
+          const isAll = b.dataset.filter === 'all';
+          b.classList.toggle('active', isAll);
+          b.setAttribute('aria-pressed', String(isAll));
+        });
+        applyFilters();
+      });
+    }
+
+      /* BACK TO TOP */
       const backToTop =
         document.getElementById("backToTop");
 
@@ -1877,26 +1614,15 @@
 
       });
 
-
-      /* 6. HANDLE IMAGE LOADING ERRORS */
-
-      document.querySelectorAll("img").forEach(img => {
-
-        img.addEventListener("error", () => {
-
-          img.style.display = "none";
-
-          const figure = img.closest("figure");
-
-          if (figure) {
-            figure.classList.add("image-unavailable");
-          }
-
-        });
-
+    // ── Mobile Nav Toggle ────────────────────────────────────────────────────
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
       });
-
-    });
+    }
   </script>
 
 </body>
