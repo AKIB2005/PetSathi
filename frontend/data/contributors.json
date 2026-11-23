@@ -1,0 +1,192 @@
+{
+  "program": "Nexus Spring of Code (NSoC) 2026 \u2013 Winter Edition",
+  "repository": "https://github.com/Riya-Kharade/PetSathi",
+  "last_updated": "2026-11-23",
+  "total_contributors": 19,
+  "contributors": [
+    {
+      "username": "Riya-Kharade",
+      "name": "Riya-Kharade",
+      "contributions": 134,
+      "avatar_url": "https://avatars.githubusercontent.com/u/191875350?v=4",
+      "profile_url": "https://github.com/Riya-Kharade",
+      "role": "Project Admin & Maintainer",
+      "verified": true,
+      "bio": "Student at Vidyalankar Institute of Technology, Mumbai, passionate about exploring new ideas and sharing projects, internship work, and assignments on GitHub."
+    },
+    {
+      "username": "darshansahare",
+      "name": "darshan",
+      "contributions": 59,
+      "avatar_url": "https://avatars.githubusercontent.com/u/239850930?v=4",
+      "profile_url": "https://github.com/darshansahare",
+      "role": "Project Admin & Maintainer",
+      "verified": true,
+      "bio": "into software engineering, AI & building things. "
+    },
+    {
+      "username": "ankitkr104",
+      "name": "Ankit kr",
+      "contributions": 24,
+      "avatar_url": "https://avatars.githubusercontent.com/u/179861827?v=4",
+      "profile_url": "https://github.com/ankitkr104",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "IIT Patna | CS undergraduate | Web & ML enthusiast \r\nOpen-source contributor | Learning by building  \r\nInterested in systems, AI, and impactful tec"
+    },
+    {
+      "username": "sutanjoyb",
+      "name": "Sutanjoy Bhattacharjee",
+      "contributions": 18,
+      "avatar_url": "https://avatars.githubusercontent.com/u/220499057?v=4",
+      "profile_url": "https://github.com/sutanjoyb",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "Open Source Ehthusiast. :)"
+    },
+    {
+      "username": "Khushi-agarwal1401",
+      "name": "Khushi Munna Kumar Agarwal",
+      "contributions": 17,
+      "avatar_url": "https://avatars.githubusercontent.com/u/233539105?v=4",
+      "profile_url": "https://github.com/Khushi-agarwal1401",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "Babin123456",
+      "name": "Babin Bid",
+      "contributions": 14,
+      "avatar_url": "https://avatars.githubusercontent.com/u/265290994?v=4",
+      "profile_url": "https://github.com/Babin123456",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "I\u2019m a B.Tech CSE student at Adamas University, passionate about leveraging technology to solve real-world problems."
+    },
+    {
+      "username": "srushtib03",
+      "name": "Srushti Banugade",
+      "contributions": 14,
+      "avatar_url": "https://avatars.githubusercontent.com/u/182391751?v=4",
+      "profile_url": "https://github.com/srushtib03",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "Hello All , Srushti Banugade here studying in second year of B.tech-IT . I am passionate about Web Development , AI /ML and DSA . "
+    },
+    {
+      "username": "Suvanwita",
+      "name": "Suvanwita",
+      "contributions": 13,
+      "avatar_url": "https://avatars.githubusercontent.com/u/65910761?v=4",
+      "profile_url": "https://github.com/Suvanwita",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "kunal-yelgate",
+      "name": "Kunal Yelgate ",
+      "contributions": 11,
+      "avatar_url": "https://avatars.githubusercontent.com/u/263134241?v=4",
+      "profile_url": "https://github.com/kunal-yelgate",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "CSE Undergraduate | AI & Full-Stack Development Enthusiast "
+    },
+    {
+      "username": "Riya-Jain-here",
+      "name": "Riya Jain",
+      "contributions": 8,
+      "avatar_url": "https://avatars.githubusercontent.com/u/120404043?v=4",
+      "profile_url": "https://github.com/Riya-Jain-here",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "MCA Graduate (2023-2025)"
+    },
+    {
+      "username": "divyanshAgarwal123",
+      "name": "Divyansh Agarwal",
+      "contributions": 6,
+      "avatar_url": "https://avatars.githubusercontent.com/u/85987665?v=4",
+      "profile_url": "https://github.com/divyanshAgarwal123",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "CS (AI & ML) @ SIT Pune | Building agent systems, developer tools, and interactive experiences."
+    },
+    {
+      "username": "shahkhushi0307",
+      "name": "Khushi Shah",
+      "contributions": 6,
+      "avatar_url": "https://avatars.githubusercontent.com/u/247197666?v=4",
+      "profile_url": "https://github.com/shahkhushi0307",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "sujitkr268",
+      "name": "Sujit Kumar",
+      "contributions": 6,
+      "avatar_url": "https://avatars.githubusercontent.com/u/290832690?v=4",
+      "profile_url": "https://github.com/sujitkr268",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "An IT student passionate about building full-stack web applications\r\n`VSURNTPBJF`"
+    },
+    {
+      "username": "AKIB2005",
+      "name": "AkibOnStack",
+      "contributions": 5,
+      "avatar_url": "https://avatars.githubusercontent.com/u/71378420?v=4",
+      "profile_url": "https://github.com/AKIB2005",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "Aryamuh-ynah",
+      "name": "Humayra Afia",
+      "contributions": 4,
+      "avatar_url": "https://avatars.githubusercontent.com/u/115579731?v=4",
+      "profile_url": "https://github.com/Aryamuh-ynah",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "nilesh0199",
+      "name": "Nilesh Thipe",
+      "contributions": 4,
+      "avatar_url": "https://avatars.githubusercontent.com/u/205056958?v=4",
+      "profile_url": "https://github.com/nilesh0199",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "I am a Second-Year BCA student from Nagpur and an aspiring software developer with a strong interest in cybersecurity, cloud technologies, and problem solving."
+    },
+    {
+      "username": "suryansh24-coder",
+      "name": "Suryansh Tiwari",
+      "contributions": 3,
+      "avatar_url": "https://avatars.githubusercontent.com/u/262996511?v=4",
+      "profile_url": "https://github.com/suryansh24-coder",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "CSE (AI & ML) undergraduate with strong skills in C, C++ & Python, focused on problem-solving, logic building, and industry-ready engineering practices."
+    },
+    {
+      "username": "aryanmanral062-bit",
+      "name": "Aryan Manral",
+      "contributions": 1,
+      "avatar_url": "https://avatars.githubusercontent.com/u/227388051?v=4",
+      "profile_url": "https://github.com/aryanmanral062-bit",
+      "role": "Open Source Contributor",
+      "verified": true
+    },
+    {
+      "username": "nxn0",
+      "name": "Nandana",
+      "contributions": 1,
+      "avatar_url": "https://avatars.githubusercontent.com/u/182074518?v=4",
+      "profile_url": "https://github.com/nxn0",
+      "role": "Open Source Contributor",
+      "verified": true,
+      "bio": "I C better than Java.\r\nLow level kid with hyperpop in her ears.\r\nI log. I build. I exist.\r\nhello.\r\n"
+    }
+  ]
+}
