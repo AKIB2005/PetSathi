@@ -57,14 +57,19 @@
         </div>
         <h1>Celebrate Your <em>Contribution!</em></h1>
         <p>
-          Recognizing the passionate open-source developers who built, polished, and contributed merged code to PetSathi during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Simply enter your GitHub username in the verification portal below to check your merged contributions and instantly generate your official, cryptographically verifiable Certificate of Contribution.
+          Recognizing the passionate open-source developers who built, polished, and contributed merged code to PetSathi
+          during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Simply enter your GitHub username in the
+          verification portal below to check your merged contributions and instantly generate your official,
+          cryptographically verifiable Certificate of Contribution.
         </p>
         <div class="hero-actions">
           <a class="button" href="#cert-verify-section" id="hero-cta-verify">
-            Verify &amp; Claim Certificate ↓
+            Claim Certificate <i class="fa fa-arrow-right" aria-hidden="true"></i>
+
           </a>
-          <a class="button button-outline" href="https://github.com/Riya-Kharade/PetSathi" target="_blank" rel="noopener" id="hero-cta-repo">
-            Explore GitHub Repo ↗
+          <a class="button button-outline" href="https://github.com/Riya-Kharade/PetSathi" target="_blank"
+            rel="noopener" id="hero-cta-repo">
+            Explore GitHub Repo
           </a>
         </div>
         <div class="hero-note">
@@ -90,9 +95,9 @@
     </section>
 
     <!-- 2. Verify Your PetSathi Contribution (PetSathi Section Heading Design with Waves, Paws & Bursts) -->
-    <section class="cert-verify-section" id="cert-verify-section">
+    <section class="section-wrap cert-verify-section" id="cert-verify-section">
       <div class="dog-topics-heading cert-verification-heading">
-        <!-- Curvy decorative corner shapes matching PetSathi standard -->
+        <!-- Curvy decorative corner shapes matching PetSathi standard (dogs/index.html) -->
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
@@ -106,7 +111,7 @@
             opacity="0.95" />
         </svg>
 
-        <!-- Decorative Paws: Exactly 2 left, 2 right -->
+        <!-- Decorative Paws: Exactly 2 left, 2 right matching dogs/index.html -->
         <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
         <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
         <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
@@ -114,7 +119,7 @@
 
         <div class="heading-content">
           <span class="heading-label">
-            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
             Contributor Verification
           </span>
 
@@ -133,47 +138,46 @@
           <div class="cert-form-group">
             <div class="cert-input-wrap">
               <i class="fa-brands fa-github" aria-hidden="true"></i>
-              <input type="text" id="github-username" placeholder="Enter your GitHub username (e.g. darshansahare)"
-                autocomplete="off" spellcheck="false" aria-label="GitHub username" />
+              <input type="text" id="github-username" placeholder="Enter your GitHub username" autocomplete="off"
+                spellcheck="false" aria-label="GitHub username" />
             </div>
             <button id="btn-generate" class="cert-btn-generate" type="button">
-              <i class="fa-solid fa-award" aria-hidden="true"></i> Verify & Award Certificate
+              Generate Your Certificate
             </button>
           </div>
 
-          <!-- Small Inline Success Message Below Search Bar -->
-          <div id="cert-verify-msg-small" class="cert-verify-msg-small" style="display: none;" role="status">
-            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-            <span id="cert-verify-small-text">Verified PetSathi Contributor!</span>
-          </div>
-
-          <!-- Strict Error Alert Box (if not verified or invalid) -->
-          <div id="cert-alert-error" class="cert-alert-box error" role="alert" style="display: none;">
-            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-            <div>
-              <span id="cert-error-title" class="alert-title">No Merged Contributions Found</span>
-              <p id="cert-error-msg" class="alert-desc">
-                PetSathi contributor certificates are strictly reserved for developers who have contributed merged pull
-                requests or commits to the PetSathi repository.
-              </p>
-              <div class="alert-actions">
-                <a href="https://github.com/Riya-Kharade/PetSathi/issues" target="_blank" rel="noopener"
-                  class="alert-action-btn">
-                  <i class="fa-solid fa-code-pull-request"></i> Explore Open Issues on GitHub ↗
-                </a>
-                <a href="https://github.com/Riya-Kharade/PetSathi/blob/main/CONTRIBUTING.md" target="_blank"
-                  rel="noopener" class="alert-action-btn">
-                  <i class="fa-solid fa-book-open"></i> Contribution Guidelines
-                </a>
+          <!-- 5-Second Lazy Verification Progress Card -->
+          <div id="cert-lazy-loader" class="cert-lazy-loader" style="display: none;" role="status" aria-live="polite">
+            <div class="loader-inner">
+              <div class="loader-spinner-wrap">
+                <i class="fa-solid fa-circle-notch fa-spin loader-spinner" aria-hidden="true"></i>
+              </div>
+              <div class="loader-content">
+                <div class="loader-header-row">
+                  <span class="loader-title">Verifying GitHub Contributions...</span>
+                  <span class="loader-percentage" id="loader-percentage">0%</span>
+                </div>
+                <div class="loader-progress-track">
+                  <div class="loader-progress-fill" id="loader-progress-fill"></div>
+                </div>
+                <div class="loader-step-text" id="loader-step-text">Connecting to PetSathi GitHub records...</div>
               </div>
             </div>
+          </div>
+
+          <!-- PetSathi Status Alerts (Warning / Success / Error) -->
+          <div id="cert-status-msg" class="cert-status-msg" style="display: none;" role="status">
+            <span class="cert-status-icon-wrap" id="cert-status-icon-wrap">
+              <i id="cert-status-icon" class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            </span>
+            <span id="cert-status-text">Contribution Verified!</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. Real Certificate Showcase & Actions -->
-    <section class="cert-showcase-section" id="cert-showcase">
+    <!-- 3. Real Certificate Showcase & Actions (Hidden initially until verified) -->
+    <section class="cert-showcase-section" id="cert-showcase" style="display: none;">
       <div class="cert-toolbar">
         <div>
           <h2 style="font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; color: #1d5039; margin: 0;">

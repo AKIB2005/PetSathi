@@ -7,11 +7,13 @@
   // DOM Elements
   const usernameInput = document.getElementById("github-username");
   const generateBtn = document.getElementById("btn-generate");
-  const smallSuccessMsg = document.getElementById("cert-verify-msg-small");
-  const smallSuccessText = document.getElementById("cert-verify-small-text");
-  const alertError = document.getElementById("cert-alert-error");
-  const alertErrorTitle = document.getElementById("cert-error-title");
-  const alertErrorMsg = document.getElementById("cert-error-msg");
+  const lazyLoader = document.getElementById("cert-lazy-loader");
+  const loaderProgressFill = document.getElementById("loader-progress-fill");
+  const loaderPercentage = document.getElementById("loader-percentage");
+  const loaderStepText = document.getElementById("loader-step-text");
+  const statusMsg = document.getElementById("cert-status-msg");
+  const statusIcon = document.getElementById("cert-status-icon");
+  const statusText = document.getElementById("cert-status-text");
 
   const showcaseSection = document.getElementById("cert-showcase");
   const certSheet = document.getElementById("certificate-render-target");
@@ -38,13 +40,13 @@
   async function init() {
     // Attach Event Listeners
     if (generateBtn) {
-      generateBtn.addEventListener("click", () => handleVerifyAndGenerate(true));
+      generateBtn.addEventListener("click", () => handleVerifyAndGenerate());
     }
     if (usernameInput) {
       usernameInput.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
-          handleVerifyAndGenerate(true);
+          handleVerifyAndGenerate();
         }
       });
     }
@@ -62,15 +64,15 @@
     // Load Verified Contributors Registry
     await loadContributorsRegistry();
 
-    // Check URL parameters for ?user=...
-    const urlParams = new URLSearchParams(window.location.search);
-    const userParam = urlParams.get("user") || urlParams.get("username");
-    if (userParam && usernameInput) {
-      usernameInput.value = userParam;
-      handleVerifyAndGenerate(false);
-    } else {
-      // Show default preview or placeholder
-      showInitialPlaceholder();
+    // Ensure website reload always takes the user to clean certificate.html with NO certificate showing
+    if (window.location.search) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    if (usernameInput) {
+      usernameInput.value = "";
+    }
+    if (showcaseSection) {
+      showcaseSection.style.display = "none";
     }
   }
 
@@ -269,154 +271,225 @@
     requestAnimationFrame(animateConfetti);
   }
 
-  // Handle Verification and Generation
-  async function handleVerifyAndGenerate(userInitiated = true) {
-    hideAlerts();
-    const rawUser = usernameInput.value.trim().replace(/^@/, "");
+  // PetSathi Status Notification Helper
+  function showStatus(text, type = "success") {
+    hideAllStatus();
+    if (!statusMsg || !statusIcon || !statusText) return;
+    statusMsg.className = "cert-status-msg status-" + type;
+    statusText.textContent = text;
+    if (type === "warning" || type === "error") {
+      statusIcon.className = "fa-solid fa-triangle-exclamation";
+    } else if (type === "success") {
+      statusIcon.className = "fa-solid fa-circle-check";
+    }
+    statusMsg.style.display = "inline-flex";
+  }
 
+  function hideAllStatus() {
+    if (statusMsg) statusMsg.style.display = "none";
+  }
+
+  // Handle Verification and Generation with 5-Second Lazy Loading
+  async function handleVerifyAndGenerate() {
+    hideAllStatus();
+    const rawUser = usernameInput ? usernameInput.value.trim().replace(/^@/, "") : "";
+
+    // 1. Empty Input Validation: show "Please enter your github username" with PetSathi warning alert shade
     if (!rawUser) {
-      showErrorAlert("Input Required", "Please enter a GitHub username to verify contributions.");
-      usernameInput.focus();
+      showStatus("Please enter your github username", "warning");
+      if (usernameInput) usernameInput.focus();
       return;
     }
 
-    setLoading(true);
+    // 2. Ensure Certificate Showcase remains strictly hidden during verification
+    if (showcaseSection) {
+      showcaseSection.style.display = "none";
+    }
 
-    try {
-      const key = rawUser.toLowerCase();
-      let contributorRecord = contributorsRegistry[key];
+    // Disable input and button, update button label
+    if (generateBtn) {
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Verifying...';
+    }
+    if (usernameInput) {
+      usernameInput.disabled = true;
+    }
 
-      // If not in local registry, check live GitHub API
-      if (!contributorRecord) {
-        try {
-          const checkUrl = `https://api.github.com/repos/Riya-Kharade/PetSathi/commits?author=${encodeURIComponent(rawUser)}&per_page=1`;
-          const checkRes = await fetch(checkUrl);
-          if (checkRes.ok) {
-            const commits = await checkRes.json();
-            if (Array.isArray(commits) && commits.length > 0) {
-              const commitAuthor = commits[0].author;
-              contributorRecord = {
-                username: (commitAuthor && commitAuthor.login) || rawUser,
-                name: (commitAuthor && commitAuthor.login) || rawUser,
-                contributions: commits.length,
-                avatar_url: (commitAuthor && commitAuthor.avatar_url) || "",
-                role: "Open Source Contributor",
-                verified: true
-              };
-              contributorsRegistry[key] = contributorRecord;
+    // Display 5-Second Lazy Verification Progress Card
+    if (lazyLoader) {
+      lazyLoader.style.display = "flex";
+      if (loaderProgressFill) loaderProgressFill.style.width = "0%";
+      if (loaderPercentage) loaderPercentage.textContent = "0%";
+      if (loaderStepText) loaderStepText.textContent = "Connecting to PetSathi GitHub records...";
+    }
+
+    // Kick off verification check in parallel with 5-second timer
+    const verifyPromise = (async () => {
+      try {
+        const key = rawUser.toLowerCase();
+        let contributorRecord = contributorsRegistry[key];
+
+        // If not in local registry, check live GitHub API
+        if (!contributorRecord) {
+          try {
+            const checkUrl = `https://api.github.com/repos/Riya-Kharade/PetSathi/commits?author=${encodeURIComponent(rawUser)}&per_page=1`;
+            const checkRes = await fetch(checkUrl);
+            if (checkRes.ok) {
+              const commits = await checkRes.json();
+              if (Array.isArray(commits) && commits.length > 0) {
+                const commitAuthor = commits[0].author;
+                contributorRecord = {
+                  username: (commitAuthor && commitAuthor.login) || rawUser,
+                  name: (commitAuthor && commitAuthor.login) || rawUser,
+                  contributions: commits.length,
+                  avatar_url: (commitAuthor && commitAuthor.avatar_url) || "",
+                  role: "Open Source Contributor",
+                  verified: true
+                };
+                contributorsRegistry[key] = contributorRecord;
+              }
             }
+          } catch (e) {
+            // Ignore network errors
+          }
+        }
+
+        // STRICT CHECK: If user is not an official contributor
+        if (!contributorRecord) {
+          return { verified: false };
+        }
+
+        // User IS a verified contributor!
+        let ghData = {};
+        try {
+          const ghRes = await fetch(`https://api.github.com/users/${encodeURIComponent(contributorRecord.username)}`);
+          if (ghRes.ok) {
+            ghData = await ghRes.json();
           }
         } catch (e) {
-          // Ignore
+          // Fallback
         }
-      }
 
-      // STRICT CHECK: Only real contributors can generate certificates!
-      if (!contributorRecord) {
-        showErrorAlert(
-          `Verification Failed: @${rawUser} has no merged contributions`,
-          `PetSathi certificates of contribution are strictly reserved for developers who have contributed merged pull requests or commits to the PetSathi repository during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Our verification records confirm that @${rawUser} is not an official contributor. If you recently contributed, it will be eligible once merged by maintainers.`
-        );
-        if (downloadBtn) downloadBtn.disabled = true;
-        return;
-      }
+        const verifiedName = (ghData.name && ghData.name.trim()) || contributorRecord.name || contributorRecord.username;
+        const verifiedHandle = contributorRecord.username;
+        const avatarSrc = (ghData.avatar_url) || contributorRecord.avatar_url || "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+        const issuanceDate = getOrCreateIssuanceDate(verifiedHandle);
+        const avatarBase64 = await urlToBase64(avatarSrc);
 
-      // User IS a verified contributor!
-      let ghData = {};
-      try {
-        const ghRes = await fetch(`https://api.github.com/users/${encodeURIComponent(contributorRecord.username)}`);
-        if (ghRes.ok) {
-          ghData = await ghRes.json();
+        // Deterministic Verification ID
+        let hash = 0;
+        for (let i = 0; i < verifiedHandle.length; i++) {
+          hash = (hash << 5) - hash + verifiedHandle.charCodeAt(i);
+          hash |= 0;
         }
-      } catch (e) {
-        // Fallback
+        const hexHash = Math.abs(hash).toString(16).padStart(6, "0").substring(0, 6).toUpperCase();
+        const certId = `NSOC-PS26-${hexHash}`;
+
+        return {
+          verified: true,
+          name: verifiedName,
+          username: verifiedHandle,
+          avatarSrc: avatarBase64,
+          issuanceDate: issuanceDate,
+          certId: certId
+        };
+      } catch (err) {
+        console.error("Verification error:", err);
+        return { verified: false };
       }
+    })();
 
-      const verifiedName = (ghData.name && ghData.name.trim()) || contributorRecord.name || contributorRecord.username;
-      const verifiedHandle = contributorRecord.username;
-      const avatarSrc = (ghData.avatar_url) || contributorRecord.avatar_url || "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+    // Animate progress smoothly over exactly 5000ms (5 seconds lazy loading)
+    const startTime = Date.now();
+    const totalDuration = 5000;
 
-      // Persistent Issuance Date
-      const issuanceDate = getOrCreateIssuanceDate(verifiedHandle);
+    await new Promise((resolve) => {
+      const timer = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(100, Math.floor((elapsed / totalDuration) * 100));
 
-      // Convert avatar to Base64 for clean canvas drawing
-      currentAvatarDataUrl = await urlToBase64(avatarSrc);
+        if (loaderProgressFill) loaderProgressFill.style.width = progress + "%";
+        if (loaderPercentage) loaderPercentage.textContent = progress + "%";
 
-      // Deterministic Verification ID
-      let hash = 0;
-      for (let i = 0; i < verifiedHandle.length; i++) {
-        hash = (hash << 5) - hash + verifiedHandle.charCodeAt(i);
-        hash |= 0;
-      }
-      const hexHash = Math.abs(hash).toString(16).padStart(6, "0").substring(0, 6).toUpperCase();
-      currentCertId = `NSOC-PS26-${hexHash}`;
+        if (loaderStepText) {
+          if (elapsed < 1600) {
+            loaderStepText.textContent = "Connecting to PetSathi GitHub records...";
+          } else if (elapsed < 3400) {
+            loaderStepText.textContent = `Scanning merged pull requests & commits for @${rawUser}...`;
+          } else {
+            loaderStepText.textContent = "Validating cryptographic integrity & official seal...";
+          }
+        }
 
+        if (elapsed >= totalDuration) {
+          clearInterval(timer);
+          if (loaderProgressFill) loaderProgressFill.style.width = "100%";
+          if (loaderPercentage) loaderPercentage.textContent = "100%";
+          resolve();
+        }
+      }, 40);
+    });
+
+    // Wait for the verification result
+    const result = await verifyPromise;
+
+    // Hide lazy loader and restore button/input
+    if (lazyLoader) lazyLoader.style.display = "none";
+    if (generateBtn) {
+      generateBtn.disabled = false;
+      generateBtn.innerHTML = '<i class="fa-solid fa-award" aria-hidden="true"></i> Generate Your Certificate';
+    }
+    if (usernameInput) {
+      usernameInput.disabled = false;
+    }
+
+    // Branch on verification result
+    if (result.verified) {
+      // 3. User HAS contributed: show "Contribution Verified!"
+      showStatus("Contribution Verified!", "success");
+
+      currentAvatarDataUrl = result.avatarSrc;
+      currentCertId = result.certId;
       currentContributor = {
-        name: verifiedName,
-        username: verifiedHandle,
-        issuanceDate: issuanceDate
+        name: result.name,
+        username: result.username,
+        issuanceDate: result.issuanceDate
       };
 
-      // Show Small Inline Message
-      showSmallSuccess(`Verified PetSathi Contributor (@${verifiedHandle})`);
-
-      // Update Certificate Sheet
-      if (certRecipientName) certRecipientName.textContent = verifiedName;
-      if (certRecipientHandle) certRecipientHandle.textContent = `@${verifiedHandle}`;
-      if (certAvatarImg) certAvatarImg.src = currentAvatarDataUrl;
-      if (certIssueDate) certIssueDate.textContent = issuanceDate;
-      if (certVerificationId) certVerificationId.textContent = `Certificate Serial: ${currentCertId} • Cryptographically Verifiable at petsathi-nsoc.netlify.app`;
+      // Populate Certificate Sheet DOM
+      if (certRecipientName) certRecipientName.textContent = result.name;
+      if (certRecipientHandle) certRecipientHandle.textContent = `@${result.username}`;
+      if (certAvatarImg) certAvatarImg.src = result.avatarSrc;
+      if (certIssueDate) certIssueDate.textContent = result.issuanceDate;
+      if (certVerificationId) {
+        certVerificationId.textContent = `Certificate Serial: ${result.certId} • Cryptographically Verifiable at petsathi-nsoc.netlify.app`;
+      }
       if (downloadBtn) downloadBtn.disabled = false;
 
-      // Trigger Party Poppers celebration effect on both sides!
+      // Reveal Certificate Showcase
+      if (showcaseSection) {
+        showcaseSection.style.display = "block";
+      }
+
+      // Trigger Celebration Party Poppers Confetti!
       triggerPartyPoppers();
 
-      // Smooth scroll to certificate if initiated by user
-      if (showcaseSection && userInitiated) {
+      // Smooth scroll down to Certificate Showcase
+      if (showcaseSection) {
         showcaseSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      // Update URL query string without reloading page
-      const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?user=${encodeURIComponent(verifiedHandle)}`;
-      window.history.replaceState({ path: newUrl }, "", newUrl);
-
-    } catch (err) {
-      showErrorAlert("Error", err.message || "An unexpected error occurred during verification.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function showErrorAlert(title, message) {
-    if (alertError && alertErrorTitle && alertErrorMsg) {
-      alertErrorTitle.textContent = title;
-      alertErrorMsg.innerHTML = message;
-      alertError.style.display = "flex";
-    }
-    if (smallSuccessMsg) smallSuccessMsg.style.display = "none";
-  }
-
-  function showSmallSuccess(text) {
-    if (smallSuccessMsg && smallSuccessText) {
-      smallSuccessText.textContent = text;
-      smallSuccessMsg.style.display = "inline-flex";
-    }
-    if (alertError) alertError.style.display = "none";
-  }
-
-  function hideAlerts() {
-    if (alertError) alertError.style.display = "none";
-    if (smallSuccessMsg) smallSuccessMsg.style.display = "none";
-  }
-
-  function setLoading(isLoading) {
-    if (generateBtn) {
-      generateBtn.disabled = isLoading;
-      if (isLoading) {
-        generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verifying...';
-      } else {
-        generateBtn.innerHTML = '<i class="fa-solid fa-award"></i> Verify & Award Certificate';
+      // Keep URL clean so reloading the website always takes the user to clean certificate.html
+      if (window.location.search) {
+        window.history.replaceState({}, document.title, window.location.pathname);
       }
+
+    } else {
+      // 4. User has NOT contributed: ONLY return "No Contribution record found!" and keep certificate hidden
+      if (showcaseSection) {
+        showcaseSection.style.display = "none";
+      }
+      showStatus("No Contribution record found!", "error");
     }
   }
 
