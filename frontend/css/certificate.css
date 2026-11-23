@@ -969,7 +969,7 @@ body {
   z-index: 1;
 }
 
-/* Ornate Metallic Gold Corners */
+/* Ornate Metallic Gold Corners (Clean corner brackets, no dots) */
 .cert-corner {
   position: absolute;
   width: 38px;
@@ -979,25 +979,11 @@ body {
   z-index: 2;
 }
 
-.cert-corner::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #1d5039;
-  border-radius: 50%;
-}
-
 .cert-corner-tl {
   top: 28px;
   left: 28px;
   border-right: none;
   border-bottom: none;
-}
-
-.cert-corner-tl::after {
-  top: 6px;
-  left: 6px;
 }
 
 .cert-corner-tr {
@@ -1007,11 +993,6 @@ body {
   border-bottom: none;
 }
 
-.cert-corner-tr::after {
-  top: 6px;
-  right: 6px;
-}
-
 .cert-corner-bl {
   bottom: 28px;
   left: 28px;
@@ -1019,21 +1000,11 @@ body {
   border-top: none;
 }
 
-.cert-corner-bl::after {
-  bottom: 6px;
-  left: 6px;
-}
-
 .cert-corner-br {
   bottom: 28px;
   right: 28px;
   border-left: none;
   border-top: none;
-}
-
-.cert-corner-br::after {
-  bottom: 6px;
-  right: 6px;
 }
 
 /* Certificate Header */

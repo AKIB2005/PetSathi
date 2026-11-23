@@ -604,7 +604,7 @@
     ctx.strokeRect(88, 88, w - 176, h - 176);
     ctx.restore();
 
-    // 3. Ornate Corner Brackets with Metallic Gold
+    // 3. Ornate Corner Brackets with Metallic Gold (Clean brackets, no dots)
     const drawCornerBracket = (cx, cy, flipX, flipY) => {
       ctx.save();
       ctx.translate(cx, cy);
@@ -616,11 +616,6 @@
       ctx.lineTo(0, 0);
       ctx.lineTo(60, 0);
       ctx.stroke();
-
-      ctx.fillStyle = "#1d5039";
-      ctx.beginPath();
-      ctx.arc(16, 16, 6, 0, Math.PI * 2);
-      ctx.fill();
       ctx.restore();
     };
 
@@ -774,7 +769,7 @@
 
     // 9. Recognition Statement Citation
     const citation =
-      "In sincere recognition of your distinguished contribution to the open-source architecture, frontend development, and feature implementation of PetSathi during the Nexus Spring of Code (NSoC) 2026 – Winter Edition. Your dedication to engineering accessible, reliable technology directly elevates the standard of care for companion pets and pet parents across the open-source community.";
+      "In profound recognition of exceptional open-source contribution, technical craftsmanship, and visionary dedication to PetSathi during the Nexus Spring of Code (NSoC) 2026 – Winter Edition. Through outstanding architectural innovation, production-grade code, and passionate collaboration, your contributions directly empower companion animal welfare and inspire developers across the global open-source community.";
 
     ctx.fillStyle = "#3e5246";
     ctx.font = "400 31px 'DM Sans', sans-serif";
