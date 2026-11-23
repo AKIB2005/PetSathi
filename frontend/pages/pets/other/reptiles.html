@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Comprehensive Reptile Care Guide on PetSathi. Learn about bearded dragons, leopard geckos, aquatic turtles, corn snakes, ball pythons, blue-tongued skinks, crested geckos, and Russian tortoises.">
-  <title>Reptile Care &amp; Terrarium Guide | PetSathi</title>
+    content="Comprehensive Reptile Guide on PetSathi. Learn about bearded dragons, geckos, snakes, tortoises, turtles, terrarium setups, lighting, heating, and species-appropriate care.">
+  <title>Reptile Care &amp; Species Guide | PetSathi</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,52 +15,39 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome 6.5.2 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
   <!-- Core CSS -->
   <link rel="stylesheet" href="../../../css/global.css">
   <link rel="stylesheet" href="../../../css/home.css">
   <link rel="stylesheet" href="../../../css/inner.css">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
-    /* ==
-       FONT AWESOME 6 DEFINITIONS & OVERRIDES
-       == */
-    @font-face {
-      font-family: "Font Awesome 6 Free";
-      font-style: normal;
-      font-weight: 900;
-      font-display: block;
-      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
-        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    html {
+      scroll-behavior: smooth;
     }
 
-    @font-face {
-      font-family: "Font Awesome 6 Free";
-      font-style: normal;
-      font-weight: 400;
-      font-display: block;
-      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2") format("woff2"),
-        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf") format("truetype");
-    }
-
-    body [class*="fa-"],
-    body [class*="fa-"]::before {
+    /* Font Awesome 6 Free Protection */
+    .fa-solid,
+    .fa-regular,
+    .fa-brands,
+    [class*="fa-"] {
       font-family: "Font Awesome 6 Free" !important;
-      font-weight: 900 !important;
       font-style: normal !important;
       font-variant: normal !important;
       text-rendering: auto !important;
       line-height: 1 !important;
     }
 
-    .fa-regular,
-    .fa-regular::before {
+    .fa-solid {
+      font-weight: 900 !important;
+    }
+
+    .fa-regular {
       font-weight: 400 !important;
     }
 
-    /* Custom Definition for Font Awesome 'fa-turtle' (Pro Icon mapped for Free CDN) */
+    /* Custom Definition for Font Awesome 'fa-turtle' */
     .fa-turtle {
       display: inline-block;
     }
@@ -76,250 +63,77 @@
       mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M256 16c-22 0-40 18-40 46 0 24 14 46 26 58h28c12-12 26-34 26-58 0-28-18-46-40-46zM250 435l6 55 6-55zM210 165c-65-30-145-42-185-10-22 18-12 44 14 54 58 22 130 14 171-4zM302 165c65-30 145-42 185-10 22 18 12 44-14 54-58 22-130 14-171-4zM190 355c-55 24-105 78-90 105 14 12 42 2 74-30 20-20 28-45 30-55zM322 355c55 24 105 78 90 105-14 12-42 2-74-30-20-20-28-45-30-55zM256 135c-28 0-52 14-68 36l42 42h52l42-42c-16-22-40-36-68-36zM224 225l-38 38 18 55h104l18-55-38-38h-64zM212 328l44 82 44-82h-88zM176 182c-26 22-42 54-46 90l44 18 20-60-18-48zM172 300l-42-16c4 38 22 72 50 96l14-50-22-30zM336 182l-18 48 20 60 44-18c-4-36-20-68-46-90zM340 300l-22 30 14 50c28-24 46-58 50-96l-42 16z'/%3E%3C/svg%3E") no-repeat center / contain !important;
     }
 
-    /* ==
-       REPTILE HUB PAGE STYLES - PetSathi Design System
-       == */
-
-    :root {
-      --rep-primary: #286849;
-      --rep-primary-hover: #1d5039;
-      --rep-cream: #fafcf7;
-      --rep-sand: #f2e8d9;
-      --rep-warm-border: #dce8db;
-      --rep-text-dark: #1b2e23;
-      --rep-text-muted: #55665c;
-    }
-
-    body {
-      background-color: var(--rep-cream);
-      color: var(--rep-text-dark);
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    /* Reptiles Landing Page Specific Styles - Matches dogs/index.html */
+    /* Reptile Badge Strip Matching Dog/Cat Index */
     .rep-badge-strip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
       background: #eaf2e9;
-      color: var(--green);
+      color: var(--green, #246b43);
       border-radius: 999px;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       margin-bottom: 16px;
     }
 
-    /* ==
-       QUICK NAVIGATION BAR - Exact Match to dogs/index.html
-       == */
-    .guides-nav-strip {
-      position: relative;
+    .hero-copy h1 em {
+      color: var(--green, #246b43);
+      font-style: normal;
+    }
+
+    /* Section Rhythm & Backgrounds */
+    .bg-white {
+      background: #ffffff;
+    }
+
+    .bg-cream {
       background: #fafcf7;
-      margin: 40px auto;
-      max-width: 1200px;
-      width: calc(100% - 40px);
-      border: 1px solid #dcebc9;
-      border-radius: 35px;
-      padding: 42px 36px 38px;
-      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
-      overflow: hidden;
     }
 
-    /* Decorative Corner Paws / Accents */
-    .quick-nav-decor {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-      color: #cde4d3;
-      opacity: 0.55;
+    .bg-soft-green {
+      background: #f4faf5;
     }
 
-    .decor-top-left {
-      top: 12px;
-      left: 16px;
+    .rep-section {
+      padding: 60px 0 70px;
     }
 
-    .decor-bottom-right {
-      bottom: 12px;
-      right: 16px;
-    }
-
-    .decor-paw {
-      position: absolute;
-      font-size: 1.15rem;
-    }
-
-    .decor-paw-1 {
-      top: 0;
-      left: 0;
-      transform: rotate(-15deg);
-    }
-
-    .decor-paw-2 {
-      top: 14px;
-      left: 24px;
-      font-size: 0.88rem;
-      transform: rotate(20deg);
-    }
-
-    .decor-paw-3 {
-      bottom: 14px;
-      right: 24px;
-      font-size: 0.88rem;
-      transform: rotate(-20deg);
-    }
-
-    .decor-paw-4 {
-      bottom: 0;
-      right: 0;
-      transform: rotate(15deg);
-    }
-
-    /* Centered Header & Pill Badge */
-    .quick-nav-header {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .quick-nav-eyebrow-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .quick-nav-line {
-      height: 1px;
-      width: 110px;
-      background: #d6ead9;
-    }
-
-    .quick-nav-badge {
+    /* Hero Buttons Matching dogs/index.html */
+    .hero-actions .button-outline {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 6px 16px;
-      background: #f4faf5;
-      border: 1px solid #b7deb8;
+      padding: 13px 24px;
       border-radius: 9999px;
-      color: #1e6f43;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.74rem;
+      background: transparent !important;
+      color: #246b43 !important;
+      border: 1.5px solid #246b43 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      box-shadow: 0 1px 4px rgba(35, 100, 55, 0.04);
-    }
-
-    .quick-nav-badge i {
-      font-size: 0.95rem;
-      line-height: 1;
-      color: #1e6f43;
-      flex-shrink: 0;
-    }
-
-    .quick-nav-title {
-      font-family: 'Manrope', sans-serif !important;
-      font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-      font-weight: 800;
-      color: #1a251e;
-      margin: 0;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      text-align: center;
-    }
-
-    .quick-nav-title span {
-      color: #1e6f43;
-      font-weight: 800;
-    }
-
-    /* 6 Pill Buttons Grid - 1 Row on Desktop */
-    .guides-nav-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      margin: 0;
-    }
-
-    .guide-nav-item {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 6px 14px 6px 6px;
-      background: #edf7f0;
-      border: 1px solid #cce4d2;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      box-sizing: border-box;
-      min-width: 0;
-    }
-
-    .guide-nav-item:hover {
-      background: #e4f4e8;
-      border-color: #237847;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(35, 100, 55, 0.12);
-    }
-
-    .guide-nav-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #d1ecda;
-      color: #1e6f43;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      font-size: 1.05rem;
-      line-height: 1;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .guide-nav-icon i {
-      display: inline-block;
-      line-height: 1;
-    }
-
-    .guide-nav-item:hover .guide-nav-icon {
-      background: #1e6f43;
-      color: #ffffff;
-    }
-
-    .guide-nav-label {
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
       font-size: 0.92rem;
-      font-weight: 700;
-      color: #1c2b20;
+      text-decoration: none;
+      transition: all 0.25s ease;
       white-space: nowrap;
     }
 
-    /* ==
-       SECTION HEADINGS - PetSathi Signature Curved Banner Cards (Matching dogs/index.html)
-       == */
-    /* Section Spacing - Exact Match with dogs/index.html (105px Inter-Section Rhythm) */
-    #species-list,
-    #reptile-care,
-    #reptile-nutrition,
-    #reptile-health,
-    #reptile-behaviour,
-    #reptile-habitat {
-      margin-bottom: 105px;
+    .hero-actions .button-outline:hover {
+      background: #246b43 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(36, 107, 67, 0.2);
     }
 
-    .dog-topics-heading {
+    /* -------------------------------------------------------------
+       Section Headings (EXACT MATCH TO dogs/index.html .dog-topics-heading)
+       ------------------------------------------------------------- */
+    .section-heading-wrap {
       position: relative;
       max-width: 1400px;
-      margin: 45px auto 35px;
+      margin: 0 auto 36px;
       padding: 44px 35px 38px;
       overflow: hidden;
       text-align: center;
@@ -329,9 +143,10 @@
       box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
     }
 
-    /* Curvy decorative wave layers matching reference image */
     .corner-wave {
       position: absolute;
+      width: 190px;
+      height: 110px;
       pointer-events: none;
       z-index: 0;
     }
@@ -339,148 +154,19 @@
     .wave-tl {
       top: 0;
       left: 0;
-      width: 220px;
-      height: 130px;
     }
 
     .wave-br {
       bottom: 0;
       right: 0;
-      width: 220px;
-      height: 130px;
     }
 
-    .heading-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .heading-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 20px;
-      margin-bottom: 16px;
-      border-radius: 50px;
-      background: #edf6df;
-      border: 1px solid #dcebc9;
-      color: #246b43;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
-    }
-
-    .heading-label i {
-      font-size: 14px;
-      color: #246b43;
-      line-height: 1;
-    }
-
-    .dog-topics-heading h2 {
-      color: #263b30;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: clamp(24px, 3.2vw, 36px);
-      font-weight: 700;
-      margin: 0 0 12px;
-      line-height: 1.2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .dog-topics-heading h2 span {
-      color: #28764a;
-    }
-
-    /* Heading Radiating Rays / Sparkles - Clean Fan Radiating from Text */
-    .heading-burst {
-      display: inline-block;
-      position: relative;
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      vertical-align: middle;
-    }
-
-    .heading-burst span {
-      position: absolute;
-      background: #60a872;
-      border-radius: 9999px;
-    }
-
-    /* Left burst: 3 rays radiating out to the left from the right edge */
-    .heading-burst.left span {
-      right: 0;
-      transform-origin: right center;
-    }
-
-    .heading-burst.left span:nth-child(1) {
-      top: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(35deg);
-    }
-
-    .heading-burst.left span:nth-child(2) {
-      top: 11px;
-      width: 18px;
-      height: 2.8px;
-    }
-
-    .heading-burst.left span:nth-child(3) {
-      bottom: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(-35deg);
-    }
-
-    /* Right burst: 3 rays radiating out to the right from the left edge */
-    .heading-burst.right span {
-      left: 0;
-      transform-origin: left center;
-    }
-
-    .heading-burst.right span:nth-child(1) {
-      top: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(-35deg);
-    }
-
-    .heading-burst.right span:nth-child(2) {
-      top: 11px;
-      width: 18px;
-      height: 2.8px;
-    }
-
-    .heading-burst.right span:nth-child(3) {
-      bottom: 3px;
-      width: 14px;
-      height: 2.8px;
-      transform: rotate(35deg);
-    }
-
-    .dog-topics-heading p {
-      max-width: 720px;
-      margin: 0 auto;
-      color: #64736a;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    /* Decorative Paws (Font Awesome) - Exactly 2 on left, 2 on right */
+    /* Floating Paw Background Accents (Exact match to dogs/index.html .paw) */
     .paw {
       position: absolute;
       color: rgba(115, 173, 91, 0.28);
       z-index: 1;
       pointer-events: none;
-      display: inline-block;
       line-height: 1;
     }
 
@@ -512,384 +198,358 @@
       transform: rotate(-15deg);
     }
 
-    .paw i,
-    .dog-topics-heading i,
-    .dog-topics-heading [class*="fa-"] {
-      font-family: "Font Awesome 6 Free" !important;
-      font-weight: 900 !important;
-      font-style: normal !important;
-      line-height: 1 !important;
-    }
-
-    @media (max-width: 768px) {
-
-      #species-list,
-      #reptile-care,
-      #reptile-nutrition,
-      #reptile-health,
-      #reptile-behaviour,
-      #reptile-habitat {
-        margin-bottom: 70px;
-      }
-
-      .dog-topics-heading {
-        margin: 25px 0;
-        padding: 35px 16px 30px;
-        border-radius: 24px;
-      }
-
-      .corner-wave {
-        width: 170px;
-        height: 110px;
-      }
-
-      .dog-topics-heading h2 {
-        font-size: clamp(20px, 5vw, 26px);
-        gap: 8px;
-      }
-
-      .dog-topics-heading p {
-        font-size: 14px;
-      }
-
-      .heading-label {
-        font-size: 11px;
-        padding: 6px 14px;
-        margin-bottom: 12px;
-      }
-
-      .paw-left-1 {
-        left: 35px;
-        top: 25px;
-        font-size: 34px;
-      }
-
-      .paw-left-2 {
-        left: 18px;
-        bottom: 14px;
-        font-size: 24px;
-      }
-
-      .paw-right-1 {
-        right: 25px;
-        top: 25px;
-        font-size: 34px;
-      }
-
-      .paw-right-2 {
-        right: 65px;
-        bottom: 20px;
-        font-size: 24px;
-      }
-
-      .heading-burst {
-        width: 16px;
-        height: 18px;
-      }
-
-      .heading-burst span:nth-child(1),
-      .heading-burst span:nth-child(3) {
-        width: 10px;
-      }
-
-      .heading-burst span:nth-child(2) {
-        width: 13px;
-      }
-    }
-
-    /* ==
-       SEARCH & FILTER SECTION - Exact dogs/walking.html Design
-       == */
-    .quick-nav-subtitle {
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.95rem;
-      color: #55665c;
-      margin: 10px auto 0;
-      max-width: 620px;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .sf-controls-container {
+    .heading-content {
       position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 1060px;
-      margin: 0 auto;
-      width: 100%;
+      z-index: 2;
     }
 
-    .sf-row-desktop {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .sf-search-wrap {
-      position: relative;
-      width: 100%;
-    }
-
-    @media (min-width: 961px) {
-      .sf-row-desktop .sf-search-wrap {
-        flex: 1 1 0%;
-        min-width: 280px;
-      }
-    }
-
-    .sf-search-icon {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #eaf5ed;
-      color: #1e6f43;
-      display: grid;
-      place-items: center;
-      font-size: 1.05rem;
-      pointer-events: none;
-      transition: background 0.25s, color 0.25s;
-    }
-
-    .sf-search-input {
-      width: 100%;
-      height: 52px;
-      padding: 0 52px 0 62px;
-      border: 1px solid #cce4d2;
-      border-radius: 50px;
-      background: #fcfdfc;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.95rem;
-      color: var(--ink);
-      outline: none;
-      box-shadow: 0 2px 8px rgba(35, 75, 45, 0.03);
-      transition: all 0.25s ease;
-      box-sizing: border-box;
-    }
-
-    .sf-search-input:focus {
-      background: #ffffff;
-      border-color: #237847;
-      box-shadow: 0 0 0 4px rgba(35, 120, 71, 0.12);
-    }
-
-    .sf-search-input:focus~.sf-search-icon {
-      background: #1e6f43;
-      color: #ffffff;
-    }
-
-    .sf-clear-btn {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #eef2ed;
-      border: none;
-      font-size: 0.88rem;
-      color: #5d6e64;
-      cursor: pointer;
-      display: none;
-      place-items: center;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .sf-clear-btn:hover {
-      background: #dfe6e0;
-      color: #1c2b20;
-    }
-
-    .sf-filter-pills-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-      flex-wrap: nowrap;
-    }
-
-    .sf-mini-pill {
+    .heading-label {
       display: inline-flex;
       align-items: center;
-      padding: 7px 15px;
-      border-radius: 9999px;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: #3b5043;
-      background: #f2f7f3;
-      border: 1px solid #d2e4d6;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      user-select: none;
-      line-height: 1.35;
-    }
-
-    .sf-mini-pill:hover {
-      background: #e5f2e8;
-      border-color: #246b43;
-      color: #1a281f;
-      transform: translateY(-1px);
-    }
-
-    .sf-mini-pill.active {
-      background: #1e6f43;
-      color: #ffffff;
-      border-color: #1e6f43;
-      font-weight: 700;
-      box-shadow: 0 2px 8px rgba(30, 111, 67, 0.24);
-    }
-
-    .sf-meta-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed #dceade;
-    }
-
-    .sf-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #203326;
-    }
-
-    .sf-status-badge i {
-      color: #1e6f43;
-      font-size: 0.95rem;
-    }
-
-    .sf-reset-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
+      gap: 10px;
+      padding: 7px 20px;
+      margin-bottom: 16px;
       border-radius: 50px;
       background: #edf6df;
       border: 1px solid #dcebc9;
       color: #246b43;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.8rem;
+      font-size: 13px;
       font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
-    .sf-reset-btn:hover {
+    .heading-content h2 {
+      color: #263b30;
+      font-family: Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .heading-content h2 span,
+    .heading-content h2 em,
+    .section-heading-wrap h2 span,
+    .section-heading-wrap h2 em {
+      color: #28764a !important;
+      font-style: normal !important;
+    }
+
+    .heading-burst {
+      display: inline-block;
+      position: relative;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .heading-burst span {
+      position: absolute;
+      background: #60a872;
+      border-radius: 9999px;
+    }
+
+    .heading-burst.left span {
+      right: 0;
+      transform-origin: right center;
+    }
+
+    .heading-burst.left span:nth-child(1) {
+      top: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(35deg);
+    }
+
+    .heading-burst.left span:nth-child(2) {
+      top: 11px;
+      width: 18px;
+      height: 2.8px;
+    }
+
+    .heading-burst.left span:nth-child(3) {
+      bottom: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(-35deg);
+    }
+
+    .heading-burst.right span {
+      left: 0;
+      transform-origin: left center;
+    }
+
+    .heading-burst.right span:nth-child(1) {
+      top: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(-35deg);
+    }
+
+    .heading-burst.right span:nth-child(2) {
+      top: 11px;
+      width: 18px;
+      height: 2.8px;
+    }
+
+    .heading-burst.right span:nth-child(3) {
+      bottom: 3px;
+      width: 14px;
+      height: 2.8px;
+      transform: rotate(35deg);
+    }
+
+    .heading-content p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #64736a;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* -------------------------------------------------------------
+       Quick Navigation Strip (EXACT MATCH TO dogs/index.html)
+       ------------------------------------------------------------- */
+    .guides-nav-strip {
+      position: relative;
+      background: #fafcf7;
+      border: 1px solid #dcebc9;
+      border-radius: 35px;
+      padding: 38px 36px 36px;
+      margin: 20px auto 45px;
+      box-shadow: 0 4px 24px rgba(35, 75, 45, 0.04);
+      max-width: 1200px;
+      overflow: hidden;
+    }
+
+    .quick-nav-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      color: #cde4d3;
+      opacity: 0.55;
+    }
+
+    .decor-top-left {
+      top: -8px;
+      left: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 10% 10%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 0 0 100% 0;
+    }
+
+    .decor-bottom-right {
+      bottom: -8px;
+      right: -8px;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 90% 90%, #eaf5ed 0%, rgba(234, 245, 237, 0) 70%);
+      border-radius: 100% 0 0 0;
+    }
+
+    .decor-paw {
+      position: absolute;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .decor-paw-1 {
+      top: 14px;
+      left: 28px;
+      font-size: 28px;
+      transform: rotate(-15deg);
+    }
+
+    .decor-paw-2 {
+      top: 38px;
+      left: 12px;
+      font-size: 19px;
+      transform: rotate(20deg);
+    }
+
+    .decor-paw-3 {
+      bottom: 36px;
+      right: 14px;
+      font-size: 19px;
+      transform: rotate(-25deg);
+    }
+
+    .decor-paw-4 {
+      bottom: 14px;
+      right: 28px;
+      font-size: 28px;
+      transform: rotate(15deg);
+    }
+
+    .quick-nav-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .quick-nav-eyebrow-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .quick-nav-line {
+      display: inline-block;
+      width: 44px;
+      height: 1px;
+      background: #cce4d2;
+    }
+
+    .quick-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 13px;
+      background: #eaf5ed;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #1e6f43;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quick-nav-title {
+      font-family: Georgia, serif;
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0;
+      text-align: center;
+    }
+
+    .quick-nav-title span {
+      color: #28764a;
+    }
+
+    .guides-nav-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin: 0;
+    }
+
+    .guide-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px 8px 8px;
+      background: #edf7f0;
+      border: 1px solid #cce4d2;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .guide-nav-item:hover {
+      background: #e4f4e8;
+      border-color: #246b43;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(36, 107, 67, 0.12);
+    }
+
+    .guide-nav-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #d1ecda;
+      color: #1e6f43;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.92rem;
+      line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .guide-nav-item:hover .guide-nav-icon {
       background: #246b43;
       color: #ffffff;
-      border-color: #246b43;
     }
 
-    /* No search results state */
-    .rep-no-results {
-      display: none;
-      text-align: center;
-      padding: 48px 24px;
-      background: #ffffff;
-      border: 1px dashed #cbd9ce;
-      border-radius: 20px;
-      margin-bottom: 30px;
+    .guide-nav-label {
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1c2b20;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .rep-no-results i {
-      font-size: 2.4rem;
-      color: var(--rep-primary);
-      margin-bottom: 12px;
-    }
-
-    .rep-no-results h4 {
-      font-size: 1.25rem;
-      color: #173b2a;
-      margin: 0 0 8px;
-    }
-
-    .rep-no-results p {
-      color: var(--rep-text-muted);
-      font-size: 0.95rem;
-      margin: 0 0 18px;
-    }
-
-    @media (max-width: 960px) {
-      .sf-row-desktop {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
-      }
-
-      .sf-row-desktop .sf-search-wrap {
-        flex: none;
-        width: 100%;
-      }
-
-      .sf-filter-pills-row {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-      }
-    }
-
-    /* ==
-       SPECIES CARDS GRID - 3 Cards per Row Desktop, 2 Tablet, 1 Mobile
-       == */
-    .rep-species-grid {
+    /* -------------------------------------------------------------
+       Six Guide Cards Grid (EXACT MATCH TO dogs/index.html .dog-card)
+       ------------------------------------------------------------- */
+    .rep-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .rep-card {
+    .rep-guide-card {
       background: #ffffff;
-      border: 1px solid var(--rep-warm-border, #e0ebdc);
+      border: 1px solid var(--line, #e2e8df);
       border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      height: 100%;
+      box-sizing: border-box;
+      text-align: left;
     }
 
-    .rep-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(35, 75, 45, 0.08);
-      border-color: #cbd9ce;
+    .rep-guide-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(35, 75, 45, 0.1);
+      border-color: #246b43;
     }
 
-    .rep-card-media {
+    .guide-card-media {
       position: relative;
-      height: 210px;
-      background: #f0f3eb;
+      height: 200px;
       overflow: hidden;
+      background: #f0f3eb;
     }
 
-    .rep-card-media img,
-    .rep-image {
+    .guide-card-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.35s ease;
-      display: block;
     }
 
-    .rep-card:hover .rep-card-media img,
-    .rep-card:hover .rep-image {
+    .rep-guide-card:hover .guide-card-media img {
       transform: scale(1.05);
     }
 
-    .dog-card-badge {
+    .guide-card-badge {
       position: absolute;
       top: 14px;
       left: 14px;
@@ -899,728 +559,581 @@
       border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 700;
-      color: #173b2a;
-      display: inline-flex;
+      color: var(--dark, #1e3325);
+      display: flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.7);
     }
 
-    .dog-card-badge i {
-      color: var(--rep-primary, #205c3b);
+    .guide-card-badge i {
+      color: #246b43;
     }
 
-    .rep-diff-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      z-index: 2;
-    }
-
-    .rep-diff-badge.beginner {
-      background: rgba(234, 248, 237, 0.94);
-      color: #1d733b;
-      border: 1px solid #bce4c6;
-    }
-
-    .rep-diff-badge.intermediate {
-      background: rgba(254, 247, 230, 0.94);
-      color: #a0630b;
-      border: 1px solid #fae1ad;
-    }
-
-    .rep-card-body {
+    .guide-card-body {
       padding: 24px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+      text-align: left;
     }
 
-    .walking-time-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 14px;
-      background: #edf7f0;
-      border: 1px solid #cce4d2;
-      border-radius: 9999px;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 0.82rem;
+    .guide-card-body h3 {
+      font-size: 1.25rem;
+      margin: 0 0 10px;
+      color: #1a251e;
       font-weight: 700;
-      color: #1e6f43;
-      margin-bottom: 12px;
-      align-self: flex-start;
     }
 
-    .walking-time-badge i {
-      color: #205c3b;
-    }
-
-    .rep-title-wrap {
-      margin-bottom: 8px;
-    }
-
-    .rep-card-body h3 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.28rem;
-      font-weight: 700;
-      margin: 0 0 3px;
-      color: #173b2a;
-    }
-
-    .rep-sci-name {
-      font-size: 0.82rem;
-      font-style: italic;
-      color: #62776b;
-      display: block;
-    }
-
-    .rep-card-desc {
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: #43544a;
-      margin: 0;
+    .guide-card-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0 0 20px;
       flex-grow: 1;
+      color: #55665b;
     }
 
-    .rep-badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px dashed #e2ece0;
-    }
-
-    .rep-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: #f3f8f1;
-      border: 1px solid #dce8db;
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #244b36;
-    }
-
-    .rep-badge-pill i {
-      color: #205c3b;
-      font-size: 0.74rem;
-    }
-
-    .dog-card-link {
+    .guide-card-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 0.88rem;
       font-weight: 700;
-      color: #205c3b;
+      color: var(--green, #246b43);
       transition: color 0.2s, transform 0.2s;
       align-self: flex-start;
-      margin-top: 16px;
       text-decoration: none;
     }
 
-    .dog-card-link:hover {
-      color: #173b2a;
+    .guide-card-link:hover {
+      color: var(--dark, #1a2e22);
       transform: translateX(4px);
     }
 
-    /* ==
-       HUSBANDRY TOPIC CARDS - 3 per Row Desktop (Care, Nutrition, Behaviour, Habitat)
-       == */
-    .rep-topic-grid {
+    /* -------------------------------------------------------------
+       Popular Reptiles Grid: 3 cards per row, dogs-style badges
+       ------------------------------------------------------------- */
+    .popular-rep-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .care-tip-card {
+    .popular-rep-card {
       background: #ffffff;
-      border: 1px solid var(--rep-warm-border);
+      border: 1px solid #dceade;
       border-radius: 20px;
-      padding: 24px;
+      overflow: hidden;
       display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      transition: all 0.25s ease;
+      text-align: left;
     }
 
-    .care-tip-card:hover {
+    .popular-rep-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(32, 70, 50, 0.08);
-      border-color: #cbd9ce;
+      box-shadow: 0 10px 26px rgba(35, 75, 45, 0.08);
+      border-color: #246b43;
     }
 
-    .tip-icon-wrap {
+    .popular-rep-media {
+      position: relative;
+      width: 100%;
+      height: 185px;
+      overflow: hidden;
+    }
+
+    .popular-rep-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .popular-rep-card:hover .popular-rep-media img {
+      transform: scale(1.05);
+    }
+
+    .popular-rep-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--dark, #1e3325);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      z-index: 2;
+    }
+
+    .popular-rep-badge i {
+      color: var(--green, #246b43);
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .popular-rep-body {
+      padding: 22px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .popular-rep-body h3 {
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #1a251e;
+      margin: 0 0 4px;
+    }
+
+    .popular-rep-sci {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #246b43;
+      margin-bottom: 10px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .popular-rep-body p {
+      font-size: 0.88rem;
+      line-height: 1.62;
+      color: #55665b;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Reptile Categories (4 Columns on Desktop)
+       ------------------------------------------------------------- */
+    .rep-categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .category-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      text-align: left;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(35, 75, 45, 0.08);
+      border-color: #246b43;
+    }
+
+    .category-media {
+      position: relative;
+      width: 100%;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .category-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .category-card:hover .category-media img {
+      transform: scale(1.05);
+    }
+
+    .category-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--dark, #1e3325);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      z-index: 2;
+    }
+
+    .category-badge i {
+      color: var(--green, #246b43);
+      font-size: 0.8rem;
+      line-height: 1;
+    }
+
+    .category-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .category-body h3 {
+      font-family: Georgia, serif;
+      font-size: 1.18rem;
+      color: #1a251e;
+      margin: 0 0 8px;
+    }
+
+    .category-body p {
+      font-size: 0.86rem;
+      line-height: 1.58;
+      color: #55665b;
+      margin: 0 0 14px;
+      flex-grow: 1;
+    }
+
+    .category-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid #edf4ee;
+      padding-top: 12px;
+    }
+
+    .category-list li {
+      font-size: 0.78rem;
+      color: #263b30;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .category-list li i {
+      color: #246b43;
+      font-size: 0.75rem;
+    }
+
+    /* -------------------------------------------------------------
+       Why Choose Reptiles & Basics (3 Columns on Desktop)
+       ------------------------------------------------------------- */
+    .basics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .basic-card {
+      background: #ffffff;
+      border: 1px solid #dceade;
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 4px 18px rgba(35, 75, 45, 0.04);
+      transition: all 0.25s ease;
+      text-align: left;
+    }
+
+    .basic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(35, 75, 45, 0.08);
+      border-color: #246b43;
+    }
+
+    .basic-icon-wrap {
       width: 48px;
       height: 48px;
       border-radius: 14px;
-      background: #edf7f0;
-      border: 1px solid #cce4d2;
+      background: #eaf5ed;
+      color: #1e6f43;
       display: grid;
       place-items: center;
       font-size: 1.25rem;
-      color: var(--rep-primary);
-      flex-shrink: 0;
-      transition: transform 0.2s ease, background 0.2s ease;
+      margin-bottom: 16px;
     }
 
-    .care-tip-card:hover .tip-icon-wrap {
-      background: #e1f2e5;
-      transform: scale(1.05);
-    }
-
-    .tip-content {
-      flex: 1;
-    }
-
-    .tip-content h3 {
-      font-size: 1.12rem;
+    .basic-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.18rem;
+      color: #1a251e;
+      margin: 0 0 10px;
       font-weight: 700;
-      margin: 0 0 6px;
-      color: #173b2a;
     }
 
-    .tip-content p {
+    .basic-card p {
       font-size: 0.88rem;
       line-height: 1.62;
-      color: var(--rep-text-muted);
+      color: #55665b;
       margin: 0;
     }
 
-    /* ==
-       HEALTH & WELLNESS - Guidelines Do's & Don'ts (Subtle & Interactive)
-       == */
-    .dos-donts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .guideline-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 24px 26px;
-      border: 1px solid #dcebc9;
-      box-shadow: 0 4px 16px rgba(35, 75, 45, 0.04);
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .guideline-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .guideline-card.dos {
-      background: #ffffff;
-      border: 1px solid #dcebc9;
-    }
-
-    .guideline-card.dos:hover {
-      border-color: #286849;
-      box-shadow: 0 10px 24px rgba(35, 75, 45, 0.08);
-    }
-
-    .guideline-card.donts {
-      background: #fffcf8;
-      border: 1px solid #f6d8ae;
-      box-shadow: 0 4px 18px rgba(181, 106, 0, 0.06);
-    }
-
-    .guideline-card.donts:hover {
-      border-color: #d97706;
-      box-shadow: 0 10px 26px rgba(181, 106, 0, 0.12);
-    }
-
-    .guideline-card-header {
+    /* -------------------------------------------------------------
+       FINAL CTA (EXACT MATCH TO fish.html & main index.html)
+       ------------------------------------------------------------- */
+    .cta {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid #edf4ea;
-    }
-
-    .guideline-card.donts .guideline-card-header {
-      border-bottom-color: #fbeddc;
-    }
-
-    .guideline-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
-      background: #edf7f0;
-      color: #286849;
-      border: 1px solid #cce4d2;
-      display: grid;
-      place-items: center;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .guideline-card.dos:hover .guideline-icon-wrap {
-      background: #286849;
-      color: #ffffff;
-      border-color: #286849;
-      transform: scale(1.05);
-    }
-
-    .guideline-card.donts .guideline-icon-wrap {
-      background: #fdf5ea;
-      color: #b45309;
-      border: 1px solid #fcd39d;
-    }
-
-    .guideline-card.donts:hover .guideline-icon-wrap {
-      background: #b45309;
-      color: #ffffff;
-      border-color: #b45309;
-      transform: scale(1.05);
-    }
-
-    .guideline-title {
-      font-size: 1.22rem;
-      font-weight: 700;
-      margin: 0;
-      color: #173b2a;
-    }
-
-    .guideline-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .guideline-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      font-size: 0.92rem;
-      line-height: 1.62;
-      color: #4a5a50;
-      background: transparent;
-      border: 1px solid transparent;
-      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .guideline-card.dos .guideline-list li:hover {
-      background: #f4faf6;
-      border-color: #e0eee4;
-      transform: translateX(4px);
-    }
-
-    .guideline-card.donts .guideline-list li:hover {
-      background: #fff9f0;
-      border-color: #faebd7;
-      transform: translateX(4px);
-    }
-
-    .guideline-tick {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #edf7f0;
-      color: #286849;
-      border: 1px solid #cce4d2;
-      display: inline-grid;
-      place-items: center;
-      font-size: 0.72rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .guideline-card.dos .guideline-list li:hover .guideline-tick {
-      background: #286849;
-      color: #ffffff;
-      border-color: #286849;
-      transform: scale(1.12);
-    }
-
-    .guideline-card.donts .guideline-tick {
-      background: #fdf5ea;
-      color: #b45309;
-      border: 1px solid #fcd39d;
-    }
-
-    .guideline-card.donts .guideline-list li:hover .guideline-tick {
-      background: #b45309;
-      color: #ffffff;
-      border-color: #b45309;
-      transform: scale(1.12);
-    }
-
-    .guideline-text {
-      flex: 1;
-    }
-
-    .guideline-text b {
-      color: #173b2a;
-    }
-
-    /* ==
-       CTA BANNER - PetSathi Approved Design
-       == */
-    .cta,
-    .cta {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      gap: 25px !important;
-      width: 85% !important;
-      max-width: 1350px !important;
-      margin: 0 auto 92px !important;
-      margin-inline: auto !important;
-      padding: 48px 56px !important;
-      border: 1px solid #e6d6c6 !important;
+      justify-content: space-between;
+      gap: 36px;
+      background: #f2e8d9 !important;
+      border: 1px solid #e6d7c3 !important;
       border-radius: 30px !important;
-      background: var(--rep-sand) !important;
-      background-image: none !important;
-      box-sizing: border-box !important;
-    }
-
-    .cta>div:first-child {
-      flex: 1 !important;
-      min-width: 0 !important;
+      padding: 48px 56px !important;
+      margin: 40px auto 85px !important;
+      box-shadow: 0 10px 30px rgba(70, 50, 20, 0.05);
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
     }
 
     .cta .eyebrow {
-      display: block !important;
-      margin: 0 0 14px 0 !important;
-      padding: 0 !important;
-      background: none !important;
-      background-color: transparent !important;
-      border: none !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      color: #286849 !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-size: 0.72rem !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.76rem !important;
       font-weight: 700 !important;
-      letter-spacing: 1.7px !important;
-      line-height: normal !important;
+      letter-spacing: 1.6px !important;
+      color: #286849 !important;
       text-transform: uppercase !important;
-      text-align: left !important;
-      width: auto !important;
+      margin-bottom: 12px !important;
+      display: block !important;
     }
 
     .cta h2 {
-      display: block !important;
-      margin: 0 0 8px 0 !important;
-      font-family: Georgia, 'Times New Roman', serif !important;
-      font-size: clamp(24px, 3.2vw, 36px) !important;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
       font-weight: 700 !important;
+      color: #1a2e22 !important;
       line-height: 1.2 !important;
-      letter-spacing: normal !important;
-      color: #1d5039 !important;
+      margin: 0 0 14px 0 !important;
       text-align: left !important;
     }
 
     .cta h2 em {
       color: #286849 !important;
-      font-family: Georgia, 'Times New Roman', serif !important;
       font-style: normal !important;
-      font-weight: 700 !important;
     }
 
     .cta p {
-      display: block !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-size: 0.98rem !important;
+      line-height: 1.7 !important;
+      color: #4a5c51 !important;
+      max-width: 620px !important;
       margin: 0 !important;
-      color: #26372e !important;
-      font-family: 'DM Sans', 'Manrope', sans-serif !important;
-      font-size: 15px !important;
-      font-weight: 400 !important;
-      line-height: 1.65 !important;
-      font-style: normal !important;
-      max-width: 600px !important;
       text-align: left !important;
     }
 
     .cta-actions {
-      display: flex !important;
-      gap: 14px !important;
-      flex-wrap: wrap !important;
-      flex-shrink: 0 !important;
-      align-items: center !important;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
     }
 
-    .cta .button-light {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      min-height: 49px !important;
-      padding: 0 22px !important;
-      border-radius: 999px !important;
+    .cta .button.button-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 9999px;
       background: #ffffff !important;
-      border: 1px solid #ffffff !important;
-      color: #1d5039 !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
-      transition: 0.2s !important;
-      box-sizing: border-box !important;
+      color: #1a2e22 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
-    .cta .button-light:hover {
-      background: #edf3ec !important;
-      color: #1d5039 !important;
-      transform: translateY(-2px) !important;
+    .cta .button.button-light:hover {
+      background: #fdfdfd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
-    .cta .button-outline {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      min-height: 49px !important;
-      padding: 0 22px !important;
-      border-radius: 999px !important;
+    .cta .button.button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 9999px;
       background: transparent !important;
       color: #286849 !important;
-      border: 1px solid #286849 !important;
-      font-family: 'DM Sans', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      transition: 0.2s !important;
-      box-sizing: border-box !important;
+      border: 1.5px solid #286849 !important;
+      font-family: "DM Sans", "Manrope", sans-serif !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
     }
 
-    .cta .button-outline:hover {
+    .cta .button.button-outline:hover {
       background: #286849 !important;
       color: #ffffff !important;
-      transform: translateY(-2px) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(40, 104, 73, 0.2);
     }
 
-    /* ==
-       RESPONSIVE DESIGN - 3 Cards per Row on Desktop (> 960px)
-       == */
-    @media (max-width: 960px) {
+    /* -------------------------------------------------------------
+       Responsive Breakpoints
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
       .guides-nav-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
       }
 
-      .rep-species-grid {
+      .rep-cards-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
       }
 
-      .rep-topic-grid {
+      .popular-rep-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
+      .rep-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-copy p {
-        margin-inline: auto;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-note {
-        justify-content: center;
-      }
-
-      .floating-card.card-top {
-        left: 0;
-      }
-
-      .floating-card.card-bottom {
-        right: 0;
-      }
-
-      .dos-donts-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta {
-        flex-direction: column !important;
-        text-align: center !important;
-        padding: 38px 28px !important;
-        gap: 22px !important;
-      }
-
-      .cta .eyebrow,
-      .cta h2,
-      .cta p {
-        text-align: center !important;
-        margin-inline: auto !important;
-      }
-
-      .cta-actions {
-        width: 100% !important;
-        justify-content: center !important;
+      .basics-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 640px) {
-      .hero-photo {
-        max-width: 320px;
-        height: 260px;
-      }
-
-      .floating-card {
-        padding: 8px 12px;
-      }
-
-      .floating-card.card-top {
-        top: 10px;
-        left: 10px;
-      }
-
-      .floating-card.card-bottom {
-        bottom: 10px;
-        right: 10px;
-      }
-
-      .floating-card span b {
-        font-size: 0.78rem;
-      }
-
-      .floating-card span small {
-        font-size: 0.66rem;
-      }
-
-      .guides-nav-strip {
-        padding: 24px 18px;
-      }
-
-      .guides-nav-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-
-      .guide-nav-item {
-        padding: 11px 10px;
-        font-size: 0.88rem;
-      }
-
-      .rep-species-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .rep-topic-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-
+    @media (max-width: 900px) {
       .cta {
-        width: calc(100% - 34px) !important;
-        padding: 34px 20px !important;
-        margin-bottom: 65px !important;
-        display: block !important;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 36px 30px !important;
       }
 
       .cta-actions {
-        width: 100% !important;
-        flex-direction: column !important;
-        margin-top: 18px !important;
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 10px;
       }
 
       .cta-actions .button {
-        width: 100% !important;
-        text-align: center !important;
-        justify-content: center !important;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .guides-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .rep-cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .popular-rep-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rep-categories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .basics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .guides-nav-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Global Header (Verbatim from HEAD) -->
+  <!-- Header Placeholder -->
   <div id="header"></div>
 
   <main>
-    <!-- 
-         HERO SECTION - PetSathi 2-Column Standard
-          -->
-    <section class="hero section-wrap" id="rep-hero">
+    <!-- ========================================================
+         1. MAIN HERO SECTION (Follows Dog Index & Cat Index)
+         ======================================================== -->
+    <section class="hero section-wrap" id="reptile-hero">
       <div class="hero-copy">
         <div class="rep-badge-strip">
           <i class="fa-solid fa-dragon" aria-hidden="true"></i>
-          PetSathi • Reptile Companion Guide
+          <span>EXPLORE REPTILES &bull; PETSATHI COMPREHENSIVE HUB</span>
         </div>
-        <h1>
-          Everything You Need to Know About
-          <em>Reptiles</em>
-        </h1>
-        <p>
-          Welcome to PetSathi's dedicated reptile care and terrarium guide. From calm, inquisitive bearded dragons and
-          colorful leopard geckos to docile corn snakes and gentle tortoises, reptiles bring quiet wonder, ancient
-          beauty, and rewarding companionship to every home. Explore species profiles, balanced nutrition, thermal
-          heating routines, habitat setups, and wellness essentials.
+        <h1>Explore the <em>World of Reptiles</em></h1>
+        <p class="hero-lead">
+          Reptiles are captivating, ancient companions that bring a serene and prehistoric wonder into our homes.
+          From docile bearded dragons and inquisitive leopard geckos to tranquil snakes and graceful tortoises,
+          successful reptile keeping depends on precision habitat engineering, calibrated thermal gradients, UVB
+          spectrums, and species-tailored nutrition.
         </p>
         <div class="hero-actions">
-          <a class="button" href="#species-list" id="hero-cta-species">
-            Explore Reptile Species ↗
-          </a>
-          <a class="button button-outline" href="#quick-nav" id="hero-cta-topics">
-            Explore Care Topics ↓
-          </a>
+          <a class="button button-primary" href="breeds.html" id="hero-btn-species">Explore Reptile Breeds &rarr;</a>
+          <a class="button button-outline" href="#reptile-guides" id="hero-btn-guides">Explore Reptile Guides</a>
         </div>
         <div class="hero-note">
-          ♥ &nbsp; Dedicated to healthy terrariums and thriving reptiles.
+          <i class="fa-solid fa-heart" style="color: var(--green, #246b43);" aria-hidden="true"></i>
+          <span>Dedicated to thriving vivariums and responsible, species-appropriate companion care.</span>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-blob"></div>
         <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
-          alt="Bearded dragon perched peacefully on fine desert sand" class="hero-photo" id="hero-rep-image" />
+          alt="Bearded dragon reptile perched peacefully on sand in natural terrarium" class="hero-photo"
+          id="hero-reptile-image" />
         <div class="floating-card card-top">
           <i class="fa-solid fa-sun" style="color: #e09f1d;" aria-hidden="true"></i>
           <span>
-            <b>Basking &amp; Warmth</b>
-            <small>Precision thermal gradients</small>
+            <b>Thermal Gradients</b>
+            <small>Precision basking &amp; cool zones</small>
           </span>
         </div>
         <div class="floating-card card-bottom">
-          <i class="fa-solid fa-shield-halved" style="color: var(--green);" aria-hidden="true"></i>
+          <i class="fa-solid fa-shield-halved" style="color: var(--green, #246b43);" aria-hidden="true"></i>
           <span>
-            <b>UVB &amp; Wellness</b>
-            <small>Essential full-spectrum care</small>
+            <b>UVB &amp; Calcium</b>
+            <small>Vital metabolic bone wellness</small>
           </span>
         </div>
       </div>
     </section>
 
-    <!-- 
-         QUICK NAVIGATION - Exact dogs/index.html Design
-          -->
+    <!-- ========================================================
+         2. QUICK NAVIGATION HUB (Immediately follows Hero)
+         ======================================================== -->
     <div class="guides-nav-strip" id="quick-nav">
-      <!-- Decorative Corner Paws / Accents -->
+      <!-- Decorative Corner Accents (Two Paws in Each Corner Matching Dog Index) -->
       <div class="quick-nav-decor decor-top-left" aria-hidden="true">
         <i class="fa-solid fa-paw decor-paw decor-paw-1"></i>
         <i class="fa-solid fa-paw decor-paw decor-paw-2"></i>
@@ -1635,7 +1148,7 @@
         <div class="quick-nav-eyebrow-wrap">
           <span class="quick-nav-line"></span>
           <div class="quick-nav-badge">
-            <i class="fa-regular fa-compass quick-nav-badge-icon" aria-hidden="true"></i>
+            <i class="fa-solid fa-compass" aria-hidden="true"></i>
             <span>QUICK NAVIGATION</span>
           </div>
           <span class="quick-nav-line"></span>
@@ -1645,120 +1158,37 @@
         </h3>
       </div>
 
-      <!-- 6 Navigation Pills in 1 Row on Desktop -->
+      <!-- 5 Navigation Pills -->
       <div class="guides-nav-grid">
-        <a class="guide-nav-item" href="#species-list" id="hub-link-species">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-dragon" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Species</span>
+        <a class="guide-nav-item" href="#reptile-guides" id="nav-reptile-guides">
+          <span class="guide-nav-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Reptile Guides</span>
         </a>
-        <a class="guide-nav-item" href="#reptile-care" id="hub-link-care">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-temperature-high" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Care</span>
+        <a class="guide-nav-item" href="#popular-reptiles" id="nav-popular-reptiles">
+          <span class="guide-nav-icon"><i class="fa-solid fa-dragon" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Popular Reptiles</span>
         </a>
-        <a class="guide-nav-item" href="#reptile-nutrition" id="hub-link-nutrition">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-bowl-food" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Nutrition</span>
+        <a class="guide-nav-item" href="#reptile-categories" id="nav-reptile-categories">
+          <span class="guide-nav-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Categories</span>
         </a>
-        <a class="guide-nav-item" href="#reptile-health" id="hub-link-health">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Health</span>
+        <a class="guide-nav-item" href="#why-reptiles" id="nav-why-reptiles">
+          <span class="guide-nav-icon"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Why Reptiles?</span>
         </a>
-        <a class="guide-nav-item" href="#reptile-behaviour" id="hub-link-behaviour">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-brain" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Behaviour</span>
-        </a>
-        <a class="guide-nav-item" href="#reptile-habitat" id="hub-link-habitat">
-          <span class="guide-nav-icon">
-            <i class="fa-solid fa-house" aria-hidden="true"></i>
-          </span>
-          <span class="guide-nav-label">Habitat</span>
+        <a class="guide-nav-item" href="#responsible-ownership" id="nav-responsible-ownership">
+          <span class="guide-nav-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
+          <span class="guide-nav-label">Ownership</span>
         </a>
       </div>
     </div>
 
-    <!-- 
-         SEARCH & FILTER SECTION - Exact dogs/walking.html Design
-          -->
-    <div class="guides-nav-strip" id="search-filter" role="region" aria-label="Reptile Search and Filter">
-      <!-- Decorative Corner Paws / Accents -->
-      <div class="quick-nav-decor decor-top-left" aria-hidden="true">
-        <i class="fa-solid fa-paw decor-paw decor-paw-1"></i>
-        <i class="fa-solid fa-paw decor-paw decor-paw-2"></i>
-      </div>
-      <div class="quick-nav-decor decor-bottom-right" aria-hidden="true">
-        <i class="fa-solid fa-paw decor-paw decor-paw-3"></i>
-        <i class="fa-solid fa-paw decor-paw decor-paw-4"></i>
-      </div>
-
-      <!-- Centered Header -->
-      <div class="quick-nav-header">
-        <div class="quick-nav-eyebrow-wrap">
-          <span class="quick-nav-line"></span>
-          <div class="quick-nav-badge">
-            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-            <span>SEARCH &amp; FILTER</span>
-          </div>
-          <span class="quick-nav-line"></span>
-        </div>
-        <h3 class="quick-nav-title">Reptile Knowledge <span>Search &amp; Filter</span></h3>
-        <p class="quick-nav-subtitle">Search reptile species and terrarium care by keyword, or filter profiles by
-          category and keeper experience</p>
-      </div>
-
-      <!-- Search & Filter Controls (Single Row on Desktop) -->
-      <div class="sf-controls-container">
-        <div class="sf-row-desktop">
-          <!-- 1. Compact Search Bar -->
-          <div class="sf-search-wrap">
-            <span class="sf-search-icon" aria-hidden="true">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </span>
-            <input type="text" id="reptile-search-input" class="sf-search-input"
-              placeholder="Search by keyword (e.g. dragon, gecko, python, turtle, basking, diet, humidity)..."
-              aria-label="Search reptiles by keyword" autocomplete="off">
-            <button type="button" id="search-clear-btn" class="sf-clear-btn" aria-label="Clear search input">
-              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-            </button>
-          </div>
-
-          <!-- 2. Compact Filter Pills in 1 Row on Desktop -->
-          <div class="sf-filter-pills-row" id="reptile-filter-pills" role="tablist" aria-label="Filter reptile species">
-            <button type="button" class="sf-mini-pill active" data-filter="all">All (8)</button>
-            <button type="button" class="sf-mini-pill" data-filter="lizard">Lizards (4)</button>
-            <button type="button" class="sf-mini-pill" data-filter="snake">Snakes (2)</button>
-            <button type="button" class="sf-mini-pill" data-filter="turtle">Turtles (2)</button>
-            <button type="button" class="sf-mini-pill" data-filter="beginner">Beginner (7)</button>
-          </div>
-        </div>
-
-        <!-- Meta Status Bar with Live Count & Reset Button -->
-        <div class="sf-meta-bar">
-          <div class="sf-status-badge">
-            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-            <span id="filter-status-text">Showing all 8 reptile species profiles</span>
-          </div>
-          <button type="button" class="sf-reset-btn" id="filter-reset-btn" style="display: none;">
-            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reset Filters
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 
-         SECTION 1: REPTILE SPECIES
-          -->
-    <section class="section-wrap" id="species-list">
-      <div class="dog-topics-heading">
+    <!-- ========================================================
+         3. REPTILE GUIDES - SIX SEPARATE PAGE CARDS
+         ======================================================== -->
+    <section class="section-wrap rep-section" id="reptile-guides">
+      <!-- Section Heading -->
+      <div class="section-heading-wrap">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
@@ -1771,219 +1201,336 @@
           <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
             opacity="0.95" />
         </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+
+        <!-- Floating Paws Background Accents (Exact match to dogs/index.html) -->
+        <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+
         <div class="heading-content">
-          <span class="heading-label"><i class="fa-solid fa-book-open"></i> Terrarium Companions</span>
+          <span class="heading-label"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Comprehensive Reptile
+            Care</span>
+          <h2>
+            <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+            Explore Reptile Care <span>and Information</span>
+            <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
+          </h2>
+          <p>Navigate through our in-depth guides covering reptile breeds, terrarium engineering, clinical nutrition,
+            wellness, and habitat safety.</p>
+        </div>
+      </div>
+
+      <!-- 6 Separate Page Cards Grid -->
+      <div class="rep-cards-grid">
+        <!-- Card 1: Reptile Breeds -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Species</span>
+            <img src="https://images.unsplash.com/photo-1579702160915-63f490960c3d?auto=format&fit=crop&w=800&q=80"
+              alt="Close-up of a colorful reptile species on foliage" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Breeds</h3>
+            <p>Explore different reptile species, their characteristics and basic requirements.</p>
+            <a class="guide-card-link" href="breeds.html">Explore Breeds &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 2: Reptile Care -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-temperature-high" aria-hidden="true"></i>
+              Habitat</span>
+            <img src="https://images.unsplash.com/photo-1768346614944-e4227340bf52?auto=format&fit=crop&w=800&q=80"
+              alt="Bioactive reptile terrarium habitat with heat lamp and natural landscape" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Care</h3>
+            <p>Learn about habitat setup, temperature, lighting, humidity and daily reptile care.</p>
+            <a class="guide-card-link" href="care.html">Explore Care &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 3: Reptile Nutrition -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Nutrition</span>
+            <img src="https://images.unsplash.com/photo-1618376371213-3e40848d2581?auto=format&fit=crop&w=800&q=80"
+              alt="Reptile gecko feeding on live feeder insect prey" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Nutrition</h3>
+            <p>Understand reptile diets, food choices, feeding schedules and nutritional requirements.</p>
+            <a class="guide-card-link" href="nutrition.html">Explore Nutrition &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 4: Reptile Health -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Vitality</span>
+            <img src="https://images.unsplash.com/photo-1542625331-b72c87806d21?auto=format&fit=crop&w=800&q=80"
+              alt="Healthy vibrant chameleon with clear alert eyes and pristine scales" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Health</h3>
+            <p>Learn about common health problems, warning signs and preventive healthcare.</p>
+            <a class="guide-card-link" href="health.html">Explore Health &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 5: Reptile Behaviour -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-brain" aria-hidden="true"></i> Instincts</span>
+            <img src="https://images.unsplash.com/photo-1532666331191-78776c6a6e32?auto=format&fit=crop&w=800&q=80"
+              alt="Lizard displaying natural basking behaviour on an elevated stone perch" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Behaviour</h3>
+            <p>Understand reptile body language, activity patterns, behaviour and stress signals.</p>
+            <a class="guide-card-link" href="behaviour.html">Explore Behaviour &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 6: Reptile Safety -->
+        <article class="rep-guide-card">
+          <div class="guide-card-media">
+            <span class="guide-card-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Enclosure</span>
+            <img src="https://images.unsplash.com/photo-1687134666948-2111d1e991aa?auto=format&fit=crop&w=800&q=80"
+              alt="Secure glass terrarium enclosure with escape-proof screen top" loading="lazy" />
+          </div>
+          <div class="guide-card-body">
+            <h3>Reptile Safety</h3>
+            <p>Learn about enclosure safety, handling, habitat hazards and responsible ownership.</p>
+            <a class="guide-card-link" href="safety.html">Explore Safety &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. POPULAR REPTILE SPECIES SECTION (3x3 Symmetrical Grid)
+         ======================================================== -->
+    <section class="section-wrap rep-section bg-cream" id="popular-reptiles">
+      <!-- Section Heading -->
+      <div class="section-heading-wrap">
+        <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
+          <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
+            opacity="0.95" />
+        </svg>
+        <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
+          <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
+            opacity="0.95" />
+        </svg>
+
+        <!-- Floating Paws Background Accents (Exact match to dogs/index.html) -->
+        <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+
+        <div class="heading-content">
+          <span class="heading-label"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Featured Species</span>
           <h2>
             <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
             Popular <span>Reptile Species</span>
             <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>Discover the distinct behaviors, adult sizes, and environmental criteria for companion reptiles.</p>
+          <p>Discover distinct behavioral traits, adult sizes, and environmental criteria for the most celebrated
+            companion reptiles.</p>
         </div>
       </div>
 
-      <!-- No Results Message -->
-      <div class="rep-no-results" id="repNoResults">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <h4>No matching reptile species found</h4>
-        <p>Try searching with another keyword or reset the category filter.</p>
-        <button type="button" class="button button-small" id="repResetBtn">Reset Filters</button>
-      </div>
-
-      <!-- 8 Species Cards (3 per row desktop) -->
-      <div class="rep-species-grid" id="repSpeciesGrid">
+      <!-- 9 Popular Species in a Balanced 3x3 Grid -->
+      <div class="popular-rep-grid">
         <!-- 1. Bearded Dragon -->
-        <article class="rep-card" data-category="lizard beginner"
-          data-keywords="bearded dragon pogona vitticeps lizard diurnal omnivore australian desert beginner docile basking hotspot uvb heat lamp">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Lizard</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
-            <img src="../../../assets/images/reptiles/bearded-dragon.jpg"
-              alt="Bearded dragon perched on a natural desert branch" class="rep-image" loading="lazy" />
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Diurnal</span>
+            <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Bearded dragon resting on desert sand"
+              loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-sun"></i> Diurnal Desert Dweller</span>
-            <div class="rep-title-wrap">
-              <h3>Bearded Dragon</h3>
-              <span class="rep-sci-name">Pogona vitticeps</span>
-            </div>
-            <p class="rep-card-desc">
-              Affectionate and inquisitive diurnal lizards renowned for their calm temperament and arm-waving greetings.
-              They thrive in spacious 4x2x2 ft desert vivariums equipped with high-output UVB lighting and a dedicated
-              40°C basking hotspot.
+          <div class="popular-rep-body">
+            <h3>Bearded Dragon</h3>
+            <span class="popular-rep-sci">Pogona vitticeps</span>
+            <p>
+              Inquisitive and calm Australian desert lizards renowned for animated arm-waving gestures and gentle
+              dispositions.
+              They thrive in spacious 4x2x2 foot vivariums featuring high-output UVB lighting and a dedicated 40°C
+              basking zone.
             </p>
           </div>
         </article>
 
         <!-- 2. Leopard Gecko -->
-        <article class="rep-card" data-category="lizard beginner"
-          data-keywords="leopard gecko eublepharis macularius lizard crepuscular insectivore desert tail fat beginner docile heat mat nocturnal insect crickets">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Lizard</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
-            <img src="../../../assets/images/reptiles/leopard-gecko.jpg"
-              alt="Spotted leopard gecko crawling on slate rock" class="rep-image" loading="lazy" />
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Crepuscular</span>
+            <img src="../../../assets/images/reptiles/leopard-gecko.jpg" alt="Spotted leopard gecko on natural rock"
+              loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-moon"></i> Gentle Crepuscular</span>
-            <div class="rep-title-wrap">
-              <h3>Leopard Gecko</h3>
-              <span class="rep-sci-name">Eublepharis macularius</span>
-            </div>
-            <p class="rep-card-desc">
-              Docile and slow-moving desert geckos that store vital reserves in their thick tails. They are easy to
-              handle, require gentle under-tank belly heat, and thrive with a dedicated humid hide for smooth,
-              stress-free shedding.
+          <div class="popular-rep-body">
+            <h3>Leopard Gecko</h3>
+            <span class="popular-rep-sci">Eublepharis macularius</span>
+            <p>
+              Docile, slow-moving desert geckos possessing distinctive fat-storing tails and expressive smiling faces.
+              They thrive at moderate temperatures with belly heat, an insectivorous diet, and a humid shedding hide.
             </p>
           </div>
         </article>
 
-        <!-- 3. Red-Eared Slider Turtle -->
-        <article class="rep-card" data-category="turtle"
-          data-keywords="red eared slider turtle trachemys scripta semi aquatic basking swimmer canister filter intermediate water aquatic turtle basking dock uvb filter">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-turtle"></i> Turtle</span>
-            <span class="rep-diff-badge intermediate"><i class="fa-solid fa-water"></i> Intermediate</span>
-            <img src="../../../assets/images/reptiles/red-eared-slider.jpg"
-              alt="Red-eared slider turtle basking on a floating platform" class="rep-image" loading="lazy" />
+        <!-- 3. Crested Gecko -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-tree" aria-hidden="true"></i> Lizard &bull;
+              Arboreal</span>
+            <img src="../../../assets/images/reptiles/crested-gecko.png"
+              alt="Crested gecko clinging vertically to foliage" loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-water"></i> Semiaquatic Swimmer</span>
-            <div class="rep-title-wrap">
-              <h3>Red-Eared Slider Turtle</h3>
-              <span class="rep-sci-name">Trachemys scripta elegans</span>
-            </div>
-            <p class="rep-card-desc">
-              Active, charismatic swimmers recognizable by distinctive crimson ear stripes. They demand powerful
-              external canister filtration, a dry heated basking dock with dual UVB lamps, and deep water swimming
-              volume.
+          <div class="popular-rep-body">
+            <h3>Crested Gecko</h3>
+            <span class="popular-rep-sci">Correlophus ciliatus</span>
+            <p>
+              Charming New Caledonian rainforest geckos with fringed eyelash crests and prehensile tails. They flourish
+              at
+              room temperatures without heat lamps, enjoying vertical terrariums, dense foliage, and complete fruit
+              powder diets.
             </p>
           </div>
         </article>
 
-        <!-- 4. Corn Snake -->
-        <article class="rep-card" data-category="snake beginner"
-          data-keywords="corn snake pantherophis guttatus snake docile escape artist temperate rodent feeder beginner calm gentle red orange">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-staff-snake"></i> Snake</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
-            <img src="../../../assets/images/reptiles/corn-snake.jpg" alt="Vibrant orange corn snake coiled gently"
-              class="rep-image" loading="lazy" />
-          </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-feather"></i> Calm &amp; Inquisitive</span>
-            <div class="rep-title-wrap">
-              <h3>Corn Snake</h3>
-              <span class="rep-sci-name">Pantherophis guttatus</span>
-            </div>
-            <p class="rep-card-desc">
-              Incredibly docile, slender colubrids featuring striking orange and crimson patterns. Exceptional
-              first-time serpents that feed reliably on frozen-thawed rodents and require an escape-proof, clip-locked
-              enclosure.
-            </p>
-          </div>
-        </article>
-
-        <!-- 5. Ball Python -->
-        <article class="rep-card" data-category="snake beginner"
-          data-keywords="ball python python regius snake nocturnal calm royal python humidity tropical rodent feeder beginner gentle hide">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-staff-snake"></i> Snake</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
+        <!-- 4. Ball Python -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull;
+              Docile</span>
             <img src="../../../assets/images/reptiles/ball-python.jpg"
-              alt="Royal ball python curled into a ball on dark forest mulch" class="rep-image" loading="lazy" />
+              alt="Ball python coiled peacefully on bark substrate" loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-shield-heart"></i> Sedentary &amp; Peaceful</span>
-            <div class="rep-title-wrap">
-              <h3>Ball Python</h3>
-              <span class="rep-sci-name">Python regius</span>
-            </div>
-            <p class="rep-card-desc">
-              Shy, heavy-bodied African pythons that curl into a defensive protective ball when timid. They appreciate
-              secure, tight-fitting dark hides, 55%–65% ambient humidity, and steady belly heat for smooth digestion.
+          <div class="popular-rep-body">
+            <h3>Ball Python</h3>
+            <span class="popular-rep-sci">Python regius</span>
+            <p>
+              Serene and heavy-bodied West African constrictors that curl into a protective ball when timid. They
+              appreciate
+              snug dark hides, steady 55%–65% ambient humidity, gentle belly warmth, and predictable feeding routines.
+            </p>
+          </div>
+        </article>
+
+        <!-- 5. Corn Snake -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snake &bull;
+              Active</span>
+            <img src="../../../assets/images/reptiles/corn-snake.jpg" alt="Vibrant orange corn snake gracefully coiled"
+              loading="lazy" />
+          </div>
+          <div class="popular-rep-body">
+            <h3>Corn Snake</h3>
+            <span class="popular-rep-sci">Pantherophis guttatus</span>
+            <p>
+              Wonderfully docile, slender colubrid snakes displaying brilliant crimson patterns and active curiosity.
+              Exceptional companions for first-time snake owners, feeding reliably on frozen rodents in escape-proof
+              enclosures.
             </p>
           </div>
         </article>
 
         <!-- 6. Blue-Tongued Skink -->
-        <article class="rep-card" data-category="lizard beginner"
-          data-keywords="blue tongued skink tiliqua scincoides lizard australian indonesian omnivore broad head flat tail intelligent beginner docile substrate burrow">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Lizard</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizard &bull;
+              Omnivore</span>
             <img src="../../../assets/images/reptiles/blue-tongued-skink.jpg"
-              alt="Blue-tongued skink displaying its signature cobalt-blue tongue" class="rep-image" loading="lazy" />
+              alt="Blue-tongued skink flashing its cobalt blue tongue" loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-brain"></i> Intelligent Forager</span>
-            <div class="rep-title-wrap">
-              <h3>Blue-Tongued Skink</h3>
-              <span class="rep-sci-name">Tiliqua scincoides</span>
-            </div>
-            <p class="rep-card-desc">
-              Substantial, sausage-shaped lizards boasting vibrant cobalt tongues and keen intelligence. True omnivores
-              that relish varied diets of greens, premium dog food, and invertebrates in a deep, burrow-friendly
+          <div class="popular-rep-body">
+            <h3>Blue-Tongued Skink</h3>
+            <span class="popular-rep-sci">Tiliqua scincoides</span>
+            <p>
+              Substantial, sausage-shaped Australian lizards known for bright cobalt tongues and high intelligence.
+              True omnivores that thrive on varied diets of dark leafy greens, protein, and fruit in deep burrowing
               substrate.
             </p>
           </div>
         </article>
 
-        <!-- 7. Crested Gecko -->
-        <article class="rep-card" data-category="lizard beginner"
-          data-keywords="crested gecko correlophus ciliatus arboreal tropical omnivore room temp vertical gecko beginner humidity misting foliage climbing">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-dragon"></i> Lizard</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
-            <img src="../../../assets/images/reptiles/crested-gecko.png"
-              alt="Crested gecko clinging to a vertical terrarium branch" class="rep-image" loading="lazy" />
-          </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-tree"></i> Arboreal Climber</span>
-            <div class="rep-title-wrap">
-              <h3>Crested Gecko</h3>
-              <span class="rep-sci-name">Correlophus ciliatus</span>
-            </div>
-            <p class="rep-card-desc">
-              Charming rainforest geckos with fringed eyelash crests and prehensile tails. They do not require heat
-              lamps at average room temperatures and thrive on easy-to-mix, commercially complete fruit powder diets.
-            </p>
-          </div>
-        </article>
-
-        <!-- 8. Russian Tortoise -->
-        <article class="rep-card" data-category="turtle beginner"
-          data-keywords="russian tortoise testudo horsfieldii terrestrial herbivore digging tortoise table high fiber weeds beginner tortoise turtle basking uvb outdoor indoor">
-          <div class="rep-card-media">
-            <span class="dog-card-badge"><i class="fa-solid fa-turtle"></i> Tortoise</span>
-            <span class="rep-diff-badge beginner"><i class="fa-solid fa-check"></i> Beginner Friendly</span>
+        <!-- 7. Russian Tortoise -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Tortoise &bull;
+              Herbivore</span>
             <img src="../../../assets/images/reptiles/russian-tortoise.jpg"
-              alt="Russian tortoise grazing peacefully on fresh garden weeds" class="rep-image" loading="lazy" />
+              alt="Russian tortoise grazing on broadleaf greens" loading="lazy" />
           </div>
-          <div class="rep-card-body">
-            <span class="walking-time-badge"><i class="fa-solid fa-seedling"></i> Hardy Herbivore</span>
-            <div class="rep-title-wrap">
-              <h3>Russian Tortoise</h3>
-              <span class="rep-sci-name">Testudo horsfieldii</span>
-            </div>
-            <p class="rep-card-desc">
-              Hardy, active dry-land tortoises that love exploring and digging extensive subterranean burrows. They feed
-              exclusively on fibrous broadleaf greens, weeds, and grasses, flourishing in wide open shallow enclosures.
+          <div class="popular-rep-body">
+            <h3>Russian Tortoise</h3>
+            <span class="popular-rep-sci">Testudo horsfieldii</span>
+            <p>
+              Hardy, terrestrial land tortoises that relish digging deep burrows and exploring open enclosures. They
+              feed
+              strictly on high-fiber wild weeds and grasses, thriving in wide, well-ventilated tortoise tables under
+              strong UVB.
+            </p>
+          </div>
+        </article>
+
+        <!-- 8. Red-Eared Slider Turtle -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-water" aria-hidden="true"></i> Turtle &bull;
+              Semiaquatic</span>
+            <img src="../../../assets/images/reptiles/red-eared-slider.jpg"
+              alt="Red-eared slider turtle basking on a dock" loading="lazy" />
+          </div>
+          <div class="popular-rep-body">
+            <h3>Red-Eared Slider Turtle</h3>
+            <span class="popular-rep-sci">Trachemys scripta elegans</span>
+            <p>
+              Energetic aquatic chelonians recognizable by distinctive scarlet ear markings and spirited paddling.
+              They require large aquarium volumes, powerful external canister filters, and completely dry basking docks
+              under dual lamps.
+            </p>
+          </div>
+        </article>
+
+        <!-- 9. Veiled Chameleon -->
+        <article class="popular-rep-card">
+          <div class="popular-rep-media">
+            <span class="popular-rep-badge"><i class="fa-solid fa-eye" aria-hidden="true"></i> Lizard &bull;
+              Arboreal</span>
+            <img src="https://images.unsplash.com/photo-1542625331-b72c87806d21?auto=format&fit=crop&w=700&q=85"
+              alt="Vibrant veiled chameleon perched on branch" loading="lazy" />
+          </div>
+          <div class="popular-rep-body">
+            <h3>Veiled Chameleon</h3>
+            <span class="popular-rep-sci">Chamaeleo calyptratus</span>
+            <p>
+              Mesmerizing tree-dwellers featuring independently mobile turret eyes, prehensile gripping feet, and rapid
+              tongue strikes.
+              They thrive in tall, well-ventilated screen enclosures with daily drip hydration and high-intensity linear
+              UVB lighting.
             </p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- 
-         SECTION 2: REPTILE CARE & THERMAL SETUP
-          -->
-    <section class="section-wrap" id="reptile-care">
-      <div class="dog-topics-heading">
+    <!-- ========================================================
+         5. REPTILE CATEGORIES (Lizards, Snakes, Turtles, Tortoises)
+         ======================================================== -->
+    <section class="section-wrap rep-section bg-white" id="reptile-categories">
+      <!-- Section Heading -->
+      <div class="section-heading-wrap">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
@@ -1996,81 +1543,132 @@
           <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
             opacity="0.95" />
         </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+
+        <!-- Floating Paws Background Accents (Exact match to dogs/index.html) -->
+        <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label">
-            <i class="fa-solid fa-temperature-high" aria-hidden="true"></i> Temperature &amp; Lighting
-          </span>
+          <span class="heading-label"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Biological
+            Diversity</span>
           <h2>
-            <span class="heading-burst left" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            Reptile Care &amp; <span>Thermal Setup</span>
-            <span class="heading-burst right" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
+            <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+            Reptile <span>Categories</span>
+            <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>
-            Reptiles are ectotherms relying on external heat to digest food, fuel immune defense, and synthesize
-            vitamin
-            D3.
-          </p>
+          <p>Explore the four primary companion reptile orders, understanding their unique physiology, habitat
+            adaptations, and specialized husbandry requirements.</p>
         </div>
       </div>
 
-      <!-- 3 Topic Cards Desktop -->
-      <div class="rep-topic-grid">
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-fire-burner"></i>
+      <!-- 4 Categories Grid -->
+      <div class="rep-categories-grid">
+        <!-- 1. Lizards -->
+        <article class="category-card">
+          <div class="category-media">
+            <span class="category-badge"><i class="fa-solid fa-dragon" aria-hidden="true"></i> Lizards</span>
+            <img src="../../../assets/images/reptiles/bearded-dragon.jpg" alt="Lizard basking in natural sunlight"
+              loading="lazy" />
           </div>
-          <div class="tip-content">
-            <h3>Thermal Gradients</h3>
+          <div class="category-body">
+            <h3>Lizards (Lacertilia)</h3>
             <p>
-              Provide a concentrated basking hotspot at one end and a cool retreat at the other. This temperature span
-              lets reptiles self-regulate core body temperatures throughout the day.
+              Remarkably diverse reptiles possessing moveable eyelids, visible ear openings, and complex social body
+              language.
+              They range from ground-dwelling desert species to tropical arboreal climbers.
             </p>
+            <ul class="category-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Strict UVB &amp; thermal basking needs
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Varied omnivorous &amp; insectivorous
+                diets</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Bearded Dragons, Leopard Geckos</li>
+            </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-sun"></i>
+        <!-- 2. Snakes -->
+        <article class="category-card">
+          <div class="category-media">
+            <span class="category-badge"><i class="fa-solid fa-staff-snake" aria-hidden="true"></i> Snakes</span>
+            <img src="../../../assets/images/reptiles/corn-snake.jpg" alt="Corn snake coiled elegantly"
+              loading="lazy" />
           </div>
-          <div class="tip-content">
-            <h3>Linear T5 High-Output UVB</h3>
+          <div class="category-body">
+            <h3>Snakes (Serpentes)</h3>
             <p>
-              Compact coil bulbs fail to project sufficient UV energy. Use linear T5 tubes that span ½ to ⅔ the
-              enclosure length. Replace every 6–12 months even if the light still burns bright.
+              Graceful, limbless carnivores equipped with kinetic skulls, specialized heat-sensing pits, and
+              fork-tongued chemoreception.
+              Known for calm temperaments and infrequent, predictable feeding schedules.
             </p>
+            <ul class="category-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 100% carnivorous whole-prey nutrition</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Escape-proof, secure locking enclosures
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Ball Pythons, Corn Snakes</li>
+            </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-gauge-high"></i>
+        <!-- 3. Turtles -->
+        <article class="category-card">
+          <div class="category-media">
+            <span class="category-badge"><i class="fa-solid fa-water" aria-hidden="true"></i> Turtles</span>
+            <img src="../../../assets/images/reptiles/red-eared-slider.jpg" alt="Red-eared slider turtle swimming"
+              loading="lazy" />
           </div>
-          <div class="tip-content">
-            <h3>Digital Thermostat Safety</h3>
+          <div class="category-body">
+            <h3>Turtles (Testudines)</h3>
             <p>
-              Always connect heat bulbs and ceramic elements to a digital proportional pulse or dimming thermostat.
-              Use
-              an infrared temp gun to verify actual surface basking temperatures daily.
+              Semiaquatic and fully aquatic chelonians featuring streamlined shells and webbed feet designed for
+              efficient swimming.
+              They require large aquarium volumes combined with completely dry basking docks.
             </p>
+            <ul class="category-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> High-capacity external canister filtration
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Dedicated dual-lamp overhead basking areas
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Red-Eared Sliders, Mud Turtles</li>
+            </ul>
           </div>
-        </div>
+        </article>
+
+        <!-- 4. Tortoises -->
+        <article class="category-card">
+          <div class="category-media">
+            <span class="category-badge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Tortoises</span>
+            <img src="../../../assets/images/reptiles/russian-tortoise.jpg" alt="Russian tortoise walking on substrate"
+              loading="lazy" />
+          </div>
+          <div class="category-body">
+            <h3>Tortoises (Testudinidae)</h3>
+            <p>
+              Exclusively terrestrial land chelonians distinguished by domed protective carapaces, sturdy column legs,
+              and exceptional lifespans.
+              Strict herbivores requiring broad, well-ventilated open habitats.
+            </p>
+            <ul class="category-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Pure vegetarian high-fiber wild weed diet
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Wide, shallow open-air tortoise tables
+              </li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Ex: Russian Tortoises, Hermann's Tortoises
+              </li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- 
-         SECTION 3: FOOD & NUTRITIONAL CARE
-          -->
-    <section class="section-wrap" id="reptile-nutrition">
-      <div class="dog-topics-heading">
+    <!-- ========================================================
+         6. WHY CHOOSE REPTILES? (In-Depth Guidance & Realistic Expectations)
+         ======================================================== -->
+    <section class="section-wrap rep-section bg-cream" id="why-reptiles">
+      <!-- Section Heading -->
+      <div class="section-heading-wrap">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
@@ -2083,80 +1681,84 @@
           <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
             opacity="0.95" />
         </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+
+        <!-- Floating Paws Background Accents (Exact match to dogs/index.html) -->
+        <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label">
-            <i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Diet &amp; Supplements
-          </span>
+          <span class="heading-label"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Honest Keeping
+            Realities</span>
           <h2>
-            <span class="heading-burst left" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            Food &amp; <span>Nutritional Care</span>
-            <span class="heading-burst right" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
+            <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+            Why Choose <span>Reptiles?</span>
+            <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>
-            Reptile health centers on nutrient-dense feeder insects, balanced calcium dusting, and wholesome botanical
-            salads.
-          </p>
+          <p>Reptiles make rewarding and tranquil companions, but they are specialized wild animals with non-negotiable
+            biological dependencies. Understand what makes them unique.</p>
         </div>
       </div>
 
-      <!-- 3 Topic Cards Desktop -->
-      <div class="rep-topic-grid">
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-bug"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Gut-Loaded Live Feeders</h3>
-            <p>
-              Feed live Dubia roaches, crickets, and black soldier fly larvae carrots, collard greens, and bee pollen
-              24
-              hours before feeding. Never feed wild-caught bugs laden with parasites.
-            </p>
-          </div>
-        </div>
+      <!-- 6 Insight Cards -->
+      <div class="basics-grid">
+        <!-- 1. Hypoallergenic Companionship -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i></div>
+          <h3>Hypoallergenic &amp; Low Dander</h3>
+          <p>Unlike cats and dogs, reptiles do not produce fur, feather dust, or dander. They are ideal companions for
+            household members who suffer from severe mammalian pet allergies.</p>
+        </article>
 
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-bone"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Calcium &amp; Vitamin Dusting</h3>
-            <p>
-              Coat feeder insects in pure Calcium Carbonate (without D3) at almost every feeding. Lightly dust a
-              combined multivitamin with D3 once or twice weekly to prevent Metabolic Bone Disease.
-            </p>
-          </div>
-        </div>
+        <!-- 2. Quiet & Observational Fascination -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-volume-xmark" aria-hidden="true"></i></div>
+          <h3>Tranquil &amp; Peaceful Presence</h3>
+          <p>Reptiles make zero noise, require no outdoor leash walking, and exhibit captivating prehistoric behaviors,
+            such as precision tongue-flicking, thermal basking, and intricate shedding cycles.</p>
+        </article>
 
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-seedling"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Calcium-Rich Fresh Greens</h3>
-            <p>
-              Offer collard greens, dandelion greens, mustard greens, and turnip greens daily to herbivores and
-              omnivores. Avoid spinach and iceberg lettuce, which bind calcium and cause diarrhea.
-            </p>
-          </div>
-        </div>
+        <!-- 3. Specialized Environmental Realities -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-temperature-arrow-up" aria-hidden="true"></i></div>
+          <h3>Precision Temperature &amp; UVB</h3>
+          <p>Reptiles are ectothermic—they cannot generate internal body heat. Keepers must install digital
+            thermostat-controlled basking zones and replace specialized UVB lamps every 6–12 months.</p>
+        </article>
+
+        <!-- 4. NOT "Low Maintenance" Pets -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></div>
+          <h3>Not "Beginner Easy" Novelties</h3>
+          <p>Never assume reptiles are effortless starter pets. Neglecting micro-climates, humidity, or dietary calcium
+            leads rapidly to irreversible Metabolic Bone Disease (MBD) and organ failure.</p>
+        </article>
+
+        <!-- 5. Significant Lifespan Commitments -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></div>
+          <h3>Multi-Decade Lifespans</h3>
+          <p>Bearded dragons live 10–15 years, ball pythons live 25–35 years, and tortoises easily exceed 50–80 years.
+            Acquiring a reptile is a binding commitment that may span generations.</p>
+        </article>
+
+        <!-- 6. Specialized Veterinary Medicine -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+          <h3>Exotic Veterinary Access</h3>
+          <p>General veterinarians rarely treat reptiles. Keepers must locate a board-certified exotic pet practitioner
+            experienced in reptile anesthesia, radiology, parasitology, and clinical care.</p>
+        </article>
       </div>
     </section>
 
-    <!-- 
-         SECTION 4: REPTILE HEALTH & WELLNESS (Do's & Don'ts + Insights)
-          -->
-    <section class="section-wrap" id="reptile-health">
-      <div class="dog-topics-heading">
+    <!-- ========================================================
+         7. RESPONSIBLE REPTILE OWNERSHIP SECTION
+         ======================================================== -->
+    <section class="section-wrap rep-section bg-white" id="responsible-ownership">
+      <!-- Section Heading -->
+      <div class="section-heading-wrap">
         <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
           <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
@@ -2169,448 +1771,103 @@
           <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
             opacity="0.95" />
         </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
+
+        <!-- Floating Paws Background Accents (Exact match to dogs/index.html) -->
+        <div class="paw paw-left-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-left-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-1"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
+        <div class="paw paw-right-2"><i class="fa-solid fa-paw" aria-hidden="true"></i></div>
 
         <div class="heading-content">
-          <span class="heading-label">
-            <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Preventive Wellness
-          </span>
+          <span class="heading-label"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Lifetime
+            Welfare</span>
           <h2>
-            <span class="heading-burst left" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            Reptile Health &amp; <span>Wellness</span>
-            <span class="heading-burst right" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
+            <span class="heading-burst left" aria-hidden="true"><span></span><span></span><span></span></span>
+            Responsible <span>Reptile Ownership</span>
+            <span class="heading-burst right" aria-hidden="true"><span></span><span></span><span></span></span>
           </h2>
-          <p>
-            Key husbandry rules, ecdysis shedding care, and veterinary wellness benchmarks to protect your reptile.
-          </p>
+          <p>Essential ethical principles, habitat preparation, and welfare obligations every prospective reptile
+            guardian must uphold.</p>
         </div>
       </div>
 
-      <!-- Guidelines Do's & Don'ts -->
-      <div class="dos-donts-grid">
-        <div class="guideline-card dos">
-          <div class="guideline-card-header">
-            <div class="guideline-icon-wrap">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3 class="guideline-title">Care Do's</h3>
-            </div>
-          </div>
-          <ul class="guideline-list">
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DO use a digital thermostat</b> on all heating devices to eliminate fatal
-                overheating and burn injuries.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DO replace linear UVB tubes every 6–12 months</b> as phosphor coatings
-                degrade and UV emission fades.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DO gut-load and dust feeder insects</b> with pure calcium powder to
-                prevent Metabolic Bone Disease (MBD).</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DO wash your hands thoroughly</b> before and after handling reptiles to
-                maintain strict hygiene and safety.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DO provide a humid shedding hide</b> packed with damp sphagnum moss or
-                moist paper towels for clean ecdysis.</span>
-            </li>
-          </ul>
-        </div>
+      <!-- 6 Ownership Principle Cards -->
+      <div class="basics-grid">
+        <!-- 1. Thorough Species Research -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+          <h3>Rigorous Pre-Purchase Research</h3>
+          <p>Never purchase a reptile impulsively. Thoroughly research adult size, environmental requirements, dietary
+            costs, and behavioral tendencies before bringing any reptile home.</p>
+        </article>
 
-        <div class="guideline-card donts">
-          <div class="guideline-card-header">
-            <div class="guideline-icon-wrap">
-              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3 class="guideline-title">Care Don'ts</h3>
-            </div>
-          </div>
-          <ul class="guideline-list">
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DON'T use uncontrolled heat rocks</b>, which create severe thermal
-                hotspots and lethal abdominal burns.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DON'T house solitary reptiles together</b>; bearded dragons and geckos are
-                strictly territorial and fight.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DON'T use loose calcium sand</b> or crushed walnut shells, which form
-                life-threatening intestinal impactions.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DON'T leave live crickets in the tank overnight</b>; hungry insects bite
-                sleeping reptiles and chew on tender skin.</span>
-            </li>
-            <li>
-              <span class="guideline-tick"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-              <span class="guideline-text"><b>DON'T pull stuck shedding skin dry</b>; soak the reptile in shallow
-                lukewarm water to loosen it gently.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <!-- 2. Understanding Space Demands -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></div>
+          <h3>Adult Space Requirements</h3>
+          <p>Hatchling reptiles grow quickly. A 6-inch baby bearded dragon requires a 120-gallon (4x2x2 ft) enclosure as
+            an adult. Ensure your home has sufficient permanent physical space.</p>
+        </article>
 
-      <!-- 2 Supporting Health Cards -->
-      <div class="rep-topic-grid" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-hand-holding-droplet"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Shedding (Ecdysis) Support</h3>
-            <p>
-              Reptiles shed their outer epidermis regularly. Ensure your humid hide reads 80%+ humidity during sheds.
-              Inspect toes and tail tips afterwards to confirm no tight rings of retained skin remain.
-            </p>
-          </div>
-        </div>
+        <!-- 3. Habitat Preparation in Advance -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
+          <h3>Pre-Calibrated Vivarium Setup</h3>
+          <p>Assemble and test heating lamps, UVB fixtures, and thermostats 48 hours before animal arrival. Verify
+            thermal gradients and humidity using digital probes, not inaccurate analog dials.</p>
+        </article>
 
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-user-doctor"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Specialized Exotic Vet Care</h3>
-            <p>
-              Standard dog/cat veterinarians often lack reptile pathology training. Register with an Association of
-              Reptilian and Amphibian Veterinarians (ARAV) certified vet for annual fecal parasite screenings.
-            </p>
-          </div>
-        </div>
+        <!-- 4. Species-Appropriate Diets -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-plate-wheat" aria-hidden="true"></i></div>
+          <h3>Nutritional Integrity &amp; Gut Loading</h3>
+          <p>Provide gut-loaded live feeder insects, fresh pesticide-free greens, or ethically sourced frozen rodents.
+            Dust meals with pure calcium and vitamin D3 on a strict veterinary schedule.</p>
+        </article>
+
+        <!-- 5. Escape Prevention & Safe Handling -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+          <h3>Escape-Proof Enclosures</h3>
+          <p>Reptiles are master escape artists. Fit sliding vivarium glass with keyed wedge locks and secure wire
+            screen mesh lids with heavy-duty metal tension clips.</p>
+        </article>
+
+        <!-- 6. Never Release Captive Pets -->
+        <article class="basic-card">
+          <div class="basic-icon-wrap"><i class="fa-solid fa-ban" aria-hidden="true"></i></div>
+          <h3>Never Release Into the Wild</h3>
+          <p>Releasing captive reptiles into the wild is illegal, inhumane, and devastates local ecosystems. If you can
+            no longer care for your pet, contact a certified exotic rescue organization.</p>
+        </article>
       </div>
     </section>
 
-    <!-- 
-         SECTION 5: REPTILE BEHAVIOUR & HANDLING
-          -->
-    <section class="section-wrap" id="reptile-behaviour">
-      <div class="dog-topics-heading">
-        <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
-          <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
-            opacity="0.95" />
-        </svg>
-        <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
-          <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
-            opacity="0.95" />
-        </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
-
-        <div class="heading-content">
-          <span class="heading-label">
-            <i class="fa-solid fa-brain" aria-hidden="true"></i> Trust &amp; Enrichment
-          </span>
-          <h2>
-            <span class="heading-burst left" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            Reptile Behaviour &amp; <span>Handling</span>
-            <span class="heading-burst right" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-          </h2>
-          <p>
-            Understanding natural defensive reflexes, circadian sleep cycles, and low-stress handling protocols.
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 Topic Cards Desktop -->
-      <div class="rep-topic-grid">
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Circadian Photoperiod</h3>
-            <p>
-              Maintain a consistent 12-hour day and 12-hour night light cycle. Keep the room dark and quiet at night.
-              Avoid colored "night bulbs" or red heat lamps, which disturb reptile sleep patterns.
-            </p>
-          </div>
-        </div>
-
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-hand-holding"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Gentle Scoop Handling</h3>
-            <p>
-              Never grab a reptile suddenly from above, which triggers raptor predator fear. Calmly scoop your hands
-              from underneath the abdomen, fully supporting all four limbs and tail weight.
-            </p>
-          </div>
-        </div>
-
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-tree"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Terrarium Enrichment</h3>
-            <p>
-              Add sanitized driftwoods, slate basking platforms, climbing vines, and digging zones. Varied physical
-              terrain stimulates mental engagement and prevents sedentary terrarium lethargy.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 
-         SECTION 6: HABITAT & SAFETY
-          -->
-    <section class="section-wrap" id="reptile-habitat">
-      <div class="dog-topics-heading">
-        <svg class="corner-wave wave-tl" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M0 0 L220 0 C175 12 130 22 95 20 C60 18 30 32 0 60 Z" fill="#d8e8ce" opacity="0.7" />
-          <path d="M0 0 L220 0 C165 24 120 40 85 46 C50 52 22 82 6 104 C2 114 0 122 0 130 Z" fill="#edf6e6"
-            opacity="0.95" />
-        </svg>
-        <svg class="corner-wave wave-br" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path d="M220 130 L0 130 C45 118 90 108 125 110 C160 112 190 98 220 70 Z" fill="#d8e8ce" opacity="0.7" />
-          <path d="M220 130 L0 130 C55 106 100 90 135 84 C170 78 198 48 214 26 C218 16 220 8 220 0 Z" fill="#edf6e6"
-            opacity="0.95" />
-        </svg>
-        <div class="paw paw-left-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-left-2"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-1"><i class="fa-solid fa-paw"></i></div>
-        <div class="paw paw-right-2"><i class="fa-solid fa-paw"></i></div>
-
-        <div class="heading-content">
-          <span class="heading-label">
-            <i class="fa-solid fa-house" aria-hidden="true"></i> Enclosure Security
-          </span>
-          <h2>
-            <span class="heading-burst left" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-            Habitat &amp; <span>Safety</span>
-            <span class="heading-burst right" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-          </h2>
-          <p>
-            Building secure enclosures, stable ambient humidity profiles, and selecting safe non-impaction beddings.
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 Topic Cards Desktop -->
-      <div class="rep-topic-grid">
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Escape-Proof Security</h3>
-            <p>
-              Snakes and juvenile lizards can push loose screen tops or squeeze through millimeter gaps. Always use
-              heavy-duty metal lid clamps or front-opening enclosures with keyed latches.
-            </p>
-          </div>
-        </div>
-
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-droplet"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Ambient Humidity Benchmarks</h3>
-            <p>
-              Arid lizards require 30%–40% humidity, while tropical species need 65%–85%. Place digital hygrometer
-              probes inside the enclosure to track levels and mist daily with dechlorinated water.
-            </p>
-          </div>
-        </div>
-
-        <div class="care-tip-card">
-          <div class="tip-icon-wrap">
-            <i class="fa-solid fa-cubes"></i>
-          </div>
-          <div class="tip-content">
-            <h3>Safe Substrates vs Impaction</h3>
-            <p>
-              Safe options include slate tile, butcher paper, and certified topsoil/sand blends. Strictly avoid cedar
-              and pine shavings (toxic phenolic oils) and synthetic calcium sands.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 
-         CTA BANNER - PetSathi Approved Standard
-          -->
-    <section class="cta section-wrap">
+    <!-- ========================================================
+         8. FINAL CTA SECTION (Exact match to fish.html & index.html)
+         ======================================================== -->
+    <section class="cta section-wrap" id="reptile-cta">
       <div>
-        <div class="eyebrow">START YOUR REPTILE'S JOURNEY</div>
-        <h2>Every Scale Deserves a <em>Thriving Habitat.</em></h2>
+        <div class="eyebrow">START YOUR REPTILE JOURNEY</div>
+        <h2>Give Your Reptile the <em>Care It Deserves</em></h2>
         <p>
-          Whether you are welcoming your first leopard gecko or designing a bioactive terrarium for your bearded
-          dragon,
-          PetSathi provides the expert care guides and community support you need.
+          Explore our dedicated reptile guides to learn everything you need about terrarium engineering, thermal
+          gradients,
+          species-tailored nutrition, and responsible lifelong companion care.
         </p>
       </div>
       <div class="cta-actions">
-        <a class="button button-light" href="../../../../index.html" id="cta-explore-pets">
-          Explore Pet Guides ↗
-        </a>
-        <a class="button button-outline" href="#species-list" id="cta-browse-reptiles">
-          Browse Reptiles
-        </a>
+        <a class="button button-light" href="care.html" id="cta-explore-care">Explore Reptile Care &rarr;</a>
+        <a class="button button-outline" href="breeds.html" id="cta-explore-breeds">Explore Breeds</a>
       </div>
     </section>
   </main>
 
-  <!-- Global Footer (Verbatim from HEAD) -->
+  <!-- Global Footer Placeholder -->
   <div id="footer"></div>
 
-  <!-- Scripts -->
+  <!-- Shared Scripts -->
   <script src="../../../js/main.js"></script>
-  <script>
-    (function () {
-      // Update copyright year
-      const yearEl = document.getElementById('year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // ======================================================================
-      // REPTILE SEARCH & FILTER CONTROLS (dogs/walking.html Architecture)
-      // ======================================================================
-      const searchInput = document.getElementById('reptile-search-input');
-      const searchClearBtn = document.getElementById('search-clear-btn');
-      const filterPills = document.querySelectorAll('#reptile-filter-pills .sf-mini-pill');
-      const statusText = document.getElementById('filter-status-text');
-      const resetBtn = document.getElementById('filter-reset-btn');
-      const speciesCards = document.querySelectorAll('.rep-card');
-      const noResults = document.getElementById('repNoResults');
-      const repResetBtn = document.getElementById('repResetBtn');
-
-      let currentCategory = 'all';
-      let currentQuery = '';
-
-      function applyFilters() {
-        let visibleCount = 0;
-        const query = currentQuery.trim().toLowerCase();
-
-        speciesCards.forEach(card => {
-          const category = (card.dataset.category || '').toLowerCase();
-          const text = (card.textContent || '').toLowerCase();
-          const keywords = (card.dataset.keywords || '').toLowerCase();
-
-          const matchesCat = (currentCategory === 'all') || category.split(' ').includes(currentCategory);
-          const matchesQuery = !query || text.includes(query) || keywords.includes(query);
-
-          if (matchesCat && matchesQuery) {
-            card.style.display = '';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        // Update clear button
-        if (searchClearBtn) {
-          searchClearBtn.style.display = query ? 'grid' : 'none';
-        }
-
-        // Update reset button
-        const isFiltered = (currentCategory !== 'all') || (query.length > 0);
-        if (resetBtn) {
-          resetBtn.style.display = isFiltered ? 'inline-flex' : 'none';
-        }
-
-        // Update status text
-        if (statusText) {
-          if (!isFiltered) {
-            statusText.textContent = `Showing all ${speciesCards.length} reptile species profiles`;
-          } else if (visibleCount === 0) {
-            statusText.textContent = 'No matching reptile species found';
-          } else {
-            statusText.textContent = `Showing ${visibleCount} matching reptile ${visibleCount === 1 ? 'species profile' : 'species profiles'}`;
-          }
-        }
-
-        // Show/hide no results banner
-        if (noResults) {
-          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-        }
-      }
-
-      filterPills.forEach(pill => {
-        pill.addEventListener('click', () => {
-          filterPills.forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          currentCategory = pill.dataset.filter || 'all';
-          applyFilters();
-        });
-      });
-
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          currentQuery = e.target.value;
-          applyFilters();
-        });
-        searchInput.addEventListener('keyup', (e) => {
-          currentQuery = e.target.value;
-          applyFilters();
-        });
-      }
-
-      if (searchClearBtn) {
-        searchClearBtn.addEventListener('click', () => {
-          if (searchInput) searchInput.value = '';
-          currentQuery = '';
-          applyFilters();
-          if (searchInput) searchInput.focus();
-        });
-      }
-
-      function resetAll() {
-        if (searchInput) searchInput.value = '';
-        currentQuery = '';
-        currentCategory = 'all';
-        filterPills.forEach(p => {
-          p.classList.toggle('active', p.dataset.filter === 'all');
-        });
-        applyFilters();
-      }
-
-      if (resetBtn) resetBtn.addEventListener('click', resetAll);
-      if (repResetBtn) repResetBtn.addEventListener('click', resetAll);
-    })();
-  </script>
 </body>
 
 </html>
