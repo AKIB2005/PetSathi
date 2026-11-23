@@ -13,6 +13,8 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Great+Vibes&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/accessibility.css">
   <link rel="stylesheet" href="../css/certificate.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
@@ -46,19 +48,44 @@
   <div id="header"></div>
 
   <main id="main-content" class="cert-page">
-    <!-- 1. Hero Section (Simple & Clean original style) -->
-    <section class="cert-hero" id="cert-hero">
-      <div class="cert-hero-inner">
-        <span class="cert-badge">
+    <!-- 1. Hero Section (Full Screen Editorial Layout Matching PetSathi Standard) -->
+    <section class="hero section-wrap cert-hero" id="cert-hero">
+      <div class="hero-copy">
+        <div class="dog-badge-strip cert-badge-strip">
           <i class="fa-solid fa-award" aria-hidden="true"></i>
-          NSoC Winter Edition 2026
-        </span>
-        <h1>Celebrate Your <span>Contribution!</span></h1>
+          NSoC Winter Edition 2026 • Contributor Recognition
+        </div>
+        <h1>Celebrate Your <em>Contribution!</em></h1>
         <p>
-          Official recognition portal celebrating open-source developers who built and improved PetSathi during Nexus
-          Spring of Code (NSoC) 2026 – Winter Edition. Enter your GitHub username below to verify and generate your
-          official certificate.
+          Recognizing the passionate open-source developers who built, polished, and contributed merged code to PetSathi during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Simply enter your GitHub username in the verification portal below to check your merged contributions and instantly generate your official, cryptographically verifiable Certificate of Contribution.
         </p>
+        <div class="hero-actions">
+          <a class="button" href="#cert-verify-section" id="hero-cta-verify">
+            Verify &amp; Claim Certificate ↓
+          </a>
+          <a class="button button-outline" href="https://github.com/Riya-Kharade/PetSathi" target="_blank" rel="noopener" id="hero-cta-repo">
+            Explore GitHub Repo ↗
+          </a>
+        </div>
+        <div class="hero-note">
+          <i class="fa-solid fa-heart" style="color: #286849;" aria-hidden="true"></i>
+          Dedicated to recognizing real open-source excellence for companion animals.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-blob" aria-hidden="true"></div>
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=90"
+          alt="Adorable golden retriever puppy sitting outdoors with a flower celebrating PetSathi contributors"
+          class="hero-photo" id="hero-main-image" loading="eager" />
+        <div class="floating-card card-top">
+          <i class="fa-solid fa-award" style="color: #c8973e;" aria-hidden="true"></i>
+          <span><b>Verified Contributor</b><small>Official NSoC Recognition</small></span>
+        </div>
+        <div class="floating-card card-bottom">
+          <i class="fa-solid fa-certificate" style="color: #286849;" aria-hidden="true"></i>
+          <span><b>Official Certificate</b><small>Ready to Download &amp; Share</small></span>
+        </div>
       </div>
     </section>
 

@@ -653,22 +653,17 @@
     // 8. Contributor Name (Prominent & Regal) + Two Paws Stacked "One Above One"
     ctx.fillStyle = "#122b1c";
     ctx.font = "bold 76px Georgia, 'Times New Roman', serif";
+    ctx.textAlign = "center";
+    ctx.fillText(name, w / 2, 845);
 
-    // Measure name width to perfectly center the [Name + Paws] group on the canvas
+    // Measure name width to place two paws one above one right after the name
     const nameMetrics = ctx.measureText(name);
-    const pawsWidth = 34;
-    const gap = 18;
-    const totalGroupWidth = nameMetrics.width + gap + pawsWidth;
-    const startX = w / 2 - totalGroupWidth / 2;
+    const pawsStartX = w / 2 + nameMetrics.width / 2 + 30;
 
-    ctx.textAlign = "left";
-    ctx.fillText(name, startX, 845);
-
-    const pawsX = startX + nameMetrics.width + gap + 10;
     // Top Paw (slightly smaller, tilted +15 deg)
-    drawCanvasPaw(ctx, pawsX, 810, 14, 15, "#286849");
+    drawCanvasPaw(ctx, pawsStartX, 810, 14, 15, "#286849");
     // Bottom Paw (slightly larger, tilted -10 deg, placed below)
-    drawCanvasPaw(ctx, pawsX + 6, 844, 18, -10, "#286849");
+    drawCanvasPaw(ctx, pawsStartX + 8, 842, 19, -10, "#286849");
 
     // Contributor GitHub Handle (Clean, NO commits badge as requested)
     ctx.fillStyle = "#286849";
