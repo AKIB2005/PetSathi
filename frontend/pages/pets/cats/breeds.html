@@ -164,28 +164,36 @@
     }
 
     /* Section Headers */
-    .section-title-wrap {
+    main .section-title-wrap {
       text-align: center;
-      max-width: 720px;
-      margin: 0 auto 40px;
+      margin: 0 0 35px;
+      padding: clamp(24px, 4vw, 44px) clamp(18px, 4vw, 35px);
+      border: 1px solid #dcebc9;
+      border-radius: clamp(20px, 3vw, 35px);
+      background: #fafcf7 !important;
     }
     .section-title-wrap h2 {
       margin: 8px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3.2vw, 36px);
     }
     .section-title-wrap p {
-      margin: 0;
+      max-width: 650px;
+      margin: 0 auto;
       font-size: 0.98rem;
+      line-height: 1.7;
     }
-    .section-title-wrap .eyebrow {
-      margin-bottom: 8px;
+    #categories,
+    #popular-breeds,
+    #comparison {
+      padding-block: clamp(36px, 6vw, 70px);
     }
 
     /* Breed Categories Grid */
     .categories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
     }
     .category-card {
       background: white;
@@ -194,6 +202,7 @@
       padding: 28px 24px;
       display: flex;
       flex-direction: column;
+      text-align: center;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       position: relative;
     }
@@ -204,7 +213,7 @@
     }
     .cat-badge {
       display: inline-block;
-      align-self: flex-start;
+      align-self: center;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -216,13 +225,17 @@
       margin-bottom: 14px;
     }
     .category-icon {
-      font-size: 2.4rem;
-      line-height: 1;
-      margin-bottom: 12px;
-      display: inline-block;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      border-radius: 14px;
+      background: var(--soft);
+      font-size: 1.35rem;
     }
     .category-card h3 {
-      font-size: 1.28rem;
+      font-size: 1.25rem;
       margin: 0 0 10px;
       color: var(--ink);
     }
@@ -241,6 +254,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      text-align: left;
     }
     .category-specs div {
       display: flex;
@@ -406,42 +420,35 @@
       display: none !important;
     }
     .breed-image-wrap {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
       background: #f0f3eb;
     }
     .breed-image {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
+      height: clamp(180px, 20vw, 224px);
+      object-fit: contain;
+      object-position: center;
     }
-    .breed-card:hover .breed-image {
-      transform: scale(1.05);
+    .breed-image-labels {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px;
     }
     .breed-tag-pill {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(4px);
+      background: white;
       color: var(--dark);
       font-size: 0.72rem;
       font-weight: 700;
       padding: 4px 10px;
       border-radius: 999px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .breed-origin-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(29, 80, 57, 0.92);
-      backdrop-filter: blur(4px);
-      color: white;
+      background: #e4eee3;
+      color: var(--dark);
       font-size: 0.72rem;
       font-weight: 600;
       padding: 4px 10px;
@@ -452,17 +459,18 @@
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+      text-align: center;
     }
     .breed-header {
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
       margin-bottom: 8px;
     }
     .breed-name {
       margin: 0;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       color: var(--ink);
       font-family: Manrope, sans-serif;
     }
@@ -480,7 +488,6 @@
       line-height: 1.6;
       color: var(--muted);
       margin: 0 0 18px;
-      min-height: 58px;
       flex-grow: 1;
     }
     .breed-details-list {
@@ -492,6 +499,7 @@
       flex-direction: column;
       gap: 12px;
       margin-top: 14px;
+      text-align: left;
     }
     .breed-card.details-open .breed-details-list {
       display: flex;
@@ -503,7 +511,7 @@
       gap: 8px;
       min-height: 40px;
       padding: 8px 14px;
-      align-self: flex-start;
+      align-self: center;
       border: 1px solid #cbd9ce;
       border-radius: 999px;
       background: #ffffff;
@@ -613,7 +621,7 @@
       border: 1px solid #d5ded3;
       border-radius: 8px;
       font-size: 0.84rem;
-      min-width: 240px;
+      width: min(240px, 100%);
       outline: none;
       font-family: inherit;
     }
@@ -665,8 +673,9 @@
     .table-breed-img {
       width: 44px;
       height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
+      border-radius: 10px;
+      object-fit: contain;
+      background: #f0f3eb;
       border: 2px solid white;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       flex-shrink: 0;
@@ -719,42 +728,46 @@
     }
 
     /* Cat Care CTA Section */
-    .cat-care-cta {
-      background: #f4faf5;
-      border: 1px solid #dcebc9;
-      border-radius: 26px;
-      padding: 50px 45px;
-      margin: 80px auto;
+    main .cat-care-cta {
+      width: min(85%, 1350px);
+      background: #f2e8d9 !important;
+      border: 1px solid #e6d7c3;
+      border-radius: 30px;
+      padding: 48px 56px;
+      margin: 18px auto 75px;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 36px;
-      position: relative;
-      overflow: hidden;
+      gap: 24px;
     }
-    .cat-care-cta::after {
-      content: none;
+    .cat-care-cta .eyebrow {
+      margin-bottom: 10px;
     }
     .cat-care-cta h2 {
       margin: 0 0 12px;
-      color: var(--ink);
-      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      color: var(--dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3.2vw, 36px);
     }
     .cat-care-cta p {
       margin: 0;
       max-width: 620px;
-      color: var(--muted);
+      color: var(--ink);
       font-size: 1rem;
       line-height: 1.7;
     }
     .cat-cta-actions {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-width: 220px;
+      flex-wrap: wrap;
+      gap: 14px;
     }
-    .cat-cta-actions .button {
-      white-space: nowrap;
+    .cat-cta-actions .button-light {
+      border-color: white;
+      background: white;
+      color: var(--dark);
+    }
+    .cat-cta-actions .button-outline {
+      border-color: var(--green);
     }
 
     /* Quick Jump Back to Top Floating or Inline */
@@ -771,35 +784,22 @@
 
     /* Responsiveness */
     @media (max-width: 900px) {
-      .cat-care-cta {
+      main .cat-care-cta {
+        width: calc(100% - 64px);
         grid-template-columns: 1fr;
-        padding: 36px 28px;
-        text-align: center;
-      }
-      .cat-care-cta p {
-        margin: 0 auto;
-      }
-      .cat-cta-actions {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        padding: 38px 32px;
       }
     }
     @media (max-width: 900px) {
       .hero {
         gap: 20px;
       }
-      .breeds-grid {
+      .breeds-grid,
+      .categories-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
     @media (max-width: 768px) {
-      .categories-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .breeds-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
       .filter-header {
         flex-direction: column;
         align-items: stretch;
@@ -839,8 +839,24 @@
       }
     }
     @media (max-width: 600px) {
+      main .cat-care-cta {
+        width: calc(100% - 34px);
+        margin-bottom: 65px;
+        padding: 34px 24px;
+      }
       .cat-cta-actions .button {
         width: 100%;
+        text-align: center;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .category-card,
+      .breed-card {
+        transition: none;
+      }
+      .category-card:hover,
+      .breed-card:hover {
+        transform: none;
       }
     }
 
@@ -1117,8 +1133,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Long-Haired</span>
-            <span class="breed-origin-badge">Ancient Persia</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Long-Haired</span>
+              <span class="breed-origin-badge">Ancient Persia</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1165,8 +1183,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">Thailand</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">Thailand</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1213,8 +1233,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Long-Haired</span>
-            <span class="breed-origin-badge">United States</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Long-Haired</span>
+              <span class="breed-origin-badge">United States</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1261,8 +1283,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">United States</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">United States</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1309,8 +1333,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Long-Haired</span>
-            <span class="breed-origin-badge">United States</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Long-Haired</span>
+              <span class="breed-origin-badge">United States</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1357,8 +1383,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">United Kingdom</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">United Kingdom</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1405,8 +1433,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Hairless</span>
-            <span class="breed-origin-badge">Canada</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Hairless</span>
+              <span class="breed-origin-badge">Canada</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1453,8 +1483,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">Scotland</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">Scotland</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1501,8 +1533,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">Russia</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">Russia</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1549,8 +1583,10 @@
               class="breed-image"
               loading="lazy"
             >
-            <span class="breed-tag-pill">Short-Haired</span>
-            <span class="breed-origin-badge">United States</span>
+            <div class="breed-image-labels">
+              <span class="breed-tag-pill">Short-Haired</span>
+              <span class="breed-origin-badge">United States</span>
+            </div>
           </div>
           <div class="breed-body">
             <div class="breed-header">
@@ -1819,19 +1855,17 @@
     </section>
 
     <!-- SECTION 4: CTA Section -->
-    <section class="section-wrap">
-      <div class="cat-care-cta">
-        <div>
-          <div class="eyebrow">Feline Wellness &amp; Nutrition</div>
-          <h2>Ready to Explore <em>Cat Care &amp; Nutrition?</em></h2>
-          <p>
-            Understanding breed characteristics is only the first step. Keep your feline companion vibrant and healthy with balanced meal recommendations, indoor stimulation ideas, and routine health practices.
-          </p>
-        </div>
-        <div class="cat-cta-actions">
-          <a class="button" href="index.html">← Back to Cats Landing Page</a>
-          <a class="button button-outline" href="../../services/cat-care.html">Explore Cat Care Services ↗</a>
-        </div>
+    <section class="cat-care-cta" aria-labelledby="cat-care-cta-title">
+      <div>
+        <div class="eyebrow">Feline Wellness &amp; Nutrition</div>
+        <h2 id="cat-care-cta-title">Ready to Explore <em>Cat Care &amp; Nutrition?</em></h2>
+        <p>
+          Understanding breed characteristics is only the first step. Keep your feline companion vibrant and healthy with balanced meal recommendations, indoor stimulation ideas, and routine health practices.
+        </p>
+      </div>
+      <div class="cat-cta-actions">
+        <a class="button button-light" href="index.html">← Back to Cats Landing Page</a>
+        <a class="button button-outline" href="../../services/cat-care.html">Explore Cat Care Services ↗</a>
       </div>
     </section>
   </main>
