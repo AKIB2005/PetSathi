@@ -83,7 +83,7 @@ body {
   font-style: normal !important;
 }
 
-.cert-hero .hero-copy > p {
+.cert-hero .hero-copy>p {
   font-family: "DM Sans", "Manrope", sans-serif !important;
   font-size: clamp(1.02rem, 1.5vw, 1.15rem) !important;
   line-height: 1.8 !important;
@@ -231,7 +231,7 @@ body {
     align-self: center;
   }
 
-  .cert-hero .hero-copy > p {
+  .cert-hero .hero-copy>p {
     margin-inline: auto;
   }
 
