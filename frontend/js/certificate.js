@@ -44,9 +44,9 @@
         const font = new FontFace("Great Vibes", "url(../assets/fonts/GreatVibes.woff2)");
         font.load().then((loaded) => {
           document.fonts.add(loaded);
-        }).catch(() => {});
+        }).catch(() => { });
       }
-    } catch (e) {}
+    } catch (e) { }
 
     // Attach Event Listeners
     if (generateBtn) {
@@ -74,15 +74,25 @@
     // Load Verified Contributors Registry
     await loadContributorsRegistry();
 
-    // Ensure website reload always takes the user to clean certificate.html with NO certificate showing
-    if (window.location.search) {
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-    if (usernameInput) {
-      usernameInput.value = "";
-    }
-    if (showcaseSection) {
-      showcaseSection.style.display = "none";
+    // Check if URL contains a user parameter (e.g. pasted share link or direct link)
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedUser = urlParams.get("user") || urlParams.get("username") || urlParams.get("contributor");
+
+    if (sharedUser && sharedUser.trim()) {
+      const cleanUser = sharedUser.trim().replace(/^@/, "");
+      if (usernameInput) {
+        usernameInput.value = cleanUser;
+      }
+      // Automatically verify and display this user's certificate
+      handleVerifyAndGenerate({ autoLoaded: true });
+    } else {
+      // Main certificate portal initial state (clean with no certificate showing)
+      if (usernameInput) {
+        usernameInput.value = "";
+      }
+      if (showcaseSection) {
+        showcaseSection.style.display = "none";
+      }
     }
   }
 
@@ -299,8 +309,8 @@
     if (statusMsg) statusMsg.style.display = "none";
   }
 
-  // Handle Verification and Generation with 5-Second Lazy Loading
-  async function handleVerifyAndGenerate() {
+  // Handle Verification and Generation (supports manual click with 5-sec loader or auto-load via share link)
+  async function handleVerifyAndGenerate(options = {}) {
     hideAllStatus();
     const rawUser = usernameInput ? usernameInput.value.trim().replace(/^@/, "") : "";
 
@@ -409,9 +419,9 @@
       }
     })();
 
-    // Animate progress smoothly over exactly 5000ms (5 seconds lazy loading)
+    // Animate progress smoothly over duration (1.2s for shared links, 5s for manual generation)
     const startTime = Date.now();
-    const totalDuration = 5000;
+    const totalDuration = options && options.autoLoaded ? 1200 : 5000;
 
     await new Promise((resolve) => {
       const timer = setInterval(() => {
@@ -489,9 +499,12 @@
         showcaseSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      // Keep URL clean so reloading the website always takes the user to clean certificate.html
-      if (window.location.search) {
-        window.history.replaceState({}, document.title, window.location.pathname);
+      // Update URL to the shareable user link without reloading the page
+      try {
+        const shareUrl = getShareableUrl(result.username);
+        window.history.replaceState({ user: result.username }, document.title, shareUrl);
+      } catch (e) {
+        // Fallback
       }
 
     } else {
@@ -924,36 +937,91 @@
     }
   }
 
+  // Construct canonical shareable URL for production deployment and local environments
+  function getShareableUrl(handle) {
+    const cleanHandle = handle ? handle.replace(/^@/, "").trim() : "";
+    if (!cleanHandle) return window.location.href;
+
+    try {
+      const u = new URL(window.location.href);
+      u.searchParams.set("user", cleanHandle);
+      return u.toString();
+    } catch (e) {
+      const base = window.location.origin && window.location.origin !== "null"
+        ? `${window.location.origin}${window.location.pathname}`
+        : window.location.href.split("?")[0];
+      return `${base}?user=${encodeURIComponent(cleanHandle)}`;
+    }
+  }
+
   // Share on LinkedIn
   function shareOnLinkedIn() {
-    const username = (currentContributor && currentContributor.username) || "";
-    const pageUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?user=${encodeURIComponent(username)}`;
+    const handle = (currentContributor && currentContributor.username) || (usernameInput ? usernameInput.value.trim().replace(/^@/, "") : "");
+    if (!handle) {
+      showStatus("Please enter your github username", "warning");
+      return;
+    }
+    const pageUrl = getShareableUrl(handle);
     const text = `Honored to receive my official Contributor Certificate for PetSathi during Nexus Spring of Code (NSoC) 2026 – Winter Edition! 🐾 Check it out:`;
     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
     window.open(shareUrl, "_blank", "width=600,height=600");
   }
 
-  // Copy shareable link
+  // Copy shareable link (guaranteed to work in production deployments and local testing)
   function copyShareableLink() {
-    const handle = (currentContributor && currentContributor.username) || usernameInput.value.trim();
-    const link = handle
-      ? `${window.location.protocol}//${window.location.host}${window.location.pathname}?user=${encodeURIComponent(handle)}`
-      : window.location.href;
+    const handle = (currentContributor && currentContributor.username) || (usernameInput ? usernameInput.value.trim().replace(/^@/, "") : "");
+    if (!handle) {
+      showStatus("Please enter your github username", "warning");
+      return;
+    }
+    const link = getShareableUrl(handle);
 
-    navigator.clipboard
-      .writeText(link)
-      .then(() => {
-        if (copyLinkBtn) {
-          const orig = copyLinkBtn.innerHTML;
-          copyLinkBtn.innerHTML = '<i class="fa-solid fa-check"></i> Link Copied!';
-          setTimeout(() => {
-            copyLinkBtn.innerHTML = orig;
-          }, 2000);
-        }
-      })
-      .catch(() => {
-        prompt("Copy this shareable link:", link);
-      });
+    function notifySuccess() {
+      if (copyLinkBtn) {
+        const orig = copyLinkBtn.innerHTML;
+        copyLinkBtn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Link Copied!';
+        setTimeout(() => {
+          copyLinkBtn.innerHTML = orig;
+        }, 2000);
+      }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(link)
+        .then(() => {
+          notifySuccess();
+        })
+        .catch(() => {
+          fallbackCopyText(link, notifySuccess);
+        });
+    } else {
+      fallbackCopyText(link, notifySuccess);
+    }
+  }
+
+  // Fallback copy mechanism for restricted or non-HTTPS contexts
+  function fallbackCopyText(text, onSuccess) {
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      textarea.setAttribute("readonly", "");
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const successful = document.execCommand("copy");
+      document.body.removeChild(textarea);
+      if (successful && onSuccess) {
+        onSuccess();
+      } else {
+        prompt("Copy your shareable certificate link:", text);
+      }
+    } catch (err) {
+      prompt("Copy your shareable certificate link:", text);
+    }
   }
 
   window.renderHighResCertificateCanvas = renderHighResCertificateCanvas;
