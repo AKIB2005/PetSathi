@@ -37,6 +37,25 @@
     }
 
     /* Cat Badge Strip Matching Dog Index */
+    /* Main Hero Section matching cats/index.html */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+      padding-top: 24px;
+      padding-bottom: 60px;
+    }
+    #cat-care-hero {
+      width: 100%;
+      box-sizing: border-box;
+      padding-inline: max(24px, calc((100% - 1160px) / 2));
+    }
+    @media (min-width: 961px) {
+      #cat-care-hero {
+        min-height: calc(100vh - 84px);
+      }
+    }
     .cat-badge-strip {
       display: inline-flex;
       align-items: center;
@@ -303,7 +322,15 @@
       object-fit: cover;
       transition: transform 0.35s ease;
     }
-
+    #card-litter-box .cat-care-media img,
+    #card-grooming-coat .cat-care-media img,
+    #card-nail-paw .cat-care-media img {
+      object-position: center 35%;
+    }
+    #card-dental-care .cat-care-media img,
+    #card-senior-care .cat-care-media img {
+      object-position: center 15%;
+    }
     .cat-care-card:hover .cat-care-media img {
       transform: scale(1.05);
     }
@@ -404,14 +431,17 @@
       align-items: center;
       justify-content: space-between;
       gap: 36px;
-      background: #f2e8d9 !important;
       border: 1px solid #e6d7c3 !important;
       border-radius: 30px !important;
-      padding: 48px 56px !important;
+      padding: 32px 36px !important;
       margin: 30px auto 85px !important;
       box-shadow: 0 10px 30px rgba(70, 50, 20, 0.05);
       position: relative;
       overflow: hidden;
+    }
+
+    main > .cta {
+      background: #fcecef !important;
     }
 
     .cta .eyebrow {
@@ -980,7 +1010,7 @@
                 <i class="fa-solid fa-baby" aria-hidden="true"></i>
                 0–12 Months
               </span>
-              <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&w=700&q=85"
+              <img src="https://images.unsplash.com/photo-1695042542773-643329874f6e?auto=format&fit=crop&w=700&q=85"
                 alt="Curious playful young kitten sitting attentively" loading="lazy">
             </div>
             <div class="cat-care-body">
@@ -1047,17 +1077,17 @@
     <!-- CTA Banner Section Matching Main Index Page -->
     <section class="cta section-wrap">
       <div>
-        <div class="eyebrow">START YOUR PET'S JOURNEY</div>
-        <h2>Ready to Give Your Pet the <em>Best Care?</em></h2>
+        <div class="eyebrow">DEDICATED FELINE GUARDIANSHIP</div>
+        <h2>Every Purr Begins with <em>Mindful Care.</em></h2>
         <p>
-          Whether you are preparing to welcome a new companion or looking to give your faithful pet the best
-          daily walks, nutrition, and wellness support, PetSathi is here to guide and support you every step of the way.
+          Being a cat guardian is a lifelong bond built on love, respect, and attentive wellness routines.
+          PetSathi provides trusted nutrition guides, grooming techniques, and verified pet caregivers to support you and your cat every day.
         </p>
       </div>
       <div class="cta-actions">
-        <a class="button button-light" href="../../auth/register.html" id="cta-get-started">Get Started Free <i
+        <a class="button button-light" href="index.html" id="cta-cat-overview">Explore Cats Overview <i
             class="fa-solid fa-arrow-right"></i></a>
-        <a class="button button-outline" href="../../services/index.html" id="cta-services">Explore Services</a>
+        <a class="button button-outline" href="../../walker/cats.html" id="cta-find-caregiver">Find a Cat Caregiver</a>
       </div>
     </section>
   </main>
