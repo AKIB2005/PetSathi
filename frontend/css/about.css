@@ -370,6 +370,294 @@
 }
 
 /* --------------------------------------------------------------------------
+   Meet the Project Admin Section
+   -------------------------------------------------------------------------- */
+.admin-section {
+  padding-block: 20px 75px;
+  scroll-margin-top: 95px;
+}
+
+.admin-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: 58px;
+  padding: 52px 56px;
+  background: #ffffff;
+  border: 1px solid #dcebc9;
+  border-radius: 32px;
+  box-shadow: 0 18px 50px rgba(35, 75, 45, 0.07);
+  overflow: hidden;
+}
+
+.admin-grid::before {
+  content: "";
+  position: absolute;
+  top: -160px;
+  right: -130px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #eef7e9 0%, rgba(238, 247, 233, 0) 70%);
+  pointer-events: none;
+}
+
+.admin-grid::after {
+  content: "";
+  position: absolute;
+  bottom: -170px;
+  left: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fdf3e8 0%, rgba(253, 243, 232, 0) 70%);
+  pointer-events: none;
+}
+
+.admin-photo-column {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-photo-frame {
+  position: relative;
+  width: min(100%, 360px);
+  padding: 9px;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #edf6df 0%, #ffffff 55%, #f8eadb 100%);
+  border: 1px solid #dcebc9;
+  box-shadow: 0 22px 45px rgba(35, 75, 45, 0.14);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.admin-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px dashed #b7deb8;
+  border-radius: 42px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.admin-photo-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(35, 75, 45, 0.2);
+}
+
+.admin-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 3px solid #ffffff;
+  display: block;
+  background: #edf6df;
+}
+
+.admin-photo-badge {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 18px;
+  background: #ffffff;
+  border: 1px solid #dcebc9;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(35, 75, 45, 0.12);
+  white-space: nowrap;
+}
+
+.admin-photo-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: #1e6f43;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.admin-photo-badge strong {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1a281f;
+  line-height: 1.25;
+}
+
+.admin-photo-badge small {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #718078;
+  line-height: 1.35;
+}
+
+.admin-info-column {
+  position: relative;
+  z-index: 1;
+}
+
+.admin-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 17px;
+  margin-bottom: 17px;
+  border-radius: 999px;
+  background: #edf6df;
+  border: 1px solid #dcebc9;
+  color: #246b43;
+  font-family: "DM Sans", "Manrope", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  box-shadow: 0 1px 4px rgba(36, 107, 67, 0.06);
+}
+
+.admin-eyebrow i {
+  font-size: 0.9rem;
+  color: #246b43;
+}
+
+.admin-title {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #1a281f;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.admin-title span {
+  color: #246b43;
+}
+
+.admin-name {
+  margin: 0 0 4px;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1d5039;
+  letter-spacing: -0.2px;
+}
+
+.admin-role {
+  margin: 0;
+  font-family: "DM Sans", "Manrope", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #7a8a80;
+}
+
+.admin-about {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 21px;
+  border-top: 1px solid #e8ebe4;
+}
+
+.admin-about p {
+  margin: 0;
+  font-family: "DM Sans", "Manrope", sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: #4b5c51;
+}
+
+.admin-about strong {
+  color: #1d5039;
+  font-weight: 700;
+}
+
+.admin-connect {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e8ebe4;
+}
+
+.admin-connect-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #718078;
+}
+
+.admin-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.admin-social-links .fa-brands,
+.admin-social-links .fa-brands::before {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+.admin-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #dcebc9;
+  background: #f7faf5;
+  color: #286849;
+  font-family: "DM Sans", "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.admin-social-link i {
+  font-size: 1.02rem;
+  line-height: 1;
+}
+
+.admin-social-link:hover,
+.admin-social-link:focus-visible {
+  background: #246b43;
+  border-color: #246b43;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 104, 73, 0.22);
+}
+
+.admin-social-link:focus-visible {
+  outline: 2px solid #246b43;
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
    Vision, Mission & Core Values Section
    -------------------------------------------------------------------------- */
 .vision-mission-section {
@@ -1071,6 +1359,34 @@
     gap: 36px;
   }
 
+  .admin-section {
+    padding-block: 10px 60px;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 46px 38px 54px;
+  }
+
+  .admin-photo-frame {
+    width: min(100%, 330px);
+  }
+
+  .admin-info-column {
+    text-align: center;
+  }
+
+  .admin-about {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: left;
+  }
+
+  .admin-social-links {
+    justify-content: center;
+  }
+
   .vm-cards-grid {
     grid-template-columns: 1fr;
   }
@@ -1094,6 +1410,20 @@
 }
 
 @media (max-width: 768px) {
+  .admin-grid {
+    gap: 44px;
+    padding: 38px 26px 50px;
+    border-radius: 26px;
+  }
+
+  .admin-photo-frame {
+    width: min(100%, 300px);
+  }
+
+  .admin-title {
+    font-size: clamp(1.75rem, 5vw, 2.2rem);
+  }
+
   .footer-grid {
     grid-template-columns: 1.4fr 1fr 1fr;
     gap: 25px;
@@ -1140,6 +1470,57 @@
 }
 
 @media (max-width: 520px) {
+  .admin-grid {
+    gap: 40px;
+    padding: 30px 18px 44px;
+    border-radius: 24px;
+  }
+
+  .admin-photo-frame {
+    width: min(100%, 270px);
+    padding: 7px;
+    border-radius: 28px;
+  }
+
+  .admin-photo-frame::before {
+    inset: -10px;
+    border-radius: 34px;
+  }
+
+  .admin-photo {
+    border-radius: 21px;
+  }
+
+  .admin-photo-badge {
+    gap: 9px;
+    padding: 9px 14px;
+    bottom: -18px;
+  }
+
+  .admin-photo-badge-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .admin-title {
+    font-size: 1.85rem;
+  }
+
+  .admin-about p {
+    font-size: 0.91rem;
+  }
+
+  .admin-social-links {
+    gap: 9px;
+  }
+
+  .admin-social-link {
+    flex: 1 1 calc(50% - 9px);
+    padding: 10px 12px;
+    font-size: 0.86rem;
+  }
+
   .about-hero h1 {
     font-size: 2.2rem;
   }
