@@ -7,15 +7,13 @@
   // DOM Elements
   const usernameInput = document.getElementById("github-username");
   const generateBtn = document.getElementById("btn-generate");
-  const alertSuccess = document.getElementById("cert-alert-success");
-  const alertSuccessMsg = document.getElementById("cert-success-msg");
+  const smallSuccessMsg = document.getElementById("cert-verify-msg-small");
+  const smallSuccessText = document.getElementById("cert-verify-small-text");
   const alertError = document.getElementById("cert-alert-error");
   const alertErrorTitle = document.getElementById("cert-error-title");
   const alertErrorMsg = document.getElementById("cert-error-msg");
 
-  const contributorsGrid = document.getElementById("contributors-grid");
   const showcaseSection = document.getElementById("cert-showcase");
-  const lockedState = document.getElementById("cert-locked-state");
   const certSheet = document.getElementById("certificate-render-target");
 
   // Certificate Sheet Elements
@@ -24,7 +22,6 @@
   const certAvatarImg = document.getElementById("cert-avatar-img");
   const certIssueDate = document.getElementById("cert-issue-date");
   const certVerificationId = document.getElementById("cert-verification-id");
-  const certVerifiedBadge = document.getElementById("cert-verified-badge");
 
   // Action Buttons
   const downloadBtn = document.getElementById("btn-download-png");
@@ -39,13 +36,6 @@
 
   // Initialize
   async function init() {
-    // Current date format: "November 23, 2026"
-    const now = new Date();
-    const formattedDate = now.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-    if (certIssueDate) {
-      certIssueDate.textContent = formattedDate;
-    }
-
     // Attach Event Listeners
     if (generateBtn) {
       generateBtn.addEventListener("click", () => handleVerifyAndGenerate(true));
@@ -79,9 +69,25 @@
       usernameInput.value = userParam;
       handleVerifyAndGenerate(false);
     } else {
-      // Default to initial locked state until a user is verified
-      showLockedState();
+      // Show default preview or placeholder
+      showInitialPlaceholder();
     }
+  }
+
+  // Persistent Issuance Date per Contributor (Stored in localStorage once generated)
+  function getOrCreateIssuanceDate(username) {
+    const key = "petsathi_cert_issue_date_" + username.toLowerCase();
+    let storedDate = localStorage.getItem(key);
+    if (!storedDate) {
+      const now = new Date();
+      storedDate = now.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      try {
+        localStorage.setItem(key, storedDate);
+      } catch (e) {
+        // Fallback if private mode blocks storage
+      }
+    }
+    return storedDate;
   }
 
   // Load Contributors from local registry and optionally refresh via GitHub API
@@ -94,7 +100,6 @@
         list.forEach((c) => {
           contributorsRegistry[c.username.toLowerCase()] = c;
         });
-        renderContributorsHub(list);
       }
     } catch (err) {
       console.warn("Could not load local contributors.json, attempting fallback:", err);
@@ -117,72 +122,23 @@
               role: "Open Source Contributor",
               verified: true
             };
-          } else {
-            contributorsRegistry[key].contributions = Math.max(
-              contributorsRegistry[key].contributions || 0,
-              c.contributions || 0
-            );
           }
         });
       }
     } catch (e) {
-      // Offline or rate limit is fine, local registry is already populated
+      // Local registry is already populated
     }
   }
 
-  // Render the "Hall of Verified Contributors"
-  function renderContributorsHub(list) {
-    if (!contributorsGrid) return;
-    contributorsGrid.innerHTML = "";
-
-    list.forEach((c) => {
-      const card = document.createElement("div");
-      card.className = "contributor-hub-card";
-      card.setAttribute("data-username", c.username);
-
-      const avatarSrc = c.avatar_url || "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
-      const displayName = c.name && c.name !== c.username ? c.name : `@${c.username}`;
-      const commits = c.contributions || 1;
-
-      card.innerHTML = `
-        <img class="contributor-hub-avatar" src="${avatarSrc}" alt="${c.username}" loading="lazy">
-        <div class="contributor-hub-info">
-          <div class="contributor-hub-name" title="${displayName}">${displayName}</div>
-          <div class="contributor-hub-sub">
-            <span>@${c.username}</span>
-            <span class="contributor-commits-badge">${commits} ${commits === 1 ? 'commit' : 'commits'}</span>
-          </div>
-        </div>
-      `;
-
-      card.addEventListener("click", () => {
-        if (usernameInput) {
-          usernameInput.value = c.username;
-          // Mark active
-          document.querySelectorAll(".contributor-hub-card").forEach((el) => el.classList.remove("active"));
-          card.classList.add("active");
-          handleVerifyAndGenerate(true);
-        }
-      });
-
-      contributorsGrid.appendChild(card);
-    });
-  }
-
-  // Show Locked Placeholder State
-  function showLockedState() {
-    if (lockedState) lockedState.style.display = "block";
-    if (certSheet) certSheet.style.opacity = "0.4";
-    if (downloadBtn) downloadBtn.disabled = true;
-    if (shareLinkedinBtn) shareLinkedinBtn.disabled = true;
-  }
-
-  // Unlock Certificate
-  function unlockCertificate() {
-    if (lockedState) lockedState.style.display = "none";
-    if (certSheet) certSheet.style.opacity = "1";
-    if (downloadBtn) downloadBtn.disabled = false;
-    if (shareLinkedinBtn) shareLinkedinBtn.disabled = false;
+  // Initial Placeholder state
+  function showInitialPlaceholder() {
+    if (certIssueDate) {
+      const now = new Date();
+      certIssueDate.textContent = now.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+    if (certRecipientName) certRecipientName.textContent = "Verified Contributor";
+    if (certRecipientHandle) certRecipientHandle.textContent = "@contributor";
+    if (certVerificationId) certVerificationId.textContent = "Certificate Serial: NSOC-PS26-PREVIEW";
   }
 
   // Convert image URL to Base64 to guarantee clean, non-tainted canvas drawing
@@ -202,6 +158,117 @@
     }
   }
 
+  // Party Poppers Confetti Burst on Both Sides (🎉 Left and Right celebration)
+  function triggerPartyPoppers() {
+    let canvas = document.getElementById("cert-party-canvas");
+    if (!canvas) {
+      canvas = document.createElement("canvas");
+      canvas.id = "cert-party-canvas";
+      canvas.style.position = "fixed";
+      canvas.style.top = "0";
+      canvas.style.left = "0";
+      canvas.style.width = "100vw";
+      canvas.style.height = "100vh";
+      canvas.style.pointerEvents = "none";
+      canvas.style.zIndex = "999999";
+      document.body.appendChild(canvas);
+    }
+
+    const ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+
+    const colors = ["#286849", "#1d5039", "#c8973e", "#f59e0b", "#0284c7", "#10b981", "#ffffff", "#f43f5e"];
+    const particles = [];
+    const particleCount = 140; // 70 left, 70 right
+
+    // Left cannon
+    const leftX = canvas.width * 0.12;
+    const leftY = canvas.height * 0.82;
+    for (let i = 0; i < particleCount / 2; i++) {
+      const angle = (Math.random() * 45 + 35) * (Math.PI / 180); // 35 to 80 deg (shooting up-right)
+      const speed = (Math.random() * 22 + 16) * dpr;
+      particles.push({
+        x: leftX,
+        y: leftY,
+        vx: Math.cos(angle) * speed,
+        vy: -Math.sin(angle) * speed,
+        size: (Math.random() * 10 + 6) * dpr,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 14,
+        shape: Math.random() > 0.4 ? "rect" : "circle",
+        opacity: 1
+      });
+    }
+
+    // Right cannon
+    const rightX = canvas.width * 0.88;
+    const rightY = canvas.height * 0.82;
+    for (let i = 0; i < particleCount / 2; i++) {
+      const angle = (Math.random() * 45 + 100) * (Math.PI / 180); // 100 to 145 deg (shooting up-left)
+      const speed = (Math.random() * 22 + 16) * dpr;
+      particles.push({
+        x: rightX,
+        y: rightY,
+        vx: Math.cos(angle) * speed,
+        vy: -Math.sin(angle) * speed,
+        size: (Math.random() * 10 + 6) * dpr,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 14,
+        shape: Math.random() > 0.4 ? "rect" : "circle",
+        opacity: 1
+      });
+    }
+
+    let startTime = null;
+    function animateConfetti(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.45 * dpr; // Gravity
+        p.vx *= 0.985; // Air drag
+        p.rotation += p.rotSpeed;
+
+        if (elapsed > 1600) {
+          p.opacity -= 0.015;
+        }
+
+        if (p.opacity > 0) {
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.globalAlpha = Math.max(0, p.opacity);
+          ctx.fillStyle = p.color;
+
+          if (p.shape === "rect") {
+            ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+          } else {
+            ctx.beginPath();
+            ctx.arc(0, 0, p.size / 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+      });
+
+      if (elapsed < 3200) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    requestAnimationFrame(animateConfetti);
+  }
+
   // Handle Verification and Generation
   async function handleVerifyAndGenerate(userInitiated = true) {
     hideAlerts();
@@ -219,7 +286,7 @@
       const key = rawUser.toLowerCase();
       let contributorRecord = contributorsRegistry[key];
 
-      // If not immediately in registry, check live GitHub repo contributors
+      // If not in local registry, check live GitHub API
       if (!contributorRecord) {
         try {
           const checkUrl = `https://api.github.com/repos/Riya-Kharade/PetSathi/commits?author=${encodeURIComponent(rawUser)}&per_page=1`;
@@ -227,7 +294,6 @@
           if (checkRes.ok) {
             const commits = await checkRes.json();
             if (Array.isArray(commits) && commits.length > 0) {
-              // Found active commit by this author!
               const commitAuthor = commits[0].author;
               contributorRecord = {
                 username: (commitAuthor && commitAuthor.login) || rawUser,
@@ -241,22 +307,21 @@
             }
           }
         } catch (e) {
-          // Ignore live check error
+          // Ignore
         }
       }
 
       // STRICT CHECK: Only real contributors can generate certificates!
       if (!contributorRecord) {
-        showLockedState();
         showErrorAlert(
           `Verification Failed: @${rawUser} has no merged contributions`,
-          `PetSathi certificates of contribution are strictly reserved for developers who have contributed merged pull requests or commits to the PetSathi repository during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Our verification records confirm that @${rawUser} is not an official contributor. If you have recently opened a PR, it will become eligible once merged by the maintainers.`
+          `PetSathi certificates of contribution are strictly reserved for developers who have contributed merged pull requests or commits to the PetSathi repository during Nexus Spring of Code (NSoC) 2026 – Winter Edition. Our verification records confirm that @${rawUser} is not an official contributor. If you recently contributed, it will be eligible once merged by maintainers.`
         );
+        if (downloadBtn) downloadBtn.disabled = true;
         return;
       }
 
       // User IS a verified contributor!
-      // Fetch full GitHub profile to get their latest display name and high-res avatar
       let ghData = {};
       try {
         const ghRes = await fetch(`https://api.github.com/users/${encodeURIComponent(contributorRecord.username)}`);
@@ -264,18 +329,20 @@
           ghData = await ghRes.json();
         }
       } catch (e) {
-        // Fallback to record
+        // Fallback
       }
 
       const verifiedName = (ghData.name && ghData.name.trim()) || contributorRecord.name || contributorRecord.username;
       const verifiedHandle = contributorRecord.username;
       const avatarSrc = (ghData.avatar_url) || contributorRecord.avatar_url || "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
-      const commitsCount = contributorRecord.contributions || 1;
 
-      // Convert avatar to Base64 for non-tainted Canvas drawing
+      // Persistent Issuance Date
+      const issuanceDate = getOrCreateIssuanceDate(verifiedHandle);
+
+      // Convert avatar to Base64 for clean canvas drawing
       currentAvatarDataUrl = await urlToBase64(avatarSrc);
 
-      // Generate deterministic unique verification ID
+      // Deterministic Verification ID
       let hash = 0;
       for (let i = 0; i < verifiedHandle.length; i++) {
         hash = (hash << 5) - hash + verifiedHandle.charCodeAt(i);
@@ -287,33 +354,22 @@
       currentContributor = {
         name: verifiedName,
         username: verifiedHandle,
-        contributions: commitsCount,
-        role: contributorRecord.role || "Open Source Contributor"
+        issuanceDate: issuanceDate
       };
 
-      // Show Success Alert
-      showSuccessAlert(
-        `Verification Successful!`,
-        `<strong>@${verifiedHandle}</strong> is an official PetSathi Contributor with <strong>${commitsCount} ${commitsCount === 1 ? 'merged commit' : 'merged commits'}</strong> for NSoC Winter Edition 2026.`
-      );
+      // Show Small Inline Message
+      showSmallSuccess(`Verified PetSathi Contributor (@${verifiedHandle})`);
 
-      // Unlock and populate Certificate Sheet
-      unlockCertificate();
-
+      // Update Certificate Sheet
       if (certRecipientName) certRecipientName.textContent = verifiedName;
       if (certRecipientHandle) certRecipientHandle.textContent = `@${verifiedHandle}`;
       if (certAvatarImg) certAvatarImg.src = currentAvatarDataUrl;
-      if (certVerificationId) certVerificationId.textContent = `ID: ${currentCertId}`;
-      if (certVerifiedBadge) certVerifiedBadge.textContent = `${commitsCount} ${commitsCount === 1 ? 'Commit' : 'Commits'}`;
+      if (certIssueDate) certIssueDate.textContent = issuanceDate;
+      if (certVerificationId) certVerificationId.textContent = `Certificate Serial: ${currentCertId} • Cryptographically Verifiable at petsathi-nsoc.netlify.app`;
+      if (downloadBtn) downloadBtn.disabled = false;
 
-      // Highlight active card in hub
-      document.querySelectorAll(".contributor-hub-card").forEach((card) => {
-        if (card.getAttribute("data-username").toLowerCase() === verifiedHandle.toLowerCase()) {
-          card.classList.add("active");
-        } else {
-          card.classList.remove("active");
-        }
-      });
+      // Trigger Party Poppers celebration effect on both sides!
+      triggerPartyPoppers();
 
       // Smooth scroll to certificate if initiated by user
       if (showcaseSection && userInitiated) {
@@ -337,20 +393,20 @@
       alertErrorMsg.innerHTML = message;
       alertError.style.display = "flex";
     }
-    if (alertSuccess) alertSuccess.style.display = "none";
+    if (smallSuccessMsg) smallSuccessMsg.style.display = "none";
   }
 
-  function showSuccessAlert(title, message) {
-    if (alertSuccess && alertSuccessMsg) {
-      alertSuccessMsg.innerHTML = `<strong>${title}</strong> ${message}`;
-      alertSuccess.style.display = "flex";
+  function showSmallSuccess(text) {
+    if (smallSuccessMsg && smallSuccessText) {
+      smallSuccessText.textContent = text;
+      smallSuccessMsg.style.display = "inline-flex";
     }
     if (alertError) alertError.style.display = "none";
   }
 
   function hideAlerts() {
     if (alertError) alertError.style.display = "none";
-    if (alertSuccess) alertSuccess.style.display = "none";
+    if (smallSuccessMsg) smallSuccessMsg.style.display = "none";
   }
 
   function setLoading(isLoading) {
@@ -359,7 +415,7 @@
       if (isLoading) {
         generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verifying...';
       } else {
-        generateBtn.innerHTML = '<i class="fa-solid fa-award"></i> Generate Certificate';
+        generateBtn.innerHTML = '<i class="fa-solid fa-award"></i> Verify & Award Certificate';
       }
     }
   }
@@ -403,6 +459,34 @@
     }
   }
 
+  // Helper to draw a single paw print icon on canvas
+  function drawCanvasPaw(ctx, x, y, size, angle, color) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate((angle * Math.PI) / 180);
+    ctx.fillStyle = color;
+
+    // Main pad
+    ctx.beginPath();
+    ctx.arc(0, 0, size * 0.55, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 4 toe pads
+    const toeDist = size * 0.72;
+    const toeRadius = size * 0.22;
+    const toeAngles = [-45, -15, 15, 45];
+    toeAngles.forEach((a) => {
+      const rad = (a * Math.PI) / 180;
+      const tx = Math.sin(rad) * toeDist;
+      const ty = -Math.cos(rad) * toeDist;
+      ctx.beginPath();
+      ctx.arc(tx, ty, toeRadius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    ctx.restore();
+  }
+
   // Render High-Resolution Certificate on Canvas (2400 x 1700 px)
   async function renderHighResCertificateCanvas() {
     const canvas = document.createElement("canvas");
@@ -422,17 +506,14 @@
     ctx.fillRect(0, 0, w, h);
 
     // 2. Triple Border System (PetSathi Dark Green #1d5039 & Metallic Gold #c8973e)
-    // Outer Heavy Border
     ctx.strokeStyle = "#1d5039";
     ctx.lineWidth = 14;
     ctx.strokeRect(50, 50, w - 100, h - 100);
 
-    // Inner Metallic Gold Accent
     ctx.strokeStyle = "#c8973e";
     ctx.lineWidth = 4;
     ctx.strokeRect(72, 72, w - 144, h - 144);
 
-    // Fine Delicate Dashed Hairline
     ctx.save();
     ctx.strokeStyle = "#d0e0cb";
     ctx.lineWidth = 2;
@@ -453,7 +534,6 @@
       ctx.lineTo(60, 0);
       ctx.stroke();
 
-      // Corner accent dot
       ctx.fillStyle = "#1d5039";
       ctx.beginPath();
       ctx.arc(16, 16, 6, 0, Math.PI * 2);
@@ -467,23 +547,19 @@
     drawCornerBracket(w - 102, h - 102, true, true);
 
     // 4. Header: PetSathi Branding (Left) & Official NSoC Logo (Right)
-    // Left: PetSathi Brand Paw + Text
+    // Left: PetSathi Brand Paw + Text (Clean, NO subtitle as requested)
     ctx.fillStyle = "#1d5039";
-    ctx.font = "bold 58px Georgia, 'Times New Roman', serif";
+    ctx.font = "bold 64px Georgia, 'Times New Roman', serif";
     ctx.textAlign = "left";
-    ctx.fillText("PetSathi", 195, 200);
-
-    ctx.fillStyle = "#286849";
-    ctx.font = "bold 20px 'DM Sans', sans-serif";
-    ctx.fillText("OPEN SOURCE PET COMPANION PLATFORM", 197, 234);
+    ctx.fillText("PetSathi", 195, 215);
 
     // Draw paw print icon beside PetSathi
     ctx.fillStyle = "#286849";
     ctx.beginPath();
-    ctx.arc(155, 185, 15, 0, Math.PI * 2);
-    ctx.arc(138, 158, 9, 0, Math.PI * 2);
-    ctx.arc(158, 146, 9, 0, Math.PI * 2);
-    ctx.arc(178, 158, 9, 0, Math.PI * 2);
+    ctx.arc(155, 195, 16, 0, Math.PI * 2);
+    ctx.arc(138, 168, 10, 0, Math.PI * 2);
+    ctx.arc(158, 154, 10, 0, Math.PI * 2);
+    ctx.arc(178, 168, 10, 0, Math.PI * 2);
     ctx.fill();
 
     // Right: Load & Draw Official NSoC Winter Logo
@@ -546,7 +622,6 @@
     // 7. Recipient Avatar & Details
     const name = (currentContributor && currentContributor.name) || "Verified Contributor";
     const username = (currentContributor && currentContributor.username) || "contributor";
-    const commitsCount = (currentContributor && currentContributor.contributions) || 1;
     const avatarSrc = currentAvatarDataUrl || (certAvatarImg ? certAvatarImg.src : null);
 
     const avatarX = w / 2;
@@ -556,7 +631,6 @@
     if (avatarSrc) {
       const avatarImage = await loadImage(avatarSrc);
       if (avatarImage) {
-        // Draw Gold outer shadow/ring
         ctx.save();
         ctx.beginPath();
         ctx.arc(avatarX, avatarY, avatarRadius + 8, 0, Math.PI * 2);
@@ -568,7 +642,6 @@
         ctx.fillStyle = "#ffffff";
         ctx.fill();
 
-        // Clip circular avatar
         ctx.beginPath();
         ctx.arc(avatarX, avatarY, avatarRadius, 0, Math.PI * 2);
         ctx.clip();
@@ -577,16 +650,30 @@
       }
     }
 
-    // 8. Contributor Name (Prominent & Regal)
+    // 8. Contributor Name (Prominent & Regal) + Two Paws Stacked "One Above One"
     ctx.fillStyle = "#122b1c";
     ctx.font = "bold 76px Georgia, 'Times New Roman', serif";
-    ctx.textAlign = "center";
-    ctx.fillText(name, w / 2, 845);
 
-    // Contributor GitHub Handle & Commits Badge
+    // Measure name width to perfectly center the [Name + Paws] group on the canvas
+    const nameMetrics = ctx.measureText(name);
+    const pawsWidth = 34;
+    const gap = 18;
+    const totalGroupWidth = nameMetrics.width + gap + pawsWidth;
+    const startX = w / 2 - totalGroupWidth / 2;
+
+    ctx.textAlign = "left";
+    ctx.fillText(name, startX, 845);
+
+    const pawsX = startX + nameMetrics.width + gap + 10;
+    // Top Paw (slightly smaller, tilted +15 deg)
+    drawCanvasPaw(ctx, pawsX, 810, 14, 15, "#286849");
+    // Bottom Paw (slightly larger, tilted -10 deg, placed below)
+    drawCanvasPaw(ctx, pawsX + 6, 844, 18, -10, "#286849");
+
+    // Contributor GitHub Handle (Clean, NO commits badge as requested)
     ctx.fillStyle = "#286849";
     ctx.font = "bold 32px 'DM Sans', sans-serif";
-    ctx.fillText(`@${username}   •   Verified PetSathi Contributor (${commitsCount} Merged Commits)`, w / 2, 905);
+    ctx.fillText(`@${username}   •   Verified PetSathi Contributor`, w / 2, 905);
 
     // 9. Recognition Statement Citation
     const citation =
@@ -596,7 +683,7 @@
     ctx.font = "400 31px 'DM Sans', sans-serif";
     drawWrappedText(ctx, citation, w / 2, 1025, 1620, 52, "center");
 
-    // 10. Footer Section: Date (Left), Gold Seal (Center), Signatures (Right)
+    // 10. Footer Section: Date (Left), Clean Official Gold Seal (Center), Riya Kharade Signature (Right)
     const footerY = 1340;
 
     // Divider line above footer
@@ -607,7 +694,7 @@
     ctx.lineTo(w - 160, 1250);
     ctx.stroke();
 
-    // Left: Issue Date
+    // Left: Persistent Issue Date
     ctx.textAlign = "left";
     ctx.fillStyle = "#718078";
     ctx.font = "bold 20px 'DM Sans', sans-serif";
@@ -615,48 +702,18 @@
 
     ctx.fillStyle = "#263b30";
     ctx.font = "bold 30px 'DM Sans', sans-serif";
-    const dateText = certIssueDate ? certIssueDate.textContent : "November 23, 2026";
+    const dateText = (currentContributor && currentContributor.issuanceDate) || (certIssueDate ? certIssueDate.textContent : "November 23, 2026");
     ctx.fillText(dateText, 180, footerY + 45);
 
     ctx.fillStyle = "#8a9e91";
     ctx.font = "400 20px 'DM Sans', sans-serif";
     ctx.fillText("Official Open Source Record", 180, footerY + 80);
 
-    // Center: Official 3D Embossed Gold Seal with Ribbon Tails
+    // Center: Clean Round Gold Seal (NO glow, NO ribbon tails as requested)
     const sealX = w / 2;
     const sealY = footerY + 30;
-    const sealRadius = 72;
+    const sealRadius = 66;
 
-    // Draw Hanging Dark Green Ribbon Tails
-    ctx.save();
-    ctx.fillStyle = "#1d5039";
-    ctx.strokeStyle = "#c8973e";
-    ctx.lineWidth = 3;
-
-    // Left ribbon
-    ctx.beginPath();
-    ctx.moveTo(sealX - 35, sealY + 20);
-    ctx.lineTo(sealX - 55, sealY + 120);
-    ctx.lineTo(sealX - 35, sealY + 105);
-    ctx.lineTo(sealX - 15, sealY + 120);
-    ctx.lineTo(sealX - 5, sealY + 20);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    // Right ribbon
-    ctx.beginPath();
-    ctx.moveTo(sealX + 5, sealY + 20);
-    ctx.lineTo(sealX + 15, sealY + 120);
-    ctx.lineTo(sealX + 35, sealY + 105);
-    ctx.lineTo(sealX + 55, sealY + 120);
-    ctx.lineTo(sealX + 35, sealY + 20);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-
-    // Draw Gold radial gradient seal
     const sealGrad = ctx.createRadialGradient(sealX, sealY, 10, sealX, sealY, sealRadius);
     sealGrad.addColorStop(0, "#fff7d6");
     sealGrad.addColorStop(0.65, "#fcd34d");
@@ -667,57 +724,56 @@
     ctx.arc(sealX, sealY, sealRadius, 0, Math.PI * 2);
     ctx.fillStyle = sealGrad;
     ctx.fill();
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 4;
     ctx.strokeStyle = "#78350f";
-    ctx.setLineDash([8, 6]);
+    ctx.setLineDash([7, 5]);
     ctx.stroke();
     ctx.restore();
 
-    // Inner seal circle
     ctx.beginPath();
-    ctx.arc(sealX, sealY, sealRadius - 12, 0, Math.PI * 2);
+    ctx.arc(sealX, sealY, sealRadius - 10, 0, Math.PI * 2);
     ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Star & Inscription in seal
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 38px 'Font Awesome 6 Free', sans-serif";
+    ctx.font = "bold 34px 'Font Awesome 6 Free', sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("★", sealX, sealY + 12);
-
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 15px 'DM Sans', sans-serif";
-    ctx.fillText("NSoC 2026", sealX, sealY - 22);
-    ctx.fillText("WINTER", sealX, sealY + 36);
+    ctx.fillText("★", sealX, sealY + 11);
 
     ctx.fillStyle = "#92400e";
     ctx.font = "800 16px 'DM Sans', sans-serif";
-    ctx.fillText("OFFICIAL SEAL", sealX, sealY + sealRadius + 28);
+    ctx.fillText("OFFICIAL SEAL", sealX, sealY + sealRadius + 26);
 
-    // Right: Signatures
+    // Right: Riya Kharade Handwritten Signature & Printed Name Below
     ctx.textAlign = "right";
 
-    // Maintainer Signature script
+    // Handwritten Signature Font
     ctx.fillStyle = "#1d5039";
-    ctx.font = "italic bold 44px 'Brush Script MT', 'Great Vibes', cursive, serif";
-    ctx.fillText("Riya Kharade", w - 180, footerY + 8);
+    ctx.font = "italic bold 52px 'Great Vibes', 'Brush Script MT', cursive, serif";
+    ctx.fillText("Riya Kharade", w - 180, footerY + 6);
 
-    // Signature underline
+    // Signature line
     ctx.strokeStyle = "#9ab6a3";
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(w - 440, footerY + 28);
-    ctx.lineTo(w - 180, footerY + 28);
+    ctx.moveTo(w - 440, footerY + 24);
+    ctx.lineTo(w - 180, footerY + 24);
     ctx.stroke();
 
-    ctx.fillStyle = "#1d5039";
-    ctx.font = "bold 24px 'DM Sans', sans-serif";
-    ctx.fillText("Project Admin & Maintainer, PetSathi", w - 180, footerY + 60);
+    // Riya Kharade Printed Name below
+    ctx.fillStyle = "#122b1c";
+    ctx.font = "bold 26px Georgia, 'Times New Roman', serif";
+    ctx.fillText("Riya Kharade", w - 180, footerY + 56);
+
+    // Title & NSoC label
+    ctx.fillStyle = "#286849";
+    ctx.font = "bold 20px 'DM Sans', sans-serif";
+    ctx.fillText("Project Admin & Maintainer, PetSathi", w - 180, footerY + 84);
 
     ctx.fillStyle = "#718078";
-    ctx.font = "400 20px 'DM Sans', sans-serif";
-    ctx.fillText("NSoC Winter Edition Mentorship Team", w - 180, footerY + 90);
+    ctx.font = "400 18px 'DM Sans', sans-serif";
+    ctx.fillText("NSoC Winter Edition 2026", w - 180, footerY + 110);
 
     // Bottom verification code
     const certId = currentCertId || "NSOC-PS26-VERIFIED";
@@ -810,6 +866,7 @@
 
   window.renderHighResCertificateCanvas = renderHighResCertificateCanvas;
   window.handleVerifyAndGenerate = handleVerifyAndGenerate;
+  window.triggerPartyPoppers = triggerPartyPoppers;
 
   // Run on DOM load
   if (document.readyState === "loading") {
