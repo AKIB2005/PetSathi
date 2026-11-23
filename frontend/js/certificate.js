@@ -38,6 +38,16 @@
 
   // Initialize
   async function init() {
+    // Preload handwritten signature font immediately
+    try {
+      if (typeof FontFace !== "undefined" && document.fonts) {
+        const font = new FontFace("Great Vibes", "url(../assets/fonts/GreatVibes.woff2)");
+        font.load().then((loaded) => {
+          document.fonts.add(loaded);
+        }).catch(() => {});
+      }
+    } catch (e) {}
+
     // Attach Event Listeners
     if (generateBtn) {
       generateBtn.addEventListener("click", () => handleVerifyAndGenerate());
@@ -462,7 +472,7 @@
       if (certAvatarImg) certAvatarImg.src = result.avatarSrc;
       if (certIssueDate) certIssueDate.textContent = result.issuanceDate;
       if (certVerificationId) {
-        certVerificationId.textContent = `Certificate Serial: ${result.certId} • Cryptographically Verifiable at petsathi-nsoc.netlify.app`;
+        certVerificationId.textContent = `Certificate Serial: ${result.certId}`;
       }
       if (downloadBtn) downloadBtn.disabled = false;
 
@@ -723,25 +733,44 @@
       }
     }
 
-    // 8. Contributor Name (Prominent & Regal) + Two Paws Stacked "One Above One"
-    ctx.fillStyle = "#122b1c";
+    // 8. Contributor Name (Prominent & Regal) + PetSathi Green Verified Tick Mark
     ctx.font = "bold 76px Georgia, 'Times New Roman', serif";
-    ctx.textAlign = "center";
-    ctx.fillText(name, w / 2, 845);
-
-    // Measure name width to place two paws one above one right after the name
     const nameMetrics = ctx.measureText(name);
-    const pawsStartX = w / 2 + nameMetrics.width / 2 + 30;
+    const tickRadius = 18;
+    const tickGap = 20;
+    const totalNameWidth = nameMetrics.width + tickGap + tickRadius * 2;
+    const nameStartX = (w - totalNameWidth) / 2;
 
-    // Top Paw (slightly smaller, tilted +15 deg)
-    drawCanvasPaw(ctx, pawsStartX, 810, 14, 15, "#286849");
-    // Bottom Paw (slightly larger, tilted -10 deg, placed below)
-    drawCanvasPaw(ctx, pawsStartX + 8, 842, 19, -10, "#286849");
+    ctx.fillStyle = "#122b1c";
+    ctx.textAlign = "left";
+    ctx.fillText(name, nameStartX, 845);
 
-    // Contributor GitHub Handle (Clean, NO commits badge as requested)
+    // Draw PetSathi green tick mark circle right after name
+    const tickCenterX = nameStartX + nameMetrics.width + tickGap + tickRadius;
+    const tickCenterY = 820;
+
+    // Green Circle
+    ctx.fillStyle = "#286849";
+    ctx.beginPath();
+    ctx.arc(tickCenterX, tickCenterY, tickRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // White Tick Mark
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.beginPath();
+    ctx.moveTo(tickCenterX - 8, tickCenterY - 0.5);
+    ctx.lineTo(tickCenterX - 2, tickCenterY + 6);
+    ctx.lineTo(tickCenterX + 8, tickCenterY - 6);
+    ctx.stroke();
+
+    // Contributor GitHub Handle (Clean handle only: no verified contributor badge/suffix)
     ctx.fillStyle = "#286849";
     ctx.font = "bold 32px 'DM Sans', sans-serif";
-    ctx.fillText(`@${username}   •   Verified PetSathi Contributor`, w / 2, 905);
+    ctx.textAlign = "center";
+    ctx.fillText(`@${username}`, w / 2, 905);
 
     // 9. Recognition Statement Citation
     const citation =
@@ -816,9 +845,9 @@
     // Right: Riya Kharade Handwritten Signature & Printed Name Below
     ctx.textAlign = "right";
 
-    // Handwritten Signature Font
+    // Handwritten Signature Font (Riya Kharade in handwritten script)
     ctx.fillStyle = "#1d5039";
-    ctx.font = "italic bold 52px 'Great Vibes', 'Brush Script MT', cursive, serif";
+    ctx.font = "normal 56px 'Great Vibes', 'Brush Script MT', 'Lucida Handwriting', cursive";
     ctx.fillText("Riya Kharade", w - 180, footerY + 6);
 
     // Signature line
@@ -848,7 +877,7 @@
     ctx.textAlign = "center";
     ctx.fillStyle = "#8a9e91";
     ctx.font = "400 20px monospace";
-    ctx.fillText(`Certificate Serial: ${certId}   •   Cryptographically Verifiable at petsathi-nsoc.netlify.app`, w / 2, h - 115);
+    ctx.fillText(`Certificate Serial: ${certId}`, w / 2, h - 115);
 
     return canvas;
   }

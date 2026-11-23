@@ -10,11 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Great+Vibes&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="../css/accessibility.css">
+  <link rel="preload" href="../assets/fonts/GreatVibes.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../css/certificate-fonts.css" />
   <link rel="stylesheet" href="../css/certificate.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
@@ -256,18 +258,19 @@
                   alt="Recipient avatar" />
               </div>
               <div class="cert-recipient-info">
-                <!-- Certifee Name followed by Two Paws stacked one above one -->
+                <!-- Certifee Name followed by PetSathi colour verified tick mark -->
                 <div class="cert-recipient-name-wrap">
                   <h3 id="cert-recipient-name" class="cert-recipient-name">Verified Contributor</h3>
-                  <span class="cert-recipient-paws" aria-hidden="true" title="PetSathi Contributor Paws">
-                    <i class="fa-solid fa-paw cert-paw-top"></i>
-                    <i class="fa-solid fa-paw cert-paw-bottom"></i>
+                  <span class="cert-verified-tick" title="Verified Contributor" aria-label="Verified Contributor">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" fill="#286849" />
+                      <path d="M7.5 12.2L10.2 15L16.5 9" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                   </span>
                 </div>
                 <div class="cert-recipient-handle">
                   <span id="cert-recipient-handle"><i class="fa-brands fa-github" aria-hidden="true"></i>
                     @contributor</span>
-                  <span class="cert-verified-pill" id="cert-verified-badge">Verified Contributor</span>
                 </div>
               </div>
             </div>
@@ -301,7 +304,7 @@
 
             <!-- Right: Maintainer Signature & Printed Name Below Line -->
             <div class="cert-footer-col right">
-              <div class="cert-signature-img">Riya Kharade</div>
+              <div class="cert-signature-img" style="font-family: 'Great Vibes', 'Brush Script MT', 'Lucida Handwriting', cursive !important;">Riya Kharade</div>
               <div class="cert-sig-line"></div>
               <div class="cert-signer-name">Riya Kharade</div>
               <span class="cert-meta-label">Project Admin & Maintainer, PetSathi</span>
@@ -312,7 +315,7 @@
 
           <!-- Bottom Verification Bar -->
           <div class="cert-verification-bar" id="cert-verification-id">
-            Certificate Serial: NSOC-PS26-VERIFIED • Cryptographically Verifiable at petsathi-nsoc.netlify.app
+            Certificate Serial: NSOC-PS26-VERIFIED
           </div>
         </article>
       </div>

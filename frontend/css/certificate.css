@@ -1175,11 +1175,11 @@ body {
   text-align: left;
 }
 
-/* Recipient Name Wrap with Two Paws Stacked "One Above One" */
+/* Recipient Name Wrap with Verified Tick Mark */
 .cert-recipient-name-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cert-recipient-name {
@@ -1191,26 +1191,20 @@ body {
   margin: 0;
 }
 
-.cert-recipient-paws {
+.cert-verified-tick {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1px;
-  color: #286849;
-  line-height: 1;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
-.cert-recipient-paws .cert-paw-top {
-  font-size: 0.95rem;
-  transform: rotate(15deg);
-  opacity: 0.88;
-}
-
-.cert-recipient-paws .cert-paw-bottom {
-  font-size: 1.18rem;
-  transform: rotate(-10deg) translateX(4px);
-  opacity: 0.95;
+.cert-verified-tick svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .cert-recipient-handle {
@@ -1222,16 +1216,6 @@ body {
   align-items: center;
   gap: 6px;
   margin-top: 3px;
-}
-
-.cert-verified-pill {
-  font-size: 0.72rem;
-  background: #edf7f0;
-  border: 1px solid #b7deb8;
-  color: #1e6f43;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-weight: 700;
 }
 
 /* Citation / Acknowledgment Text */
@@ -1343,12 +1327,16 @@ body {
 }
 
 /* Signatures: Handwritten cursive signature + line + printed name */
-.cert-signature-img {
-  font-family: 'Great Vibes', 'Brush Script MT', cursive, serif;
-  font-size: 1.85rem;
-  color: #1d5039;
-  line-height: 1.1;
-  margin-bottom: 2px;
+body .cert-signature-img,
+.cert-signature-img,
+#certificate-render-target .cert-signature-img,
+article.certificate-sheet .cert-signature-img {
+  font-family: 'Great Vibes', 'Brush Script MT', 'Lucida Handwriting', 'Segoe Script', cursive !important;
+  font-size: 2.35rem !important;
+  font-weight: 400 !important;
+  color: #1d5039 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2px !important;
 }
 
 .cert-sig-line {
