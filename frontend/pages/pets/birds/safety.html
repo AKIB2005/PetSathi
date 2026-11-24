@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practical ways to protect pet birds from common household hazards.">
+  <title>Bird Safety Guide | PetSathi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/global.css">
+  <link rel="stylesheet" href="../../../css/home.css">
+  <link rel="stylesheet" href="../../../css/inner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .safety-page { color: var(--ink); }
+    .safety-page :is(p, li, a, button, label) { font-family: "DM Sans", sans-serif; }
+    .safety-page :is(h2, h3) { color: var(--dark); }
+    .safety-page .fa-solid, .safety-page .fa-solid::before { font-family: "Font Awesome 6 Free" !important; font-weight: 900; }
+    .safety-page :focus-visible { outline: 3px solid #286849; outline-offset: 4px; }
+    .safety-hero { min-height: 0; padding-block: 55px 65px; }
+    .safety-hero .hero-visual { min-height: 360px; }
+    .safety-hero img { width: 100%; max-width: 500px; height: auto; display: block; border-radius: 48% 48% 24px 24px; box-shadow: var(--shadow); }
+    .safety-hero .eyebrow { margin-bottom: 15px; }
+    .safety-section { padding: 70px 0; scroll-margin-top: 100px; }
+    .safety-page .safety-soft { background: var(--soft) !important; }
+    .safety-page :is(.safety-soft, .safety-nav, .safety-cta) > .section-wrap { background: transparent !important; }
+    .safety-heading { text-align: center; max-width: 720px; margin: 0 auto 34px; }
+    .safety-heading h2 { margin: 0 0 10px; }
+    .safety-heading p { margin: 0; line-height: 1.7; }
+    .safety-nav { padding: 42px 0; background: var(--soft); }
+    .safety-nav h2 { text-align: center; margin: 0 0 22px; font-size: 1.6rem; }
+    .safety-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .safety-nav-grid a { display: flex; align-items: center; gap: 10px; padding: 15px; border: 1px solid var(--line); border-radius: 14px; background: white; color: var(--dark); font-weight: 700; text-decoration: none; }
+    .safety-nav-grid i { color: var(--green); width: 22px; flex: none; text-align: center; }
+    .safety-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .safety-card { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 24px; text-align: center; transition: transform .2s, box-shadow .2s; }
+    .safety-card:hover, .safety-nav-grid a:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .safety-card i { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; background: #eaf2e9; color: var(--green); font-size: 1.3rem; }
+    .safety-card h3 { margin: 14px 0 7px; font-size: 1.2rem; }
+    .safety-card p { margin: 0; line-height: 1.65; }
+    .safety-panel { max-width: 850px; margin: auto; padding: 28px 32px; background: white; border: 1px solid var(--line); border-radius: 18px; }
+    .safety-panel ul { margin: 0; padding-left: 1.3rem; }
+    .safety-panel li { margin: 0 0 10px; line-height: 1.65; }
+    .safety-panel li:last-child { margin-bottom: 0; }
+    .safety-panel p { line-height: 1.7; }
+    .safety-panel p:last-child { margin-bottom: 0; }
+    .safety-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .safety-columns .safety-panel { width: 100%; }
+    .safety-panel h3 { margin: 0 0 12px; }
+    .safety-checklist fieldset { border: 0; padding: 0; margin: 0; }
+    .safety-checklist legend { font-weight: 700; margin-bottom: 14px; }
+    .safety-checklist label { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; line-height: 1.5; cursor: pointer; }
+    .safety-checklist label:has(input:checked) { color: var(--dark); font-weight: 700; }
+    .safety-checklist input { width: 19px; height: 19px; flex: none; accent-color: var(--green); margin-top: 3px; }
+    #emergency .safety-panel li:last-child { color: var(--dark); font-weight: 700; }
+    .safety-checklist button { margin-top: 18px; cursor: pointer; }
+    .safety-page .safety-cta { background: #f9e9e8 !important; padding: 60px 24px; text-align: center; }
+    .safety-cta h2 { margin: 0 0 12px; }
+    .safety-cta p { margin: 0 auto 22px; max-width: 600px; }
+    .safety-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .safety-actions .button-outline { border: 1px solid var(--green); color: var(--dark); background: transparent; }
+    @media (max-width: 900px) { .safety-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .safety-nav-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .safety-section { padding: 50px 0; } .safety-grid, .safety-columns { grid-template-columns: 1fr; } .safety-hero .hero-visual { min-height: 0; } .safety-panel { padding: 22px; } .safety-nav-grid a { padding: 12px; font-size: .85rem; } }
+    @media (max-width: 360px) { .safety-nav-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .safety-page *, .safety-page *::before, .safety-page *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <main class="safety-page">
+    <section class="hero section-wrap safety-hero">
+      <div class="hero-copy">
+        <div class="eyebrow">PETSATHI &bull; BIRD SAFETY GUIDE</div>
+        <h1>A Safe Home for Every <em>Feathered Friend</em></h1>
+        <p>Small changes can make a big difference. Learn how to spot everyday hazards and give your bird a safer place to explore.</p>
+        <div class="hero-actions"><a class="button" href="#household-hazards">Explore safety tips</a></div>
+      </div>
+      <div class="hero-visual">
+        <img src="../../../assets/images/birds/bird-perching.png" alt="A small bird perched on a tree branch" width="2048" height="1362" fetchpriority="high" decoding="async">
+      </div>
+    </section>
+
+    <nav class="safety-nav" aria-labelledby="quick-nav-heading">
+      <div class="section-wrap">
+        <h2 id="quick-nav-heading">Quick Navigation</h2>
+        <div class="safety-nav-grid">
+          <a href="#household-hazards"><i class="fa-solid fa-house" aria-hidden="true"></i>Household Hazards</a>
+          <a href="#kitchen-safety"><i class="fa-solid fa-kitchen-set" aria-hidden="true"></i>Kitchen Safety</a>
+          <a href="#air-quality"><i class="fa-solid fa-wind" aria-hidden="true"></i>Air Quality</a>
+          <a href="#windows-fans"><i class="fa-solid fa-fan" aria-hidden="true"></i>Windows &amp; Fans</a>
+          <a href="#toxic-foods"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i>Toxic Foods</a>
+          <a href="#safe-toys"><i class="fa-solid fa-shapes" aria-hidden="true"></i>Safe Toys</a>
+          <a href="#outdoor-safety"><i class="fa-solid fa-tree" aria-hidden="true"></i>Outdoor Safety</a>
+          <a href="#emergency"><i class="fa-solid fa-kit-medical" aria-hidden="true"></i>Emergency Preparedness</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="safety-section" id="household-hazards">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">A SAFER HOME</div>
+          <h2>Household Hazards</h2>
+          <p>Look around from your bird's point of view before allowing them to explore.</p>
+        </div>
+        <div class="safety-grid">
+          <article class="safety-card">
+            <i class="fa-solid fa-plug" aria-hidden="true"></i>
+            <h3>Electrical Wires</h3>
+            <p>Keep wires covered and out of reach so curious beaks cannot chew them.</p>
+          </article>
+          <article class="safety-card">
+            <i class="fa-solid fa-pump-soap" aria-hidden="true"></i>
+            <h3>Cleaning Products</h3>
+            <p>Store chemicals securely and keep birds away from cleaning products and their fumes.</p>
+          </article>
+          <article class="safety-card">
+            <i class="fa-solid fa-fire-burner" aria-hidden="true"></i>
+            <h3>Non-Stick Cookware</h3>
+            <p>Overheated non-stick coatings can release fumes dangerous to birds. Keep birds away from cooking areas and fumes.</p>
+          </article>
+          <article class="safety-card">
+            <i class="fa-solid fa-door-open" aria-hidden="true"></i>
+            <h3>Open Windows</h3>
+            <p>Secure windows and doors before your bird leaves the cage to prevent escapes and injuries.</p>
+          </article>
+          <article class="safety-card">
+            <i class="fa-solid fa-fan" aria-hidden="true"></i>
+            <h3>Ceiling Fans</h3>
+            <p>Switch fans off whenever your bird is flying freely.</p>
+          </article>
+          <article class="safety-card">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i>
+            <h3>Other Pets</h3>
+            <p>Supervise interactions and keep birds safely separated from cats, dogs and other animals.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-section safety-soft" id="kitchen-safety">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">EVERYDAY PRECAUTIONS</div>
+          <h2>Kitchen Safety</h2>
+          <p>The kitchen contains heat, fumes and foods that can put birds at risk.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Keep birds away from hot stoves, cookware and cooking areas.</li>
+            <li>Avoid exposure to cooking fumes and smoke; keep the cage out of the kitchen.</li>
+            <li>Store unsafe foods and chemicals securely, beyond your bird's reach.</li>
+            <li>Never leave a bird unattended in the kitchen.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section" id="air-quality">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">BREATHE EASY</div>
+          <h2>Air Quality &amp; Environment</h2>
+          <p>Birds are sensitive to airborne irritants, so clean air is essential.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Avoid smoke, aerosols, perfumes and strong fragrances around birds.</li>
+            <li>Keep birds away from harmful fumes, including cooking and cleaning fumes.</li>
+            <li>Maintain good ventilation without exposing your bird to fumes.</li>
+            <li>Keep birds away from pesticides and chemical sprays.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section safety-soft" id="windows-fans">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">ROOM TO EXPLORE</div>
+          <h2>Windows, Doors &amp; Fans</h2>
+          <p>Prepare the room before supervised time outside the cage.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Secure windows and doors; use suitable window screens where possible.</li>
+            <li>Switch off ceiling fans during free flight.</li>
+            <li>Cover large glass surfaces or make them visible to help prevent collisions.</li>
+            <li>Supervise your bird whenever they are outside the cage.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section" id="toxic-foods">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">KEEP OUT OF REACH</div>
+          <h2>Toxic Foods &amp; Plants</h2>
+          <p>Some everyday foods and household products are unsafe for birds.</p>
+        </div>
+        <div class="safety-columns">
+          <div class="safety-panel">
+            <h3>Foods to avoid</h3>
+            <ul>
+              <li>Chocolate</li>
+              <li>Avocado</li>
+              <li>Caffeine</li>
+              <li>Alcohol</li>
+              <li>Excessively salty foods</li>
+            </ul>
+          </div>
+          <div class="safety-panel">
+            <h3>Other hazards</h3>
+            <ul>
+              <li>Toxic household plants</li>
+              <li>Pesticides</li>
+              <li>Chemical sprays</li>
+            </ul>
+            <p>Check with an avian veterinarian whether a food or plant is safe for your bird before allowing access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section safety-soft" id="safe-toys">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">SAFE PLAY</div>
+          <h2>Safe Toys &amp; Accessories</h2>
+          <p>Choose appropriately sized, bird-safe materials and inspect them often.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Avoid loose threads and small detachable parts that could cause injury or be swallowed.</li>
+            <li>Check toys regularly for damage and remove unsafe items.</li>
+            <li>Provide suitable perches for your bird's size and species.</li>
+            <li>Keep cage accessories clean and securely attached.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section" id="outdoor-safety">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">BEYOND THE HOME</div>
+          <h2>Outdoor Safety</h2>
+          <p>Plan ahead to keep outings secure and comfortable.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Use a secure bird carrier for travel and never allow unsupervised outdoor access.</li>
+            <li>Protect your bird from extreme weather and keep them away from predators.</li>
+            <li>Use a secure harness only when appropriate for your bird and after a gradual, proper introduction.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section safety-soft" id="emergency">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">BE PREPARED</div>
+          <h2>Emergency Preparedness</h2>
+          <p>Knowing whom to call can save valuable time.</p>
+        </div>
+        <div class="safety-panel">
+          <ul>
+            <li>Keep your avian veterinarian's contact details and the location of the nearest emergency veterinary clinic handy.</li>
+            <li>Keep a suitable bird carrier accessible.</li>
+            <li>Watch for unusual behaviour, breathing difficulties, injuries or possible poisoning.</li>
+            <li>For a serious exposure or emergency, seek veterinary help immediately. Call your avian veterinarian or an emergency clinic for guidance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="safety-section">
+      <div class="section-wrap">
+        <div class="safety-heading">
+          <div class="eyebrow">A QUICK CHECK</div>
+          <h2>Bird Safety Checklist</h2>
+          <p>Use this list to review your bird's environment.</p>
+        </div>
+        <form class="safety-panel safety-checklist">
+          <fieldset>
+            <legend>Check each step you have completed</legend>
+            <label><input type="checkbox"> Windows and doors are secure.</label>
+            <label><input type="checkbox"> Ceiling fans are switched off during free flight.</label>
+            <label><input type="checkbox"> Electrical wires are inaccessible.</label>
+            <label><input type="checkbox"> Harmful chemicals are stored safely.</label>
+            <label><input type="checkbox"> Unsafe foods are kept away.</label>
+            <label><input type="checkbox"> Toys and cage accessories are checked regularly.</label>
+            <label><input type="checkbox"> Emergency veterinary details are available.</label>
+          </fieldset>
+          <button class="button" type="reset">Reset checklist</button>
+        </form>
+      </div>
+    </section>
+    <section class="safety-cta">
+      <div class="section-wrap">
+        <h2>Keep Your Birds Safe, Healthy &amp; Happy</h2>
+        <p>Explore more practical guidance to help your feathered companion thrive.</p>
+        <div class="safety-actions">
+          <a class="button" href="care.html">Bird Care</a>
+          <a class="button button-outline" href="care.html#health">Bird Health &amp; Wellness</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script src="../../../js/main.js"></script>
+</body>
+</html>
